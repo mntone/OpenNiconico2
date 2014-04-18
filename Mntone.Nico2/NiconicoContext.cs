@@ -45,8 +45,8 @@ namespace Mntone.Nico2
 				request.Add( MailTelName, this.AuthenticationToken.MailOrTelephone );
 				request.Add( PasswordName, this.AuthenticationToken.Password );
 
-				await this.GetClient().PostAsync( new Uri( NiconicoUrls.LoginUrl ), new HttpFormUrlEncodedContent( request ) );
-				return await this._GetIsLoggedInAsync();
+				await this.GetClient().PostAsync( new Uri( NiconicoUrls.LoginUrl ), new HttpFormUrlEncodedContent( request ) ).AsTask().ConfigureAwait( false );
+				return await this._GetIsLoggedInAsync().ConfigureAwait( false );
 			} ).AsAsyncOperation();
 		}
 
@@ -63,7 +63,7 @@ namespace Mntone.Nico2
 		{
 			return Task.Run( async () =>
 			{
-				var response = await this.GetClient().HeadAsync( new Uri( NiconicoUrls.NiconicoTopUrl ) );
+				var response = await this.GetClient().HeadAsync( new Uri( NiconicoUrls.NiconicoTopUrl ) ).AsTask().ConfigureAwait( false );
 
 				try
 				{
@@ -102,9 +102,9 @@ namespace Mntone.Nico2
 		{
 			return Task.Run( async () =>
 			{
-				await this.GetClient().HeadAsync( new Uri( NiconicoUrls.LogoutUrl ) );
+				await this.GetClient().HeadAsync( new Uri( NiconicoUrls.LogoutUrl ) ).AsTask().ConfigureAwait( false );
 				this.CurrentSession = null;
-				return await this._GetIsLoggedInAsync();
+				return await this._GetIsLoggedInAsync().ConfigureAwait( false );
 			} ).AsAsyncOperation();
 		}
 
