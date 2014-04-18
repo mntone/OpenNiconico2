@@ -12,6 +12,7 @@ namespace Mntone.Nico2
 	/// ニコニコの API コンテクスト
 	/// </summary>
 	public sealed class NiconicoContext
+		: IDisposable
 	{
 		/// <summary>
 		/// コンストラクター
@@ -31,6 +32,29 @@ namespace Mntone.Nico2
 			: this( token )
 		{
 			this.CurrentSession = session;
+		}
+
+		/// <summary>
+		/// デストラクター
+		/// </summary>
+		public void Dispose()
+		{
+			this.DisposeImpl();	
+		}
+
+		private void DisposeImpl()
+		{
+			if( this._httpClient != null )
+			{
+				this._httpClient.Dispose();
+				this._httpClient = null;
+
+				if( this._httpBaseProtocolFilter != null )
+				{
+					this._httpBaseProtocolFilter.Dispose();
+					this._httpBaseProtocolFilter = null;
+				}
+			}
 		}
 
 		/// <summary>
@@ -75,7 +99,7 @@ namespace Mntone.Nico2
 						var cookie = this._httpBaseProtocolFilter
 							.CookieManager
 							.GetCookies( new Uri( "http://nicovideo.jp/" ) )
-							.Where( c => { return c.Name == UserSessionName && c.Path == "/"; } )
+							.Where( c => c.Name == UserSessionName && c.Path == "/" )
 							.SingleOrDefault();
 						if( cookie != null )
 						{
@@ -163,18 +187,7 @@ namespace Mntone.Nico2
 			set
 			{
 				this._CurrentSession = value;
-
-				if( this._httpClient != null )
-				{
-					this._httpClient.Dispose();
-					this._httpClient = null;
-
-					if( this._httpBaseProtocolFilter != null )
-					{
-						this._httpBaseProtocolFilter.Dispose();
-						this._httpBaseProtocolFilter = null;
-					}
-				}
+				this.DisposeImpl();
 			}
 		}
 		private NiconicoSession _CurrentSession = null;
@@ -261,7 +274,7 @@ namespace Mntone.Nico2
 
 		/// <summary>
 		/// 追加のユーザー エージェント。
-		/// 特に事情がない限り、各アプリ名を指定するなどしてください。
+		/// 特に事情がない限り、各アプリ名を指定するなどしてください
 		/// </summary>
 		public string AdditionalUserAgent
 		{
