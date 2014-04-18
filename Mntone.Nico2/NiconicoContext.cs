@@ -244,6 +244,22 @@ namespace Mntone.Nico2
 		private Searches.SearchApi _Search = null;
 
 		/// <summary>
+		/// ニコニコ大百科の API 群
+		/// </summary>
+		public Dictionaries.DictionaryApi Dictionary
+		{
+			get
+			{
+				if( this._Dictionary == null )
+				{
+					this._Dictionary = new Dictionaries.DictionaryApi( this );
+				}
+				return this._Dictionary;
+			}
+		}
+		private Dictionaries.DictionaryApi _Dictionary = null;
+
+		/// <summary>
 		/// 追加のユーザー エージェント。
 		/// 特に事情がない限り、各アプリ名を指定するなどしてください。
 		/// </summary>

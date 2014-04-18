@@ -18,7 +18,7 @@ namespace Mntone.Nico2.Live.CKey
 			{
 				return cKeyData.Substring( 5 );
 			}
-			throw new Exception( "parse" );
+			throw new Exception( "Parse Error" );
 		}
 
 		public static IAsyncOperation<string> GetCKeyAsync( NiconicoContext context, string refererId, string targetId )

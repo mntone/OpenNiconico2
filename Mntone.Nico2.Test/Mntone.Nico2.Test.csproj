@@ -47,20 +47,49 @@
     <SDKReference Include="TestPlatform, Version=11.0" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Live\CKey\CKeyUnitTest.cs" />
-    <Compile Include="Live\Heartbeat\HeartbeatUnitTest.cs" />
+    <Compile Include="Dictionaries\SummaryUnitTest.cs" />
+    <Compile Include="Dictionaries\RecentUnitTest.cs" />
+    <Compile Include="Dictionaries\ExistUnitTest.cs" />
+    <Compile Include="Dictionaries\WordExistUnitTest.cs" />
+    <Compile Include="Live\CKeyUnitTest.cs" />
+    <Compile Include="Live\HeartbeatUnitTest.cs" />
     <Compile Include="NiconicoAuthenticationTokenUnitTest.cs" />
     <Compile Include="NiconicoSessionUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Searches\SuggestionUnitTest.cs" />
     <Compile Include="TestHelper.cs" />
-    <Compile Include="Videos\Flv\FlvUnitTest.cs" />
-    <Compile Include="Videos\Thumbnail\ThumbnailUnitTest.cs" />
+    <Compile Include="Videos\FlvUnitTest.cs" />
+    <Compile Include="Videos\ThumbnailUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="Mntone.Nico2.Test_TemporaryKey.pfx" />
+    <None Include="TestData\Dictionaries\Exist\default.jsonp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Dictionaries\Exist\error.jsonp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Dictionaries\Recent\default.jsonp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Dictionaries\Summary\default.jsonp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Dictionaries\Summary\null.jsonp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Searches\Suggestion\default.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Searches\Suggestion\japanese.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Searches\Suggestion\zero.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\UnitTestLogo.scale-100.png">
@@ -75,6 +104,12 @@
     <Content Include="Images\UnitTestStoreLogo.scale-100.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="TestData\Dictionaries\WordExist\default.jsonp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Dictionaries\WordExist\error.jsonp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="TestData\Live\CKey\default.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -127,9 +162,7 @@
       <Name>Mntone.Nico2</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Searches\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>

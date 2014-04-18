@@ -2,7 +2,7 @@
 using Mntone.Nico2.Live.Heartbeat;
 using System;
 
-namespace Mntone.Nico2.Test.Live.Heartbeat
+namespace Mntone.Nico2.Test.Live
 {
 	[TestClass]
 	public sealed class HeartbeatUnitTest

@@ -2,7 +2,7 @@
 using Mntone.Nico2.Videos.Thumbnail;
 using System;
 
-namespace Mntone.Nico2.Test.Videos.Thumbnail
+namespace Mntone.Nico2.Test.Videos
 {
 	[TestClass]
 	public sealed class ThumbnailUnitTest

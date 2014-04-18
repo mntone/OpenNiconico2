@@ -43,6 +43,16 @@
     <TargetPlatform Include="Windows, Version=8.1" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dictionaries\Category.cs" />
+    <Compile Include="Dictionaries\CategoryExtensions.cs" />
+    <Compile Include="Dictionaries\DictionaryApi.cs" />
+    <Compile Include="Dictionaries\Exist\ExistClient.cs" />
+    <Compile Include="Dictionaries\Recent\RecentResponse.cs" />
+    <Compile Include="Dictionaries\Recent\RecentClient.cs" />
+    <Compile Include="Dictionaries\Recent\Word.cs" />
+    <Compile Include="Dictionaries\Summary\SummaryClient.cs" />
+    <Compile Include="Dictionaries\Summary\SummaryResponse.cs" />
+    <Compile Include="Dictionaries\WordExist\WordExistClient.cs" />
     <Compile Include="HttpClientExtensions.cs" />
     <Compile Include="Images\ImageApi.cs" />
     <Compile Include="Live\CKey\CKeyClient.cs" />

@@ -2,7 +2,7 @@
 using Mntone.Nico2.Videos.Flv;
 using System;
 
-namespace Mntone.Nico2.Test.Videos.Flv
+namespace Mntone.Nico2.Test.Videos
 {
 	[TestClass]
 	public sealed class FlvUnitTest

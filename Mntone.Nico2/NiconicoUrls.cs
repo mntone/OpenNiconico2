@@ -14,8 +14,6 @@ namespace Mntone.Nico2
 		private const string LiveApiForOfficialOrChannelUrlBase = "http://ow.live.nicovideo.jp/api/";
 		private const string LiveApiForExternalUrlBase = "http://ext.live.nicovideo.jp/api/";
 
-		private const string SearchApiUrlBase = "http://api.search.nicovideo.jp/api/";
-
 		public static string NiconicoTopUrl { get { return VideoUrlBase; } }
 
 
@@ -54,7 +52,20 @@ namespace Mntone.Nico2
 
 		#region Searches
 
+		private const string SearchApiUrlBase = "http://api.search.nicovideo.jp/api/";
+
 		public static string SearchSuggestionUrl { get { return "http://search.nicovideo.jp/suggestion/complete/"; } }
+
+		#endregion
+
+		#region Dictionaries
+
+		private const string DictionaryApiUrlBase = "http://api.nicodic.jp/";
+
+		public static string DictionaryWordExistUrl { get { return DictionaryApiUrlBase + "e/z/"; } }
+		public static string DictionarySummarytUrl { get { return DictionaryApiUrlBase + "page.summary/z/a/"; } }
+		public static string DictionaryExistUrl { get { return DictionaryApiUrlBase + "page.exist/z/"; } }
+		public static string DictionaryRecentUrl { get { return DictionaryApiUrlBase + "page.created/z"; } }
 
 		#endregion
 	}

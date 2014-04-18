@@ -2,7 +2,7 @@
 using Mntone.Nico2.Live.CKey;
 using System;
 
-namespace Mntone.Nico2.Test.Live.CKey
+namespace Mntone.Nico2.Test.Live
 {
 	[TestClass]
 	public sealed class CKeyUnitTest
