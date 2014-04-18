@@ -16,7 +16,7 @@ namespace Mntone.Nico2.Live.Heartbeat
 		public static HeartbeatResponse ParseHeartbeatData( string heartbeatData )
 		{
 			var xml = new XmlDocument();
-			xml.LoadXml( heartbeatData, new XmlLoadSettings { ElementContentWhiteSpace = true, MaxElementDepth = 4 } );
+			xml.LoadXml( heartbeatData, new XmlLoadSettings { MaxElementDepth = 3 } );
 
 			var heartbeat = xml.ChildNodes[1];
 			if( heartbeat.NodeName != "heartbeat" )
@@ -36,7 +36,7 @@ namespace Mntone.Nico2.Live.Heartbeat
 
 			return new HeartbeatResponse()
 			{
-				Time = heartbeat.GetNamedAttribute( "time" ).InnerText.ToDateTimeOffset(),
+				Time = heartbeat.GetNamedAttribute( "time" ).InnerText.ToDateTimeOffsetFromUnixTime(),
 				WatchCount = heartbeat.GetNamedChildNode( "watchCount" ).InnerText.ToUInt(),
 				CommentCount = heartbeat.GetNamedChildNode( "commentCount" ).InnerText.ToUInt(),
 				IsRestrict = heartbeat.GetNamedChildNode( "is_restrict" ).InnerText.ToBooleanFrom1(),

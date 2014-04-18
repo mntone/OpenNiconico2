@@ -1,10 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Mntone.Nico2.Videos.Flv;
+using System;
 
 namespace Mntone.Nico2.Test.Videos.Flv
 {
@@ -25,6 +21,8 @@ namespace Mntone.Nico2.Test.Videos.Flv
 			Assert.AreEqual( 20929324u, ret.UserId );
 			Assert.IsTrue( ret.IsPremium );
 			Assert.AreEqual( "ℳກ੮ວܬ୧", ret.UserName );
+
+			Assert.AreEqual( "2014-04-17T03:13:06", ret.LoadedAt.ToUniversalTime().ToString( "s" ) );
 
 			Assert.IsTrue( ret.Done );
 			Assert.AreEqual( 106u, ret.NgRv );

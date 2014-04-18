@@ -5,7 +5,6 @@ namespace Mntone.Nico2
 	internal static class NiconicoUrls
 	{
 		private const string VideoUrlBase = "http://www.nicovideo.jp/";
-		private const string VideoFlApiUrlBase = "http://flapi.nicovideo.jp/api/";
 		private const string LiveUrlBase = "http://live.nicovideo.jp/";
 		private const string LiveWatchUrlBase = "http://live.nicovideo.jp/watch/";
 		private const string LiveApiUrlBase = "http://live.nicovideo.jp/api/";
@@ -31,7 +30,8 @@ namespace Mntone.Nico2
 		#region Videos
 
 		public static string VideoTopUrl { get { return VideoUrlBase + "video_top"; } }
-		public static string VideoFlvUrl { get { return VideoFlApiUrlBase + "getflv"; } }
+		public static string VideoFlvUrl { get { return "http://flapi.nicovideo.jp/api/getflv"; } }
+		public static string VideoThumbInfoUrl { get { return "http://ext.nicovideo.jp/api/getthumbinfo/"; } }
 
 		#endregion
 

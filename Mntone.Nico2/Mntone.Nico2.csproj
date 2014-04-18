@@ -61,6 +61,13 @@
     <Compile Include="SerializeInteropExtensions.cs" />
     <Compile Include="Videos\Flv\FlvResponse.cs" />
     <Compile Include="Videos\Flv\FlvClient.cs" />
+    <Compile Include="Videos\Thumbnail\MovieType.cs" />
+    <Compile Include="Videos\Thumbnail\Tag.cs" />
+    <Compile Include="Videos\Thumbnail\Tags.cs" />
+    <Compile Include="Videos\Thumbnail\ThumbnailClient.cs" />
+    <Compile Include="Videos\Thumbnail\ThumbnailResponse.cs" />
+    <Compile Include="Videos\Thumbnail\ThumbnailType.cs" />
+    <Compile Include="Videos\Thumbnail\UserType.cs" />
     <Compile Include="Videos\VideoApi.cs" />
     <Compile Include="XmlDocumentExtensions.cs" />
   </ItemGroup>
