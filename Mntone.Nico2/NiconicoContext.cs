@@ -212,6 +212,22 @@ namespace Mntone.Nico2
 		private Live.LiveApi _Live = null;
 
 		/// <summary>
+		/// ニコニコ静画の API 群
+		/// </summary>
+		public Images.ImageApi Image
+		{
+			get
+			{
+				if( this._Image == null )
+				{
+					this._Image = new Images.ImageApi( this );
+				}
+				return this._Image;
+			}
+		}
+		private Images.ImageApi _Image = null;
+
+		/// <summary>
 		/// ニコニコ検索の API 群
 		/// </summary>
 		public Searches.SearchApi Search

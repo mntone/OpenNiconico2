@@ -14,8 +14,8 @@ namespace Mntone.Nico2.Videos.Flv
 			Length = TimeSpan.FromSeconds( ushort.Parse( wwwFormData["l"] ) );
 			VideoUrl = wwwFormData["url"].ToUri();
 			ReportUrl = wwwFormData["link"].ToUri();
-			MessageServerUrl = wwwFormData["ms"].ToUri();
-			SubMessageServerUrl = wwwFormData["ms_sub"].ToUri();
+			CommentServerUrl = wwwFormData["ms"].ToUri();
+			SubCommentServerUrl = wwwFormData["ms_sub"].ToUri();
 			UserId = wwwFormData["user_id"].ToUInt();
 			IsPremium = wwwFormData["is_premium"].ToBooleanFrom1();
 			UserName = wwwFormData["nickname"];
@@ -53,12 +53,12 @@ namespace Mntone.Nico2.Videos.Flv
 		/// <summary>
 		/// コメント サーバー URL
 		/// </summary>
-		public Uri MessageServerUrl { get; private set; }
+		public Uri CommentServerUrl { get; private set; }
 
 		/// <summary>
 		/// サブ コメント サーバー URL
 		/// </summary>
-		public Uri SubMessageServerUrl { get; private set; }
+		public Uri SubCommentServerUrl { get; private set; }
 
 		/// <summary>
 		/// ユーザー ID

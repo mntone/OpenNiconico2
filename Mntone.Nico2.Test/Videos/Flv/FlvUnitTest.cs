@@ -15,8 +15,8 @@ namespace Mntone.Nico2.Test.Videos.Flv
 			Assert.AreEqual( TimeSpan.FromSeconds( 319 ), ret.Length );
 			Assert.AreEqual( "http://smile-pcm42.nicovideo.jp/smile?v=9.0468", ret.VideoUrl.ToString() );
 			Assert.AreEqual( "http://www.smilevideo.jp/view/9/20929324", ret.ReportUrl.ToString() );
-			Assert.AreEqual( "http://msg.nicovideo.jp/10/api/", ret.MessageServerUrl.ToString() );
-			Assert.AreEqual( "http://sub.msg.nicovideo.jp/10/api/", ret.SubMessageServerUrl.ToString() );
+			Assert.AreEqual( "http://msg.nicovideo.jp/10/api/", ret.CommentServerUrl.ToString() );
+			Assert.AreEqual( "http://sub.msg.nicovideo.jp/10/api/", ret.SubCommentServerUrl.ToString() );
 
 			Assert.AreEqual( 20929324u, ret.UserId );
 			Assert.IsTrue( ret.IsPremium );

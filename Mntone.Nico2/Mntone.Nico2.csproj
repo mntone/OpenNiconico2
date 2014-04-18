@@ -37,7 +37,6 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <TargetPlatform Include="WindowsPhoneApp, Version=8.1" />
@@ -45,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HttpClientExtensions.cs" />
+    <Compile Include="Images\ImageApi.cs" />
     <Compile Include="Live\CKey\CKeyClient.cs" />
     <Compile Include="Live\Heartbeat\HeartbeatResponse.cs" />
     <Compile Include="Live\Heartbeat\HeartbeatClient.cs" />

@@ -12,6 +12,9 @@ namespace Mntone.Nico2
 	/// </summary>
 	public sealed class NiconicoRegex
 	{
+		internal NiconicoRegex()
+		{ }
+
 		private const string VideoIdRegexBase = @"(?:sm|nm|so|ca|ax|yo|nl|ig|na|cw|z[a-e]|om|sk|yk)\d{1,14}";
 		private const string LiveIdRegexBase = @"lv\d{1,14}";
 		private const string CommunityIdRegexBase = @"co\d{1,14}";
