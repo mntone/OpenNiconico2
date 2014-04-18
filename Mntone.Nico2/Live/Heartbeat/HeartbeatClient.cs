@@ -7,8 +7,7 @@ namespace Mntone.Nico2.Live.Heartbeat
 {
 	internal sealed class HeartbeatClient
 	{
-		public static IAsyncOperationWithProgress<string, HttpProgress> HeartbeatDataAsync(
-			NiconicoContext context, string targetId )
+		public static IAsyncOperationWithProgress<string, HttpProgress> HeartbeatDataAsync( NiconicoContext context, string targetId )
 		{
 			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.LiveHeartbeatUrl + "?v=" + targetId ) );
 		}
@@ -18,15 +17,15 @@ namespace Mntone.Nico2.Live.Heartbeat
 			var xml = new XmlDocument();
 			xml.LoadXml( heartbeatData, new XmlLoadSettings { MaxElementDepth = 3 } );
 
-			var heartbeat = xml.ChildNodes[1];
-			if( heartbeat.NodeName != "heartbeat" )
+			var heartbeatXml = xml.ChildNodes[1];
+			if( heartbeatXml.NodeName != "heartbeat" )
 			{
 				throw new Exception( "Parse Error: Node name is invalid." );
 			}
 
-			if( heartbeat.GetNamedAttribute( "status" ).InnerText != "ok" )
+			if( heartbeatXml.GetNamedAttribute( "status" ).InnerText != "ok" )
 			{
-				var error = heartbeat.FirstChild;
+				var error = heartbeatXml.FirstChild;
 				var code = error.GetNamedChildNode( "code" ).InnerText;
 				var description = error.GetNamedChildNode( "description" ).InnerText;
 				var reject = error.GetNamedChildNode( "reject" ).InnerText.ToBooleanFromString();
@@ -34,15 +33,7 @@ namespace Mntone.Nico2.Live.Heartbeat
 				throw new Exception( "Parse Error: " + description + " (" + code + ')' );
 			}
 
-			return new HeartbeatResponse()
-			{
-				Time = heartbeat.GetNamedAttribute( "time" ).InnerText.ToDateTimeOffsetFromUnixTime(),
-				WatchCount = heartbeat.GetNamedChildNode( "watchCount" ).InnerText.ToUInt(),
-				CommentCount = heartbeat.GetNamedChildNode( "commentCount" ).InnerText.ToUInt(),
-				IsRestrict = heartbeat.GetNamedChildNode( "is_restrict" ).InnerText.ToBooleanFrom1(),
-				Ticket = heartbeat.GetNamedChildNode( "ticket" ).InnerText,
-				WaitTime = heartbeat.GetNamedChildNode( "waitTime" ).InnerText.ToUShort(),
-			};
+			return new HeartbeatResponse( heartbeatXml );
 		}
 
 		public static IAsyncOperation<HeartbeatResponse> HeartbeatAsync( NiconicoContext context, string targetId )

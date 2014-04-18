@@ -30,27 +30,7 @@ namespace Mntone.Nico2.Videos.Flv
 				throw new Exception( "Parse Error: " + response["error"] );
 			}
 
-			return new FlvResponse()
-			{
-				ThreadId = response["thread_id"].ToUInt(),
-				Length = TimeSpan.FromSeconds( ushort.Parse( response["l"] ) ),
-				VideoUrl = response["url"].ToUri(),
-				ReportUrl = response["link"].ToUri(),
-				MessageServerUrl = response["ms"].ToUri(),
-				SubMessageServerUrl = response["ms_sub"].ToUri(),
-				UserId = response["user_id"].ToUInt(),
-				IsPremium = response["is_premium"].ToBooleanFrom1(),
-				UserName = response["nickname"],
-				LoadedAt = DateTimeOffset.FromFileTime( 10000 * long.Parse( response["time"] ) + 116444736000000000 ),
-
-#if DEBUG
-				Done = response["done"].ToBooleanFromString(),
-				NgRv = response["ng_rv"].ToUShort(),
-				AppsUrl = ( "http://" + response["hms"] + ':' + response["hmsp"] + '/' ).ToUri(),
-				AppsT = response["hmst"].ToUShort(),
-				AppsTicket = response["hmstk"],
-#endif
-			};
+			return new FlvResponse( response );
 		}
 
 		public static IAsyncOperation<FlvResponse> GetFlvAsync( NiconicoContext context, string targetId )
