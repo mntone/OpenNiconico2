@@ -35,6 +35,9 @@ namespace Mntone.Nico2.Live.Heartbeat
 		/// </summary>
 		public uint CommentCount { get; private set; }
 
+		/// <summary>
+		/// ?
+		/// </summary>
 		public bool IsRestrict { get; private set; }
 
 		/// <summary>

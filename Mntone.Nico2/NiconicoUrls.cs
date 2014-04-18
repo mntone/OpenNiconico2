@@ -51,6 +51,7 @@ namespace Mntone.Nico2
 
 		#endregion
 
+
 		#region Searches
 
 		public static string SearchSuggestionUrl { get { return "http://search.nicovideo.jp/suggestion/complete/"; } }
