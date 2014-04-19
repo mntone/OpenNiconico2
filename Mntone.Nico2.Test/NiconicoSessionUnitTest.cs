@@ -7,7 +7,7 @@ namespace Mntone.Nico2.Test
 	public sealed class NiconicoSessionUnitTest
 	{
 		[TestMethod]
-		public void Session_1Ctor()
+		public void Session_0Ctor()
 		{
 			var ret = new NiconicoSession();
 			Assert.AreEqual( null, ret.Key );
@@ -15,7 +15,7 @@ namespace Mntone.Nico2.Test
 		}
 
 		[TestMethod]
-		public void Session_2CtorWithParameters()
+		public void Session_1CtorWithParameters()
 		{
 			var key = "key sample";
 			var expires = DateTimeOffset.Now + TimeSpan.FromSeconds( 1 );
@@ -25,7 +25,7 @@ namespace Mntone.Nico2.Test
 		}
 
 		[TestMethod]
-		public void Session_3SetParameters()
+		public void Session_2SetParameters()
 		{
 			var key = "key sample";
 			var expires = DateTimeOffset.Now + TimeSpan.FromSeconds( 1 );
@@ -37,7 +37,7 @@ namespace Mntone.Nico2.Test
 		}
 
 		[TestMethod]
-		public void Session_4SetExpiresOutOfRange()
+		public void Session_3SetExpiresOutOfRange()
 		{
 			Assert.ThrowsException<Exception>( () =>
 				{

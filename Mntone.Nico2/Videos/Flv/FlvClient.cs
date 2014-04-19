@@ -8,15 +8,20 @@ namespace Mntone.Nico2.Videos.Flv
 	internal sealed class FlvClient
 	{
 		public static IAsyncOperationWithProgress<string, HttpProgress> GetFlvDataAsync(
-			NiconicoContext context, string targetId )
+			NiconicoContext context, string requestID )
 		{
-			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.VideoFlvUrl + "/" + targetId + "?as3=1" ) );
+			if( !NiconicoRegex.IsVideoID( requestID ) )
+			{
+				throw new ArgumentException();
+			}
+
+			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.VideoFlvUrl + "/" + requestID + "?as3=1" ) );
 		}
 
 		public static IAsyncOperationWithProgress<string, HttpProgress> GetFlvDataAsync(
-			NiconicoContext context, string targetId, string cKey )
+			NiconicoContext context, string requestID, string cKey )
 		{
-			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.VideoFlvUrl + "/" + targetId + "?as3=1&ckey=" + cKey ) );
+			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.VideoFlvUrl + "/" + requestID + "?as3=1&ckey=" + cKey ) );
 		}
 
 		public static FlvResponse ParseFlvData( string flvData )
@@ -33,17 +38,17 @@ namespace Mntone.Nico2.Videos.Flv
 			return new FlvResponse( response );
 		}
 
-		public static IAsyncOperation<FlvResponse> GetFlvAsync( NiconicoContext context, string targetId )
+		public static IAsyncOperation<FlvResponse> GetFlvAsync( NiconicoContext context, string requestID )
 		{
-			return GetFlvDataAsync( context, targetId )
+			return GetFlvDataAsync( context, requestID )
 				.AsTask()
 				.ContinueWith( prevTask => ParseFlvData( prevTask.Result ) )
 				.AsAsyncOperation();
 		}
 
-		public static IAsyncOperation<FlvResponse> GetFlvAsync( NiconicoContext context, string targetId, string cKey )
+		public static IAsyncOperation<FlvResponse> GetFlvAsync( NiconicoContext context, string requestID, string cKey )
 		{
-			return GetFlvDataAsync( context, targetId, cKey )
+			return GetFlvDataAsync( context, requestID, cKey )
 				.AsTask()
 				.ContinueWith( prevTask => ParseFlvData( prevTask.Result ) )
 				.AsAsyncOperation();

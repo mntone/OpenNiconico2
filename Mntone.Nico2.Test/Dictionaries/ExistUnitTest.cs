@@ -7,14 +7,14 @@ namespace Mntone.Nico2.Test.Dictionaries
 	public sealed class ExistUnitTest
 	{
 		[TestMethod]
-		public void Exist_1通常データ()
+		public void Exist_0通常データ()
 		{
 			var ret = ExistClient.ParseExistData( TestHelper.Load( @"Dictionaries/Exist/default.jsonp" ) );
 			Assert.IsTrue( ret );
 		}
 
 		[TestMethod]
-		public void Exist_2エラーデータ()
+		public void Exist_1エラーデータ()
 		{
 			var ret = ExistClient.ParseExistData( TestHelper.Load( @"Dictionaries/Exist/error.jsonp" ) );
 			Assert.IsFalse( ret );

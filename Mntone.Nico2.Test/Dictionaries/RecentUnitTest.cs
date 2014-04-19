@@ -8,7 +8,7 @@ namespace Mntone.Nico2.Test.Dictionaries
 	public sealed class RecentUnitTest
 	{
 		[TestMethod]
-		public void Recent_1通常データ()
+		public void Recent_0通常データ()
 		{
 			var ret = RecentClient.ParseRecentData( TestHelper.Load( @"Dictionaries/Recent/default.jsonp" ) );
 

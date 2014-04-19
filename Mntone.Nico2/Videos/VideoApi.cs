@@ -16,23 +16,33 @@ namespace Mntone.Nico2.Videos
 		/// <summary>
 		/// 非同期操作として flv 情報を取得します
 		/// </summary>
-		/// <param name="targetId">目的の動画 ID</param>
+		/// <param name="requestID">目的の動画 ID</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
-		public IAsyncOperation<Flv.FlvResponse> GetFlvAsync( string targetId )
+		public IAsyncOperation<Flv.FlvResponse> GetFlvAsync( string requestID )
 		{
-			return Flv.FlvClient.GetFlvAsync( _context, targetId );
+			return Flv.FlvClient.GetFlvAsync( _context, requestID );
 		}
 
 		/// <summary>
 		/// 非同期操作として flv 情報を取得します
 		/// </summary>
-		/// <param name="targetId">目的の動画 ID</param>
+		/// <param name="requestID">目的の動画 ID</param>
 		/// <param name="cKey">CKey</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 		[Overload( "GetFlvWithCKeyAsync" )]
-		public IAsyncOperation<Flv.FlvResponse> GetFlvAsync( string targetId, string cKey )
+		public IAsyncOperation<Flv.FlvResponse> GetFlvAsync( string requestID, string cKey )
 		{
-			return Flv.FlvClient.GetFlvAsync( _context, targetId, cKey );
+			return Flv.FlvClient.GetFlvAsync( _context, requestID, cKey );
+		}
+
+		/// <summary>
+		/// 非同期操作として thumbnail 情報を取得します
+		/// </summary>
+		/// <param name="requestID">目的の動画 ID</param>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+		public IAsyncOperation<Thumbnail.ThumbnailResponse> GetThumbnailAsync( string requestID )
+		{
+			return Thumbnail.ThumbnailClient.GetThumbnailAsync( _context, requestID );
 		}
 
 

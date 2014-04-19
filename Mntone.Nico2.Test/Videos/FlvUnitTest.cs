@@ -8,6 +8,15 @@ namespace Mntone.Nico2.Test.Videos
 	public sealed class FlvUnitTest
 	{
 		[TestMethod]
+		public void Flv_0不正なID()
+		{
+			Assert.ThrowsException<ArgumentException>( () =>
+			{
+				FlvClient.GetFlvDataAsync( new NiconicoContext( new NiconicoAuthenticationToken() ), "ssm9" ).GetResults();
+			} );
+		}
+
+		[TestMethod]
 		public void Flv_1通常データ()
 		{
 			var ret = FlvClient.ParseFlvData( TestHelper.Load( @"Videos/Flv/default.txt" ) );

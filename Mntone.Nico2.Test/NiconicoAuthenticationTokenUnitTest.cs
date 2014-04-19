@@ -6,7 +6,7 @@ namespace Mntone.Nico2.Test
 	public sealed class NiconicoAuthenticationTokenUnitTest
 	{
 		[TestMethod]
-		public void AuthenticationToken_1Ctor()
+		public void AuthenticationToken_0Ctor()
 		{
 			var ret = new NiconicoAuthenticationToken();
 			Assert.AreEqual( null, ret.MailOrTelephone );
@@ -14,7 +14,7 @@ namespace Mntone.Nico2.Test
 		}
 
 		[TestMethod]
-		public void AuthenticationToken_2CtorWithParameters()
+		public void AuthenticationToken_1CtorWithParameters()
 		{
 			var mail = "test@test.jp";
 			var pass = "test@test";
@@ -24,7 +24,7 @@ namespace Mntone.Nico2.Test
 		}
 
 		[TestMethod]
-		public void AuthenticationToken_3SetParameters()
+		public void AuthenticationToken_2SetParameters()
 		{
 			var mail = "test@test.jp";
 			var pass = "test@test";

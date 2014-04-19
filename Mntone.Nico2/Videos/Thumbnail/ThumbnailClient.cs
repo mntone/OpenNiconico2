@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.Data.Xml.Dom;
 using Windows.Foundation;
 using Windows.Web.Http;
@@ -11,9 +7,14 @@ namespace Mntone.Nico2.Videos.Thumbnail
 {
 	internal sealed class ThumbnailClient
 	{
-		public static IAsyncOperationWithProgress<string, HttpProgress> GetThumbInfoDataAsync( NiconicoContext context, string targetId )
+		public static IAsyncOperationWithProgress<string, HttpProgress> GetThumbnailDataAsync( NiconicoContext context, string requestID )
 		{
-			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.VideoThumbInfoUrl + targetId ) );
+			if( !NiconicoRegex.IsVideoID( requestID ) )
+			{
+				throw new ArgumentException();
+			}
+
+			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.VideoThumbInfoUrl + requestID ) );
 		}
 
 		public static ThumbnailResponse ParseThumbnailData( string thumbnailData )
@@ -39,5 +40,12 @@ namespace Mntone.Nico2.Videos.Thumbnail
 			return new ThumbnailResponse( thumbRes.FirstChild );
 		}
 
+		public static IAsyncOperation<ThumbnailResponse> GetThumbnailAsync( NiconicoContext context, string requestID )
+		{
+			return GetThumbnailDataAsync( context, requestID )
+				.AsTask()
+				.ContinueWith( prevTask => ParseThumbnailData( prevTask.Result ) )
+				.AsAsyncOperation();
+		}
 	}
 }

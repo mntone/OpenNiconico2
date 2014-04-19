@@ -7,7 +7,7 @@ namespace Mntone.Nico2.Test.Dictionaries
 	public sealed class SummaryUnitTest
 	{
 		[TestMethod]
-		public void Summary_1通常データ()
+		public void Summary_0通常データ()
 		{
 			var ret = SummaryClient.ParseSummaryData( TestHelper.Load( @"Dictionaries/Summary/default.jsonp" ) );
 			Assert.AreEqual( "sm9", ret.Title );
@@ -16,7 +16,7 @@ namespace Mntone.Nico2.Test.Dictionaries
 		}
 
 		[TestMethod]
-		public void Summary_2エラーデータ()
+		public void Summary_1エラーデータ()
 		{
 			var ret = SummaryClient.ParseSummaryData( TestHelper.Load( @"Dictionaries/Summary/null.jsonp" ) );
 			Assert.IsNull( ret );

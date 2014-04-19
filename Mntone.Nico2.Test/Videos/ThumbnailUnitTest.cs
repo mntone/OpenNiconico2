@@ -8,6 +8,15 @@ namespace Mntone.Nico2.Test.Videos
 	public sealed class ThumbnailUnitTest
 	{
 		[TestMethod]
+		public void Thumbnail_0不正なID()
+		{
+			Assert.ThrowsException<ArgumentException>( () =>
+			{
+				ThumbnailClient.GetThumbnailDataAsync( new NiconicoContext( new NiconicoAuthenticationToken() ), "ssm9" ).GetResults();
+			} );
+		}
+
+		[TestMethod]
 		public void Thumbnail_1通常データ()
 		{
 			var ret = ThumbnailClient.ParseThumbnailData( TestHelper.Load( @"Videos/Thumbnail/default.xml" ) );

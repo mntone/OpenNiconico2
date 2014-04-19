@@ -8,6 +8,15 @@ namespace Mntone.Nico2.Test.Live
 	public sealed class HeartbeatUnitTest
 	{
 		[TestMethod]
+		public void Heartbeat_0不正なID()
+		{
+			Assert.ThrowsException<ArgumentException>( () =>
+			{
+				HeartbeatClient.HeartbeatDataAsync( new NiconicoContext( new NiconicoAuthenticationToken() ), "llv1131" ).GetResults();
+			} );
+		}
+
+		[TestMethod]
 		public void Heartbeat_1通常データ()
 		{
 			var ret = HeartbeatClient.ParseHeartbeatData( TestHelper.Load( @"Live/Heartbeat/default.xml" ) );

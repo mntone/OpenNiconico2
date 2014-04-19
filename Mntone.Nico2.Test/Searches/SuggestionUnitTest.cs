@@ -7,7 +7,7 @@ namespace Mntone.Nico2.Test.Searches
 	public sealed class SuggestionUnitTest
 	{
 		[TestMethod]
-		public void Suggestion_1通常データ()
+		public void Suggestion_0通常データ()
 		{
 			var ret = SuggestionClient.ParseSuggestionData( TestHelper.Load( @"Searches/Suggestion/default.json" ) );
 			Assert.AreEqual( 10, ret.Count );
@@ -24,7 +24,7 @@ namespace Mntone.Nico2.Test.Searches
 		}
 
 		[TestMethod]
-		public void Suggestion_2日本語データ()
+		public void Suggestion_1日本語データ()
 		{
 			var ret = SuggestionClient.ParseSuggestionData( TestHelper.Load( @"Searches/Suggestion/japanese.json" ) );
 			Assert.AreEqual( 10, ret.Count );
@@ -42,7 +42,7 @@ namespace Mntone.Nico2.Test.Searches
 		}
 
 		[TestMethod]
-		public void Suggestion_3ゼロデータ()
+		public void Suggestion_2ゼロデータ()
 		{
 			var ret = SuggestionClient.ParseSuggestionData( TestHelper.Load( @"Searches/Suggestion/zero.json" ) );
 			Assert.AreEqual( 0, ret.Count );
