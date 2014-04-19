@@ -17,9 +17,9 @@ namespace Mntone.Nico2.Dictionaries.Recent
 		public Category Category { get; private set; }
 
 		[DataMember( Name = "category" )]
-		private string CategoryImpl
+		private char CategoryImpl
 		{
-			get { return Category.ToCategoryString(); }
+			get { return Category.ToCategoryChar(); }
 			set { Category = value.ToCategory(); }
 		}
 

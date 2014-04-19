@@ -4,42 +4,42 @@ namespace Mntone.Nico2.Dictionaries
 {
 	internal static class CategoryExtensions
 	{
-		public static string ToCategoryString( this Category category )
+		public static char ToCategoryChar( this Category category )
 		{
 			switch( category )
 			{
 			case Category.Word:
-				return "a";
+				return 'a';
 			case Category.Video:
-				return "v";
+				return 'v';
 			case Category.Live:
-				return "l";
+				return 'l';
 			case Category.Community:
-				return "c";
+				return 'c';
 			case Category.User:
-				return "u";
+				return 'u';
 			case Category.Goods:
-				return "i";
+				return 'i';
 			default:
 				throw new ArgumentOutOfRangeException();
 			}
 		}
 
-		public static Category ToCategory( this string categoryString )
+		public static Category ToCategory( this char categoryString )
 		{
 			switch( categoryString )
 			{
-			case "a":
+			case 'a':
 				return Category.Word;
-			case "v":
+			case 'v':
 				return Category.Video;
-			case "l":
+			case 'l':
 				return Category.Live;
-			case "c":
+			case 'c':
 				return Category.Community;
-			case "u":
+			case 'u':
 				return Category.User;
-			case "i":
+			case 'i':
 				return Category.Goods;
 			default:
 				throw new ArgumentOutOfRangeException();

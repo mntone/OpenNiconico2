@@ -10,7 +10,7 @@ namespace Mntone.Nico2.Dictionaries.Exist
 			NiconicoContext context, Category targetCategory, string targetWord )
 		{
 			return context.GetClient().GetStringAsync( new Uri(
-				NiconicoUrls.DictionaryExistUrl + targetCategory.ToCategoryString() + '/' + Uri.EscapeUriString( targetWord ) ) );
+				NiconicoUrls.DictionaryExistUrl + targetCategory.ToCategoryChar() + '/' + Uri.EscapeUriString( targetWord ) ) );
 		}
 
 		public static bool ParseExistData( string existData )
