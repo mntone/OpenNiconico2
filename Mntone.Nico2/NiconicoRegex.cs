@@ -10,27 +10,27 @@ namespace Mntone.Nico2
 		internal NiconicoRegex()
 		{ }
 
-		private const string VideoIdRegexBase = @"(?:sm|nm|so|ca|ax|yo|nl|ig|na|cw|z[a-e]|om|sk|yk)\d{1,14}"; // cd/fx/sd
-		private const string LiveIdRegexBase = @"lv\d{1,14}";
+		private const string VideoIDRegexBase = @"(?:sm|nm|so|ca|ax|yo|nl|ig|na|cw|z[a-e]|om|sk|yk)\d{1,14}"; // cd/fx/sd
+		private const string LiveIDRegexBase = @"lv\d{1,14}";
 
-		private const string ImageIdRegexBase = @"(?:[sm]g|im|bk)\d{1,14}";
-		private const string IllustrationIdRegexBase = @"im\d{1,14}";
-		private const string ElectronicBookIdRegexBase = @"bk\d{1,14}";
-		private const string MangaIdRegexBase = @"mg\d{1,14}";
-		private const string ThemeIdRegexBase = @"sg\d{1,14}";
+		private const string ImageIDRegexBase = @"(?:[sm]g|im|bk)\d{1,14}";
+		private const string IllustIDRegexBase = @"im\d{1,14}";
+		private const string ElectronicBookIDRegexBase = @"bk\d{1,14}";
+		private const string MangaIDRegexBase = @"mg\d{1,14}";
+		private const string ThemeIDRegexBase = @"sg\d{1,14}";
 
-		private const string CommunityIdRegexBase = @"co\d{1,14}";
-		private const string ChannelIdRegexBase = @"ch\d{1,14}";
+		private const string CommunityIDRegexBase = @"co\d{1,14}";
+		private const string ChannelIDRegexBase = @"ch\d{1,14}";
 
-		private const string ArticleIdRegexBase = @"ar\d{1,14}";
-		private const string CommonIdRegexBase = @"nc\d{1,14}";
+		private const string ArticleIDRegexBase = @"ar\d{1,14}";
+		private const string CommonIDRegexBase = @"nc\d{1,14}";
 
-		private const string WatchIdRegexBase = @"watch/\d{1,10}";
-		private const string UserIdRegexBase = @"user/\d{1,10}";
+		private const string WatchIDRegexBase = @"watch/\d{1,10}";
+		private const string UserIDRegexBase = @"user/\d{1,10}";
 		private const string MylistRegexBase = @"mylist/\d{1,10}";
 		private const string MyvideoRegexBase = @"myvideo/\d{1,10}";
-		private const string ClipIdRegexBase = @"clip/\d{1,10}";
-		private const string ComicIdRegexBase = @"comic/\d{1,10}";
+		private const string ClipIDRegexBase = @"clip/\d{1,10}";
+		private const string ComicIDRegexBase = @"comic/\d{1,10}";
 		private const string AdsRegexBase = @"(?:dw\d+|az[A-Z0-9]{10}|ys[a-zA-Z0-9-]+_[a-zA-Z0-9-]+|ga\d+|ip[\d_]+|gg[a-zA-Z0-9]+-[a-zA-Z0-9-]+)"; // ys/it
 
 		/// <summary>
@@ -40,7 +40,7 @@ namespace Mntone.Nico2
 		/// <returns>動画 ID として適切か</returns>
 		public static bool IsVideoID( string id )
 		{
-			return Regex.IsMatch( id, '^' + VideoIdRegexBase + '$' );
+			return Regex.IsMatch( id, '^' + VideoIDRegexBase + '$' );
 		}
 
 		/// <summary>
@@ -50,7 +50,7 @@ namespace Mntone.Nico2
 		/// <returns>生放送 ID として適切か</returns>
 		public static bool IsLiveID( string id )
 		{
-			return Regex.IsMatch( id, '^' + LiveIdRegexBase + '$' );
+			return Regex.IsMatch( id, '^' + LiveIDRegexBase + '$' );
 		}
 
 		/// <summary>
@@ -60,7 +60,7 @@ namespace Mntone.Nico2
 		/// <returns>静画 ID として適切か</returns>
 		public static bool IsImageID( string id )
 		{
-			return Regex.IsMatch( id, '^' + ImageIdRegexBase + '$' );
+			return Regex.IsMatch( id, '^' + ImageIDRegexBase + '$' );
 		}
 
 		/// <summary>
@@ -70,7 +70,7 @@ namespace Mntone.Nico2
 		/// <returns>静画のイラスト ID として適切か</returns>
 		public static bool IsIllustrationID( string id )
 		{
-			return Regex.IsMatch( id, '^' + IllustrationIdRegexBase + '$' );
+			return Regex.IsMatch( id, '^' + IllustIDRegexBase + '$' );
 		}
 
 		/// <summary>
@@ -80,7 +80,7 @@ namespace Mntone.Nico2
 		/// <returns>静画の電子書籍 ID として適切か</returns>
 		public static bool IsElectronicBookID( string id )
 		{
-			return Regex.IsMatch( id, '^' + ElectronicBookIdRegexBase + '$' );
+			return Regex.IsMatch( id, '^' + ElectronicBookIDRegexBase + '$' );
 		}
 
 		/// <summary>
@@ -90,7 +90,7 @@ namespace Mntone.Nico2
 		/// <returns>静画の漫画 ID として適切か</returns>
 		public static bool IsMangaID( string id )
 		{
-			return Regex.IsMatch( id, '^' + MangaIdRegexBase + '$' );
+			return Regex.IsMatch( id, '^' + MangaIDRegexBase + '$' );
 		}
 
 		/// <summary>
@@ -100,7 +100,7 @@ namespace Mntone.Nico2
 		/// <returns>静画のお題 ID として適切か</returns>
 		public static bool IsThemeID( string id )
 		{
-			return Regex.IsMatch( id, '^' + ThemeIdRegexBase + '$' );
+			return Regex.IsMatch( id, '^' + ThemeIDRegexBase + '$' );
 		}
 
 		/// <summary>
@@ -110,7 +110,7 @@ namespace Mntone.Nico2
 		/// <returns>コミュニティー  ID として適切か</returns>
 		public static bool IsCommunityID( string id )
 		{
-			return Regex.IsMatch( id, '^' + CommunityIdRegexBase + '$' );
+			return Regex.IsMatch( id, '^' + CommunityIDRegexBase + '$' );
 		}
 
 		/// <summary>
@@ -120,7 +120,7 @@ namespace Mntone.Nico2
 		/// <returns>チャンネル ID として適切か</returns>
 		public static bool IsChannelID( string id )
 		{
-			return Regex.IsMatch( id, '^' + ChannelIdRegexBase + '$' );
+			return Regex.IsMatch( id, '^' + ChannelIDRegexBase + '$' );
 		}
 	}
 }

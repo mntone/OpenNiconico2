@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using Windows.Foundation;
-
+﻿
 namespace Mntone.Nico2.Images
 {
 	/// <summary>
@@ -13,6 +10,20 @@ namespace Mntone.Nico2.Images
 		{
 			this._context = context;
 		}
+
+
+		#region property (and related field)
+
+		/// <summary>
+		/// ニコニコ動画のユーザー API 群
+		/// </summary>
+		public Users.UserApi User
+		{
+			get { return this._User ?? ( this._User = new Users.UserApi( _context ) ); }
+		}
+		private Users.UserApi _User = null;
+
+		#endregion
 
 
 		#region field

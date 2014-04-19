@@ -59,6 +59,9 @@
     <Compile Include="Dictionaries\WordExist\WordExistClient.cs" />
     <Compile Include="HttpClientExtensions.cs" />
     <Compile Include="Images\ImageApi.cs" />
+    <Compile Include="Images\Users\UserApi.cs" />
+    <Compile Include="Images\Users\Info\InfoClient.cs" />
+    <Compile Include="Images\Users\Info\InfoResponse.cs" />
     <Compile Include="Live\CKey\CKeyClient.cs" />
     <Compile Include="Live\Heartbeat\HeartbeatResponse.cs" />
     <Compile Include="Live\Heartbeat\HeartbeatClient.cs" />
@@ -86,6 +89,10 @@
     <Compile Include="Videos\Thumbnail\UserType.cs" />
     <Compile Include="Videos\VideoApi.cs" />
     <Compile Include="XmlDocumentExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\Illusts\" />
+    <Folder Include="Images\Themes\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
