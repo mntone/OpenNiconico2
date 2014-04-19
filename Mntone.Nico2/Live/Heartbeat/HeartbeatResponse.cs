@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Xml.Serialization;
 using Windows.Data.Xml.Dom;
 
 namespace Mntone.Nico2.Live.Heartbeat
@@ -22,7 +21,6 @@ namespace Mntone.Nico2.Live.Heartbeat
 		/// <summary>
 		/// 時間
 		/// </summary>
-		[XmlIgnore]
 		public DateTimeOffset Time { get; private set; }
 
 		/// <summary>
