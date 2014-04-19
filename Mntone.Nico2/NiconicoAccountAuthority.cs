@@ -2,7 +2,7 @@
 namespace Mntone.Nico2
 {
 	/// <summary>
-	/// ニコニコのログオン フラグ
+	/// ログオンしたアカウントの権限
 	/// </summary>
 	public enum NiconicoAccountAuthority
 	{

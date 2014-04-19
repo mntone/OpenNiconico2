@@ -13,8 +13,8 @@ namespace Mntone.Nico2
 
 		#region Authentication
 
-		public static string LogOnUrl { get { return "https://secure.nicovideo.jp/secure/LogOn?site=niconico"; } }
-		public static string LogOffUrl { get { return "https://secure.nicovideo.jp/secure/LogOff"; } }
+		public static string LogOnUrl { get { return "https://secure.nicovideo.jp/secure/login?site=niconico"; } }
+		public static string LogOffUrl { get { return "https://secure.nicovideo.jp/secure/logout"; } }
 
 		#endregion
 
@@ -47,9 +47,12 @@ namespace Mntone.Nico2
 
 		private const string ImageUrlBase = "http://seiga.nicovideo.jp/";
 		private const string ImageApiUrlBase = "http://seiga.nicovideo.jp/api/";
+		private const string ImageExtApiUrlBase = "http://ext.seiga.nicovideo.jp/api/";
 
 		public static string ImageTopUrl { get { return ImageUrlBase; } }
+		public static string ImageBlogPartsUrl { get { return ImageExtApiUrlBase + "illust/blogparts?mode="; } }
 		public static string ImageUserInfoUrl { get { return ImageApiUrlBase + "user/info?id="; } }
+		public static string ImageUserDataUrl { get { return ImageApiUrlBase + "user/data?id="; } }
 
 		#endregion
 

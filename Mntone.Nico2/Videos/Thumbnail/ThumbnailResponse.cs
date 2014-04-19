@@ -11,7 +11,7 @@ namespace Mntone.Nico2.Videos.Thumbnail
 	{
 		internal ThumbnailResponse( IXmlNode thumbXml )
 		{
-			VideoID = thumbXml.GetNamedChildNode( "video_id" ).InnerText;
+			ID = thumbXml.GetNamedChildNode( "video_id" ).InnerText;
 			Title = thumbXml.GetNamedChildNode( "title" ).InnerText;
 			Description = thumbXml.GetNamedChildNode( "description" ).InnerText;
 			ThumbnailUrl = thumbXml.GetNamedChildNode( "thumbnail_url" ).InnerText.ToUri();
@@ -24,7 +24,7 @@ namespace Mntone.Nico2.Videos.Thumbnail
 			CommentCount = thumbXml.GetNamedChildNode( "comment_num" ).InnerText.ToUInt();
 			MylistCount = thumbXml.GetNamedChildNode( "mylist_counter" ).InnerText.ToUInt();
 			LastCommentBody = thumbXml.GetNamedChildNode( "last_res_body" ).InnerText;
-			WatchUrl = thumbXml.GetNamedChildNode( "watch_url" ).InnerText.ToUri();
+			PageUrl = thumbXml.GetNamedChildNode( "watch_url" ).InnerText.ToUri();
 			ThumbnailType = thumbXml.GetNamedChildNode( "thumb_type" ).InnerText.ToThumbnailType();
 			Embeddable = thumbXml.GetNamedChildNode( "embeddable" ).InnerText.ToBooleanFrom1();
 			NoLivePlay = thumbXml.GetNamedChildNode( "no_live_play" ).InnerText.ToBooleanFrom1();
@@ -55,9 +55,9 @@ namespace Mntone.Nico2.Videos.Thumbnail
 		}
 
 		/// <summary>
-		/// 動画 ID
+		/// ID
 		/// </summary>
-		public string VideoID { get; private set; }
+		public string ID { get; private set; }
 
 		/// <summary>
 		/// 題名
@@ -115,14 +115,14 @@ namespace Mntone.Nico2.Videos.Thumbnail
 		public uint MylistCount { get; private set; }
 
 		/// <summary>
-		/// 最新メッセージ文
+		/// 最新コメントの一部
 		/// </summary>
 		public string LastCommentBody { get; private set; }
 
 		/// <summary>
 		/// 視聴ページ URL
 		/// </summary>
-		public Uri WatchUrl { get; private set; }
+		public Uri PageUrl { get; private set; }
 
 		/// <summary>
 		/// サムネール情報の種類

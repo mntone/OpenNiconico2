@@ -89,13 +89,13 @@ namespace Mntone.Nico2
 			{
 				var response = await this.GetClient().HeadAsync( new Uri( NiconicoUrls.NiconicoTopUrl ) ).AsTask().ConfigureAwait( false );
 
-				try
+				this.CurrentSession.AccountAuthority = ( NiconicoAccountAuthority )int.Parse( response.Headers[XNiconicoAuthflag] );
+				if( this.CurrentSession.AccountAuthority != NiconicoAccountAuthority.NotLoggedOn )
 				{
-					this.CurrentSession.AccountAuthority = ( NiconicoAccountAuthority )int.Parse( response.Headers[XNiconicoAuthflag] );
-					if( this.CurrentSession.AccountAuthority != NiconicoAccountAuthority.NotLoggedOn )
-					{
-						this.CurrentSession.UserId = uint.Parse( response.Headers[XNiconicoId] );
+					this.CurrentSession.UserId = uint.Parse( response.Headers[XNiconicoId] );
 
+					try
+					{
 						var cookie = this._httpBaseProtocolFilter
 							.CookieManager
 							.GetCookies( new Uri( "http://nicovideo.jp/" ) )
@@ -111,9 +111,9 @@ namespace Mntone.Nico2
 							}
 						}
 					}
+					catch( InvalidOperationException )
+					{ }
 				}
-				catch( InvalidOperationException )
-				{ }
 				return false;
 			} );
 		}

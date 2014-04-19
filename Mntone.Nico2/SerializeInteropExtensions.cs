@@ -16,9 +16,19 @@ namespace Mntone.Nico2
 			return value.Length == 4 && value == "true" ? true : false;
 		}
 
+		public static short ToShort( this string value )
+		{
+			return short.Parse( value );
+		}
+
 		public static ushort ToUShort( this string value )
 		{
 			return ushort.Parse( value );
+		}
+
+		public static int ToInt( this string value )
+		{
+			return int.Parse( value );
 		}
 
 		public static uint ToUInt( this string value )
