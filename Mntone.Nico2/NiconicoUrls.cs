@@ -28,7 +28,7 @@ namespace Mntone.Nico2
 		#region Videos
 
 		public static string VideoTopUrl { get { return VideoUrlBase + "video_top"; } }
-		public static string VideoFlvUrl { get { return "http://flapi.nicovideo.jp/api/getflv"; } }
+		public static string VideoFlvUrl { get { return "http://flapi.nicovideo.jp/api/getflv/"; } }
 		public static string VideoThumbInfoUrl { get { return "http://ext.nicovideo.jp/api/getthumbinfo/"; } }
 
 		#endregion

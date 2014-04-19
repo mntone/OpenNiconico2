@@ -15,13 +15,13 @@ namespace Mntone.Nico2.Videos.Flv
 				throw new ArgumentException();
 			}
 
-			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.VideoFlvUrl + "/" + requestID + "?as3=1" ) );
+			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.VideoFlvUrl + requestID + "?as3=1" ) );
 		}
 
 		public static IAsyncOperationWithProgress<string, HttpProgress> GetFlvDataAsync(
 			NiconicoContext context, string requestID, string cKey )
 		{
-			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.VideoFlvUrl + "/" + requestID + "?as3=1&ckey=" + cKey ) );
+			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.VideoFlvUrl + requestID + "?as3=1&ckey=" + cKey ) );
 		}
 
 		public static FlvResponse ParseFlvData( string flvData )

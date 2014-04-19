@@ -16,6 +16,7 @@ namespace Mntone.Nico2.Videos.Flv
 			ReportUrl = wwwFormData["link"].ToUri();
 			CommentServerUrl = wwwFormData["ms"].ToUri();
 			SubCommentServerUrl = wwwFormData["ms_sub"].ToUri();
+			IsDeleted = wwwFormData.ContainsKey( "deleted" ) ? wwwFormData["deleted"].ToUShort() != 0 : false;
 			UserId = wwwFormData["user_id"].ToUInt();
 			IsPremium = wwwFormData["is_premium"].ToBooleanFrom1();
 			UserName = wwwFormData["nickname"];
@@ -61,12 +62,17 @@ namespace Mntone.Nico2.Videos.Flv
 		public Uri SubCommentServerUrl { get; private set; }
 
 		/// <summary>
+		/// 削除されたか
+		/// </summary>
+		public bool IsDeleted { get; private set; }
+
+		/// <summary>
 		/// ユーザー ID
 		/// </summary>
 		public uint UserId { get; private set; }
 
 		/// <summary>
-		/// プレミアム会員かどうか
+		/// プレミアム会員か
 		/// </summary>
 		public bool IsPremium { get; private set; }
 

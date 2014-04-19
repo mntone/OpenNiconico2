@@ -26,6 +26,7 @@ namespace Mntone.Nico2.Test.Videos
 			Assert.AreEqual( "http://www.smilevideo.jp/view/9/20929324", ret.ReportUrl.ToString() );
 			Assert.AreEqual( "http://msg.nicovideo.jp/10/api/", ret.CommentServerUrl.ToString() );
 			Assert.AreEqual( "http://sub.msg.nicovideo.jp/10/api/", ret.SubCommentServerUrl.ToString() );
+			Assert.IsFalse( ret.IsDeleted );
 
 			Assert.AreEqual( 20929324u, ret.UserId );
 			Assert.IsTrue( ret.IsPremium );
@@ -42,7 +43,33 @@ namespace Mntone.Nico2.Test.Videos
 		}
 
 		[TestMethod]
-		public void Flv_2エラーデータ()
+		public void Flv_2削除データ()
+		{
+			var ret = FlvClient.ParseFlvData( TestHelper.Load( @"Videos/Flv/delete.txt" ) );
+			Assert.AreEqual( 1176659997u, ret.ThreadId );
+			Assert.AreEqual( TimeSpan.FromSeconds( 0 ), ret.Length );
+			Assert.AreEqual( "http://smile-cln21.nicovideo.jp/smile?m=19668547.66392", ret.VideoUrl.ToString() );
+			Assert.AreEqual( "http://www.smilevideo.jp/view/8/20929324", ret.ReportUrl.ToString() );
+			Assert.AreEqual( "http://msg.nicovideo.jp/7/api/", ret.CommentServerUrl.ToString() );
+			Assert.AreEqual( "http://sub.msg.nicovideo.jp/7/api/", ret.SubCommentServerUrl.ToString() );
+			Assert.IsTrue( ret.IsDeleted );
+
+			Assert.AreEqual( 20929324u, ret.UserId );
+			Assert.IsTrue( ret.IsPremium );
+			Assert.AreEqual( "ℳກ੮ວܬ୧", ret.UserName );
+
+			Assert.AreEqual( "2014-01-28T23:14:54", ret.LoadedAt.ToUniversalTime().ToString( "s" ) );
+
+			Assert.IsTrue( ret.Done );
+			Assert.AreEqual( 101u, ret.NgRv );
+
+			Assert.AreEqual( "http://hiroba.nicovideo.jp:2536/", ret.AppsUrl.ToString() );
+			Assert.AreEqual( 120u, ret.AppsT );
+			Assert.AreEqual( "1390950954.cKivrN_GX-eojwaYCp_TinG9nVQ", ret.AppsTicket );
+		}
+
+		[TestMethod]
+		public void Flv_3エラーデータ()
 		{
 			Assert.ThrowsException<Exception>( () =>
 				{
