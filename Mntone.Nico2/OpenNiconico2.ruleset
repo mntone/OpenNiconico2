@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="Microsoft マネージ推奨規則 のコピー" Description="これらの規則は、セキュリティ ホール、アプリケーション クラッシュ、その他の重要な論理エラーやデザイン エラーなど、コードに含まれる最も重要な問題に関するものです。プロジェクトにカスタムの規則セットを作成する場合は、必ずこの規則セットを含める必要があります。" ToolsVersion="12.0">
+<RuleSet Name="OpenNiconico2 規則 (Microsoft マネージ推奨規則よりコピー)" Description="OpenNiconico2 用にカスタマイズされた規則セットです" ToolsVersion="12.0">
   <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
     <Rule Id="CA1001" Action="Warning" />
     <Rule Id="CA1009" Action="Warning" />
@@ -26,6 +26,7 @@
     <Rule Id="CA1716" Action="Warning" />
     <Rule Id="CA1719" Action="Warning" />
     <Rule Id="CA1722" Action="Warning" />
+    <Rule Id="CA1726" Action="Warning" />
     <Rule Id="CA1821" Action="Warning" />
     <Rule Id="CA1900" Action="Warning" />
     <Rule Id="CA1901" Action="Warning" />
@@ -59,11 +60,13 @@
     <Rule Id="CA2212" Action="Warning" />
     <Rule Id="CA2213" Action="Warning" />
     <Rule Id="CA2214" Action="Warning" />
+    <Rule Id="CA2215" Action="Warning" />
     <Rule Id="CA2216" Action="Warning" />
     <Rule Id="CA2220" Action="Warning" />
     <Rule Id="CA2229" Action="Warning" />
     <Rule Id="CA2231" Action="Warning" />
     <Rule Id="CA2232" Action="Warning" />
+    <Rule Id="CA2234" Action="Warning" />
     <Rule Id="CA2235" Action="Warning" />
     <Rule Id="CA2236" Action="Warning" />
     <Rule Id="CA2237" Action="Warning" />

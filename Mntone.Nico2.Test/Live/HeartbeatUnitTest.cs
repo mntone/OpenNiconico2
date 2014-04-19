@@ -59,7 +59,7 @@ namespace Mntone.Nico2.Test.Live
 		}
 
 		[TestMethod]
-		public void Heartbeat_5エラーデータ_ログインしていない()
+		public void Heartbeat_5エラーデータ_ログオンしていない()
 		{
 			try
 			{

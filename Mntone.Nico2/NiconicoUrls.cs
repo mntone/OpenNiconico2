@@ -19,8 +19,8 @@ namespace Mntone.Nico2
 
 		#region Authentication
 
-		public static string LoginUrl { get { return "https://secure.nicovideo.jp/secure/login?site=niconico"; } }
-		public static string LogoutUrl { get { return "https://secure.nicovideo.jp/secure/logout"; } }
+		public static string LogOnUrl { get { return "https://secure.nicovideo.jp/secure/LogOn?site=niconico"; } }
+		public static string LogOffUrl { get { return "https://secure.nicovideo.jp/secure/LogOff"; } }
 
 		#endregion
 

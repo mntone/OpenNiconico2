@@ -2,7 +2,7 @@
 namespace Mntone.Nico2
 {
 	/// <summary>
-	/// ニコニコのログイン トークンを管理します
+	/// ニコニコのログオン トークンを管理します
 	/// </summary>
 	public sealed class NiconicoAuthenticationToken
 	{

@@ -25,7 +25,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\Mntone.Nico2.xml</DocumentationFile>
-    <CodeAnalysisRuleSet>..\OpenNiconico2.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>OpenNiconico2.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -36,6 +36,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\Mntone.Nico2.xml</DocumentationFile>
     <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>OpenNiconico2.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->

@@ -15,7 +15,7 @@ namespace Mntone.Nico2.Dictionaries
 		}
 
 		/// <summary>
-		/// [非ログイン可] 非同期操作として大百科に単語記事が存在するかを確認します
+		/// [非ログオン可] 非同期操作として大百科に単語記事が存在するかを確認します
 		/// </summary>
 		/// <param name="targetWord">目的の単語</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
@@ -25,7 +25,7 @@ namespace Mntone.Nico2.Dictionaries
 		}
 
 		/// <summary>
-		/// [非ログイン可] 非同期操作として大百科に単語記事の概要を要求します
+		/// [非ログオン可] 非同期操作として大百科に単語記事の概要を要求します
 		/// </summary>
 		/// <param name="targetWord">目的の単語</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
@@ -35,7 +35,7 @@ namespace Mntone.Nico2.Dictionaries
 		}
 
 		/// <summary>
-		/// [非ログイン可] 非同期操作として大百科の指定したカテゴリーに単語が存在するかを確認します
+		/// [非ログオン可] 非同期操作として大百科の指定したカテゴリーに単語が存在するかを確認します
 		/// </summary>
 		/// <param name="targetCategory">目的のカテゴリー</param>
 		/// <param name="targetWord">目的の単語</param>
@@ -46,7 +46,7 @@ namespace Mntone.Nico2.Dictionaries
 		}
 
 		/// <summary>
-		/// [非ログイン可] 非同期操作として大百科に最近登録された単語の一覧を取得します
+		/// [非ログオン可] 非同期操作として大百科に最近登録された単語の一覧を取得します
 		/// </summary>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 		public IAsyncOperation<Recent.RecentResponse> GetRecentAsync()

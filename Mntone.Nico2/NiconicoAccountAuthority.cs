@@ -2,22 +2,22 @@
 namespace Mntone.Nico2
 {
 	/// <summary>
-	/// ニコニコのログイン フラグ
+	/// ニコニコのログオン フラグ
 	/// </summary>
 	public enum NiconicoAccountAuthority
 	{
 		/// <summary>
-		/// ログインしていない
+		/// ログオンしていない
 		/// </summary>
-		NotLoggedIn = 0,
+		NotLoggedOn = 0,
 
 		/// <summary>
-		/// 一般会員でログインしている
+		/// 一般会員でログオンしている
 		/// </summary>
 		Normal = 1,
 
 		/// <summary>
-		/// プレミアム会員でログインしている
+		/// プレミアム会員でログオンしている
 		/// </summary>
 		Premium = 3,
 	}

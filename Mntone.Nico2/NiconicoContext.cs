@@ -27,7 +27,7 @@ namespace Mntone.Nico2
 		/// コンストラクター
 		/// </summary>
 		/// <param name="token">認証トークン</param>
-		/// <param name="session">ログイン セッション</param>
+		/// <param name="session">ログオン セッション</param>
 		public NiconicoContext( NiconicoAuthenticationToken token, NiconicoSession session )
 			: this( token )
 		{
@@ -58,10 +58,10 @@ namespace Mntone.Nico2
 		}
 
 		/// <summary>
-		/// 非同期操作としてログイン要求を送信します。ログイン完了後、ログインが正常にできているかをチェックし、その状態をセッションに記録します。
+		/// 非同期操作としてログオン要求を送信します。ログオン完了後、ログオンが正常にできているかをチェックし、その状態をセッションに記録します。
 		/// </summary>
 		/// <returns>非同期操作を表すオブジェクト</returns>
-		public IAsyncOperation<bool> LogInAsync()
+		public IAsyncOperation<bool> LogOnAsync()
 		{
 			return Task.Run( async () =>
 			{
@@ -69,21 +69,21 @@ namespace Mntone.Nico2
 				request.Add( MailTelName, this.AuthenticationToken.MailOrTelephone );
 				request.Add( PasswordName, this.AuthenticationToken.Password );
 
-				await this.GetClient().PostAsync( new Uri( NiconicoUrls.LoginUrl ), new HttpFormUrlEncodedContent( request ) ).AsTask().ConfigureAwait( false );
-				return await this._GetIsLoggedInAsync().ConfigureAwait( false );
+				await this.GetClient().PostAsync( new Uri( NiconicoUrls.LogOnUrl ), new HttpFormUrlEncodedContent( request ) ).AsTask().ConfigureAwait( false );
+				return await this._GetIsLoggedOnAsync().ConfigureAwait( false );
 			} ).AsAsyncOperation();
 		}
 
 		/// <summary>
-		/// 非同期操作としてログイン確認のための要求を送信します。ログインが正常にできている場合、その状態をセッションに記録します。
+		/// 非同期操作としてログオン確認のための要求を送信します。ログオンが正常にできている場合、その状態をセッションに記録します。
 		/// </summary>
 		/// <returns>非同期操作を表すオブジェクト</returns>
-		public IAsyncOperation<bool> GetIsLoggedInAsync()
+		public IAsyncOperation<bool> GetIsLoggedOnAsync()
 		{
-			return this._GetIsLoggedInAsync().AsAsyncOperation();
+			return this._GetIsLoggedOnAsync().AsAsyncOperation();
 		}
 
-		internal Task<bool> _GetIsLoggedInAsync()
+		internal Task<bool> _GetIsLoggedOnAsync()
 		{
 			return Task.Run( async () =>
 			{
@@ -92,7 +92,7 @@ namespace Mntone.Nico2
 				try
 				{
 					this.CurrentSession.AccountAuthority = ( NiconicoAccountAuthority )int.Parse( response.Headers[XNiconicoAuthflag] );
-					if( this.CurrentSession.AccountAuthority != NiconicoAccountAuthority.NotLoggedIn )
+					if( this.CurrentSession.AccountAuthority != NiconicoAccountAuthority.NotLoggedOn )
 					{
 						this.CurrentSession.UserId = uint.Parse( response.Headers[XNiconicoId] );
 
@@ -119,16 +119,16 @@ namespace Mntone.Nico2
 		}
 
 		/// <summary>
-		/// 非同期操作としてログアウト要求を送信します
+		/// 非同期操作としてログオフ要求を送信します
 		/// </summary>
 		/// <returns>非同期操作を表すオブジェクト</returns>
-		public IAsyncOperation<bool> LogOutAsync()
+		public IAsyncOperation<bool> LogOffAsync()
 		{
 			return Task.Run( async () =>
 			{
-				await this.GetClient().HeadAsync( new Uri( NiconicoUrls.LogoutUrl ) ).AsTask().ConfigureAwait( false );
+				await this.GetClient().HeadAsync( new Uri( NiconicoUrls.LogOffUrl ) ).AsTask().ConfigureAwait( false );
 				this.CurrentSession = null;
-				return await this._GetIsLoggedInAsync().ConfigureAwait( false );
+				return await this._GetIsLoggedOnAsync().ConfigureAwait( false );
 			} ).AsAsyncOperation();
 		}
 
