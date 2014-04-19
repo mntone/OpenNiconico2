@@ -39,7 +39,7 @@ namespace Mntone.Nico2
 		/// </summary>
 		public void Dispose()
 		{
-			this.DisposeImpl();	
+			this.DisposeImpl();
 		}
 
 		private void DisposeImpl()
@@ -197,14 +197,7 @@ namespace Mntone.Nico2
 		/// </summary>
 		public Videos.VideoApi Video
 		{
-			get
-			{
-				if( this._Video == null )
-				{
-					this._Video = new Videos.VideoApi( this );
-				}
-				return this._Video;
-			}
+			get { return this._Video ?? ( this._Video = new Videos.VideoApi( this ) ); }
 		}
 		private Videos.VideoApi _Video = null;
 
@@ -213,14 +206,7 @@ namespace Mntone.Nico2
 		/// </summary>
 		public Live.LiveApi Live
 		{
-			get
-			{
-				if( this._Live == null )
-				{
-					this._Live = new Live.LiveApi( this );
-				}
-				return this._Live;
-			}
+			get { return this._Live ?? ( this._Live = new Live.LiveApi( this ) ); }
 		}
 		private Live.LiveApi _Live = null;
 
@@ -229,14 +215,7 @@ namespace Mntone.Nico2
 		/// </summary>
 		public Images.ImageApi Image
 		{
-			get
-			{
-				if( this._Image == null )
-				{
-					this._Image = new Images.ImageApi( this );
-				}
-				return this._Image;
-			}
+			get { return this._Image ?? ( this._Image = new Images.ImageApi( this ) ); }
 		}
 		private Images.ImageApi _Image = null;
 
@@ -245,14 +224,7 @@ namespace Mntone.Nico2
 		/// </summary>
 		public Searches.SearchApi Search
 		{
-			get
-			{
-				if( this._Search == null )
-				{
-					this._Search = new Searches.SearchApi( this );
-				}
-				return this._Search;
-			}
+			get { return this._Search ?? ( this._Search = new Searches.SearchApi( this ) ); }
 		}
 		private Searches.SearchApi _Search = null;
 
@@ -261,14 +233,7 @@ namespace Mntone.Nico2
 		/// </summary>
 		public Dictionaries.DictionaryApi Dictionary
 		{
-			get
-			{
-				if( this._Dictionary == null )
-				{
-					this._Dictionary = new Dictionaries.DictionaryApi( this );
-				}
-				return this._Dictionary;
-			}
+			get { return this._Dictionary ?? ( this._Dictionary = new Dictionaries.DictionaryApi( this ) ); }
 		}
 		private Dictionaries.DictionaryApi _Dictionary = null;
 
