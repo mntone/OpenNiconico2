@@ -21,8 +21,6 @@ Global
 		{01E2D35F-B23C-4667-BBA6-FB896895CC9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01E2D35F-B23C-4667-BBA6-FB896895CC9E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{01E2D35F-B23C-4667-BBA6-FB896895CC9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{01E2D35F-B23C-4667-BBA6-FB896895CC9E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{01E2D35F-B23C-4667-BBA6-FB896895CC9E}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

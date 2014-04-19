@@ -50,12 +50,12 @@ namespace Mntone.Nico2
 		/// <summary>
 		/// ユーザー権限
 		/// </summary>
-		public NiconicoAccountAuthority AuthenticationFlag
+		public NiconicoAccountAuthority AccountAuthority
 		{
-			get { return this._AuthenticationFlag; }
-			internal set { this._AuthenticationFlag = value; }
+			get { return this._AccountAuthority; }
+			internal set { this._AccountAuthority = value; }
 		}
-		private NiconicoAccountAuthority _AuthenticationFlag = NiconicoAccountAuthority.NotLoggedIn;
+		private NiconicoAccountAuthority _AccountAuthority = NiconicoAccountAuthority.NotLoggedIn;
 
 		/// <summary>
 		/// ユーザー ID

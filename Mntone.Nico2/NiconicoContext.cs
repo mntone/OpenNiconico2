@@ -61,7 +61,7 @@ namespace Mntone.Nico2
 		/// 非同期操作としてログイン要求を送信します。ログイン完了後、ログインが正常にできているかをチェックし、その状態をセッションに記録します。
 		/// </summary>
 		/// <returns>非同期操作を表すオブジェクト</returns>
-		public IAsyncOperation<bool> LoginAsync()
+		public IAsyncOperation<bool> LogInAsync()
 		{
 			return Task.Run( async () =>
 			{
@@ -91,8 +91,8 @@ namespace Mntone.Nico2
 
 				try
 				{
-					this.CurrentSession.AuthenticationFlag = ( NiconicoAccountAuthority )int.Parse( response.Headers[XNiconicoAuthflag] );
-					if( this.CurrentSession.AuthenticationFlag != NiconicoAccountAuthority.NotLoggedIn )
+					this.CurrentSession.AccountAuthority = ( NiconicoAccountAuthority )int.Parse( response.Headers[XNiconicoAuthflag] );
+					if( this.CurrentSession.AccountAuthority != NiconicoAccountAuthority.NotLoggedIn )
 					{
 						this.CurrentSession.UserId = uint.Parse( response.Headers[XNiconicoId] );
 
@@ -122,7 +122,7 @@ namespace Mntone.Nico2
 		/// 非同期操作としてログアウト要求を送信します
 		/// </summary>
 		/// <returns>非同期操作を表すオブジェクト</returns>
-		public IAsyncOperation<bool> LogoutAsync()
+		public IAsyncOperation<bool> LogOutAsync()
 		{
 			return Task.Run( async () =>
 			{

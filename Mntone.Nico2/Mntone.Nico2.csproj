@@ -25,6 +25,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\Mntone.Nico2.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>..\OpenNiconico2.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -34,9 +35,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\Mntone.Nico2.xml</DocumentationFile>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
+    <None Include="OpenNiconico2.ruleset" />
   </ItemGroup>
   <ItemGroup>
     <TargetPlatform Include="WindowsPhoneApp, Version=8.1" />
@@ -72,11 +75,13 @@
     <Compile Include="Videos\Flv\FlvResponse.cs" />
     <Compile Include="Videos\Flv\FlvClient.cs" />
     <Compile Include="Videos\Thumbnail\MovieType.cs" />
+    <Compile Include="Videos\Thumbnail\MovieTypeExtensions.cs" />
     <Compile Include="Videos\Thumbnail\Tag.cs" />
     <Compile Include="Videos\Thumbnail\Tags.cs" />
     <Compile Include="Videos\Thumbnail\ThumbnailClient.cs" />
     <Compile Include="Videos\Thumbnail\ThumbnailResponse.cs" />
     <Compile Include="Videos\Thumbnail\ThumbnailType.cs" />
+    <Compile Include="Videos\Thumbnail\ThumbnailTypeExtensions.cs" />
     <Compile Include="Videos\Thumbnail\UserType.cs" />
     <Compile Include="Videos\VideoApi.cs" />
     <Compile Include="XmlDocumentExtensions.cs" />

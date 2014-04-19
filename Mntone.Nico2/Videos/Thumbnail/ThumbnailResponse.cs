@@ -17,15 +17,7 @@ namespace Mntone.Nico2.Videos.Thumbnail
 			ThumbnailUrl = thumbXml.GetNamedChildNode( "thumbnail_url" ).InnerText.ToUri();
 			PostedAt = thumbXml.GetNamedChildNode( "first_retrieve" ).InnerText.ToDateTimeOffsetFromIso8601();
 			Length = thumbXml.GetNamedChildNode( "length" ).InnerText.ToTimeSpan();
-
-			switch( thumbXml.GetNamedChildNode( "movie_type" ).InnerText )
-			{
-			case "flv": MovieType = MovieType.Flv; break;
-			case "mp4": MovieType = MovieType.Mp4; break;
-			case "swf": MovieType = MovieType.Swf; break;
-			default: throw new ArgumentException();
-			}
-
+			MovieType = thumbXml.GetNamedChildNode( "movie_type" ).InnerText.ToMovieType();
 			SizeHigh = thumbXml.GetNamedChildNode( "size_high" ).InnerText.ToULong();
 			SizeLow = thumbXml.GetNamedChildNode( "size_low" ).InnerText.ToULong();
 			ViewCount = thumbXml.GetNamedChildNode( "view_counter" ).InnerText.ToUInt();
@@ -33,14 +25,7 @@ namespace Mntone.Nico2.Videos.Thumbnail
 			MylistCount = thumbXml.GetNamedChildNode( "mylist_counter" ).InnerText.ToUInt();
 			LastCommentBody = thumbXml.GetNamedChildNode( "last_res_body" ).InnerText;
 			WatchUrl = thumbXml.GetNamedChildNode( "watch_url" ).InnerText.ToUri();
-
-			switch( thumbXml.GetNamedChildNode( "thumb_type" ).InnerText )
-			{
-			case "video": ThumbnailType = ThumbnailType.Video; break;
-			case "mymemory": ThumbnailType = ThumbnailType.MyMemory; break;
-			default: throw new ArgumentException();
-			}
-
+			ThumbnailType = thumbXml.GetNamedChildNode( "thumb_type" ).InnerText.ToThumbnailType();
 			Embeddable = thumbXml.GetNamedChildNode( "embeddable" ).InnerText.ToBooleanFrom1();
 			NoLivePlay = thumbXml.GetNamedChildNode( "no_live_play" ).InnerText.ToBooleanFrom1();
 
