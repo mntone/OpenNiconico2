@@ -58,7 +58,17 @@
     <Compile Include="Dictionaries\Summary\SummaryResponse.cs" />
     <Compile Include="Dictionaries\WordExist\WordExistClient.cs" />
     <Compile Include="HttpClientExtensions.cs" />
+    <Compile Include="Images\Illusts\Category.cs" />
+    <Compile Include="Images\Illusts\Clip\ClipClient.cs" />
+    <Compile Include="Images\Illusts\Clip\ClipResponse.cs" />
+    <Compile Include="Images\Illusts\Clip\Image.cs" />
+    <Compile Include="Images\Illusts\Genre.cs" />
+    <Compile Include="Images\Illusts\IllustsApi.cs" />
     <Compile Include="Images\ImageApi.cs" />
+    <Compile Include="Images\Comment.cs" />
+    <Compile Include="Images\Users\Data\DataClient.cs" />
+    <Compile Include="Images\Users\Data\DataResponse.cs" />
+    <Compile Include="Images\Users\Data\Image.cs" />
     <Compile Include="Images\Users\UserApi.cs" />
     <Compile Include="Images\Users\Info\InfoClient.cs" />
     <Compile Include="Images\Users\Info\InfoResponse.cs" />
@@ -91,7 +101,6 @@
     <Compile Include="XmlDocumentExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\Illusts\" />
     <Folder Include="Images\Themes\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

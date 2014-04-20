@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+	<base_url>http://seiga.nicovideo.jp/</base_url>
+	<icon_url>http://seiga.nicovideo.jp/clip/2</icon_url>
+	<image_url>http://lohas.nicoseiga.jp/</image_url>
+	<image_list>
+		<image />
+	</image_list>
+</response>

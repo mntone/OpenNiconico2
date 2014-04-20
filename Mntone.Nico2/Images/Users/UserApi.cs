@@ -22,6 +22,16 @@ namespace Mntone.Nico2.Images.Users
 			return Info.InfoClient.GetInfoAsync( _context, requestUserID );
 		}
 
+		/// <summary>
+		/// 非同期操作として user/data を取得します
+		/// </summary>
+		/// <param name="requestUserID">目的のユーザー ID</param>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+		public IAsyncOperation<Data.DataResponse> GetDataAsync( uint requestUserID )
+		{
+			return Data.DataClient.GetDataAsync( _context, requestUserID );
+		}
+
 
 		#region field
 

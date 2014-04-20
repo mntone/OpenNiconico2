@@ -51,6 +51,8 @@
     <Compile Include="Dictionaries\RecentUnitTest.cs" />
     <Compile Include="Dictionaries\ExistUnitTest.cs" />
     <Compile Include="Dictionaries\WordExistUnitTest.cs" />
+    <Compile Include="Images\IllustClipUnitTest.cs" />
+    <Compile Include="Images\UserDataUnitTest.cs" />
     <Compile Include="Images\UserInfoUnitTest.cs" />
     <Compile Include="Live\CKeyUnitTest.cs" />
     <Compile Include="Live\HeartbeatUnitTest.cs" />
@@ -111,6 +113,18 @@
     <None Include="TestData\Dictionaries\WordExist\error.jsonp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="TestData\Images\Illusts\Clip\default.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Images\Illusts\Clip\zero.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Images\Users\Data\default.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Images\Users\Data\zero.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="TestData\Images\Users\Info\default.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

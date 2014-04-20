@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+	<base_url>http://seiga.nicovideo.jp/</base_url>
+	<icon_url>http://seiga.nicovideo.jp/clip/565392</icon_url>
+	<image_url>http://lohas.nicoseiga.jp/</image_url>
+	<image_list>
+		<image>
+			<id>2032391</id>
+			<cache_time />
+			<title>【MMD-OMF2】D.Gray-man　クロウリー</title>
+			<nickname>とらみ</nickname>
+		</image>
+		<image>
+			<id>2032390</id>
+			<cache_time />
+			<title>【MMD-OMF2】加湿器的なもの</title>
+			<nickname>過給機24</nickname>
+		</image>
+		<image>
+			<id>2032386</id>
+			<cache_time />
+			<title>【MMD-OMF2】ねんどろ風けいおんモデル(3/3)</title>
+			<nickname>くろぱん</nickname>
+		</image>
+	</image_list>
+</response>

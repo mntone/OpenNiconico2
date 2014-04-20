@@ -12,7 +12,7 @@ namespace Mntone.Nico2.Dictionaries.Recent
 		{ }
 
 		/// <summary>
-		/// 単語のカテゴリー
+		/// カテゴリー
 		/// </summary>
 		public Category Category { get; private set; }
 
@@ -24,19 +24,19 @@ namespace Mntone.Nico2.Dictionaries.Recent
 		}
 
 		/// <summary>
-		/// 単語の題名
+		/// 題名
 		/// </summary>
 		[DataMember( Name = "title" )]
 		public string Title { get; private set; }
 
 		/// <summary>
-		/// 単語の表示名
+		/// 表示名
 		/// </summary>
 		[DataMember( Name = "view_title" )]
 		public string ViewTitle { get; private set; }
 
 		/// <summary>
-		/// 単語の概要
+		/// 概要
 		/// </summary>
 		[DataMember( Name = "summary" )]
 		public string Summary { get; private set; }

@@ -15,7 +15,16 @@ namespace Mntone.Nico2.Images
 		#region property (and related field)
 
 		/// <summary>
-		/// ニコニコ動画のユーザー API 群
+		/// ニコニコ静画のイラスト API 群
+		/// </summary>
+		public Illusts.IllustApi Illust
+		{
+			get { return this._Illust ?? ( this._Illust = new Illusts.IllustApi( _context ) ); }
+		}
+		private Illusts.IllustApi _Illust = null;
+
+		/// <summary>
+		/// ニコニコ静画のユーザー API 群
 		/// </summary>
 		public Users.UserApi User
 		{
