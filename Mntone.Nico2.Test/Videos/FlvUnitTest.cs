@@ -32,7 +32,7 @@ namespace Mntone.Nico2.Test.Videos
 			Assert.IsTrue( ret.IsPremium );
 			Assert.AreEqual( "ℳກ੮ວܬ୧", ret.UserName );
 
-			Assert.AreEqual( "2014-04-17T03:13:06", ret.LoadedAt.ToUniversalTime().ToString( "s" ) );
+			Assert.AreEqual( new DateTimeOffset( 2014, 4, 17, 12, 13, 6, 129, TimeSpan.FromHours( 9 ) ), ret.LoadedAt );
 
 			Assert.IsTrue( ret.Done );
 			Assert.AreEqual( 106u, ret.NgRv );
@@ -58,7 +58,7 @@ namespace Mntone.Nico2.Test.Videos
 			Assert.IsTrue( ret.IsPremium );
 			Assert.AreEqual( "ℳກ੮ວܬ୧", ret.UserName );
 
-			Assert.AreEqual( "2014-01-28T23:14:54", ret.LoadedAt.ToUniversalTime().ToString( "s" ) );
+			Assert.AreEqual( new DateTimeOffset( 2014, 1, 29, 8, 14, 54, 411, TimeSpan.FromHours( 9 ) ), ret.LoadedAt );
 
 			Assert.IsTrue( ret.Done );
 			Assert.AreEqual( 101u, ret.NgRv );
