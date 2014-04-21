@@ -17,6 +17,12 @@ namespace Mntone.Nico2
 		/// <summary>
 		/// コンストラクター
 		/// </summary>
+		public NiconicoContext()
+		{ }
+
+		/// <summary>
+		/// コンストラクター
+		/// </summary>
 		/// <param name="token">認証トークン</param>
 		public NiconicoContext( NiconicoAuthenticationToken token )
 		{
