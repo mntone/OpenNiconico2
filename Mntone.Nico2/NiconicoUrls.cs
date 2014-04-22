@@ -72,10 +72,10 @@ namespace Mntone.Nico2
 		private const string DictionaryApiUrlBase = "http://api.nicodic.jp/";
 
 		public static string DictionaryTopUrl { get { return DictionaryUrlBase; } }
-		public static string DictionaryWordExistUrl { get { return DictionaryApiUrlBase + "e/z/"; } }
-		public static string DictionarySummarytUrl { get { return DictionaryApiUrlBase + "page.summary/z/a/"; } }
-		public static string DictionaryExistUrl { get { return DictionaryApiUrlBase + "page.exist/z/"; } }
-		public static string DictionaryRecentUrl { get { return DictionaryApiUrlBase + "page.created/z"; } }
+		public static string DictionaryWordExistUrl { get { return DictionaryApiUrlBase + "e/json/"; } }
+		public static string DictionarySummarytUrl { get { return DictionaryApiUrlBase + "page.summary/json/a/"; } }
+		public static string DictionaryExistUrl { get { return DictionaryApiUrlBase + "page.exist/json/"; } }
+		public static string DictionaryRecentUrl { get { return DictionaryApiUrlBase + "page.created/json"; } }
 
 		#endregion
 	}

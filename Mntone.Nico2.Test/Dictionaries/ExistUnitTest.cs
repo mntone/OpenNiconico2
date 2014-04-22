@@ -9,14 +9,14 @@ namespace Mntone.Nico2.Test.Dictionaries
 		[TestMethod]
 		public void Exist_0通常データ()
 		{
-			var ret = ExistClient.ParseExistData( TestHelper.Load( @"Dictionaries/Exist/default.jsonp" ) );
+			var ret = ExistClient.ParseExistData( TestHelper.Load( @"Dictionaries/Exist/default.json" ) );
 			Assert.IsTrue( ret );
 		}
 
 		[TestMethod]
 		public void Exist_1エラーデータ()
 		{
-			var ret = ExistClient.ParseExistData( TestHelper.Load( @"Dictionaries/Exist/error.jsonp" ) );
+			var ret = ExistClient.ParseExistData( TestHelper.Load( @"Dictionaries/Exist/error.json" ) );
 			Assert.IsFalse( ret );
 		}
 	}

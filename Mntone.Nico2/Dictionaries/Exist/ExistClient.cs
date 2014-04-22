@@ -15,11 +15,7 @@ namespace Mntone.Nico2.Dictionaries.Exist
 
 		public static bool ParseExistData( string existData )
 		{
-			if( existData.Length == 5 && existData.StartsWith( "z(" ) && existData.EndsWith( ");" ) )
-			{
-				return existData.Substring( 2, 1 ).ToBooleanFrom1();
-			}
-			throw new Exception( "Parse Error" );
+			return existData.ToBooleanFrom1();
 		}
 
 		public static IAsyncOperation<bool> ExistAsync( NiconicoContext context, Category targetCategory, string targetWord )

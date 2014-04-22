@@ -13,11 +13,7 @@ namespace Mntone.Nico2.Dictionaries.WordExist
 
 		public static bool ParseWordExistData( string wordExistData )
 		{
-			if( wordExistData.Length == 7 && wordExistData.StartsWith( "z([" ) && wordExistData.EndsWith( "]);" ) )
-			{
-				return wordExistData.Substring( 3, 1 ).ToBooleanFrom1();
-			}
-			throw new Exception( "Parse Error" );
+			return wordExistData.Substring( 1, 1 ).ToBooleanFrom1();
 		}
 
 		public static IAsyncOperation<bool> WordExistAsync( NiconicoContext context, string targetWord )

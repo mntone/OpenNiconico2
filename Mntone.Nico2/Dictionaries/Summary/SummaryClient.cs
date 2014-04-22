@@ -16,16 +16,9 @@ namespace Mntone.Nico2.Dictionaries.Summary
 
 		public static SummaryResponse ParseSummaryData( string summaryData )
 		{
-			if( summaryData.Length > 7 && summaryData.StartsWith( "z({" ) && summaryData.EndsWith( "});" ) )
+			using( var ms = new MemoryStream( Encoding.Unicode.GetBytes( summaryData ) ) )
 			{
-				using( var ms = new MemoryStream( Encoding.Unicode.GetBytes( summaryData.Substring( 2, summaryData.Length - 4 ) ) ) )
-				{
-					return ( SummaryResponse )new DataContractJsonSerializer( typeof( SummaryResponse ) ).ReadObject( ms );
-				}
-			}
-			else if( summaryData == "z(null);" )
-			{
-				return null;
+				return ( SummaryResponse )new DataContractJsonSerializer( typeof( SummaryResponse ) ).ReadObject( ms );
 			}
 			throw new Exception( "Parse Error" );
 		}

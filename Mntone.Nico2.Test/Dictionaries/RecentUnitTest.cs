@@ -10,7 +10,7 @@ namespace Mntone.Nico2.Test.Dictionaries
 		[TestMethod]
 		public void Recent_0通常データ()
 		{
-			var ret = RecentClient.ParseRecentData( TestHelper.Load( @"Dictionaries/Recent/default.jsonp" ) );
+			var ret = RecentClient.ParseRecentData( TestHelper.Load( @"Dictionaries/Recent/default.json" ) );
 
 			Assert.AreEqual( 5, ret.Words.Count );
 

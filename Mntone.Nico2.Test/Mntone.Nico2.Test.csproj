@@ -71,19 +71,19 @@
     </AppxManifest>
     <None Include="Mntone.Nico2.Test_TemporaryKey.pfx" />
     <None Include="packages.config" />
-    <None Include="TestData\Dictionaries\Exist\default.jsonp">
+    <None Include="TestData\Dictionaries\Exist\default.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\Dictionaries\Exist\error.jsonp">
+    <None Include="TestData\Dictionaries\Exist\error.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\Dictionaries\Recent\default.jsonp">
+    <None Include="TestData\Dictionaries\Recent\default.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\Dictionaries\Summary\default.jsonp">
+    <None Include="TestData\Dictionaries\Summary\default.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\Dictionaries\Summary\null.jsonp">
+    <None Include="TestData\Dictionaries\Summary\null.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="TestData\Live\OnAirStreams\default.json">
@@ -115,10 +115,10 @@
     <Content Include="Images\UnitTestStoreLogo.scale-100.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="TestData\Dictionaries\WordExist\default.jsonp">
+    <None Include="TestData\Dictionaries\WordExist\default.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\Dictionaries\WordExist\error.jsonp">
+    <None Include="TestData\Dictionaries\WordExist\error.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="TestData\Images\Illusts\Clip\default.xml">

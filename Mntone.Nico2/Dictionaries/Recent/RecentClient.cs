@@ -16,12 +16,9 @@ namespace Mntone.Nico2.Dictionaries.Recent
 
 		public static RecentResponse ParseRecentData( string summaryData )
 		{
-			if( summaryData.Length > 7 && summaryData.StartsWith( "z({" ) && summaryData.EndsWith( "});" ) )
+			using( var ms = new MemoryStream( Encoding.Unicode.GetBytes( summaryData ) ) )
 			{
-				using( var ms = new MemoryStream( Encoding.Unicode.GetBytes( summaryData.Substring( 2, summaryData.Length - 4 ) ) ) )
-				{
-					return ( RecentResponse )new DataContractJsonSerializer( typeof( RecentResponse ) ).ReadObject( ms );
-				}
+				return ( RecentResponse )new DataContractJsonSerializer( typeof( RecentResponse ) ).ReadObject( ms );
 			}
 			throw new Exception( "Parse Error" );
 		}
