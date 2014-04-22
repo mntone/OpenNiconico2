@@ -20,9 +20,9 @@ namespace Mntone.Nico2.Images.Illusts.Clip
 		/// </summary>
 		public string ID { get; private set; }
 
-		/// <summary>
-		/// キャッシュ時間 (?)
-		/// </summary>
+		///// <summary>
+		///// キャッシュ時間 (?)
+		///// </summary>
 		//public DateTimeOffset CacheTime { get; private set; }
 
 		/// <summary>

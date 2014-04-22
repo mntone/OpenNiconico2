@@ -55,6 +55,7 @@
     <Compile Include="Images\UserDataUnitTest.cs" />
     <Compile Include="Images\UserInfoUnitTest.cs" />
     <Compile Include="Live\CKeyUnitTest.cs" />
+    <Compile Include="Live\OnAirStreamsUnitTest.cs" />
     <Compile Include="Live\HeartbeatUnitTest.cs" />
     <Compile Include="NiconicoAuthenticationTokenUnitTest.cs" />
     <Compile Include="NiconicoSessionUnitTest.cs" />
@@ -69,6 +70,7 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="Mntone.Nico2.Test_TemporaryKey.pfx" />
+    <None Include="packages.config" />
     <None Include="TestData\Dictionaries\Exist\default.jsonp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -82,6 +84,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="TestData\Dictionaries\Summary\null.jsonp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Live\OnAirStreams\default.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Live\OnAirStreams\zero.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="TestData\Searches\Suggestion\default.json">
@@ -183,7 +191,11 @@
       <Name>Mntone.Nico2</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.2\lib\netcore45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>

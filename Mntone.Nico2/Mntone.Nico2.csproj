@@ -76,6 +76,10 @@
     <Compile Include="Live\Heartbeat\HeartbeatResponse.cs" />
     <Compile Include="Live\Heartbeat\HeartbeatClient.cs" />
     <Compile Include="Live\LiveApi.cs" />
+    <Compile Include="Live\OnAirStreams\OnAirStream.cs" />
+    <Compile Include="Live\OnAirStreams\OnAirStreamsClient.cs" />
+    <Compile Include="Live\OnAirStreams\OnAirStreamsResponse.cs" />
+    <Compile Include="Live\OnAirStreams\ReservedStream.cs" />
     <Compile Include="NiconicoAccountAuthority.cs" />
     <Compile Include="NiconicoAuthenticationToken.cs" />
     <Compile Include="NiconicoContext.cs" />

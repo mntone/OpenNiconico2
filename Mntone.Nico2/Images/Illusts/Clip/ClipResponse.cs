@@ -12,9 +12,13 @@ namespace Mntone.Nico2.Images.Illusts.Clip
 	{
 		internal ClipResponse( IXmlNode responseXml )
 		{
-			//BaseUrl = responseXml.GetNamedChildNode( "base_url" ).InnerText.ToUri();
+#if DEBUG
+			BaseUrl = responseXml.GetNamedChildNode( "base_url" ).InnerText.ToUri();
+#endif
 			PageUrl = responseXml.GetNamedChildNode( "icon_url" ).InnerText.ToUri();
-			//ImageBaseUrl = responseXml.GetNamedChildNode( "image_url" ).InnerText.ToUri();
+#if DEBUG
+			ImageBaseUrl = responseXml.GetNamedChildNode( "image_url" ).InnerText.ToUri();
+#endif
 
 			var imageListXml = responseXml.GetNamedChildNode( "image_list" );
 			if( imageListXml.FirstChild.FirstChild != null )
@@ -27,21 +31,24 @@ namespace Mntone.Nico2.Images.Illusts.Clip
 			}
 		}
 
+#if DEBUG
 		/// <summary>
 		/// ベース URL
 		/// </summary>
-		//public Uri BaseUrl { get; private set; }
+		public Uri BaseUrl { get; private set; }
+#endif
 
 		/// <summary>
 		/// 視聴ページ
 		/// </summary>
 		public Uri PageUrl { get; private set; }
 
+#if DEBUG
 		/// <summary>
 		/// 画像のベース URL
 		/// </summary>
-		//public Uri ImageBaseUrl { get; private set; }
-
+		public Uri ImageBaseUrl { get; private set; }
+#endif
 		/// <summary>
 		/// 画像の一覧
 		/// </summary>

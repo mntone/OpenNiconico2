@@ -10,7 +10,9 @@ namespace Mntone.Nico2.Test.Images
 		public void IllustClip_0通常データ()
 		{
 			var ret = ClipClient.ParseClipData( TestHelper.Load( @"Images/Illusts/Clip/default.xml" ) );
+			Assert.AreEqual( "http://seiga.nicovideo.jp/", ret.BaseUrl.ToString() );
 			Assert.AreEqual( "http://seiga.nicovideo.jp/clip/565392", ret.PageUrl.ToString() );
+			Assert.AreEqual( "http://lohas.nicoseiga.jp/", ret.ImageBaseUrl.ToString() );
 
 			Assert.AreEqual( 3, ret.Images.Count );
 
@@ -31,7 +33,9 @@ namespace Mntone.Nico2.Test.Images
 		public void IllustClip_1エラーデータ()
 		{
 			var ret = ClipClient.ParseClipData( TestHelper.Load( @"Images/Illusts/Clip/zero.xml" ) );
+			Assert.AreEqual( "http://seiga.nicovideo.jp/", ret.BaseUrl.ToString() );
 			Assert.AreEqual( "http://seiga.nicovideo.jp/clip/2", ret.PageUrl.ToString() );
+			Assert.AreEqual( "http://lohas.nicoseiga.jp/", ret.ImageBaseUrl.ToString() );
 			Assert.AreEqual( 0, ret.Images.Count );
 		}
 	}

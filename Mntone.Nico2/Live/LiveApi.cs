@@ -33,6 +33,16 @@ namespace Mntone.Nico2.Live
 			return Heartbeat.HeartbeatClient.HeartbeatAsync( _context, requestID );
 		}
 
+		/// <summary>
+		/// 非同期操作として放送中の番組一覧を取得します
+		/// </summary>
+		/// <param name="pageIndex">目的のページ番号</param>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+		public IAsyncOperation<OnAirStreams.OnAirStreamsResponse> GetOnAirStreamsAsync( ushort pageIndex )
+		{
+			return OnAirStreams.OnAirStreamsClient.GetOnAirStreamsAsync( _context, pageIndex );
+		}
+
 
 		#region field
 

@@ -17,7 +17,7 @@ namespace Mntone.Nico2.Dictionaries.Recent
 		/// </summary>
 		public IReadOnlyList<Word> Words
 		{
-			get { return this._Words ?? ( this._Words = new List<Word>() ); }
+			get { return this._Words; }
 		}
 		private List<Word> _Words = null;
 

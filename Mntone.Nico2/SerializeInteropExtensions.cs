@@ -41,9 +41,19 @@ namespace Mntone.Nico2
 			return ulong.Parse( value );
 		}
 
+		public static long ToLongFromDateTimeOffset( this DateTimeOffset value )
+		{
+			return value.Ticks / 10000000 - 116444736000000000;
+		}
+
 		public static DateTimeOffset ToDateTimeOffsetFromUnixTime( this string value )
 		{
-			return DateTimeOffset.FromFileTime( 10000000 * long.Parse( value ) + 116444736000000000 );
+			return ToDateTimeOffsetFromUnixTime( long.Parse( value ) );
+		}
+
+		public static DateTimeOffset ToDateTimeOffsetFromUnixTime( this long value )
+		{
+			return DateTimeOffset.FromFileTime( 10000000 * value + 116444736000000000 );
 		}
 
 		public static DateTimeOffset ToDateTimeOffsetFromIso8601( this string value )

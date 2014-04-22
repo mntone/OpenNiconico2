@@ -117,9 +117,9 @@ namespace Mntone.Nico2.Images.Users.Data
 		/// </summary>
 		public ushort DeleteType { get; private set; }
 
-		/// <summary>
-		/// キャッシュ時間 (?)
-		/// </summary>
+		///// <summary>
+		///// キャッシュ時間 (?)
+		///// </summary>
 		//public DateTimeOffset CacheTime { get; private set; }
 
 		/// <summary>
