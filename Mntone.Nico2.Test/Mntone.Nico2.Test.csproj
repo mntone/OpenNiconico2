@@ -55,6 +55,7 @@
     <Compile Include="Images\UserDataUnitTest.cs" />
     <Compile Include="Images\UserInfoUnitTest.cs" />
     <Compile Include="Live\CKeyUnitTest.cs" />
+    <Compile Include="Live\LeaveUnitTest.cs" />
     <Compile Include="Live\OnAirStreamsUnitTest.cs" />
     <Compile Include="Live\HeartbeatUnitTest.cs" />
     <Compile Include="NiconicoAuthenticationTokenUnitTest.cs" />

@@ -75,6 +75,7 @@
     <Compile Include="Live\CKey\CKeyClient.cs" />
     <Compile Include="Live\Heartbeat\HeartbeatResponse.cs" />
     <Compile Include="Live\Heartbeat\HeartbeatClient.cs" />
+    <Compile Include="Live\Leave\LeaveClient.cs" />
     <Compile Include="Live\LiveApi.cs" />
     <Compile Include="Live\OnAirStreams\Category.cs" />
     <Compile Include="Live\OnAirStreams\CategoryExtensions.cs" />

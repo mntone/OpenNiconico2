@@ -36,6 +36,16 @@ namespace Mntone.Nico2.Live
 		}
 
 		/// <summary>
+		/// 非同期操作として放送を退出する要求を行います
+		/// </summary>
+		/// <param name="requestID">目的の生放送 ID</param>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+		public IAsyncOperation<bool> LeaveAsync( string requestID )
+		{
+			return Leave.LeaveClient.LeaveAsync( _context, requestID );
+		}
+
+		/// <summary>
 		/// 非同期操作として放送中の番組一覧を取得します
 		/// </summary>
 		/// <returns>非同期操作を表すオブジェクト</returns>
