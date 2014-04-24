@@ -79,6 +79,11 @@ namespace Mntone.Nico2
 			throw new ArgumentException();
 		}
 
+		public static TimeSpan ToTimeSpanFromSecondsString( this string value )
+		{
+			return new TimeSpan( 0, 0, int.Parse( value ) );
+		}
+
 		public static Uri ToUri( this string value )
 		{
 			return new Uri( value );

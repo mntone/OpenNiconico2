@@ -10,18 +10,18 @@ namespace Mntone.Nico2.Live.Heartbeat
 	{
 		internal HeartbeatResponse( IXmlNode heartbeatXml )
 		{
-			Time = heartbeatXml.GetNamedAttribute( "time" ).InnerText.ToDateTimeOffsetFromUnixTime();
+			LoadedAt = heartbeatXml.GetNamedAttribute( "time" ).InnerText.ToDateTimeOffsetFromUnixTime();
 			WatchCount = heartbeatXml.GetNamedChildNode( "watchCount" ).InnerText.ToUInt();
 			CommentCount = heartbeatXml.GetNamedChildNode( "commentCount" ).InnerText.ToUInt();
 			IsRestrict = heartbeatXml.GetNamedChildNode( "is_restrict" ).InnerText.ToBooleanFrom1();
 			Ticket = heartbeatXml.GetNamedChildNode( "ticket" ).InnerText;
-			WaitTime = heartbeatXml.GetNamedChildNode( "waitTime" ).InnerText.ToUShort();
+			WaitDuration = heartbeatXml.GetNamedChildNode( "waitTime" ).InnerText.ToTimeSpanFromSecondsString();
 		}
 
 		/// <summary>
-		/// 時間
+		/// 読み込み日時
 		/// </summary>
-		public DateTimeOffset Time { get; private set; }
+		public DateTimeOffset LoadedAt { get; private set; }
 
 		/// <summary>
 		/// 合計視聴者数
@@ -46,6 +46,6 @@ namespace Mntone.Nico2.Live.Heartbeat
 		/// <summary>
 		/// 待機時間
 		/// </summary>
-		public ushort WaitTime { get; private set; }
+		public TimeSpan WaitDuration { get; private set; }
 	}
 }

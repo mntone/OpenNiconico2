@@ -36,8 +36,8 @@ namespace Mntone.Nico2.Test.Videos
 			Assert.AreEqual( "悪霊☯退散 よし行くか! ちょっとQK これくっそ寒い うううううううううう", ret.LastCommentBody );
 			Assert.AreEqual( "http://www.nicovideo.jp/watch/sm9", ret.PageUrl.ToString() );
 			Assert.AreEqual( ThumbnailType.Video, ret.ThumbnailType );
-			Assert.IsTrue( ret.Embeddable );
-			Assert.IsFalse( ret.NoLivePlay );
+			Assert.IsTrue( ret.IsEmbeddable );
+			Assert.IsFalse( ret.CannotPlayInLive );
 
 			Assert.AreEqual( "jp", ret.Tags.Domain );
 			Assert.AreEqual( 10, ret.Tags.Value.Count );
@@ -108,8 +108,8 @@ namespace Mntone.Nico2.Test.Videos
 			Assert.AreEqual( "有料 opとEDは良いけど内容 この鈴村のキャラよく ...", ret.LastCommentBody );
 			Assert.AreEqual( "http://www.nicovideo.jp/watch/1390532934", ret.PageUrl.ToString() );
 			Assert.AreEqual( ThumbnailType.Video, ret.ThumbnailType );
-			Assert.IsTrue( ret.Embeddable );
-			Assert.IsFalse( ret.NoLivePlay );
+			Assert.IsTrue( ret.IsEmbeddable );
+			Assert.IsFalse( ret.CannotPlayInLive );
 
 			Assert.AreEqual( "jp", ret.Tags.Domain );
 			Assert.AreEqual( 7, ret.Tags.Value.Count );

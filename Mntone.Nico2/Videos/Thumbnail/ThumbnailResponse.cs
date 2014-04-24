@@ -26,8 +26,8 @@ namespace Mntone.Nico2.Videos.Thumbnail
 			LastCommentBody = thumbXml.GetNamedChildNode( "last_res_body" ).InnerText;
 			PageUrl = thumbXml.GetNamedChildNode( "watch_url" ).InnerText.ToUri();
 			ThumbnailType = thumbXml.GetNamedChildNode( "thumb_type" ).InnerText.ToThumbnailType();
-			Embeddable = thumbXml.GetNamedChildNode( "embeddable" ).InnerText.ToBooleanFrom1();
-			NoLivePlay = thumbXml.GetNamedChildNode( "no_live_play" ).InnerText.ToBooleanFrom1();
+			IsEmbeddable = thumbXml.GetNamedChildNode( "embeddable" ).InnerText.ToBooleanFrom1();
+			CannotPlayInLive = thumbXml.GetNamedChildNode( "no_live_play" ).InnerText.ToBooleanFrom1();
 
 			Tags = new Tags( thumbXml.GetNamedChildNode( "tags" ) );
 
@@ -35,7 +35,7 @@ namespace Mntone.Nico2.Videos.Thumbnail
 			if( userIDXml != null )
 			{
 				UserType = UserType.User;
-				UserId = userIDXml.InnerText.ToULong();
+				UserId = userIDXml.InnerText.ToUInt();
 				UserName = thumbXml.GetNamedChildNode( "user_nickname" ).InnerText;
 				UserIconUrl = thumbXml.GetNamedChildNode( "user_icon_url" ).InnerText.ToUri();
 				return;
@@ -45,7 +45,7 @@ namespace Mntone.Nico2.Videos.Thumbnail
 			if( chIDXml != null )
 			{
 				UserType = UserType.Channel;
-				UserId = chIDXml.InnerText.ToULong();
+				UserId = chIDXml.InnerText.ToUInt();
 				UserName = thumbXml.GetNamedChildNode( "ch_name" ).InnerText;
 				UserIconUrl = thumbXml.GetNamedChildNode( "ch_icon_url" ).InnerText.ToUri();
 				return;
@@ -132,12 +132,12 @@ namespace Mntone.Nico2.Videos.Thumbnail
 		/// <summary>
 		/// 埋め込みが可能か
 		/// </summary>
-		public bool Embeddable { get; private set; }
+		public bool IsEmbeddable { get; private set; }
 
 		/// <summary>
 		/// 生放送で再生不可能か
 		/// </summary>
-		public bool NoLivePlay { get; private set; }
+		public bool CannotPlayInLive { get; private set; }
 
 		/// <summary>
 		/// タグ情報
@@ -152,7 +152,7 @@ namespace Mntone.Nico2.Videos.Thumbnail
 		/// <summary>
 		/// ユーザー ID
 		/// </summary>
-		public ulong UserId { get; private set; }
+		public uint UserId { get; private set; }
 
 		/// <summary>
 		/// ユーザー名
