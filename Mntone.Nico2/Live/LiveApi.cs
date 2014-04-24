@@ -1,4 +1,6 @@
-﻿using Windows.Foundation;
+﻿using Mntone.Nico2.Live.OnAirStreams;
+using Windows.Foundation;
+using Windows.Foundation.Metadata;
 
 namespace Mntone.Nico2.Live
 {
@@ -36,11 +38,49 @@ namespace Mntone.Nico2.Live
 		/// <summary>
 		/// 非同期操作として放送中の番組一覧を取得します
 		/// </summary>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+		[Overload( "GetOnAirStreamsIndexAsync" )]
+		public IAsyncOperation<OnAirStreams.OnAirStreamsResponse> GetOnAirStreamsIndexAsync()
+		{
+			return OnAirStreams.OnAirStreamsClient.GetOnAirStreamsIndexAsync( _context );
+		}
+
+		/// <summary>
+		/// 非同期操作として放送中の番組一覧を取得します
+		/// </summary>
 		/// <param name="pageIndex">目的のページ番号</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
-		public IAsyncOperation<OnAirStreams.OnAirStreamsResponse> GetOnAirStreamsAsync( ushort pageIndex )
+		[Overload( "GetOnAirStreamsIndexWithPageIndexAsync" )]
+		public IAsyncOperation<OnAirStreams.OnAirStreamsResponse> GetOnAirStreamsIndexAsync( ushort pageIndex )
 		{
-			return OnAirStreams.OnAirStreamsClient.GetOnAirStreamsAsync( _context, pageIndex );
+			return OnAirStreams.OnAirStreamsClient.GetOnAirStreamsIndexAsync( _context, pageIndex );
+		}
+
+		/// <summary>
+		/// 非同期操作として放送中の番組一覧を取得します
+		/// </summary>
+		/// <param name="pageIndex">目的のページ番号</param>
+		/// <param name="category">カテゴリー</param>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+		[Overload( "GetOnAirStreamsRecentAsync" )]
+		public IAsyncOperation<OnAirStreams.OnAirStreamsResponse> GetOnAirStreamsRecentAsync( ushort pageIndex, Category category )
+		{
+			return OnAirStreams.OnAirStreamsClient.GetOnAirStreamsRecentAsync( _context, pageIndex, category );
+		}
+
+		/// <summary>
+		/// 非同期操作として放送中の番組一覧を取得します
+		/// </summary>
+		/// <param name="pageIndex">目的のページ番号</param>
+		/// <param name="category">カテゴリー</param>
+		/// <param name="direction">ソートの方向</param>
+		/// <param name="type">ソートの種類</param>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+		[Overload( "GetOnAirStreamsRecentWithSortMethodAsync" )]
+		public IAsyncOperation<OnAirStreams.OnAirStreamsResponse> GetOnAirStreamsRecentAsync(
+			ushort pageIndex, Category category, SortDirection direction, SortType type )
+		{
+			return OnAirStreams.OnAirStreamsClient.GetOnAirStreamsRecentAsync( _context, pageIndex, category, direction, type );
 		}
 
 

@@ -18,6 +18,7 @@ namespace Mntone.Nico2.Videos
 		/// </summary>
 		/// <param name="requestID">目的の動画 ID</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
+		[Overload( "GetFlvAsync" )]
 		public IAsyncOperation<Flv.FlvResponse> GetFlvAsync( string requestID )
 		{
 			return Flv.FlvClient.GetFlvAsync( _context, requestID );

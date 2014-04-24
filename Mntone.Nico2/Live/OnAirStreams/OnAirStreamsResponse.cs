@@ -29,7 +29,7 @@ namespace Mntone.Nico2.Live.OnAirStreams
 		}
 
 		/// <summary>
-		/// 予約している放送中の番組一覧
+		/// 予約している放送中の番組一覧 (index のみ)
 		/// </summary>
 		public IReadOnlyList<ReservedStream> ReservedStreams
 		{

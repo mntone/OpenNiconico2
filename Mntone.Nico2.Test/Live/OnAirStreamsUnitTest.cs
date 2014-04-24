@@ -44,9 +44,33 @@ namespace Mntone.Nico2.Test.Live
 				Assert.AreEqual( ret2ReservedStream["title"].Value<string>(), retResevedStream.Title );
 			}
 		}
+		[TestMethod]
+		public void OnAirStreams_1最近の一覧データ()
+		{
+			var data = TestHelper.Load( @"Live/OnAirStreams/recent.json" );
+			var ret = OnAirStreamsClient.ParseOnAirStreamsData( data );
+			var ret2 = JObject.Parse( data );
+
+			var ret2OnAirStreams = ret2["onair_stream_list"].AsJEnumerable();
+			for( var i = 0; i < ret.OnAirStreams.Count; ++i )
+			{
+				var retOnAirStream = ret.OnAirStreams[i];
+				var ret2OnAirStream = ret2OnAirStreams[i];
+				Assert.AreEqual( ret2OnAirStream["hide_zapping"].Value<bool>(), retOnAirStream.IsHidden );
+				Assert.AreEqual( "lv" + ret2OnAirStream["id"].Value<string>(), retOnAirStream.ID );
+				Assert.AreEqual( ret2OnAirStream["is_nsen"].Value<bool>(), retOnAirStream.IsNsen );
+				Assert.AreEqual( ret2OnAirStream["is_product"].Value<bool>(), retOnAirStream.IsProduct );
+				Assert.AreEqual( ret2OnAirStream["is_zapping_mode_enabled"].Value<bool>(), retOnAirStream.IsZappingModeEnabled );
+				Assert.AreEqual( ret2OnAirStream["thumbnail_small_url"].Value<string>(), retOnAirStream.ThumbnailSmallUrl.ToString() );
+				Assert.AreEqual( ret2OnAirStream["title"].Value<string>(), retOnAirStream.Title );
+				Assert.AreEqual( ret2OnAirStream["view_counter"].Value<uint>(), retOnAirStream.ViewCount );
+			}
+
+			Assert.IsNull( ret.ReservedStreams );
+		}
 
 		[TestMethod]
-		public void OnAirStreams_1ゼロデータ()
+		public void OnAirStreams_2ゼロデータ()
 		{
 			var data = TestHelper.Load( @"Live/OnAirStreams/zero.json" );
 			var ret = OnAirStreamsClient.ParseOnAirStreamsData( data );
