@@ -103,8 +103,6 @@ namespace Mntone.Nico2.Test.Live
 			Assert.AreEqual( new DateTimeOffset( 2014, 2, 5, 7, 58, 28, TimeSpan.FromHours( 9 ) ), ret.Stream.Contents[0].StartedAt );
 			Assert.IsNull( ret.Stream.Contents[0].Title );
 			Assert.AreEqual( "rtmp:rtmp://nlpoca112.live.nicovideo.jp:1935/publicorigin/140205_07_1/,lv168235211?1391555282:30:009412a24371baf8", ret.Stream.Contents[0].Value );
-			
-			Assert.IsNull( ret.Stream.Commands );
 
 			Assert.AreEqual( VideoPosition.Default, ret.Stream.Position );
 			Assert.AreEqual( VideoAspect.Auto, ret.Stream.Aspect );
@@ -117,6 +115,9 @@ namespace Mntone.Nico2.Test.Live
 			Assert.AreEqual( CommentPosition.Default, ret.Comment.Position );
 			Assert.AreEqual( CommentFilteringLevel.None, ret.Comment.FilteringLevel );
 			Assert.AreEqual( CommentSexMode.Disable, ret.Comment.SexMode );
+
+			Assert.IsNull( ret.Comment.Commands );
+
 			Assert.IsFalse( ret.Comment.IsRestrict );
 			Assert.AreEqual( CommentLimitMode.Allow, ret.Comment.LimitMode );
 

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Windows.Data.Xml.Dom;
 
 namespace Mntone.Nico2.Live.PlayerStatus
@@ -51,6 +52,12 @@ namespace Mntone.Nico2.Live.PlayerStatus
 			FilteringLevel = ( CommentFilteringLevel )streamXml.GetNamedChildNode( "ng_scoring" ).InnerText.ToUShort();
 			SexMode = ( CommentSexMode )streamXml.GetNamedChildNode( "danjo_comment_mode" ).InnerText.ToInt();
 
+			var quesheetXml = streamXml.ChildNodes.Where( node => node.NodeName == "quesheet" ).SingleOrDefault();
+			if( quesheetXml != null )
+			{
+				Commands = quesheetXml.ChildNodes.Select( queXml => new Command( queXml ) ).ToList();
+			}
+
 			var isRestrictXml = streamXml.ChildNodes.Where( node => node.NodeName == "is_restrict" ).SingleOrDefault();
 			IsRestrict = isRestrictXml != null ? isRestrictXml.InnerText.ToBooleanFrom1() : false;
 
@@ -92,6 +99,11 @@ namespace Mntone.Nico2.Live.PlayerStatus
 		/// 性別による装飾方法
 		/// </summary>
 		public CommentSexMode SexMode { get; private set; }
+
+		/// <summary>
+		/// コマンド
+		/// </summary>
+		public IReadOnlyList<Command> Commands { get; private set; }
 
 		/// <summary>
 		/// 厳密に評価するか

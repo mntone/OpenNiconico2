@@ -26,12 +26,6 @@ namespace Mntone.Nico2.Live.PlayerStatus
 
 			Contents = streamXml.GetNamedChildNode( "contents_list" ).ChildNodes.Select( contentsXml => new Content( contentsXml ) ).ToList();
 
-			var quesheetXml = streamXml.ChildNodes.Where( node => node.NodeName == "quesheet" ).SingleOrDefault();
-			if( quesheetXml != null )
-			{
-				Commands = quesheetXml.ChildNodes.Select( queXml => new Command( queXml ) ).ToList();
-			}
-
 			var splitTop = streamXml.GetNamedChildNode( "split_top" ).InnerText.ToBooleanFrom1();
 			if( splitTop )
 			{
@@ -92,11 +86,6 @@ namespace Mntone.Nico2.Live.PlayerStatus
 		/// コンテンツ
 		/// </summary>
 		public IReadOnlyList<Content> Contents { get; private set; }
-
-		/// <summary>
-		/// コマンド
-		/// </summary>
-		public IReadOnlyList<Command> Commands { get; private set; }
 
 		/// <summary>
 		/// 映像の表示位置
