@@ -20,8 +20,17 @@ namespace Mntone.Nico2.Live.PlayerStatus
 
 			CommunityType = streamXml.GetNamedChildNode( "provider_type" ).InnerText.ToProviderType();
 			CommunityID = streamXml.GetNamedChildNode( "default_community" ).InnerText;
+			if( CommunityID == "" )
+			{
+				CommunityID = null;
+			}
+
 			BroadcasterID = streamXml.GetNamedChildNode( "owner_id" ).InnerText.ToUInt();
 			BroadcasterName = streamXml.GetNamedChildNode( "owner_name" ).InnerText;
+			if( BroadcasterName == "" )
+			{
+				BroadcasterName = null;
+			}
 
 			International = streamXml.GetNamedChildNode( "international" ).InnerText.ToUShort();
 

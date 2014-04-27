@@ -12,16 +12,20 @@ namespace Mntone.Nico2.Live.PlayerStatus
 	{
 		internal Stream( IXmlNode streamXml, IXmlNode rtmpXml, IXmlNode ticketsXml, IXmlNode playerXml )
 		{
-			IsFlashMediaServer = rtmpXml.GetNamedAttribute( "is_fms" ).InnerText.ToBooleanFrom1();
-			RtmptPort = rtmpXml.GetNamedAttribute( "rtmpt_port" ).InnerText.ToUShort();
+			var isFmsXml = rtmpXml.GetNamedAttribute( "is_fms" );
+			IsFlashMediaServer = isFmsXml != null ? isFmsXml.InnerText.ToBooleanFrom1() : false;
+
+			var rtmptPortXml = rtmpXml.GetNamedAttribute( "rtmpt_port" );
+			RtmptPort = rtmptPortXml != null ? rtmptPortXml.InnerText.ToUShort() : ( ushort )0u;
+			
 			RtmpUrl = rtmpXml.GetNamedChildNode( "url" ).InnerText.ToUri();
 			Ticket = rtmpXml.GetNamedChildNode( "ticket" ).InnerText;
 
 			if( ticketsXml != null )
 			{
 				Tickets = ticketsXml.ChildNodes.ToDictionary(
-					ticketXml => ticketsXml.GetNamedAttribute( "name" ).InnerText,
-					ticketXml => ticketsXml.InnerText );
+					ticketXml => ticketXml.GetNamedAttribute( "name" ).InnerText,
+					ticketXml => ticketXml.InnerText );
 			}
 
 			Contents = streamXml.GetNamedChildNode( "contents_list" ).ChildNodes.Select( contentsXml => new Content( contentsXml ) ).ToList();
