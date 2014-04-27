@@ -25,7 +25,7 @@ namespace Mntone.Nico2.Test.Live
 			Assert.AreEqual( 13u, ret.CommentCount );
 			Assert.IsFalse( ret.IsRestrict );
 			Assert.AreEqual( "20929324:lv168235211:0:1391555375:1af6f72ef86eb766", ret.Ticket );
-			Assert.AreEqual( 90u, ret.WaitDuration );
+			Assert.AreEqual( TimeSpan.FromSeconds( 90 ), ret.WaitDuration );
 		}
 
 		[TestMethod]

@@ -124,6 +124,7 @@
     <Compile Include="Sex.cs" />
     <Compile Include="SortDirection.cs" />
     <Compile Include="SortDirectionExtensions.cs" />
+    <Compile Include="Videos\Flv\PrivateReasonType.cs" />
     <Compile Include="Videos\Flv\FlvResponse.cs" />
     <Compile Include="Videos\Flv\FlvClient.cs" />
     <Compile Include="Videos\Thumbnail\MovieType.cs" />
