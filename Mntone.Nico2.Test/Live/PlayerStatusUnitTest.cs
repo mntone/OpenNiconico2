@@ -142,6 +142,8 @@ namespace Mntone.Nico2.Test.Live
 			Assert.AreEqual( "ℳກ੮ວܬ୧", ret.User.Name );
 			Assert.IsTrue( ret.User.IsPremium );
 			Assert.AreEqual( 21u, ret.User.Age );
+			Assert.IsTrue( ret.User.IsMale );
+			Assert.IsFalse( ret.User.IsFemale );
 			Assert.AreEqual( Sex.Male, ret.User.Sex );
 			Assert.AreEqual( "jp", ret.User.Domain );
 			Assert.AreEqual( Prefecture.Osaka, ret.User.Prefecture );
@@ -302,6 +304,8 @@ namespace Mntone.Nico2.Test.Live
 			Assert.AreEqual( "ℳກ੮ວܬ୧", ret.User.Name );
 			Assert.IsTrue( ret.User.IsPremium );
 			Assert.AreEqual( 21u, ret.User.Age );
+			Assert.IsTrue( ret.User.IsMale );
+			Assert.IsFalse( ret.User.IsFemale );
 			Assert.AreEqual( Sex.Male, ret.User.Sex );
 			Assert.AreEqual( "jp", ret.User.Domain );
 			Assert.AreEqual( Prefecture.Osaka, ret.User.Prefecture );

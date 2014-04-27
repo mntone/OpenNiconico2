@@ -63,6 +63,16 @@ namespace Mntone.Nico2.Live.PlayerStatus
 		public ushort Age { get; private set; }
 
 		/// <summary>
+		/// 男性か
+		/// </summary>
+		public bool IsMale { get { return Sex == Sex.Male; } }
+
+		/// <summary>
+		/// 女性か
+		/// </summary>
+		public bool IsFemale { get { return Sex == Sex.Female; } }
+
+		/// <summary>
 		/// 性別
 		/// </summary>
 		public Sex Sex { get; private set; }
