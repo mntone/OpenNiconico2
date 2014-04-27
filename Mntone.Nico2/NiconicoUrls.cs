@@ -38,6 +38,7 @@ namespace Mntone.Nico2
 
 		public static string LiveTopUrl { get { return LiveUrlBase; } }
 		public static string LiveCKeyUrl { get { return LiveApiUrlBase + "getckey"; } }
+		public static string LivePlayerStatustUrl { get { return LiveApiUrlBase + "getplayerstatus/"; } }
 		public static string LiveHeartbeatUrl { get { return LiveApiUrlBase + "heartbeat"; } }
 		public static string LiveLeaveUrl { get { return LiveApiUrlBase + "leave"; } }
 		public static string LiveZappingListIndexUrl { get { return LiveApiUrlBase + "getzappinglist?zroute=index"; } }

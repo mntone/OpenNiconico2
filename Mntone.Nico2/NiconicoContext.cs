@@ -244,9 +244,11 @@ namespace Mntone.Nico2
 		private Dictionaries.DictionaryApi _Dictionary = null;
 
 		/// <summary>
-		/// 追加のユーザー エージェント。
-		/// 特に事情がない限り、各アプリ名を指定するなどしてください
+		/// 追加のユーザー エージェント
 		/// </summary>
+		/// <remarks>
+		/// 特に事情がない限り、各アプリ名を指定するなどしてください
+		/// </remarks>
 		public string AdditionalUserAgent
 		{
 			get { return _AdditionalUserAgent; }

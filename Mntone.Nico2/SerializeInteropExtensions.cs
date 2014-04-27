@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Text;
+using Windows.Networking;
 
 namespace Mntone.Nico2
 {
@@ -8,7 +9,7 @@ namespace Mntone.Nico2
 	{
 		public static bool ToBooleanFrom1( this string value )
 		{
-			return value != null && value.Length == 1 && value[0] == '1' ? true : false;
+			return !string.IsNullOrEmpty( value ) && value.Length == 1 && value[0] == '1' ? true : false;
 		}
 
 		public static bool ToBooleanFromString( this string value )
@@ -36,9 +37,24 @@ namespace Mntone.Nico2
 			return uint.Parse( value );
 		}
 
+		public static long ToLong( this string value )
+		{
+			return long.Parse( value );
+		}
+
 		public static ulong ToULong( this string value )
 		{
 			return ulong.Parse( value );
+		}
+
+		public static float ToSingle( this string value )
+		{
+			return float.Parse( value );
+		}
+
+		public static double ToDouble( this string value )
+		{
+			return double.Parse( value );
 		}
 
 		public static long ToLongFromDateTimeOffset( this DateTimeOffset value )
@@ -86,7 +102,16 @@ namespace Mntone.Nico2
 
 		public static Uri ToUri( this string value )
 		{
+			if( string.IsNullOrWhiteSpace( value ) )
+			{
+				return null;
+			}
 			return new Uri( value );
+		}
+
+		public static HostName ToHostName( this string value )
+		{
+			return new HostName( value );
 		}
 	}
 }
