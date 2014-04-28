@@ -18,6 +18,10 @@ namespace Mntone.Nico2.Live.PlayerStatus
 			{
 				SeatToken = seatTokenXml.InnerText;
 			}
+			else
+			{
+				SeatToken = string.Empty;
+			}
 		}
 
 		/// <summary>

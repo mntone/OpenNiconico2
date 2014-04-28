@@ -53,10 +53,7 @@ namespace Mntone.Nico2.Live.PlayerStatus
 			Aspect = aspectXml != null ? aspectXml.InnerText.ToVideoAspect() : VideoAspect.Auto;
 
 			var broadcastTokenXml = streamXml.ChildNodes.Where( node => node.NodeName == "broadcast_token" ).SingleOrDefault();
-			if( broadcastTokenXml != null )
-			{
-				BroadcastToken = broadcastTokenXml.InnerText;
-			}
+			BroadcastToken = broadcastTokenXml != null ? broadcastTokenXml.InnerText : string.Empty;
 
 			IsQualityOfServiceAnalyticsEnabled = playerXml.GetNamedChildNode( "qos_analytics" ).InnerText.ToBooleanFrom1();
 		}

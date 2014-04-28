@@ -79,8 +79,8 @@ namespace Mntone.Nico2.Test.Live
 			Assert.IsTrue( ret.Program.IsNoticeBalloonEnabled );
 			Assert.IsTrue( ret.Program.IsErrorReportEnabled );
 
-			Assert.IsNull( ret.Program.NsenType );
-			Assert.IsNull( ret.Program.NsenCommand );
+			Assert.AreEqual( string.Empty, ret.Program.NsenType );
+			Assert.AreEqual( string.Empty, ret.Program.NsenCommand );
 
 			Assert.IsFalse( ret.Program.Twitter.IsEnabled );
 			Assert.AreEqual( "#co1342124", ret.Program.Twitter.Hashtag );
@@ -88,7 +88,7 @@ namespace Mntone.Nico2.Test.Live
 
 			Assert.AreEqual( "co1342124", ret.Room.Name );
 			Assert.AreEqual( 8u, ret.Room.SeatID );
-			Assert.IsNull( ret.Room.SeatToken );
+			Assert.AreEqual( string.Empty, ret.Room.SeatToken );
 
 			Assert.IsTrue( ret.Stream.IsFlashMediaServer );
 			Assert.AreEqual( 80u, ret.Stream.RtmptPort );
@@ -101,17 +101,17 @@ namespace Mntone.Nico2.Test.Live
 			Assert.IsFalse( ret.Stream.Contents[0].IsAudioDisabled );
 			Assert.IsFalse( ret.Stream.Contents[0].IsVideoDisabled );
 			Assert.AreEqual( new DateTimeOffset( 2014, 2, 5, 7, 58, 28, TimeSpan.FromHours( 9 ) ), ret.Stream.Contents[0].StartedAt );
-			Assert.IsNull( ret.Stream.Contents[0].Title );
+			Assert.AreEqual( string.Empty, ret.Stream.Contents[0].Title );
 			Assert.AreEqual( "rtmp:rtmp://nlpoca112.live.nicovideo.jp:1935/publicorigin/140205_07_1/,lv168235211?1391555282:30:009412a24371baf8", ret.Stream.Contents[0].Value );
 
 			Assert.AreEqual( VideoPosition.Default, ret.Stream.Position );
 			Assert.AreEqual( VideoAspect.Auto, ret.Stream.Aspect );
-			Assert.IsNull( ret.Stream.BroadcastToken );
+			Assert.AreEqual( string.Empty, ret.Stream.BroadcastToken );
 			Assert.IsFalse( ret.Stream.IsQualityOfServiceAnalyticsEnabled );
 
 			Assert.IsFalse( ret.Comment.IsLocked );
 			Assert.AreEqual( 1.0f, ret.Comment.Scale );
-			Assert.IsNull( ret.Comment.Perm );
+			Assert.AreEqual( string.Empty, ret.Comment.Perm );
 			Assert.AreEqual( CommentPosition.Default, ret.Comment.Position );
 			Assert.AreEqual( CommentFilteringLevel.None, ret.Comment.FilteringLevel );
 			Assert.AreEqual( CommentSexMode.Disable, ret.Comment.SexMode );
@@ -127,8 +127,8 @@ namespace Mntone.Nico2.Test.Live
 			Assert.AreEqual( 1329132457u, ret.Comment.Server.ThreadIDs[0] );
 
 			Assert.IsFalse( ret.Telop.IsEnabled );
-			Assert.IsNull( ret.Telop.Mail );
-			Assert.IsNull( ret.Telop.Value );
+			Assert.AreEqual( string.Empty, ret.Telop.Mail );
+			Assert.AreEqual( string.Empty, ret.Telop.Value );
 
 			Assert.IsTrue( ret.NetDuetto.IsEnabled );
 			Assert.AreEqual( "8165285e634cbdf46745295a2d3659a32c975893", ret.NetDuetto.Token );
@@ -148,7 +148,7 @@ namespace Mntone.Nico2.Test.Live
 			Assert.AreEqual( "jp", ret.User.Domain );
 			Assert.AreEqual( Prefecture.Osaka, ret.User.Prefecture );
 			Assert.AreEqual( "ja-jp", ret.User.Language );
-			Assert.IsNull( ret.User.HKey );
+			Assert.AreEqual( string.Empty, ret.User.HKey );
 
 			Assert.IsFalse( ret.User.IsOwner );
 			Assert.IsFalse( ret.User.IsJoin );
@@ -184,9 +184,9 @@ namespace Mntone.Nico2.Test.Live
 			Assert.IsFalse( ret.Program.IsChannel );
 			Assert.IsFalse( ret.Program.IsCommunity );
 			Assert.AreEqual( CommunityType.Official, ret.Program.CommunityType );
-			Assert.IsNull( ret.Program.CommunityID );
+			Assert.AreEqual( string.Empty, ret.Program.CommunityID );
 			Assert.AreEqual( 394u, ret.Program.BroadcasterID );
-			Assert.IsNull( ret.Program.BroadcasterName );
+			Assert.AreEqual( string.Empty, ret.Program.BroadcasterName );
 
 			Assert.AreEqual( 1u, ret.Program.International );
 
@@ -229,8 +229,8 @@ namespace Mntone.Nico2.Test.Live
 			Assert.IsTrue( ret.Program.IsNoticeBalloonEnabled );
 			Assert.IsTrue( ret.Program.IsErrorReportEnabled );
 
-			Assert.IsNull( ret.Program.NsenType );
-			Assert.IsNull( ret.Program.NsenCommand );
+			Assert.AreEqual( string.Empty, ret.Program.NsenType );
+			Assert.AreEqual( string.Empty, ret.Program.NsenCommand );
 
 			Assert.IsTrue( ret.Program.Twitter.IsEnabled );
 			Assert.AreEqual( "#kokkai #衆議院", ret.Program.Twitter.Hashtag );
@@ -238,7 +238,7 @@ namespace Mntone.Nico2.Test.Live
 
 			Assert.AreEqual( "アリーナ 最前列", ret.Room.Name );
 			Assert.AreEqual( 147u, ret.Room.SeatID );
-			Assert.IsNull( ret.Room.SeatToken );
+			Assert.AreEqual( string.Empty, ret.Room.SeatToken );
 
 			Assert.IsFalse( ret.Stream.IsFlashMediaServer );
 			Assert.AreEqual( 0u, ret.Stream.RtmptPort );
@@ -263,17 +263,17 @@ namespace Mntone.Nico2.Test.Live
 			Assert.IsFalse( ret.Stream.Contents[0].IsAudioDisabled );
 			Assert.IsFalse( ret.Stream.Contents[0].IsVideoDisabled );
 			Assert.AreEqual( new DateTimeOffset( 2014, 2, 18, 19, 19, 57, TimeSpan.FromHours( 9 ) ), ret.Stream.Contents[0].StartedAt );
-			Assert.IsNull( ret.Stream.Contents[0].Title );
+			Assert.AreEqual( string.Empty, ret.Stream.Contents[0].Title );
 			Assert.AreEqual( "limelight:rtmp://smilevideo.fc.llnwd.net:1935/smilevideo,s_lv169798840", ret.Stream.Contents[0].Value );
 
 			Assert.AreEqual( VideoPosition.Default, ret.Stream.Position );
 			Assert.AreEqual( VideoAspect.Auto, ret.Stream.Aspect );
-			Assert.IsNull( ret.Stream.BroadcastToken );
+			Assert.AreEqual( string.Empty, ret.Stream.BroadcastToken );
 			Assert.IsFalse( ret.Stream.IsQualityOfServiceAnalyticsEnabled );
 
 			Assert.IsFalse( ret.Comment.IsLocked );
 			Assert.AreEqual( 1.0f, ret.Comment.Scale );
-			Assert.IsNull( ret.Comment.Perm );
+			Assert.AreEqual( string.Empty, ret.Comment.Perm );
 			Assert.AreEqual( CommentPosition.Default, ret.Comment.Position );
 			Assert.AreEqual( CommentFilteringLevel.None, ret.Comment.FilteringLevel );
 			Assert.AreEqual( CommentSexMode.Disable, ret.Comment.SexMode );
@@ -289,13 +289,13 @@ namespace Mntone.Nico2.Test.Live
 			Assert.AreEqual( 1332290557u, ret.Comment.Server.ThreadIDs[0] );
 
 			Assert.IsFalse( ret.Telop.IsEnabled );
-			Assert.IsNull( ret.Telop.Mail );
-			Assert.IsNull( ret.Telop.Value );
+			Assert.AreEqual( string.Empty, ret.Telop.Mail );
+			Assert.AreEqual( string.Empty, ret.Telop.Value );
 
 			Assert.IsFalse( ret.NetDuetto.IsEnabled );
 			Assert.AreEqual( "039b7e91347da7fc04fa708d8cf596922fa9fdcf", ret.NetDuetto.Token );
 
-			Assert.IsNull( ret.Marquee.Category );
+			Assert.AreEqual( string.Empty, ret.Marquee.Category );
 			Assert.AreEqual( "7b86bc0b", ret.Marquee.GameKey );
 			Assert.AreEqual( new DateTimeOffset( 2014, 2, 19, 16, 14, 40, TimeSpan.FromHours( 9 ) ), ret.Marquee.GameTime );
 			Assert.IsTrue( ret.Marquee.IsNotInterruptionForced );
@@ -310,7 +310,7 @@ namespace Mntone.Nico2.Test.Live
 			Assert.AreEqual( "jp", ret.User.Domain );
 			Assert.AreEqual( Prefecture.Osaka, ret.User.Prefecture );
 			Assert.AreEqual( "ja-jp", ret.User.Language );
-			Assert.IsNull( ret.User.HKey );
+			Assert.AreEqual( string.Empty, ret.User.HKey );
 
 			Assert.IsFalse( ret.User.IsOwner );
 			Assert.IsFalse( ret.User.IsJoin );

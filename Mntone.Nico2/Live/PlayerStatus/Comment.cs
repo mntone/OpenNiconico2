@@ -17,10 +17,7 @@ namespace Mntone.Nico2.Live.PlayerStatus
 			Scale = !string.IsNullOrEmpty( scale ) ? scale.ToSingle() : 1.0f;
 
 			var permXml = streamXml.ChildNodes.Where( node => node.NodeName == "perm" ).SingleOrDefault();
-			if( permXml != null )
-			{
-				Perm = permXml.InnerText;
-			}
+			Perm = permXml != null ? permXml.InnerText : string.Empty;
 
 			var splitTop = streamXml.GetNamedChildNode( "split_top" ).InnerText.ToBooleanFrom1();
 			if( splitTop )

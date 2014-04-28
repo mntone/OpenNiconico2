@@ -15,8 +15,13 @@ namespace Mntone.Nico2.Live.PlayerStatus
 			var mailXml = telopNode.ChildNodes.Where( node => node.NodeName == "mail" ).SingleOrDefault();
 			if( mailXml != null )
 			{
-				Mail = telopNode.GetNamedChildNode( "mail" ).InnerText;
+				Mail = mailXml.InnerText;
 				Value = telopNode.GetNamedChildNode( "caption" ).InnerText;
+			}
+			else
+			{
+				Mail = string.Empty;
+				Value = string.Empty;
 			}
 		}
 

@@ -32,14 +32,8 @@ namespace Mntone.Nico2.Videos.Flv
 			{
 				OptionalThreadID = wwwFormData["optional_thread_id"].ToUInt();
 			}
-			if( wwwFormData.ContainsKey( "ng_ch" ) )
-			{
-				ChannelFilter = wwwFormData["ng_ch"];
-			}
-			if( wwwFormData.ContainsKey( "fmst" ) )
-			{
-				FlashMediaServerToken = wwwFormData["fmst"];
-			}
+			ChannelFilter = wwwFormData.ContainsKey( "ng_ch" ) ? wwwFormData["ng_ch"] : string.Empty;
+			FlashMediaServerToken = wwwFormData.ContainsKey( "fmst" ) ? wwwFormData["fmst"] : string.Empty;
 
 			AppsHost = wwwFormData["hms"].ToHostName();
 			AppsPort = wwwFormData["hmsp"].ToUShort();

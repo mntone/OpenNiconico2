@@ -22,10 +22,7 @@ namespace Mntone.Nico2.Live.PlayerStatus
 			}
 
 			var titleAttribute = contentsXml.GetNamedAttribute( "title" );
-			if( titleAttribute != null )
-			{
-				Title = titleAttribute.InnerText;
-			}
+			Title = titleAttribute != null ? titleAttribute.InnerText : string.Empty;
 
 			Value = contentsXml.InnerText;
 		}

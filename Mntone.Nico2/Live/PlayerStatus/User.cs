@@ -20,10 +20,7 @@ namespace Mntone.Nico2.Live.PlayerStatus
 			Language = userXml.GetNamedChildNode( "userLanguage" ).InnerText;
 
 			var hKeyXml = streamXml.ChildNodes.Where( node => node.NodeName == "hkey" ).SingleOrDefault();
-			if( hKeyXml != null )
-			{
-				HKey = hKeyXml.InnerText;
-			}
+			HKey = hKeyXml != null ? hKeyXml.InnerText : string.Empty;
 
 			IsOwner = streamXml.GetNamedChildNode( "is_owner" ).InnerText.ToBooleanFrom1();
 			IsJoin = userXml.GetNamedChildNode( "is_join" ).InnerText.ToBooleanFrom1();

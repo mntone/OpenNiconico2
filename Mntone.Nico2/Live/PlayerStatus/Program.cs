@@ -20,17 +20,8 @@ namespace Mntone.Nico2.Live.PlayerStatus
 
 			CommunityType = streamXml.GetNamedChildNode( "provider_type" ).InnerText.ToProviderType();
 			CommunityID = streamXml.GetNamedChildNode( "default_community" ).InnerText;
-			if( CommunityID == "" )
-			{
-				CommunityID = null;
-			}
-
 			BroadcasterID = streamXml.GetNamedChildNode( "owner_id" ).InnerText.ToUInt();
 			BroadcasterName = streamXml.GetNamedChildNode( "owner_name" ).InnerText;
-			if( BroadcasterName == "" )
-			{
-				BroadcasterName = null;
-			}
 
 			International = streamXml.GetNamedChildNode( "international" ).InnerText.ToUShort();
 
@@ -86,7 +77,8 @@ namespace Mntone.Nico2.Live.PlayerStatus
 			if( isDJStreamXml != null && isDJStreamXml.InnerText.ToBooleanFrom1() )
 			{
 				ExtendedType = ProgramExtendedType.NewComer;
-
+				NsenType = string.Empty;
+				NsenCommand = string.Empty;
 			}
 			else
 			{
@@ -94,6 +86,8 @@ namespace Mntone.Nico2.Live.PlayerStatus
 				if( isCruiseStreamXml != null && !string.IsNullOrEmpty( isCruiseStreamXml.InnerText ) )
 				{
 					ExtendedType = ProgramExtendedType.Cruise;
+					NsenType = string.Empty;
+					NsenCommand = string.Empty;
 				}
 				else if( nsenXml != null && nsenXml.GetNamedChildNode( "is_ns_stream" ).InnerText.ToBooleanFrom1() )
 				{
@@ -104,6 +98,8 @@ namespace Mntone.Nico2.Live.PlayerStatus
 				else
 				{
 					ExtendedType = ProgramExtendedType.None;
+					NsenType = string.Empty;
+					NsenCommand = string.Empty;
 				}
 			}
 
