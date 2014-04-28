@@ -36,6 +36,16 @@ namespace Mntone.Nico2.Live
 		}
 
 		/// <summary>
+		/// 非同期操作としてプレイヤー情報を取得します
+		/// </summary>
+		/// <param name="requestID">目的の生放送 ID</param>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+		public IAsyncOperation<PlayerStatus.PlayerStatusResponse> GetPlayerStatusAsync( string requestID )
+		{
+			return PlayerStatus.PlayerStatusClient.GetPlayerStatusAsync( _context, requestID );
+		}
+
+		/// <summary>
 		/// 非同期操作として放送を退出する要求を行います
 		/// </summary>
 		/// <param name="requestID">目的の生放送 ID</param>
