@@ -69,15 +69,16 @@ namespace Mntone.Nico2
 		/// <returns>非同期操作を表すオブジェクト</returns>
 		public IAsyncOperation<bool> LogOnAsync()
 		{
-			return Task.Run( async () =>
-			{
-				var request = new Dictionary<string, string>();
-				request.Add( MailTelName, this.AuthenticationToken.MailOrTelephone );
-				request.Add( PasswordName, this.AuthenticationToken.Password );
+			var request = new Dictionary<string, string>();
+			request.Add( MailTelName, this.AuthenticationToken.MailOrTelephone );
+			request.Add( PasswordName, this.AuthenticationToken.Password );
 
-				await this.GetClient().PostAsync( new Uri( NiconicoUrls.LogOnUrl ), new HttpFormUrlEncodedContent( request ) ).AsTask().ConfigureAwait( false );
-				return await this._GetIsLoggedOnAsync().ConfigureAwait( false );
-			} ).AsAsyncOperation();
+			return this.GetClient()
+				.PostAsync( new Uri( NiconicoUrls.LogOnUrl ), new HttpFormUrlEncodedContent( request ) )
+				.AsTask()
+				.ContinueWith( prevTask => this._GetIsLoggedOnAsync() )
+				.Unwrap()
+				.AsAsyncOperation();
 		}
 
 		/// <summary>
@@ -91,37 +92,40 @@ namespace Mntone.Nico2
 
 		internal Task<bool> _GetIsLoggedOnAsync()
 		{
-			return Task.Run( async () =>
-			{
-				var response = await this.GetClient().HeadAsync( new Uri( NiconicoUrls.NiconicoTopUrl ) ).AsTask().ConfigureAwait( false );
-
-				this.CurrentSession.AccountAuthority = ( NiconicoAccountAuthority )int.Parse( response.Headers[XNiconicoAuthflag] );
-				if( this.CurrentSession.AccountAuthority != NiconicoAccountAuthority.NotLoggedOn )
+			return this.GetClient()
+				.HeadAsync( new Uri( NiconicoUrls.NiconicoTopUrl ) )
+				.AsTask()
+				.ContinueWith( prevTask =>
 				{
-					this.CurrentSession.UserId = uint.Parse( response.Headers[XNiconicoId] );
+					var response = prevTask.Result;
 
-					try
+					this.CurrentSession.AccountAuthority = ( NiconicoAccountAuthority )int.Parse( response.Headers[XNiconicoAuthflag] );
+					if( this.CurrentSession.AccountAuthority != NiconicoAccountAuthority.NotLoggedOn )
 					{
-						var cookie = this._httpBaseProtocolFilter
-							.CookieManager
-							.GetCookies( new Uri( "http://nicovideo.jp/" ) )
-							.Where( c => c.Name == UserSessionName && c.Path == "/" )
-							.SingleOrDefault();
-						if( cookie != null )
+						this.CurrentSession.UserId = uint.Parse( response.Headers[XNiconicoId] );
+
+						try
 						{
-							if( cookie.Expires.HasValue )
+							var cookie = this._httpBaseProtocolFilter
+								.CookieManager
+								.GetCookies( new Uri( "http://nicovideo.jp/" ) )
+								.Where( c => c.Name == UserSessionName && c.Path == "/" )
+								.SingleOrDefault();
+							if( cookie != null )
 							{
-								this.CurrentSession.Key = cookie.Value;
-								this.CurrentSession.Expires = cookie.Expires.Value;
-								return true;
+								if( cookie.Expires.HasValue )
+								{
+									this.CurrentSession.Key = cookie.Value;
+									this.CurrentSession.Expires = cookie.Expires.Value;
+									return true;
+								}
 							}
 						}
+						catch( InvalidOperationException )
+						{ }
 					}
-					catch( InvalidOperationException )
-					{ }
-				}
-				return false;
-			} );
+					return false;
+				} );
 		}
 
 		/// <summary>
@@ -130,12 +134,16 @@ namespace Mntone.Nico2
 		/// <returns>非同期操作を表すオブジェクト</returns>
 		public IAsyncOperation<bool> LogOffAsync()
 		{
-			return Task.Run( async () =>
-			{
-				await this.GetClient().HeadAsync( new Uri( NiconicoUrls.LogOffUrl ) ).AsTask().ConfigureAwait( false );
-				this.CurrentSession = null;
-				return await this._GetIsLoggedOnAsync().ConfigureAwait( false );
-			} ).AsAsyncOperation();
+			return this.GetClient()
+				.HeadAsync( new Uri( NiconicoUrls.LogOffUrl ) )
+				.AsTask()
+				.ContinueWith( prevTask =>
+				{
+					this.CurrentSession = null;
+					return this._GetIsLoggedOnAsync();
+				} )
+				.Unwrap()
+				.AsAsyncOperation();
 		}
 
 		internal HttpClient GetClient()
