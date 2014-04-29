@@ -17,6 +17,9 @@ namespace Mntone.Nico2
 		/// <summary>
 		/// コンストラクター
 		/// </summary>
+		/// <remarks>
+		/// 非ログイン API 用に使用できます
+		/// </remarks>
 		public NiconicoContext()
 		{ }
 
@@ -99,7 +102,7 @@ namespace Mntone.Nico2
 				{
 					var response = prevTask.Result;
 
-					this.CurrentSession.AccountAuthority = ( NiconicoAccountAuthority )int.Parse( response.Headers[XNiconicoAuthflag] );
+					this.CurrentSession.AccountAuthority = ( NiconicoAccountAuthority )response.Headers[XNiconicoAuthflag].ToInt();
 					if( this.CurrentSession.AccountAuthority != NiconicoAccountAuthority.NotLoggedOn )
 					{
 						this.CurrentSession.UserId = uint.Parse( response.Headers[XNiconicoId] );
@@ -111,14 +114,11 @@ namespace Mntone.Nico2
 								.GetCookies( new Uri( "http://nicovideo.jp/" ) )
 								.Where( c => c.Name == UserSessionName && c.Path == "/" )
 								.SingleOrDefault();
-							if( cookie != null )
+							if( cookie != null && cookie.Expires.HasValue )
 							{
-								if( cookie.Expires.HasValue )
-								{
-									this.CurrentSession.Key = cookie.Value;
-									this.CurrentSession.Expires = cookie.Expires.Value;
-									return true;
-								}
+								this.CurrentSession.Key = cookie.Value;
+								this.CurrentSession.Expires = cookie.Expires.Value;
+								return true;
 							}
 						}
 						catch( InvalidOperationException )
@@ -173,38 +173,7 @@ namespace Mntone.Nico2
 		}
 
 
-		#region property (and related field)
-
-		/// <summary>
-		/// ニコニコ　トークン
-		/// </summary>
-		public NiconicoAuthenticationToken AuthenticationToken
-		{
-			get { return this._AuthenticationToken; }
-			set
-			{
-				if( value == null )
-				{
-					throw new ArgumentNullException();
-				}
-				this._AuthenticationToken = value;
-			}
-		}
-		private NiconicoAuthenticationToken _AuthenticationToken = null;
-
-		/// <summary>
-		/// ニコニコ セッション
-		/// </summary>
-		public NiconicoSession CurrentSession
-		{
-			get { return this._CurrentSession; }
-			set
-			{
-				this._CurrentSession = value;
-				this.DisposeImpl();
-			}
-		}
-		private NiconicoSession _CurrentSession = null;
+		#region APIs
 
 		/// <summary>
 		/// ニコニコ動画の API 群
@@ -250,6 +219,42 @@ namespace Mntone.Nico2
 			get { return this._Dictionary ?? ( this._Dictionary = new Dictionaries.DictionaryApi( this ) ); }
 		}
 		private Dictionaries.DictionaryApi _Dictionary = null;
+
+		#endregion
+
+
+		#region property (and related field)
+
+		/// <summary>
+		/// ニコニコ　トークン
+		/// </summary>
+		public NiconicoAuthenticationToken AuthenticationToken
+		{
+			get { return this._AuthenticationToken; }
+			set
+			{
+				if( value == null )
+				{
+					throw new ArgumentNullException();
+				}
+				this._AuthenticationToken = value;
+			}
+		}
+		private NiconicoAuthenticationToken _AuthenticationToken = null;
+
+		/// <summary>
+		/// ニコニコ セッション
+		/// </summary>
+		public NiconicoSession CurrentSession
+		{
+			get { return this._CurrentSession; }
+			set
+			{
+				this._CurrentSession = value;
+				this.DisposeImpl();
+			}
+		}
+		private NiconicoSession _CurrentSession = null;
 
 		/// <summary>
 		/// 追加のユーザー エージェント
