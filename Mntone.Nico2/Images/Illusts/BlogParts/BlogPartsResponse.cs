@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using Windows.Data.Xml.Dom;
 
-namespace Mntone.Nico2.Images.Illusts.Clip
+namespace Mntone.Nico2.Images.Illusts.BlogParts
 {
 	/// <summary>
 	/// clip の情報を格納するクラス
 	/// </summary>
-	public sealed class ClipResponse
+	public sealed class BlogPartsResponse
 	{
-		internal ClipResponse( IXmlNode responseXml )
+		internal BlogPartsResponse( IXmlNode responseXml )
 		{
 #if DEBUG
 			BaseUrl = responseXml.GetNamedChildNode( "base_url" ).InnerText.ToUri();

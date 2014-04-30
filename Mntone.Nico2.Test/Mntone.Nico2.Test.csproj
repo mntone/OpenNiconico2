@@ -51,7 +51,7 @@
     <Compile Include="Dictionaries\RecentUnitTest.cs" />
     <Compile Include="Dictionaries\ExistUnitTest.cs" />
     <Compile Include="Dictionaries\WordExistUnitTest.cs" />
-    <Compile Include="Images\IllustClipUnitTest.cs" />
+    <Compile Include="Images\IllustBlogPartsUnitTest.cs" />
     <Compile Include="Images\UserDataUnitTest.cs" />
     <Compile Include="Images\UserInfoUnitTest.cs" />
     <Compile Include="Live\CKeyUnitTest.cs" />
@@ -129,10 +129,13 @@
     <None Include="TestData\Dictionaries\WordExist\error.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Content Include="TestData\Images\Illusts\Clip\default.xml">
+    <Content Include="TestData\Images\Illusts\BlogParts\clip.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\Images\Illusts\Clip\zero.xml">
+    <Content Include="TestData\Images\Illusts\BlogParts\user.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Images\Illusts\BlogParts\zero.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="TestData\Images\Users\Data\default.xml">

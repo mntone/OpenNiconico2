@@ -1,6 +1,6 @@
 ﻿using Windows.Data.Xml.Dom;
 
-namespace Mntone.Nico2.Images.Illusts.Clip
+namespace Mntone.Nico2.Images.Illusts.BlogParts
 {
 	/// <summary>
 	/// 画像の情報を格納するクラス

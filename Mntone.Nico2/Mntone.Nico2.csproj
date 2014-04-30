@@ -59,9 +59,9 @@
     <Compile Include="Dictionaries\WordExist\WordExistClient.cs" />
     <Compile Include="HttpClientExtensions.cs" />
     <Compile Include="Images\Illusts\Category.cs" />
-    <Compile Include="Images\Illusts\Clip\ClipClient.cs" />
-    <Compile Include="Images\Illusts\Clip\ClipResponse.cs" />
-    <Compile Include="Images\Illusts\Clip\Image.cs" />
+    <Compile Include="Images\Illusts\BlogParts\BlogPartsClient.cs" />
+    <Compile Include="Images\Illusts\BlogParts\BlogPartsResponse.cs" />
+    <Compile Include="Images\Illusts\BlogParts\Image.cs" />
     <Compile Include="Images\Illusts\Genre.cs" />
     <Compile Include="Images\Illusts\IllustsApi.cs" />
     <Compile Include="Images\ImageApi.cs" />
