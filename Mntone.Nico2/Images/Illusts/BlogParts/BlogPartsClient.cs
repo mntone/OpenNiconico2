@@ -17,10 +17,10 @@ namespace Mntone.Nico2.Images.Illusts.BlogParts
 			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.ImageBlogPartsUrl + "user&key=" + requestUserID ) );
 		}
 
-		public static BlogPartsResponse ParseBlogPartsData( string clipData )
+		public static BlogPartsResponse ParseBlogPartsData( string blogPartsData )
 		{
 			var xml = new XmlDocument();
-			xml.LoadXml( clipData, new XmlLoadSettings { ElementContentWhiteSpace = false, MaxElementDepth = 4 } );
+			xml.LoadXml( blogPartsData, new XmlLoadSettings { ElementContentWhiteSpace = false, MaxElementDepth = 4 } );
 
 			var responseXml = xml.ChildNodes[1];
 			if( responseXml.NodeName != "response" )

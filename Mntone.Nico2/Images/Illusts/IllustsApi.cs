@@ -32,6 +32,18 @@ namespace Mntone.Nico2.Images.Illusts
 			return BlogParts.BlogPartsClient.GetUserAsync( _context, requestUserID );
 		}
 
+		/// <summary>
+		/// [非ログオン可] 非同期操作としてユーザーのイラスト リストの一部 (最大 25 件) を取得します
+		/// </summary>
+		/// <param name="targetDuration">目的の期間</param>
+		/// <param name="targetGenreOrCategory">目的のジャンル または カテゴリー</param>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+		public IAsyncOperation<BlogPartsRanking.BlogPartsRankingResponse> GetRankingAsync(
+			BlogPartsRanking.DurationType targetDuration, GenreOrCategory targetGenreOrCategory )
+		{
+			return BlogPartsRanking.BlogPartsRankingClient.GetRankingAsync( _context, targetDuration, targetGenreOrCategory );
+		}
+
 
 		#region field
 

@@ -22,7 +22,7 @@ namespace Mntone.Nico2.Images.Illusts
 		Popular = 300,
 
 		/// <summary>
-		/// R-15
+		/// 春画 (R-15)
 		/// </summary>
 		Adult = -100,
 	}

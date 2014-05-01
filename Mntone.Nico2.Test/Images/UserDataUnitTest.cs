@@ -25,7 +25,7 @@ namespace Mntone.Nico2.Test.Images
 			Assert.AreEqual( 79u, ret.Images[0].ClipCount );
 			Assert.AreEqual( "かわいい・・・ 幼い肢体の太股… あらきれい いいわぁ・・・ 淡い塗りがいいですね やわらかい(確信) ぺろりてぇ・・・ ふぅ・・・", ret.Images[0].LastCommentBody );
 			Assert.AreEqual( Genre.Popular, ret.Images[0].Genre );
-			Assert.AreEqual( Category.Illust, ret.Images[0].Category );
+			Assert.AreEqual( Site.Illust, ret.Images[0].Site );
 			Assert.AreEqual( 1u, ret.Images[0].ImageType );
 			Assert.AreEqual( 0u, ret.Images[0].IllustType );
 			Assert.AreEqual( 1u, ret.Images[0].InspectionStatus );
@@ -44,7 +44,7 @@ namespace Mntone.Nico2.Test.Images
 			Assert.AreEqual( 1u, ret.Images[1].ClipCount );
 			Assert.AreEqual( string.Empty, ret.Images[1].LastCommentBody );
 			Assert.AreEqual( Genre.FanArt, ret.Images[1].Genre );
-			Assert.AreEqual( Category.Illust, ret.Images[1].Category );
+			Assert.AreEqual( Site.Illust, ret.Images[1].Site );
 			Assert.AreEqual( 1u, ret.Images[1].ImageType );
 			Assert.AreEqual( 0u, ret.Images[1].IllustType );
 			Assert.AreEqual( 1u, ret.Images[1].InspectionStatus );
@@ -63,7 +63,7 @@ namespace Mntone.Nico2.Test.Images
 			Assert.AreEqual( 2u, ret.Images[2].ClipCount );
 			Assert.AreEqual( string.Empty, ret.Images[2].LastCommentBody );
 			Assert.AreEqual( Genre.Adult, ret.Images[2].Genre );
-			Assert.AreEqual( Category.Adult, ret.Images[2].Category );
+			Assert.AreEqual( Site.Adult, ret.Images[2].Site );
 			Assert.AreEqual( 1u, ret.Images[2].ImageType );
 			Assert.AreEqual( 1u, ret.Images[2].IllustType );
 			Assert.AreEqual( 1u, ret.Images[2].InspectionStatus );

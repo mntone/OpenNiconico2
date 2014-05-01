@@ -58,7 +58,14 @@
     <Compile Include="Dictionaries\Summary\SummaryResponse.cs" />
     <Compile Include="Dictionaries\WordExist\WordExistClient.cs" />
     <Compile Include="HttpClientExtensions.cs" />
-    <Compile Include="Images\Illusts\Category.cs" />
+    <Compile Include="Images\Illusts\BlogPartsRanking\BlogPartsRankingClient.cs" />
+    <Compile Include="Images\Illusts\BlogPartsRanking\BlogPartsRankingResponse.cs" />
+    <Compile Include="Images\Illusts\BlogPartsRanking\DurationType.cs" />
+    <Compile Include="Images\Illusts\BlogPartsRanking\DurationTypeExtensions.cs" />
+    <Compile Include="Images\Illusts\BlogPartsRanking\Image.cs" />
+    <Compile Include="Images\Illusts\GenreOrCategory.cs" />
+    <Compile Include="Images\Illusts\GenreOrCategoryExtensions.cs" />
+    <Compile Include="Images\Illusts\Site.cs" />
     <Compile Include="Images\Illusts\BlogParts\BlogPartsClient.cs" />
     <Compile Include="Images\Illusts\BlogParts\BlogPartsResponse.cs" />
     <Compile Include="Images\Illusts\BlogParts\Image.cs" />

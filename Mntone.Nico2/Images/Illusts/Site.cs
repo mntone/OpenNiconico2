@@ -2,9 +2,9 @@
 namespace Mntone.Nico2.Images.Illusts
 {
 	/// <summary>
-	/// カテゴリー
+	/// サイト
 	/// </summary>
-	public enum Category
+	public enum Site
 	{
 		/// <summary>
 		/// ニコニコ静画(イラスト)

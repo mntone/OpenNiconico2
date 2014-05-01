@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using Windows.Data.Xml.Dom;
 
-namespace Mntone.Nico2.Images.Illusts.BlogParts
+namespace Mntone.Nico2.Images.Illusts.BlogPartsRanking
 {
 	/// <summary>
-	/// blogparts の情報を格納するクラス
+	/// blogparts?mode=ranking の情報を格納するクラス
 	/// </summary>
-	public sealed class BlogPartsResponse
+	public sealed class BlogPartsRankingResponse
 	{
-		internal BlogPartsResponse( IXmlNode responseXml )
+		internal BlogPartsRankingResponse( IXmlNode responseXml )
 		{
 #if DEBUG
 			BaseUrl = responseXml.GetNamedChildNode( "base_url" ).InnerText.ToUri();

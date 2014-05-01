@@ -7,7 +7,7 @@ namespace Mntone.Nico2.Test.Images
 	public sealed class IllustBlogPartsUnitTest
 	{
 		[TestMethod]
-		public void IllustClip_0clipデータ()
+		public void IllustBlogParts_0clipデータ()
 		{
 			var ret = BlogPartsClient.ParseBlogPartsData( TestHelper.Load( @"Images/Illusts/BlogParts/clip.xml" ) );
 			Assert.AreEqual( "http://seiga.nicovideo.jp/", ret.BaseUrl.ToString() );
@@ -30,7 +30,7 @@ namespace Mntone.Nico2.Test.Images
 		}
 
 		[TestMethod]
-		public void IllustClip_1userデータ()
+		public void IllustBlogParts_1userデータ()
 		{
 			var ret = BlogPartsClient.ParseBlogPartsData( TestHelper.Load( @"Images/Illusts/BlogParts/user.xml" ) );
 			Assert.AreEqual( "http://seiga.nicovideo.jp/", ret.BaseUrl.ToString() );
@@ -53,7 +53,7 @@ namespace Mntone.Nico2.Test.Images
 		}
 
 		[TestMethod]
-		public void IllustClip_2エラーデータ()
+		public void IllustBlogParts_2エラーデータ()
 		{
 			var ret = BlogPartsClient.ParseBlogPartsData( TestHelper.Load( @"Images/Illusts/BlogParts/zero.xml" ) );
 			Assert.AreEqual( "http://seiga.nicovideo.jp/", ret.BaseUrl.ToString() );

@@ -51,6 +51,7 @@
     <Compile Include="Dictionaries\RecentUnitTest.cs" />
     <Compile Include="Dictionaries\ExistUnitTest.cs" />
     <Compile Include="Dictionaries\WordExistUnitTest.cs" />
+    <Compile Include="Images\IllustBlogPartsRankingUnitTest.cs" />
     <Compile Include="Images\IllustBlogPartsUnitTest.cs" />
     <Compile Include="Images\UserDataUnitTest.cs" />
     <Compile Include="Images\UserInfoUnitTest.cs" />
@@ -129,6 +130,12 @@
     <None Include="TestData\Dictionaries\WordExist\error.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="TestData\Images\Illusts\BlogPartsRanking\default.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Images\Illusts\BlogPartsRanking\default2.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="TestData\Images\Illusts\BlogParts\clip.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

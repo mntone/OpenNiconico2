@@ -20,7 +20,9 @@ namespace Mntone.Nico2.Images.Users.Data
 			ClipCount = imageNode.GetNamedChildNode( "clip_count" ).InnerText.ToUInt();
 			LastCommentBody = imageNode.GetNamedChildNode( "summary" ).InnerText;
 			Genre = ( Genre )imageNode.GetNamedChildNode( "genre" ).InnerText.ToInt();
-			Category = ( Category )imageNode.GetNamedChildNode( "category" ).InnerText.ToInt();
+#if DEBUG
+			Site = ( Site )imageNode.GetNamedChildNode( "category" ).InnerText.ToInt();
+#endif
 			ImageType = imageNode.GetNamedChildNode( "image_type" ).InnerText.ToUShort();
 			IllustType = imageNode.GetNamedChildNode( "illust_type" ).InnerText.ToUShort();
 			InspectionStatus = imageNode.GetNamedChildNode( "inspection_status" ).InnerText.ToUShort();
@@ -77,10 +79,12 @@ namespace Mntone.Nico2.Images.Users.Data
 		/// </summary>
 		public Genre Genre { get; private set; }
 
+#if DEBUG
 		/// <summary>
-		/// カテゴリー
+		/// サイト
 		/// </summary>
-		public Category Category { get; private set; }
+		public Site Site { get; private set; }
+#endif
 
 		/// <summary>
 		/// 匿名か
