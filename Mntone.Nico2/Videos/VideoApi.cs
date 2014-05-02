@@ -46,6 +46,15 @@ namespace Mntone.Nico2.Videos
 			return Thumbnail.ThumbnailClient.GetThumbnailAsync( _context, requestID );
 		}
 
+		/// <summary>
+		/// 非同期操作として videoviewhistory/list 情報を取得します
+		/// </summary>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+		public IAsyncOperation<Histories.HistoriesResponse> GetHistoriesAsync()
+		{
+			return Histories.HistoriesClient.GetHistoriesAsync( _context );
+		}
+
 
 		#region field
 
