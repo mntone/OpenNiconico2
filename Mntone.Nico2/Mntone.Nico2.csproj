@@ -137,6 +137,8 @@
     <Compile Include="Videos\Histories\HistoriesClient.cs" />
     <Compile Include="Videos\Histories\HistoriesResponse.cs" />
     <Compile Include="Videos\Histories\History.cs" />
+    <Compile Include="Videos\RemoveHistory\RemoveHistoryClient.cs" />
+    <Compile Include="Videos\RemoveHistory\RemoveHistoryResponse.cs" />
     <Compile Include="Videos\Thumbnail\MovieType.cs" />
     <Compile Include="Videos\Thumbnail\MovieTypeExtensions.cs" />
     <Compile Include="Videos\Thumbnail\Tag.cs" />

@@ -66,6 +66,7 @@
     <Compile Include="Searches\SuggestionUnitTest.cs" />
     <Compile Include="TestHelper.cs" />
     <Compile Include="Videos\FlvUnitTest.cs" />
+    <Compile Include="Videos\RemoveHistoryUnitTest.cs" />
     <Compile Include="Videos\HistoriesUnitTest.cs" />
     <Compile Include="Videos\ThumbnailUnitTest.cs" />
   </ItemGroup>
@@ -115,6 +116,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="TestData\Videos\Histories\zero.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Videos\RemoveHistory\default.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Videos\RemoveHistory\error.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

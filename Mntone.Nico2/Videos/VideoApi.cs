@@ -55,6 +55,27 @@ namespace Mntone.Nico2.Videos
 			return Histories.HistoriesClient.GetHistoriesAsync( _context );
 		}
 
+		/// <summary>
+		/// 非同期操作として videoviewhistory/remove で履歴を削除します
+		/// </summary>
+		/// <param name="token">視聴履歴を取得したときに取得したトークン</param>
+		/// <param name="requestID">目的の動画 ID</param>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+		public IAsyncOperation<RemoveHistory.RemoveHistoryResponse> RemoveHistoryAsync( string token, string requestID )
+		{
+			return RemoveHistory.RemoveHistoryClient.RemoveHistoryAsync( _context, token, requestID );
+		}
+
+		/// <summary>
+		/// 非同期操作として videoviewhistory/remove ですべての履歴を削除します
+		/// </summary>
+		/// <param name="token">視聴履歴を取得したときに取得したトークン</param>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+		public IAsyncOperation<RemoveHistory.RemoveHistoryResponse> RemoveAllHistoriesAsync( string token )
+		{
+			return RemoveHistory.RemoveHistoryClient.RemoveAllHistoriesAsync( _context, token );
+		}
+
 
 		#region field
 
