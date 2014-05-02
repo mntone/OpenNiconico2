@@ -44,7 +44,9 @@ namespace Mntone.Nico2
 		public static string LiveHeartbeatUrl { get { return LiveApiUrlBase + "heartbeat"; } }
 		public static string LiveLeaveUrl { get { return LiveApiUrlBase + "leave"; } }
 		public static string LiveZappingListIndexUrl { get { return LiveApiUrlBase + "getzappinglist?zroute=index"; } }
-		public static string LiveZappingListRecentUrl { get { return LiveApiUrlBase + "getzappinglist?zroute=index"; } }
+		public static string LiveZappingListRecentUrl { get { return LiveApiUrlBase + "getzappinglist?zroute=recent"; } }
+		public static string LiveWatchingReservationListUrl { get { return LiveApiUrlBase + "watchingreservation?mode=list"; } }
+		public static string LiveWatchingReservationDetailListUrl { get { return LiveApiUrlBase + "watchingreservation?mode=detaillist"; } }
 
 		#endregion
 

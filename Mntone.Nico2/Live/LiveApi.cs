@@ -103,6 +103,15 @@ namespace Mntone.Nico2.Live
 			return OnAirStreams.OnAirStreamsClient.GetOnAirStreamsRecentAsync( _context, pageIndex, category, direction, type );
 		}
 
+		/// <summary>
+		/// 非同期操作としてタイムシフト予約している一覧を取得します
+		/// </summary>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+		public IAsyncOperation<ReservationsInDetail.ReservationsInDetailResponse> GetReservationsInDetailAsync()
+		{
+			return ReservationsInDetail.ReservationsInDetailClient.GetReservationsInDetailAsync( _context );
+		}
+
 
 		#region field
 

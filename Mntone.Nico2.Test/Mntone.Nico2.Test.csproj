@@ -56,6 +56,7 @@
     <Compile Include="Images\UserDataUnitTest.cs" />
     <Compile Include="Images\UserInfoUnitTest.cs" />
     <Compile Include="Live\CKeyUnitTest.cs" />
+    <Compile Include="Live\ReservationsInDetailUnitTest.cs" />
     <Compile Include="Live\PlayerStatusUnitTest.cs" />
     <Compile Include="Live\LeaveUnitTest.cs" />
     <Compile Include="Live\OnAirStreamsUnitTest.cs" />
@@ -232,6 +233,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="TestData\Live\PlayerStatus\timeshift.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Live\ReservationsInDetail\default.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Live\ReservationsInDetail\zero.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="TestData\Videos\Flv\channel.txt">

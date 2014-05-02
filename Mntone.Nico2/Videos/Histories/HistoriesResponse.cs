@@ -16,7 +16,7 @@ namespace Mntone.Nico2.Videos.Histories
 		[DataMember( Name = "status" )]
 		private string StatusImpl
 		{
-			get { return ""; }
+			get { return string.Empty; }
 			set
 			{
 				if( value != "ok" )
