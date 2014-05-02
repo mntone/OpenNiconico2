@@ -1,4 +1,5 @@
 ﻿using Mntone.Nico2.Live.OnAirStreams;
+using System.Collections.Generic;
 using Windows.Foundation;
 using Windows.Foundation.Metadata;
 
@@ -105,6 +106,15 @@ namespace Mntone.Nico2.Live
 
 		/// <summary>
 		/// 非同期操作としてタイムシフト予約している一覧を取得します
+		/// </summary>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+		public IAsyncOperation<IReadOnlyList<string>> GetReservationsAsync()
+		{
+			return Reservations.ReservationsClient.GetReservationsAsync( _context );
+		}
+
+		/// <summary>
+		/// 非同期操作としてタイムシフト予約している一覧 (詳細) を取得します
 		/// </summary>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 		public IAsyncOperation<ReservationsInDetail.ReservationsInDetailResponse> GetReservationsInDetailAsync()

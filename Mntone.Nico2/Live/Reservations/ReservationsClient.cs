@@ -9,7 +9,7 @@ namespace Mntone.Nico2.Live.Reservations
 {
 	internal sealed class ReservationsClient
 	{
-		public static IAsyncOperationWithProgress<string, HttpProgress> GetReservationsInDetailDataAsync( NiconicoContext context )
+		public static IAsyncOperationWithProgress<string, HttpProgress> GetReservationsDataAsync( NiconicoContext context )
 		{
 			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.LiveWatchingReservationListUrl ) );
 		}
@@ -38,9 +38,9 @@ namespace Mntone.Nico2.Live.Reservations
 			return new List<string>();
 		}
 
-		public static IAsyncOperation<IReadOnlyList<string>> GetReservationsInDetailAsync( NiconicoContext context )
+		public static IAsyncOperation<IReadOnlyList<string>> GetReservationsAsync( NiconicoContext context )
 		{
-			return GetReservationsInDetailDataAsync( context )
+			return GetReservationsDataAsync( context )
 				.AsTask()
 				.ContinueWith( prevTask => ParseReservationsData( prevTask.Result ) )
 				.AsAsyncOperation();
