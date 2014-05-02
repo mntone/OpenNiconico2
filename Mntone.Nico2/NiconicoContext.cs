@@ -152,6 +152,7 @@ namespace Mntone.Nico2
 			{
 				this._httpBaseProtocolFilter = new HttpBaseProtocolFilter();
 				this._httpBaseProtocolFilter.AllowAutoRedirect = false;
+				this._httpBaseProtocolFilter.CacheControl.ReadBehavior = HttpCacheReadBehavior.MostRecent;
 				this._httpClient = new HttpClient( this._httpBaseProtocolFilter );
 				this._httpClient.DefaultRequestHeaders["user-agent"] = _AdditionalUserAgent != null
 					? DefaultUserAgent + " (" + _AdditionalUserAgent + ')'

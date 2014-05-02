@@ -1,15 +1,21 @@
 ﻿using System;
+using System.IO;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
+using System.Threading.Tasks;
 using Windows.Data.Xml.Dom;
 using Windows.Foundation;
-using Windows.Web.Http;
 
 namespace Mntone.Nico2.Live.ReservationsInDetail
 {
 	internal sealed class ReservationsInDetailClient
 	{
-		public static IAsyncOperationWithProgress<string, HttpProgress> GetReservationsInDetailDataAsync( NiconicoContext context )
+		public static Task<string> GetReservationsInDetailDataAsync( NiconicoContext context )
 		{
-			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.LiveWatchingReservationDetailListUrl ) );
+			return context.GetClient()
+				.GetBufferAsync( new Uri( NiconicoUrls.LiveWatchingReservationDetailListUrl ) )
+				.AsTask()
+				.ContinueWith( buffer => new StreamReader( buffer.Result.AsStream(), Encoding.UTF8 ).ReadToEnd() );
 		}
 
 		public static ReservationsInDetailResponse ParseReservationsInDetailData( string reservationsInDatailData )
@@ -35,7 +41,6 @@ namespace Mntone.Nico2.Live.ReservationsInDetail
 		public static IAsyncOperation<ReservationsInDetailResponse> GetReservationsInDetailAsync( NiconicoContext context )
 		{
 			return GetReservationsInDetailDataAsync( context )
-				.AsTask()
 				.ContinueWith( prevTask => ParseReservationsInDetailData( prevTask.Result ) )
 				.AsAsyncOperation();
 		}
