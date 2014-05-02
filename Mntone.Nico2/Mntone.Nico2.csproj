@@ -117,6 +117,7 @@
     <Compile Include="Live\PlayerStatus\VideoAspect.cs" />
     <Compile Include="Live\PlayerStatus\VideoAspectExtensions.cs" />
     <Compile Include="Live\PlayerStatus\VideoPosition.cs" />
+    <Compile Include="Live\Reservations\ReservationsClient.cs" />
     <Compile Include="Live\ReservationsInDetail\ReservationsInDetailClient.cs" />
     <Compile Include="Live\ReservationsInDetail\ReservationsInDetailResponse.cs" />
     <Compile Include="Live\ReservationsInDetail\Program.cs" />
