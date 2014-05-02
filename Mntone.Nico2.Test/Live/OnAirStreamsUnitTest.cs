@@ -24,7 +24,7 @@ namespace Mntone.Nico2.Test.Live
 				Assert.AreEqual( ret2OnAirStream["is_nsen"].Value<bool>(), retOnAirStream.IsNsen );
 				Assert.AreEqual( ret2OnAirStream["is_product"].Value<bool>(), retOnAirStream.IsProduct );
 				Assert.AreEqual( ret2OnAirStream["is_zapping_mode_enabled"].Value<bool>(), retOnAirStream.IsZappingModeEnabled );
-				Assert.AreEqual( ret2OnAirStream["thumbnail_small_url"].Value<string>(), retOnAirStream.ThumbnailSmallUrl.ToString() );
+				Assert.AreEqual( ret2OnAirStream["thumbnail_small_url"].Value<string>(), retOnAirStream.SmallThumbnailUrl.ToString() );
 				Assert.AreEqual( ret2OnAirStream["title"].Value<string>(), retOnAirStream.Title );
 				Assert.AreEqual( ret2OnAirStream["view_counter"].Value<uint>(), retOnAirStream.ViewCount );
 			}
@@ -40,7 +40,8 @@ namespace Mntone.Nico2.Test.Live
 				Assert.AreEqual( ret2ReservedStream["is_nsen"].Value<bool>(), retResevedStream.IsNsen );
 				Assert.AreEqual( ret2ReservedStream["is_product"].Value<bool>(), retResevedStream.IsProduct );
 				Assert.AreEqual( ret2ReservedStream["is_zapping_mode_enabled"].Value<bool>(), retResevedStream.IsZappingModeEnabled );
-				Assert.AreEqual( ret2ReservedStream["thumbnail_small_url"].Value<string>(), retResevedStream.ThumbnailSmallUrl.ToString() );
+				Assert.AreEqual( ret2ReservedStream["open_time"].Value<long>().ToDateTimeOffsetFromUnixTime(), retResevedStream.OpenedAt );
+				Assert.AreEqual( ret2ReservedStream["thumbnail_small_url"].Value<string>(), retResevedStream.SmallThumbnailUrl.ToString() );
 				Assert.AreEqual( ret2ReservedStream["title"].Value<string>(), retResevedStream.Title );
 			}
 		}
@@ -61,7 +62,7 @@ namespace Mntone.Nico2.Test.Live
 				Assert.AreEqual( ret2OnAirStream["is_nsen"].Value<bool>(), retOnAirStream.IsNsen );
 				Assert.AreEqual( ret2OnAirStream["is_product"].Value<bool>(), retOnAirStream.IsProduct );
 				Assert.AreEqual( ret2OnAirStream["is_zapping_mode_enabled"].Value<bool>(), retOnAirStream.IsZappingModeEnabled );
-				Assert.AreEqual( ret2OnAirStream["thumbnail_small_url"].Value<string>(), retOnAirStream.ThumbnailSmallUrl.ToString() );
+				Assert.AreEqual( ret2OnAirStream["thumbnail_small_url"].Value<string>(), retOnAirStream.SmallThumbnailUrl.ToString() );
 				Assert.AreEqual( ret2OnAirStream["title"].Value<string>(), retOnAirStream.Title );
 				Assert.AreEqual( ret2OnAirStream["view_counter"].Value<uint>(), retOnAirStream.ViewCount );
 			}

@@ -56,7 +56,7 @@ namespace Mntone.Nico2.Live.OnAirStreams
 		/// 小さいサムネール URL
 		/// </summary>
 		[DataMember( Name = "thumbnail_small_url" )]
-		public Uri ThumbnailSmallUrl { get; private set; }
+		public Uri SmallThumbnailUrl { get; private set; }
 
 		/// <summary>
 		/// 題名

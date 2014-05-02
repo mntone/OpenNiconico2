@@ -67,6 +67,7 @@ namespace Mntone.Nico2.Live.OnAirStreams
 		}
 		private DateTimeOffset _OpenedAt = DateTimeOffset.MinValue;
 
+		[DataMember( Name = "open_time" )]
 		private long OpenedAtImpl
 		{
 			get { return this._OpenedAt.ToLongFromDateTimeOffset(); }
@@ -77,7 +78,7 @@ namespace Mntone.Nico2.Live.OnAirStreams
 		/// 小さいサムネール URL
 		/// </summary>
 		[DataMember( Name = "thumbnail_small_url" )]
-		public Uri ThumbnailSmallUrl { get; private set; }
+		public Uri SmallThumbnailUrl { get; private set; }
 
 		/// <summary>
 		/// 題名
