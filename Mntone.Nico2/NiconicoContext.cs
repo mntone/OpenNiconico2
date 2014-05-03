@@ -96,7 +96,7 @@ namespace Mntone.Nico2
 		internal Task<bool> _GetIsLoggedOnAsync()
 		{
 			return this.GetClient()
-				.HeadAsync( new Uri( NiconicoUrls.NiconicoTopUrl ) )
+				.HeadAsync( new Uri( NiconicoUrls.TopPageUrl ) )
 				.AsTask()
 				.ContinueWith( prevTask =>
 				{
