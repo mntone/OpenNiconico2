@@ -28,6 +28,13 @@ namespace Mntone.Nico2.Live.PlayerStatus
 				throw new Exception( "Parse Error: Node name is invalid." );
 			}
 
+			if( getPlayerStatusXml.GetNamedAttribute( "status" ).InnerText != "ok" )
+			{
+				var error = getPlayerStatusXml.FirstChild;
+				var code = error.GetNamedChildNode( "code" ).InnerText;
+				throw new Exception( "Parse Error: " + code );
+			}
+
 			return new PlayerStatusResponse( getPlayerStatusXml );
 		}
 
