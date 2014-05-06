@@ -12,7 +12,7 @@ namespace Mntone.Nico2.Test.Live
 		{
 			Assert.ThrowsException<ArgumentException>( () =>
 			{
-				PlayerStatusClient.GetPlayerStatusDataAsync( new NiconicoContext( new NiconicoAuthenticationToken() ), "llv1131" ).GetResults();
+				PlayerStatusClient.GetPlayerStatusDataAsync( new NiconicoContext( new NiconicoAuthenticationToken() ), "llv1131" ).GetAwaiter().GetResult();
 			} );
 		}
 

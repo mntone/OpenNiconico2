@@ -1,20 +1,26 @@
 ﻿using System;
+using System.IO;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
+using System.Threading.Tasks;
 using Windows.Data.Xml.Dom;
 using Windows.Foundation;
-using Windows.Web.Http;
 
 namespace Mntone.Nico2.Live.PlayerStatus
 {
 	internal sealed class PlayerStatusClient
 	{
-		public static IAsyncOperationWithProgress<string, HttpProgress> GetPlayerStatusDataAsync( NiconicoContext context, string requestID )
+		public static Task<string> GetPlayerStatusDataAsync( NiconicoContext context, string requestID )
 		{
 			if( !NiconicoRegex.IsLiveID( requestID ) )
 			{
 				throw new ArgumentException();
 			}
 
-			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.LivePlayerStatustUrl + requestID ) );
+			return context.GetClient()
+				.GetBufferAsync( new Uri( NiconicoUrls.LivePlayerStatustUrl + requestID ) )
+				.AsTask()
+				.ContinueWith( buffer => new StreamReader( buffer.Result.AsStream(), Encoding.UTF8 ).ReadToEnd() );
 		}
 
 		public static PlayerStatusResponse ParsePlayerStatusData( string playerStatusData )
@@ -41,7 +47,6 @@ namespace Mntone.Nico2.Live.PlayerStatus
 		public static IAsyncOperation<PlayerStatusResponse> GetPlayerStatusAsync( NiconicoContext context, string requestID )
 		{
 			return GetPlayerStatusDataAsync( context, requestID )
-				.AsTask()
 				.ContinueWith( prevTask => ParsePlayerStatusData( prevTask.Result ) )
 				.AsAsyncOperation();
 		}

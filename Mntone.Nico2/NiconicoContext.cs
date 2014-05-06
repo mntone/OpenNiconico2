@@ -79,7 +79,7 @@ namespace Mntone.Nico2
 			return this.GetClient()
 				.PostAsync( new Uri( NiconicoUrls.LogOnUrl ), new HttpFormUrlEncodedContent( request ) )
 				.AsTask()
-				.ContinueWith( prevTask => this._GetIsLoggedOnAsync() )
+				.ContinueWith( prevTask => this.GetIsLoggedOnInternalAsync() )
 				.Unwrap()
 				.AsAsyncOperation();
 		}
@@ -90,10 +90,10 @@ namespace Mntone.Nico2
 		/// <returns>非同期操作を表すオブジェクト</returns>
 		public IAsyncOperation<bool> GetIsLoggedOnAsync()
 		{
-			return this._GetIsLoggedOnAsync().AsAsyncOperation();
+			return this.GetIsLoggedOnInternalAsync().AsAsyncOperation();
 		}
 
-		internal Task<bool> _GetIsLoggedOnAsync()
+		internal Task<bool> GetIsLoggedOnInternalAsync()
 		{
 			return this.GetClient()
 				.HeadAsync( new Uri( NiconicoUrls.TopPageUrl ) )
@@ -140,7 +140,7 @@ namespace Mntone.Nico2
 				.ContinueWith( prevTask =>
 				{
 					this.CurrentSession = null;
-					return this._GetIsLoggedOnAsync();
+					return this.GetIsLoggedOnInternalAsync();
 				} )
 				.Unwrap()
 				.AsAsyncOperation();
