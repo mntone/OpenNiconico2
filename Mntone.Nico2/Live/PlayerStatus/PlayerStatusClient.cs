@@ -18,9 +18,9 @@ namespace Mntone.Nico2.Live.PlayerStatus
 			}
 
 			return context.GetClient()
-				.GetBufferAsync( new Uri( NiconicoUrls.LivePlayerStatustUrl + requestID ) )
+				.GetInputStreamAsync( new Uri( NiconicoUrls.LivePlayerStatustUrl + requestID ) )
 				.AsTask()
-				.ContinueWith( buffer => new StreamReader( buffer.Result.AsStream(), Encoding.UTF8 ).ReadToEnd() );
+				.ContinueWith( buffer => new StreamReader( buffer.Result.AsStreamForRead(), Encoding.UTF8 ).ReadToEnd() );
 		}
 
 		public static PlayerStatusResponse ParsePlayerStatusData( string playerStatusData )

@@ -15,9 +15,9 @@ namespace Mntone.Nico2.Searches.Suggestion
 		public static Task<string> GetSuggestionDataAsync( NiconicoContext context, string targetWord )
 		{
 			return context.GetClient()
-				.GetBufferAsync( new Uri( NiconicoUrls.SearchSuggestionUrl + Uri.EscapeUriString( targetWord ) ) )
+				.GetInputStreamAsync( new Uri( NiconicoUrls.SearchSuggestionUrl + Uri.EscapeUriString( targetWord ) ) )
 				.AsTask()
-				.ContinueWith( buffer => new StreamReader( buffer.Result.AsStream(), Encoding.UTF8 ).ReadToEnd() );
+				.ContinueWith( buffer => new StreamReader( buffer.Result.AsStreamForRead(), Encoding.UTF8 ).ReadToEnd() );
 		}
 
 		public static IReadOnlyList<string> ParseSuggestionData( string suggestionData )

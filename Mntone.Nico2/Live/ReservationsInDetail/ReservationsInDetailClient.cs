@@ -13,9 +13,9 @@ namespace Mntone.Nico2.Live.ReservationsInDetail
 		public static Task<string> GetReservationsInDetailDataAsync( NiconicoContext context )
 		{
 			return context.GetClient()
-				.GetBufferAsync( new Uri( NiconicoUrls.LiveWatchingReservationDetailListUrl ) )
+				.GetInputStreamAsync( new Uri( NiconicoUrls.LiveWatchingReservationDetailListUrl ) )
 				.AsTask()
-				.ContinueWith( buffer => new StreamReader( buffer.Result.AsStream(), Encoding.UTF8 ).ReadToEnd() );
+				.ContinueWith( buffer => new StreamReader( buffer.Result.AsStreamForRead(), Encoding.UTF8 ).ReadToEnd() );
 		}
 
 		public static ReservationsInDetailResponse ParseReservationsInDetailData( string reservationsInDatailData )
