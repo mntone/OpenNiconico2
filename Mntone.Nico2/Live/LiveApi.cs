@@ -105,7 +105,7 @@ namespace Mntone.Nico2.Live
 		}
 
 		/// <summary>
-		/// 非同期操作として指定した状態の番組一覧を取得します
+		/// [非ログオン可] 非同期操作として指定した状態の番組一覧を取得します
 		/// </summary>
 		/// <param name="status">目的の状態</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
@@ -116,7 +116,7 @@ namespace Mntone.Nico2.Live
 		}
 
 		/// <summary>
-		/// 非同期操作として指定した状態の番組一覧を取得します
+		/// [非ログオン可] 非同期操作として指定した状態の番組一覧を取得します
 		/// </summary>
 		/// <param name="status">目的の状態</param>
 		/// <param name="pageIndex">目的のページ番号</param>
