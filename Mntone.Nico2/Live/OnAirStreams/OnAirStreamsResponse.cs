@@ -15,10 +15,7 @@ namespace Mntone.Nico2.Live.OnAirStreams
 		/// <summary>
 		/// 放送中の番組の一覧
 		/// </summary>
-		public IReadOnlyList<OnAirStream> OnAirStreams
-		{
-			get { return this._OnAirStreams; }
-		}
+		public IReadOnlyList<OnAirStream> OnAirStreams { get { return this._OnAirStreams; } }
 		private List<OnAirStream> _OnAirStreams = null;
 
 		[DataMember( Name = "onair_stream_list" )]
@@ -31,10 +28,7 @@ namespace Mntone.Nico2.Live.OnAirStreams
 		/// <summary>
 		/// 予約している放送中の番組一覧 (index のみ)
 		/// </summary>
-		public IReadOnlyList<ReservedStream> ReservedStreams
-		{
-			get { return this._ReservedStreams; }
-		}
+		public IReadOnlyList<ReservedStream> ReservedStreams { get { return this._ReservedStreams; } }
 		private List<ReservedStream> _ReservedStreams = null;
 
 		[DataMember( Name = "reserved_stream_list" )]

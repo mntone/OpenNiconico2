@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+using Mntone.Nico2.Live;
 using Mntone.Nico2.Live.PlayerStatus;
 using System;
 

@@ -102,7 +102,7 @@ namespace Mntone.Nico2
 
 		public static Uri ToUri( this string value )
 		{
-			if( string.IsNullOrWhiteSpace( value ) )
+			if( string.IsNullOrEmpty( value ) )
 			{
 				return null;
 			}

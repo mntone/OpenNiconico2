@@ -33,10 +33,7 @@ namespace Mntone.Nico2.Videos.Histories
 		/// <summary>
 		/// 長さ
 		/// </summary>
-		public TimeSpan Length
-		{
-			get { return this._Length; }
-		}
+		public TimeSpan Length { get { return this._Length; } }
 		private TimeSpan _Length = TimeSpan.Zero;
 
 		[DataMember( Name = "length" )]
@@ -81,10 +78,7 @@ namespace Mntone.Nico2.Videos.Histories
 		/// <summary>
 		/// 開場時間
 		/// </summary>
-		public DateTimeOffset WatchedAt
-		{
-			get { return this._WatchedAt; }
-		}
+		public DateTimeOffset WatchedAt { get { return this._WatchedAt; } }
 		private DateTimeOffset _WatchedAt = DateTimeOffset.MinValue;
 
 		[DataMember( Name = "watch_date" )]

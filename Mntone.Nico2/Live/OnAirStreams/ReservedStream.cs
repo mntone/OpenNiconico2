@@ -27,11 +27,8 @@ namespace Mntone.Nico2.Live.OnAirStreams
 		/// <summary>
 		/// ID
 		/// </summary>
-		public string ID
-		{
-			get { return this._ID; }
-		}
-		private string _ID = null;
+		public string ID { get { return this._ID; } }
+		private string _ID = string.Empty;
 
 		[DataMember( Name = "id" )]
 		private string IDImpl
@@ -61,10 +58,7 @@ namespace Mntone.Nico2.Live.OnAirStreams
 		/// <summary>
 		/// 開場時間
 		/// </summary>
-		public DateTimeOffset OpenedAt
-		{
-			get { return this._OpenedAt; }
-		}
+		public DateTimeOffset OpenedAt { get { return this._OpenedAt; } }
 		private DateTimeOffset _OpenedAt = DateTimeOffset.MinValue;
 
 		[DataMember( Name = "open_time" )]

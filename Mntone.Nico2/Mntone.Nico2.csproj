@@ -73,6 +73,11 @@
     <Compile Include="Images\Illusts\IllustsApi.cs" />
     <Compile Include="Images\ImageApi.cs" />
     <Compile Include="Images\Comment.cs" />
+    <Compile Include="Live\OtherStreams\OtherStream.cs" />
+    <Compile Include="Live\OtherStreams\OtherStreamsClient.cs" />
+    <Compile Include="Live\OtherStreams\OtherStreamsResponse.cs" />
+    <Compile Include="Live\OtherStreams\StatusType.cs" />
+    <Compile Include="Live\OtherStreams\StatusTypeExtensions.cs" />
     <Compile Include="Live\PlayerStatus\Command.cs" />
     <Compile Include="Live\PlayerStatus\Comment.cs" />
     <Compile Include="Live\PlayerStatus\CommentPosition.cs" />
@@ -86,9 +91,9 @@
     <Compile Include="Live\PlayerStatus\PlayerStatusResponse.cs" />
     <Compile Include="Live\PlayerStatus\CommentLimitMode.cs" />
     <Compile Include="Live\PlayerStatus\Program.cs" />
-    <Compile Include="Live\PlayerStatus\CommunityType.cs" />
+    <Compile Include="Live\CommunityType.cs" />
     <Compile Include="Live\PlayerStatus\ProgramExtendedType.cs" />
-    <Compile Include="Live\PlayerStatus\CommunityTypeExtensions.cs" />
+    <Compile Include="Live\CommunityTypeExtensions.cs" />
     <Compile Include="Live\PlayerStatus\Room.cs" />
     <Compile Include="Live\PlayerStatus\Stream.cs" />
     <Compile Include="Live\PlayerStatus\ProgramTwitter.cs" />

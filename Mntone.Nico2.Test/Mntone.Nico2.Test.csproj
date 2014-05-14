@@ -56,6 +56,7 @@
     <Compile Include="Images\UserDataUnitTest.cs" />
     <Compile Include="Images\UserInfoUnitTest.cs" />
     <Compile Include="Live\CKeyUnitTest.cs" />
+    <Compile Include="Live\OtherStreamsUnitTest.cs" />
     <Compile Include="Live\ReservationsUnitTest.cs" />
     <Compile Include="Live\ReservationsInDetailUnitTest.cs" />
     <Compile Include="Live\PlayerStatusUnitTest.cs" />
@@ -100,6 +101,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="TestData\Live\OnAirStreams\zero.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Live\OtherStreams\closed.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Live\OtherStreams\comingsoon.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Live\OtherStreams\zero.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="TestData\Live\PlayerStatus\code.xml.code">

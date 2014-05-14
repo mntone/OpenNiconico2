@@ -18,7 +18,7 @@ namespace Mntone.Nico2.Live.PlayerStatus
 			WatchCount = streamXml.GetNamedChildNode( "watch_count" ).InnerText.ToUInt();
 			CommentCount = streamXml.GetNamedChildNode( "comment_count" ).InnerText.ToUInt();
 
-			CommunityType = streamXml.GetNamedChildNode( "provider_type" ).InnerText.ToProviderType();
+			CommunityType = streamXml.GetNamedChildNode( "provider_type" ).InnerText.ToCommunityType();
 			CommunityID = streamXml.GetNamedChildNode( "default_community" ).InnerText;
 			BroadcasterID = streamXml.GetNamedChildNode( "owner_id" ).InnerText.ToUInt();
 			BroadcasterName = streamXml.GetNamedChildNode( "owner_name" ).InnerText;

@@ -105,6 +105,30 @@ namespace Mntone.Nico2.Live
 		}
 
 		/// <summary>
+		/// 非同期操作として指定した状態の番組一覧を取得します
+		/// </summary>
+		/// <param name="status">目的の状態</param>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+		[Overload( "GetOtherStreamsAsync" )]
+		public IAsyncOperation<OtherStreams.OtherStreamsResponse> GetOtherStreamsAsync( OtherStreams.StatusType status )
+		{
+			return OtherStreams.OtherStreamsClient.GetOtherStreamsAsync( _context, status, 1 );
+		}
+
+		/// <summary>
+		/// 非同期操作として指定した状態の番組一覧を取得します
+		/// </summary>
+		/// <param name="status">目的の状態</param>
+		/// <param name="pageIndex">目的のページ番号</param>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+		[Overload( "GetOtherStreamsWithPageIndexAsync" )]
+		public IAsyncOperation<OtherStreams.OtherStreamsResponse> GetOtherStreamsAsync(
+			OtherStreams.StatusType status, ushort pageIndex )
+		{
+			return OtherStreams.OtherStreamsClient.GetOtherStreamsAsync( _context, status, pageIndex );
+		}
+
+		/// <summary>
 		/// 非同期操作としてタイムシフト予約している一覧を取得します
 		/// </summary>
 		/// <returns>非同期操作を表すオブジェクト</returns>

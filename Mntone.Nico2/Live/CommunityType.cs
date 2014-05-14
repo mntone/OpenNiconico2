@@ -1,5 +1,5 @@
 ﻿
-namespace Mntone.Nico2.Live.PlayerStatus
+namespace Mntone.Nico2.Live
 {
 	/// <summary>
 	/// 提供元の種類

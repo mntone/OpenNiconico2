@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace Mntone.Nico2.Live.PlayerStatus
+namespace Mntone.Nico2.Live
 {
 	internal static class CommunityTypeExtensions
 	{
-		public static CommunityType ToProviderType( this string value )
+		public static CommunityType ToCommunityType( this string value )
 		{
 			switch( value )
 			{
@@ -19,7 +19,7 @@ namespace Mntone.Nico2.Live.PlayerStatus
 			}
 		}
 
-		public static string ToProviderTypeString( this CommunityType value )
+		public static string ToCommunityTypeString( this CommunityType value )
 		{
 			switch( value )
 			{
