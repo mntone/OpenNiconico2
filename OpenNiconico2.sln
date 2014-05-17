@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30324.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mntone.Nico2", "Mntone.Nico2\Mntone.Nico2.csproj", "{9CCFD98D-E273-4E91-8307-4CFCAA97260D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mntone.Nico2.Test", "Mntone.Nico2.Test\Mntone.Nico2.Test.csproj", "{01E2D35F-B23C-4667-BBA6-FB896895CC9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mntone.Nico2.Vita", "Mntone.Nico2.Vita\Mntone.Nico2.Vita.csproj", "{7B87FAD8-E8E0-4D1F-B303-3219911D6375}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{01E2D35F-B23C-4667-BBA6-FB896895CC9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01E2D35F-B23C-4667-BBA6-FB896895CC9E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{01E2D35F-B23C-4667-BBA6-FB896895CC9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B87FAD8-E8E0-4D1F-B303-3219911D6375}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B87FAD8-E8E0-4D1F-B303-3219911D6375}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B87FAD8-E8E0-4D1F-B303-3219911D6375}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B87FAD8-E8E0-4D1F-B303-3219911D6375}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

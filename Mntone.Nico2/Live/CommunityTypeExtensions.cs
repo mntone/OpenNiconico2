@@ -24,7 +24,7 @@ namespace Mntone.Nico2.Live
 			switch( value )
 			{
 			case CommunityType.Official:
-				return "offcial";
+				return "official";
 			case CommunityType.Community:
 				return "community";
 			case CommunityType.Channel:

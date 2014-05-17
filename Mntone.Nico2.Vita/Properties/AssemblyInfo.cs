@@ -2,7 +2,7 @@
 using System.Resources;
 using System.Runtime.CompilerServices;
 
-[assembly: AssemblyTitle( "OpenNiconico2" )]
+[assembly: AssemblyTitle( "OpenNiconico2 Vita API" )]
 [assembly: AssemblyDescription( "" )]
 [assembly: AssemblyConfiguration( "" )]
 [assembly: AssemblyCompany( "Mntone" )]
@@ -15,7 +15,6 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyVersion( "1.9.0.0" )]
 [assembly: AssemblyFileVersion( "1.9.0.0" )]
 
-[assembly: InternalsVisibleTo( "Mntone.Nico2.Vita" )]
 #if DEBUG
 [assembly: InternalsVisibleTo( "Mntone.Nico2.Test" )]
 #endif

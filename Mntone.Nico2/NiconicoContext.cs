@@ -280,7 +280,7 @@ namespace Mntone.Nico2
 		private const string MailTelName = "mail_tel";
 		private const string PasswordName = "password";
 		private const string UserSessionName = "user_session";
-		private const string DefaultUserAgent = "OpenNiconico/2.0";
+		internal const string DefaultUserAgent = "OpenNiconico/2.0";
 
 		private HttpBaseProtocolFilter _httpBaseProtocolFilter = null;
 		private HttpClient _httpClient = null;

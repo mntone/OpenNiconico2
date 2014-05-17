@@ -72,6 +72,8 @@
     <Compile Include="Videos\RemoveHistoryUnitTest.cs" />
     <Compile Include="Videos\HistoriesUnitTest.cs" />
     <Compile Include="Videos\ThumbnailUnitTest.cs" />
+    <Compile Include="Vita\Live\OnAirStreamsUnitTest.cs" />
+    <Compile Include="Vita\NiconicoSessionUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -134,6 +136,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="TestData\Videos\RemoveHistory\error.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Vita\Live\OnAirPrograms\channel.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Vita\Live\OnAirPrograms\community.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Vita\Live\OnAirPrograms\official.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -287,6 +298,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Mntone.Nico2.Vita\Mntone.Nico2.Vita.csproj">
+      <Project>{7b87fad8-e8e0-4d1f-b303-3219911d6375}</Project>
+      <Name>Mntone.Nico2.Vita</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mntone.Nico2\Mntone.Nico2.csproj">
       <Project>{9ccfd98d-e273-4e91-8307-4cfcaa97260d}</Project>
       <Name>Mntone.Nico2</Name>
@@ -298,6 +313,7 @@
       <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\netcore45\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>
