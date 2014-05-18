@@ -52,6 +52,19 @@ namespace Mntone.Nico2.Vita.Live.OnAirPrograms
 		}
 
 		/// <summary>
+		/// 終了予定日時
+		/// </summary>
+		public DateTimeOffset EndedAtInPlan { get { return this._EndedAtInPlan; } }
+		private DateTimeOffset _EndedAtInPlan = DateTimeOffset.MinValue;
+
+		[DataMember( Name = "schedule_end_time" )]
+		private string EndedAtInPlanImpl
+		{
+			get { return this._EndedAtInPlan.ToString(); }
+			set { this._EndedAtInPlan = value.ToDateTimeOffsetFromIso8601(); }
+		}
+
+		/// <summary>
 		/// 終了日時
 		/// </summary>
 		public DateTimeOffset EndedAt { get { return this._EndedAt; } }

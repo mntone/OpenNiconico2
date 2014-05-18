@@ -27,6 +27,7 @@ namespace Mntone.Nico2.Test.Vita.Live
 				Assert.AreEqual( ret2Video["title"].Value<string>(), retVideo.Title );
 				Assert.AreEqual( ret2Video["open_time"].Value<string>().ToDateTimeOffsetFromIso8601(), retVideo.OpenedAt );
 				Assert.AreEqual( ret2Video["start_time"].Value<string>().ToDateTimeOffsetFromIso8601(), retVideo.StartedAt );
+				Assert.AreEqual( ret2Video["schedule_end_time"].Value<string>().ToDateTimeOffsetFromIso8601(), retVideo.EndedAtInPlan );
 				Assert.AreEqual( ret2Video["end_time"].Value<string>().ToDateTimeOffsetFromIso8601(), retVideo.EndedAt );
 
 				var comType = ret2Video["provider_type"].Value<string>().ToCommunityType();

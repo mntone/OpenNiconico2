@@ -74,6 +74,10 @@ namespace Mntone.Nico2
 
 		public static DateTimeOffset ToDateTimeOffsetFromIso8601( this string value )
 		{
+			if( string.IsNullOrEmpty( value ) )
+			{
+				return DateTimeOffset.MinValue;
+			}
 			return DateTimeOffset.Parse( value );
 		}
 
