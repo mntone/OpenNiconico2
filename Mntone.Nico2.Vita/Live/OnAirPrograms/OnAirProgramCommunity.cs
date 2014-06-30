@@ -33,7 +33,12 @@ namespace Mntone.Nico2.Vita.Live.OnAirPrograms
 		/// 名前
 		/// </summary>
 		[DataMember( Name = "name" )]
-		public string Name { get; private set; }
+		public string Name
+		{
+			get { return this._Name ?? string.Empty; }
+			private set { this._Name = value; }
+		}
+		private string _Name = string.Empty;
 
 		/// <summary>
 		/// サムネール URL

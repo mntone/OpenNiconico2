@@ -23,7 +23,10 @@ namespace Mntone.Nico2.Live.PlayerStatus
 			HKey = hKeyXml != null ? hKeyXml.InnerText : string.Empty;
 
 			IsOwner = streamXml.GetNamedChildNode( "is_owner" ).InnerText.ToBooleanFrom1();
-			IsJoin = userXml.GetNamedChildNode( "is_join" ).InnerText.ToBooleanFrom1();
+			
+			var isJoinXml = streamXml.ChildNodes.Where( node => node.NodeName == "is_join" ).SingleOrDefault();
+			IsJoin = isJoinXml != null ? isJoinXml.InnerText.ToBooleanFrom1() : false;
+
 			IsReserved = streamXml.GetNamedChildNode( "is_timeshift_reserved" ).InnerText.ToBooleanFrom1();
 
 			var isPriorityPrefectureXml = streamXml.ChildNodes.Where( node => node.NodeName =="is_priority_prefecture" ).SingleOrDefault();
