@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>F1F0B094-2632-4141-88C1-05B082EBAC91</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Mntone.Nico2</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Dictionaries\Category.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dictionaries\CategoryExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dictionaries\DictionaryApi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dictionaries\Exist\ExistClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dictionaries\Recent\RecentResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dictionaries\Recent\RecentClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dictionaries\Recent\Word.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dictionaries\Summary\SummaryClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dictionaries\Summary\SummaryResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dictionaries\WordExist\WordExistClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HttpClientExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Images\Illusts\BlogPartsRanking\BlogPartsRankingClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Images\Illusts\BlogPartsRanking\BlogPartsRankingResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Images\Illusts\BlogPartsRanking\DurationType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Images\Illusts\BlogPartsRanking\DurationTypeExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Images\Illusts\BlogPartsRanking\Image.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Images\Illusts\GenreOrCategory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Images\Illusts\GenreOrCategoryExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Images\Illusts\Site.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Images\Illusts\BlogParts\BlogPartsClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Images\Illusts\BlogParts\BlogPartsResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Images\Illusts\BlogParts\Image.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Images\Illusts\Genre.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Images\Illusts\IllustsApi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Images\ImageApi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Images\Comment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\OtherStreams\OtherStream.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\OtherStreams\OtherStreamsClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\OtherStreams\OtherStreamsResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\OtherStreams\StatusType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\OtherStreams\StatusTypeExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\Command.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\Comment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\CommentPosition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\CommentServer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\CommentSexMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\Content.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\Marquee.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\NetDuetto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\CommentFilteringLevel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirStreams\OnAirStreamsClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\PlayerStatusResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\CommentLimitMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\Program.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\CommunityType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\ProgramExtendedType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\CommunityTypeExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\Room.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\Stream.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\ProgramTwitter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\Telop.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Images\Users\Data\DataClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Images\Users\Data\DataResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Images\Users\Data\Image.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Images\Users\UserApi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Images\Users\Info\InfoClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Images\Users\Info\InfoResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\CKey\CKeyClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\Heartbeat\HeartbeatResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\Heartbeat\HeartbeatClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\Leave\LeaveClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\LiveApi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirStreams\Category.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirStreams\CategoryExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirStreams\OnAirStream.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\PlayerStatusClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirStreams\OnAirStreamsResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirStreams\ReservedStream.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirStreams\SortType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirStreams\SortTypeExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\UserTwitter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\VideoAspect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\VideoAspectExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\VideoPosition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\ReservationsInDetail\Task.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\Reservations\ReservationsClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\ReservationsInDetail\ReservationsInDetailClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\ReservationsInDetail\ReservationsInDetailResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\ReservationsInDetail\Program.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NiconicoAccountAuthority.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NiconicoAuthenticationToken.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NiconicoContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NiconicoRegex.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NiconicoSession.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NiconicoUrls.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Prefecture.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Searches\SearchApi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Searches\Suggestion\SuggestionClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SerializeInteropExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sex.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SortDirection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SortDirectionExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Videos\Flv\PrivateReasonType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Videos\Flv\FlvResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Videos\Flv\FlvClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Videos\Histories\HistoriesClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Videos\Histories\HistoriesResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Videos\Histories\History.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Videos\RemoveHistory\RemoveHistoryClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Videos\RemoveHistory\RemoveHistoryResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Videos\Thumbnail\MovieType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Videos\Thumbnail\MovieTypeExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Videos\Thumbnail\Tag.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Videos\Thumbnail\Tags.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Videos\Thumbnail\ThumbnailClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Videos\Thumbnail\ThumbnailResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Videos\Thumbnail\ThumbnailType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Videos\Thumbnail\ThumbnailTypeExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Videos\Thumbnail\UserType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Videos\VideoApi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)XmlDocumentExtensions.cs" />
+  </ItemGroup>
+</Project>

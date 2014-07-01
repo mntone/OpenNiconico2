@@ -298,13 +298,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mntone.Nico2.Vita\Mntone.Nico2.Vita.csproj">
+    <ProjectReference Include="..\Mntone.Nico2.Vita\Mntone.Nico2.Vita.WinRT\Mntone.Nico2.Vita.WinRT.csproj">
       <Project>{7b87fad8-e8e0-4d1f-b303-3219911d6375}</Project>
-      <Name>Mntone.Nico2.Vita</Name>
+      <Name>Mntone.Nico2.Vita.WinRT</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Mntone.Nico2\Mntone.Nico2.csproj">
+    <ProjectReference Include="..\Mntone.Nico2\Mntone.Nico2.WinRT\Mntone.Nico2.WinRT.csproj">
       <Project>{9ccfd98d-e273-4e91-8307-4cfcaa97260d}</Project>
-      <Name>Mntone.Nico2</Name>
+      <Name>Mntone.Nico2.WinRT</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -3,13 +3,32 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mntone.Nico2", "Mntone.Nico2\Mntone.Nico2.csproj", "{9CCFD98D-E273-4E91-8307-4CFCAA97260D}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Mntone.Nico2.Shared", "Mntone.Nico2\Mntone.Nico2.Shared\Mntone.Nico2.Shared.shproj", "{F1F0B094-2632-4141-88C1-05B082EBAC91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mntone.Nico2.WinRT", "Mntone.Nico2\Mntone.Nico2.WinRT\Mntone.Nico2.WinRT.csproj", "{9CCFD98D-E273-4E91-8307-4CFCAA97260D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mntone.Nico2.Test", "Mntone.Nico2.Test\Mntone.Nico2.Test.csproj", "{01E2D35F-B23C-4667-BBA6-FB896895CC9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mntone.Nico2.Vita", "Mntone.Nico2.Vita\Mntone.Nico2.Vita.csproj", "{7B87FAD8-E8E0-4D1F-B303-3219911D6375}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Mntone.Nico2.Vita.Shared", "Mntone.Nico2.Vita\Mntone.Nico2.Vita.Shared\Mntone.Nico2.Vita.Shared.shproj", "{8ACECAE4-5356-4F89-BD16-CC407E4A92C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mntone.Nico2.Vita.WinRT", "Mntone.Nico2.Vita\Mntone.Nico2.Vita.WinRT\Mntone.Nico2.Vita.WinRT.csproj", "{7B87FAD8-E8E0-4D1F-B303-3219911D6375}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mntone.Nico2", "Mntone.Nico2", "{D13D0642-48F5-4059-840E-D958B3021ABE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ruleset", "Ruleset", "{F01927EF-CAF9-4621-AFC2-93D066E32386}"
+	ProjectSection(SolutionItems) = preProject
+		OpenNiconico2.ruleset = OpenNiconico2.ruleset
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mntone.Nico2.Vita", "Mntone.Nico2.Vita", "{8B50DE1F-6F17-4CAF-93B3-E0ACB02F3212}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Mntone.Nico2.Vita\Mntone.Nico2.Vita.Shared\Mntone.Nico2.Vita.Shared.projitems*{7b87fad8-e8e0-4d1f-b303-3219911d6375}*SharedItemsImports = 4
+		Mntone.Nico2\Mntone.Nico2.Shared\Mntone.Nico2.Shared.projitems*{f1f0b094-2632-4141-88c1-05b082ebac91}*SharedItemsImports = 13
+		Mntone.Nico2.Vita\Mntone.Nico2.Vita.Shared\Mntone.Nico2.Vita.Shared.projitems*{8acecae4-5356-4f89-bd16-cc407e4a92c5}*SharedItemsImports = 13
+		Mntone.Nico2\Mntone.Nico2.Shared\Mntone.Nico2.Shared.projitems*{9ccfd98d-e273-4e91-8307-4cfcaa97260d}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -30,5 +49,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F1F0B094-2632-4141-88C1-05B082EBAC91} = {D13D0642-48F5-4059-840E-D958B3021ABE}
+		{9CCFD98D-E273-4E91-8307-4CFCAA97260D} = {D13D0642-48F5-4059-840E-D958B3021ABE}
+		{8ACECAE4-5356-4F89-BD16-CC407E4A92C5} = {8B50DE1F-6F17-4CAF-93B3-E0ACB02F3212}
+		{7B87FAD8-E8E0-4D1F-B303-3219911D6375} = {8B50DE1F-6F17-4CAF-93B3-E0ACB02F3212}
 	EndGlobalSection
 EndGlobal
