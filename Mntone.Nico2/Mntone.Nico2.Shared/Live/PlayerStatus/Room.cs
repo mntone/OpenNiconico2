@@ -1,5 +1,10 @@
 ﻿using System.Linq;
+
+#if WINDOWS_APP
 using Windows.Data.Xml.Dom;
+#else
+using System.Xml.Linq;
+#endif
 
 namespace Mntone.Nico2.Live.PlayerStatus
 {
@@ -8,20 +13,16 @@ namespace Mntone.Nico2.Live.PlayerStatus
 	/// </summary>
 	public sealed class Room
 	{
+#if WINDOWS_APP
 		internal Room( IXmlNode streamXml, IXmlNode userXml )
+#else
+		internal Room( XElement streamXml, XElement userXml )
+#endif
 		{
-			Name = userXml.GetNamedChildNode( "room_label" ).InnerText;
-			SeatID = userXml.GetNamedChildNode( "room_seetno" ).InnerText.ToUShort();
+			Name = userXml.GetNamedChildNodeText( "room_label" );
+			SeatID = userXml.GetNamedChildNodeText( "room_seetno" ).ToUShort();
 
-			var seatTokenXml = streamXml.ChildNodes.Where( node => node.NodeName == "seat_token" ).SingleOrDefault();
-			if( seatTokenXml != null )
-			{
-				SeatToken = seatTokenXml.InnerText;
-			}
-			else
-			{
-				SeatToken = string.Empty;
-			}
+			SeatToken = userXml.GetNamedChildNodeText( "seat_token" );
 		}
 
 		/// <summary>

@@ -19,7 +19,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Dictionaries\Summary\SummaryClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Dictionaries\Summary\SummaryResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Dictionaries\WordExist\WordExistClient.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)HttpClientExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Images\Illusts\BlogPartsRanking\BlogPartsRankingClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Images\Illusts\BlogPartsRanking\BlogPartsRankingResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Images\Illusts\BlogPartsRanking\DurationType.cs" />
@@ -120,6 +119,5 @@
     <Compile Include="$(MSBuildThisFileDirectory)Videos\Thumbnail\ThumbnailTypeExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Videos\Thumbnail\UserType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Videos\VideoApi.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)XmlDocumentExtensions.cs" />
   </ItemGroup>
 </Project>

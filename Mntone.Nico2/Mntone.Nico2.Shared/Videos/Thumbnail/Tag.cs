@@ -1,4 +1,8 @@
-﻿using Windows.Data.Xml.Dom;
+﻿#if WINDOWS_APP
+using Windows.Data.Xml.Dom;
+#else
+using System.Xml.Linq;
+#endif
 
 namespace Mntone.Nico2.Videos.Thumbnail
 {
@@ -7,21 +11,15 @@ namespace Mntone.Nico2.Videos.Thumbnail
 	/// </summary>
 	public sealed class Tag
 	{
+#if WINDOWS_APP
 		internal Tag( IXmlNode tagXml )
+#else
+		internal Tag( XElement tagXml )
+#endif
 		{
-			var catAttr = tagXml.GetNamedAttribute( "category" );
-			if( catAttr != null )
-			{
-				Category = catAttr.InnerText.ToBooleanFrom1();
-			}
-
-			var lockAttr = tagXml.GetNamedAttribute( "lock" );
-			if( lockAttr != null )
-			{
-				Lock = lockAttr.InnerText.ToBooleanFrom1();
-			}
-
-			Value = tagXml.FirstChild.InnerText;
+			Category = tagXml.GetNamedAttributeText( "category" ).ToBooleanFrom1();
+			Lock = tagXml.GetNamedAttributeText( "lock" ).ToBooleanFrom1();
+			Value = tagXml.GetText();
 		}
 
 		/// <summary>

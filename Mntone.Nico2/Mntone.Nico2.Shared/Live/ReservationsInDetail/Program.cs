@@ -1,6 +1,11 @@
 ﻿using Mntone.Nico2.Images.Illusts;
 using System;
+
+#if WINDOWS_APP
 using Windows.Data.Xml.Dom;
+#else
+using System.Xml.Linq;
+#endif
 
 namespace Mntone.Nico2.Live.ReservationsInDetail
 {
@@ -9,14 +14,18 @@ namespace Mntone.Nico2.Live.ReservationsInDetail
 	/// </summary>
 	public sealed class Program
 	{
+#if WINDOWS_APP
 		internal Program( IXmlNode reservedItemXml )
+#else
+		internal Program( XElement reservedItemXml )
+#endif
 		{
-			ID = "lv" + reservedItemXml.GetNamedChildNode( "vid" ).InnerText;
-			Title = reservedItemXml.GetNamedChildNode( "title" ).InnerText;
-			Status = reservedItemXml.GetNamedChildNode( "status" ).InnerText;
-			IsUnwatched = reservedItemXml.GetNamedChildNode( "unwatch" ).InnerText.ToBooleanFrom1();
+			ID = "lv" + reservedItemXml.GetNamedChildNodeText( "vid" );
+			Title = reservedItemXml.GetNamedChildNodeText( "title" );
+			Status = reservedItemXml.GetNamedChildNodeText( "status" );
+			IsUnwatched = reservedItemXml.GetNamedChildNodeText( "unwatch" ).ToBooleanFrom1();
 
-			var expire = reservedItemXml.GetNamedChildNode( "expire" ).InnerText;
+			var expire = reservedItemXml.GetNamedChildNodeText( "expire" );
 			ExpiredAt = expire != "0" ? expire.ToDateTimeOffsetFromUnixTime() : DateTimeOffset.MaxValue;
 		}
 

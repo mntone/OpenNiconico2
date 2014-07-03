@@ -1,6 +1,14 @@
 ﻿using System;
+
+#if WINDOWS_APP
+using Windows.Foundation;
 using Windows.Web.Http;
 using Windows.Web.Http.Filters;
+#else
+using System.Collections;
+using System.Net;
+using System.Net.Http;
+#endif
 
 namespace Mntone.Nico2.Vita
 {
@@ -31,11 +39,19 @@ namespace Mntone.Nico2.Vita
 				this._httpClient.Dispose();
 				this._httpClient = null;
 
+#if WINDOWS_APP
 				if( this._httpBaseProtocolFilter != null )
 				{
 					this._httpBaseProtocolFilter.Dispose();
 					this._httpBaseProtocolFilter = null;
 				}
+#else
+				if( this._httpClientHandler != null )
+				{
+					this._httpClientHandler.Dispose();
+					this._httpClientHandler = null;
+				}
+#endif
 			}
 		}
 
@@ -43,6 +59,7 @@ namespace Mntone.Nico2.Vita
 		{
 			if( this._httpClient == null )
 			{
+#if WINDOWS_APP
 				this._httpBaseProtocolFilter = new HttpBaseProtocolFilter();
 				this._httpBaseProtocolFilter.AllowAutoRedirect = false;
 				this._httpBaseProtocolFilter.CacheControl.ReadBehavior = HttpCacheReadBehavior.MostRecent;
@@ -50,6 +67,15 @@ namespace Mntone.Nico2.Vita
 				this._httpClient.DefaultRequestHeaders["user-agent"] = !string.IsNullOrEmpty( _AdditionalUserAgent )
 					? NiconicoContext.DefaultUserAgent + " (" + _AdditionalUserAgent + ')'
 					: NiconicoContext.DefaultUserAgent;
+#else
+				this._httpClientHandler = new HttpClientHandler();
+				this._httpClientHandler.AllowAutoRedirect = false;
+				this._httpClientHandler.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
+				this._httpClient = new HttpClient( this._httpClientHandler, false );
+				this._httpClient.DefaultRequestHeaders.Add( "user-agent", this._AdditionalUserAgent != null
+					? NiconicoContext.DefaultUserAgent + " (" + this._AdditionalUserAgent + ')'
+					: NiconicoContext.DefaultUserAgent );
+#endif
 			}
 			return this._httpClient;
 		}
@@ -89,7 +115,11 @@ namespace Mntone.Nico2.Vita
 
 		#region field
 
+#if WINDOWS_APP
 		private HttpBaseProtocolFilter _httpBaseProtocolFilter = null;
+#else
+		private HttpClientHandler _httpClientHandler = null;
+#endif
 		private HttpClient _httpClient = null;
 
 		#endregion

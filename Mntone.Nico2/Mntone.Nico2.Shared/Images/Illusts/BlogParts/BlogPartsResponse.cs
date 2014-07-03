@@ -1,7 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
+#if WINDOWS_APP
 using Windows.Data.Xml.Dom;
+#else
+using System.Xml.Linq;
+#endif
 
 namespace Mntone.Nico2.Images.Illusts.BlogParts
 {
@@ -10,20 +15,24 @@ namespace Mntone.Nico2.Images.Illusts.BlogParts
 	/// </summary>
 	public sealed class BlogPartsResponse
 	{
+#if WINDOWS_APP
 		internal BlogPartsResponse( IXmlNode responseXml )
+#else
+		internal BlogPartsResponse( XElement responseXml )
+#endif
 		{
 #if DEBUG
-			BaseUrl = responseXml.GetNamedChildNode( "base_url" ).InnerText.ToUri();
+			BaseUrl = responseXml.GetNamedChildNodeText( "base_url" ).ToUri();
 #endif
-			PageUrl = responseXml.GetNamedChildNode( "icon_url" ).InnerText.ToUri();
+			PageUrl = responseXml.GetNamedChildNodeText( "icon_url" ).ToUri();
 #if DEBUG
-			ImageBaseUrl = responseXml.GetNamedChildNode( "image_url" ).InnerText.ToUri();
+			ImageBaseUrl = responseXml.GetNamedChildNodeText( "image_url" ).ToUri();
 #endif
 
 			var imageListXml = responseXml.GetNamedChildNode( "image_list" );
-			if( imageListXml.FirstChild.FirstChild != null )
+			if( imageListXml.GetFirstChildNode().GetFirstChildNode() != null )
 			{
-				Images = imageListXml.ChildNodes.Select( imageXml => new Image( imageXml ) ).ToList();
+				Images = imageListXml.GetChildNodes().Select( imageXml => new Image( imageXml ) ).ToList();
 			}
 			else
 			{

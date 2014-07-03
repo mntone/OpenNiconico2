@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Globalization;
 using System.Text;
+
+#if WINDOWS_APP
 using Windows.Networking;
+#endif
 
 namespace Mntone.Nico2
 {
@@ -14,7 +17,7 @@ namespace Mntone.Nico2
 
 		public static bool ToBooleanFromString( this string value )
 		{
-			return value.Length == 4 && value == "true" ? true : false;
+			return value == "true" ? true : false;
 		}
 
 		public static short ToShort( this string value )
@@ -101,6 +104,10 @@ namespace Mntone.Nico2
 
 		public static TimeSpan ToTimeSpanFromSecondsString( this string value )
 		{
+			if( string.IsNullOrEmpty( value ) )
+			{
+				return TimeSpan.MinValue;
+			}
 			return new TimeSpan( 0, 0, int.Parse( value ) );
 		}
 
@@ -113,9 +120,11 @@ namespace Mntone.Nico2
 			return new Uri( value );
 		}
 
+#if WINDOWS_APP
 		public static HostName ToHostName( this string value )
 		{
 			return new HostName( value );
 		}
+#endif
 	}
 }

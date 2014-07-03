@@ -1,6 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+
+#if WINDOWS_APP
 using Windows.Data.Xml.Dom;
+#else
+using System.Xml.Linq;
+#endif
 
 namespace Mntone.Nico2.Live.PlayerStatus
 {
@@ -9,32 +14,35 @@ namespace Mntone.Nico2.Live.PlayerStatus
 	/// </summary>
 	public sealed class Comment
 	{
+#if WINDOWS_APP
 		internal Comment( IXmlNode streamXml, CommentServer commentServer )
+#else
+		internal Comment( XElement streamXml, CommentServer commentServer )
+#endif
 		{
-			IsLocked = streamXml.GetNamedChildNode( "comment_lock" ).InnerText.ToBooleanFrom1();
+			IsLocked = streamXml.GetNamedChildNodeText( "comment_lock" ).ToBooleanFrom1();
 
-			var scale = streamXml.GetNamedChildNode( "font_scale" ).InnerText;
+			var scale = streamXml.GetNamedChildNodeText( "font_scale" );
 			Scale = !string.IsNullOrEmpty( scale ) ? scale.ToSingle() : 1.0f;
 
-			var permXml = streamXml.ChildNodes.Where( node => node.NodeName == "perm" ).SingleOrDefault();
-			Perm = permXml != null ? permXml.InnerText : string.Empty;
+			Perm = streamXml.GetNamedChildNodeText( "perm" );
 
-			var splitTop = streamXml.GetNamedChildNode( "split_top" ).InnerText.ToBooleanFrom1();
+			var splitTop = streamXml.GetNamedChildNodeText( "split_top" ).ToBooleanFrom1();
 			if( splitTop )
 			{
 				Position = CommentPosition.Bottom;
 			}
 			else
 			{
-				var splitBottom = streamXml.GetNamedChildNode( "split_top" ).InnerText.ToBooleanFrom1();
+				var splitBottom = streamXml.GetNamedChildNodeText( "split_top" ).ToBooleanFrom1();
 				if( splitBottom )
 				{
 					Position = CommentPosition.Top;
 				}
 				else
 				{
-					var isTop = streamXml.GetNamedChildNode( "header_comment" ).InnerText.ToBooleanFrom1();
-					var isBottom = streamXml.GetNamedChildNode( "footer_comment" ).InnerText.ToBooleanFrom1();
+					var isTop = streamXml.GetNamedChildNodeText( "header_comment" ).ToBooleanFrom1();
+					var isBottom = streamXml.GetNamedChildNodeText( "footer_comment" ).ToBooleanFrom1();
 					if( isTop )
 					{
 						Position = isBottom ? CommentPosition.Both : CommentPosition.Top;
@@ -46,22 +54,21 @@ namespace Mntone.Nico2.Live.PlayerStatus
 				}
 			}
 
-			FilteringLevel = ( CommentFilteringLevel )streamXml.GetNamedChildNode( "ng_scoring" ).InnerText.ToUShort();
-			SexMode = ( CommentSexMode )streamXml.GetNamedChildNode( "danjo_comment_mode" ).InnerText.ToInt();
+			FilteringLevel = ( CommentFilteringLevel )streamXml.GetNamedChildNodeText( "ng_scoring" ).ToUShort();
+			SexMode = ( CommentSexMode )streamXml.GetNamedChildNodeText( "danjo_comment_mode" ).ToInt();
 
-			var quesheetXml = streamXml.ChildNodes.Where( node => node.NodeName == "quesheet" ).SingleOrDefault();
+			var quesheetXml = streamXml.GetNamedChildNode( "quesheet" );
 			if( quesheetXml != null )
 			{
-				Commands = quesheetXml.ChildNodes.Select( queXml => new Command( queXml ) ).ToList();
+				Commands = quesheetXml.GetChildNodes().Select( queXml => new Command( queXml ) ).ToList();
 			}
 
-			var isRestrictXml = streamXml.ChildNodes.Where( node => node.NodeName == "is_restrict" ).SingleOrDefault();
-			IsRestrict = isRestrictXml != null ? isRestrictXml.InnerText.ToBooleanFrom1() : false;
+			IsRestrict = streamXml.GetNamedChildNodeText( "is_restrict" ).ToBooleanFrom1();
 
-			var productCommentXml = streamXml.ChildNodes.Where( node => node.NodeName == "product_comment" ).SingleOrDefault();
-			if( productCommentXml != null )
+			var productCommentXml = streamXml.GetNamedChildNodeText( "product_comment" );
+			if( !string.IsNullOrEmpty( productCommentXml ) )
 			{
-				LimitMode = ( CommentLimitMode )productCommentXml.InnerText.ToInt();
+				LimitMode = ( CommentLimitMode )productCommentXml.ToInt();
 			}
 
 			Server = commentServer;

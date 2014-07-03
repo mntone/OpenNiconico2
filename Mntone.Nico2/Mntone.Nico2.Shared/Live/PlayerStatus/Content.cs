@@ -1,5 +1,10 @@
 ﻿using System;
+
+#if WINDOWS_APP
 using Windows.Data.Xml.Dom;
+#else
+using System.Xml.Linq;
+#endif
 
 namespace Mntone.Nico2.Live.PlayerStatus
 {
@@ -8,23 +13,19 @@ namespace Mntone.Nico2.Live.PlayerStatus
 	/// </summary>
 	public sealed class Content
 	{
+#if WINDOWS_APP
 		internal Content( IXmlNode contentsXml )
+#else
+		internal Content( XElement contentsXml )
+#endif
 		{
-			ID = contentsXml.GetNamedAttribute( "id" ).InnerText;
-			IsAudioDisabled = contentsXml.GetNamedAttribute( "disableAudio" ).InnerText.ToBooleanFrom1();
-			IsVideoDisabled = contentsXml.GetNamedAttribute( "disableVideo" ).InnerText.ToBooleanFrom1();
-			StartedAt = contentsXml.GetNamedAttribute( "start_time" ).InnerText.ToDateTimeOffsetFromUnixTime();
-
-			var durationAttribute = contentsXml.GetNamedAttribute( "duration" );
-			if( durationAttribute != null )
-			{
-				Duration = durationAttribute.InnerText.ToTimeSpanFromSecondsString();
-			}
-
-			var titleAttribute = contentsXml.GetNamedAttribute( "title" );
-			Title = titleAttribute != null ? titleAttribute.InnerText : string.Empty;
-
-			Value = contentsXml.InnerText;
+			ID = contentsXml.GetNamedAttributeText( "id" );
+			IsAudioDisabled = contentsXml.GetNamedAttributeText( "disableAudio" ).ToBooleanFrom1();
+			IsVideoDisabled = contentsXml.GetNamedAttributeText( "disableVideo" ).ToBooleanFrom1();
+			StartedAt = contentsXml.GetNamedAttributeText( "start_time" ).ToDateTimeOffsetFromUnixTime();
+			Duration = contentsXml.GetNamedAttributeText( "duration" ).ToTimeSpanFromSecondsString();
+			Title = contentsXml.GetNamedAttributeText( "title" );
+			Value = contentsXml.GetText();
 		}
 
 		/// <summary>

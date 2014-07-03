@@ -1,7 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
+#if WINDOWS_APP
 using Windows.Data.Xml.Dom;
+#else
+using System.Xml.Linq;
+#endif
 
 namespace Mntone.Nico2.Live.PlayerStatus
 {
@@ -15,23 +20,27 @@ namespace Mntone.Nico2.Live.PlayerStatus
 	/// -->
 	public sealed class PlayerStatusResponse
 	{
+#if WINDOWS_APP
 		internal PlayerStatusResponse( IXmlNode playerStatusXml )
+#else
+		internal PlayerStatusResponse( XElement playerStatusXml )
+#endif
 		{
 			var streamXml = playerStatusXml.GetNamedChildNode( "stream" );
 			var userXml = playerStatusXml.GetNamedChildNode( "user" );
 			var playerXml = playerStatusXml.GetNamedChildNode( "player" );
 
-			LoadedAt = playerStatusXml.GetNamedAttribute( "time" ).InnerText.ToDateTimeOffsetFromUnixTime();
+			LoadedAt = playerStatusXml.GetNamedAttributeText( "time" ).ToDateTimeOffsetFromUnixTime();
 			Program = new Program(
 				streamXml,
 				playerXml,
-				playerStatusXml.GetNamedAttribute( "nsen" ),
+				playerStatusXml.GetNamedChildNode( "nsen" ),
 				new ProgramTwitter( streamXml, playerStatusXml.GetNamedChildNode( "twitter" ) ) );
 			Room = new Room( streamXml, userXml );
 			Stream = new Stream(
 				streamXml,
 				playerStatusXml.GetNamedChildNode( "rtmp" ),
-				playerStatusXml.ChildNodes.Where( node => node.NodeName == "tickets" ).SingleOrDefault(),
+				playerStatusXml.GetNamedChildNode( "tickets" ),
 				playerXml );
 			Comment = new Comment(
 				streamXml,

@@ -1,7 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+
+#if WINDOWS_APP
 using Windows.Data.Xml.Dom;
 using Windows.Networking;
+#else
+using System.Xml.Linq;
+#endif
 
 namespace Mntone.Nico2.Live.PlayerStatus
 {
@@ -10,19 +15,27 @@ namespace Mntone.Nico2.Live.PlayerStatus
 	/// </summary>
 	public sealed class CommentServer
 	{
+#if WINDOWS_APP
 		internal CommentServer( IXmlNode commentServerXml, IXmlNode threadIDsXml )
+#else
+		internal CommentServer( XElement commentServerXml, XElement threadIDsXml )
+#endif
 		{
-			Host = commentServerXml.GetNamedChildNode( "addr" ).InnerText.ToHostName();
-			Port = commentServerXml.GetNamedChildNode( "port" ).InnerText.ToUShort();
-			if( threadIDsXml.FirstChild != null )
+#if WINDOWS_APP
+			Host = commentServerXml.GetNamedChildNodeText( "addr" ).ToHostName();
+#else
+			Host = commentServerXml.GetNamedChildNodeText( "addr" );
+#endif
+			Port = commentServerXml.GetNamedChildNodeText( "port" ).ToUShort();
+			if( threadIDsXml.GetFirstChildNode() != null )
 			{
-				ThreadIDs = threadIDsXml.ChildNodes.Select( threadIDXml => threadIDXml.InnerText.ToUInt() ).ToList();
+				ThreadIDs = threadIDsXml.GetChildNodes().Select( threadIDXml => threadIDXml.GetText().ToUInt() ).ToList();
 			}
 			else
 			{
 				ThreadIDs = new List<uint>()
 				{
-					commentServerXml.GetNamedChildNode( "thread" ).InnerText.ToUInt()
+					commentServerXml.GetNamedChildNodeText( "thread" ).ToUInt()
 				};
 			}
 		}
@@ -30,7 +43,11 @@ namespace Mntone.Nico2.Live.PlayerStatus
 		/// <summary>
 		/// ホスト名
 		/// </summary>
+#if WINDOWS_APP
 		public HostName Host { get; private set; }
+#else
+		public string Host { get; private set; }
+#endif
 
 		/// <summary>
 		/// ポート番号

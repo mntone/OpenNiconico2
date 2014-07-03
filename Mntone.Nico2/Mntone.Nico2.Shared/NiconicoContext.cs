@@ -2,9 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
+#if WINDOWS_APP
 using Windows.Foundation;
 using Windows.Web.Http;
 using Windows.Web.Http.Filters;
+#else
+using System.Collections;
+using System.Net;
+using System.Net.Http;
+#endif
 
 namespace Mntone.Nico2
 {
@@ -58,11 +65,19 @@ namespace Mntone.Nico2
 				this._httpClient.Dispose();
 				this._httpClient = null;
 
+#if WINDOWS_APP
 				if( this._httpBaseProtocolFilter != null )
 				{
 					this._httpBaseProtocolFilter.Dispose();
 					this._httpBaseProtocolFilter = null;
 				}
+#else
+				if( this._httpClientHandler != null )
+				{
+					this._httpClientHandler.Dispose();
+					this._httpClientHandler = null;
+				}
+#endif
 			}
 		}
 
@@ -70,48 +85,68 @@ namespace Mntone.Nico2
 		/// 非同期操作としてログオン要求を送信します。ログオン完了後、ログオンが正常にできているかをチェックし、その状態をセッションに記録します。
 		/// </summary>
 		/// <returns>非同期操作を表すオブジェクト</returns>
+#if WINDOWS_APP
 		public IAsyncOperation<bool> LogOnAsync()
+#else
+		public Task<bool> LogOnAsync()
+#endif
 		{
 			var request = new Dictionary<string, string>();
 			request.Add( MailTelName, this.AuthenticationToken.MailOrTelephone );
 			request.Add( PasswordName, this.AuthenticationToken.Password );
 
 			return this.GetClient()
-				.PostAsync( new Uri( NiconicoUrls.LogOnUrl ), new HttpFormUrlEncodedContent( request ) )
-				.AsTask()
+				.Post2Async( NiconicoUrls.LogOnUrl, request )
 				.ContinueWith( prevTask => this.GetIsLoggedOnInternalAsync() )
 				.Unwrap()
-				.AsAsyncOperation();
+#if WINDOWS_APP
+				.AsAsyncOperation()
+#endif
+				;
 		}
 
 		/// <summary>
 		/// 非同期操作としてログオン確認のための要求を送信します。ログオンが正常にできている場合、その状態をセッションに記録します。
 		/// </summary>
 		/// <returns>非同期操作を表すオブジェクト</returns>
+#if WINDOWS_APP
 		public IAsyncOperation<bool> GetIsLoggedOnAsync()
 		{
 			return this.GetIsLoggedOnInternalAsync().AsAsyncOperation();
 		}
+#else
+		public Task<bool> GetIsLoggedOnAsync()
+		{
+			return this.GetIsLoggedOnInternalAsync();
+		}
+#endif
 
 		internal Task<bool> GetIsLoggedOnInternalAsync()
 		{
 			return this.GetClient()
-				.HeadAsync( new Uri( NiconicoUrls.TopPageUrl ) )
-				.AsTask()
+				.Head2Async( NiconicoUrls.TopPageUrl )
 				.ContinueWith( prevTask =>
 				{
 					var response = prevTask.Result;
 
+#if WINDOWS_APP
 					this.CurrentSession.AccountAuthority = ( NiconicoAccountAuthority )response.Headers[XNiconicoAuthflag].ToInt();
+#else
+					this.CurrentSession.AccountAuthority = ( NiconicoAccountAuthority )response.Headers.GetValues( XNiconicoAuthflag ).Single().ToInt();
+#endif
 					if( this.CurrentSession.AccountAuthority != NiconicoAccountAuthority.NotLoggedOn )
 					{
+#if WINDOWS_APP
 						this.CurrentSession.UserId = uint.Parse( response.Headers[XNiconicoId] );
-
+#else
+						this.CurrentSession.UserId = uint.Parse( response.Headers.GetValues( XNiconicoId ).Single() );
+#endif
 						try
 						{
+#if WINDOWS_APP
 							var cookie = this._httpBaseProtocolFilter
 								.CookieManager
-								.GetCookies( new Uri( "http://nicovideo.jp/" ) )
+								.GetCookies( NiconicoCookieUrl )
 								.Where( c => c.Name == UserSessionName && c.Path == "/" )
 								.SingleOrDefault();
 							if( cookie != null && cookie.Expires.HasValue )
@@ -120,6 +155,20 @@ namespace Mntone.Nico2
 								this.CurrentSession.Expires = cookie.Expires.Value;
 								return true;
 							}
+#else
+							var cookie = this._httpClientHandler
+								.CookieContainer
+								.GetCookies( NiconicoCookieUrl )
+								.Cast<Cookie>()
+								.Where( c => c.Name == UserSessionName && c.Path == "/" )
+								.SingleOrDefault();
+							if( cookie != null && cookie.Expires != null )
+							{
+								this.CurrentSession.Key = cookie.Value;
+								this.CurrentSession.Expires = cookie.Expires;
+								return true;
+							}
+#endif
 						}
 						catch( InvalidOperationException )
 						{ }
@@ -132,31 +181,38 @@ namespace Mntone.Nico2
 		/// 非同期操作としてログオフ要求を送信します
 		/// </summary>
 		/// <returns>非同期操作を表すオブジェクト</returns>
+#if WINDOWS_APP
 		public IAsyncOperation<bool> LogOffAsync()
+#else
+		public Task<bool> LogOffAsync()
+#endif
 		{
 			return this.GetClient()
-				.HeadAsync( new Uri( NiconicoUrls.LogOffUrl ) )
-				.AsTask()
+				.Head2Async( NiconicoUrls.LogOffUrl )
 				.ContinueWith( prevTask =>
 				{
 					this.CurrentSession = null;
 					return this.GetIsLoggedOnInternalAsync();
 				} )
 				.Unwrap()
-				.AsAsyncOperation();
+#if WINDOWS_APP
+				.AsAsyncOperation()
+#endif
+				;
 		}
 
 		internal HttpClient GetClient()
 		{
 			if( this._httpClient == null )
 			{
+#if WINDOWS_APP
 				this._httpBaseProtocolFilter = new HttpBaseProtocolFilter();
 				this._httpBaseProtocolFilter.AllowAutoRedirect = false;
 				this._httpBaseProtocolFilter.CacheControl.ReadBehavior = HttpCacheReadBehavior.MostRecent;
 				this._httpClient = new HttpClient( this._httpBaseProtocolFilter );
-				this._httpClient.DefaultRequestHeaders["user-agent"] = _AdditionalUserAgent != null
-					? DefaultUserAgent + " (" + _AdditionalUserAgent + ')'
-					: DefaultUserAgent;
+				this._httpClient.DefaultRequestHeaders["user-agent"] = this._AdditionalUserAgent != null
+					? NiconicoContext.DefaultUserAgent + " (" + this._AdditionalUserAgent + ')'
+					: NiconicoContext.DefaultUserAgent;
 
 				if( this.CurrentSession != null )
 				{
@@ -165,6 +221,25 @@ namespace Mntone.Nico2
 					cookie.Expires = this.CurrentSession.Expires;
 					this._httpBaseProtocolFilter.CookieManager.SetCookie( cookie );
 				}
+#else
+				this._httpClientHandler = new HttpClientHandler();
+				this._httpClientHandler.AllowAutoRedirect = false;
+				this._httpClientHandler.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
+				this._httpClient = new HttpClient( this._httpClientHandler, false );
+				this._httpClient.DefaultRequestHeaders.Add( "user-agent", this._AdditionalUserAgent != null
+					? NiconicoContext.DefaultUserAgent + " (" + this._AdditionalUserAgent + ')'
+					: NiconicoContext.DefaultUserAgent );
+
+				if( this.CurrentSession != null )
+				{
+					var cookie = string.Format(
+						"{0}={1}; expires={2}",
+						UserSessionName,
+						this.CurrentSession.Key,
+						this.CurrentSession.Expires.ToUniversalTime().ToString() );
+					this._httpClientHandler.CookieContainer.SetCookies( NiconicoCookieUrl, cookie );
+				}
+#endif
 				else
 				{
 					this._CurrentSession = new NiconicoSession();
@@ -281,8 +356,13 @@ namespace Mntone.Nico2
 		private const string PasswordName = "password";
 		private const string UserSessionName = "user_session";
 		internal const string DefaultUserAgent = "OpenNiconico/2.0";
+		private readonly Uri NiconicoCookieUrl = new Uri( "http://nicovideo.jp/" );
 
+#if WINDOWS_APP
 		private HttpBaseProtocolFilter _httpBaseProtocolFilter = null;
+#else
+		private HttpClientHandler _httpClientHandler = null;
+#endif
 		private HttpClient _httpClient = null;
 
 		#endregion

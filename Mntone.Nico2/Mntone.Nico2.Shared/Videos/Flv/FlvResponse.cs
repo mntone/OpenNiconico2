@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+
+#if WINDOWS_APP
 using Windows.Networking;
+#endif
 
 namespace Mntone.Nico2.Videos.Flv
 {
@@ -35,7 +38,11 @@ namespace Mntone.Nico2.Videos.Flv
 			ChannelFilter = wwwFormData.ContainsKey( "ng_ch" ) ? wwwFormData["ng_ch"] : string.Empty;
 			FlashMediaServerToken = wwwFormData.ContainsKey( "fmst" ) ? wwwFormData["fmst"] : string.Empty;
 
+#if WINDOWS_APP
 			AppsHost = wwwFormData["hms"].ToHostName();
+#else
+			AppsHost = wwwFormData["hms"];
+#endif
 			AppsPort = wwwFormData["hmsp"].ToUShort();
 			AppsThreadID = wwwFormData["hmst"].ToUShort();
 			AppsTicket = wwwFormData["hmstk"];
@@ -144,7 +151,11 @@ namespace Mntone.Nico2.Videos.Flv
 		/// <summary>
 		/// ニコニコアプリのホスト名
 		/// </summary>
+#if WINDOWS_APP
 		public HostName AppsHost { get; private set; }
+#else
+		public string AppsHost { get; private set; }
+#endif
 
 		/// <summary>
 		/// ニコニコアプリのポート番号

@@ -1,16 +1,14 @@
 ﻿using System;
-using Windows.Foundation;
-using Windows.Web.Http;
+using System.Threading.Tasks;
 
 namespace Mntone.Nico2.Dictionaries.Exist
 {
 	internal sealed class ExistClient
 	{
-		public static IAsyncOperationWithProgress<string, HttpProgress> ExistDataAsync(
-			NiconicoContext context, Category targetCategory, string targetWord )
+		public static Task<string> ExistDataAsync( NiconicoContext context, Category targetCategory, string targetWord )
 		{
-			return context.GetClient().GetStringAsync( new Uri(
-				NiconicoUrls.DictionaryExistUrl + targetCategory.ToCategoryChar() + '/' + Uri.EscapeUriString( targetWord ) ) );
+			return context.GetClient().GetString2Async(
+				NiconicoUrls.DictionaryExistUrl + targetCategory.ToCategoryChar() + '/' + Uri.EscapeUriString( targetWord ) );
 		}
 
 		public static bool ParseExistData( string existData )
@@ -18,12 +16,10 @@ namespace Mntone.Nico2.Dictionaries.Exist
 			return existData.ToBooleanFrom1();
 		}
 
-		public static IAsyncOperation<bool> ExistAsync( NiconicoContext context, Category targetCategory, string targetWord )
+		public static Task<bool> ExistAsync( NiconicoContext context, Category targetCategory, string targetWord )
 		{
 			return ExistDataAsync( context, targetCategory, targetWord )
-				.AsTask()
-				.ContinueWith( prevTask => ParseExistData( prevTask.Result ) )
-				.AsAsyncOperation();
+				.ContinueWith( prevTask => ParseExistData( prevTask.Result ) );
 		}
 	}
 }

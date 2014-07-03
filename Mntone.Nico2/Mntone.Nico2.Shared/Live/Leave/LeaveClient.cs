@@ -1,32 +1,29 @@
 ﻿using System;
-using Windows.Foundation;
-using Windows.Web.Http;
+using System.Threading.Tasks;
 
 namespace Mntone.Nico2.Live.Leave
 {
 	internal sealed class LeaveClient
 	{
-		public static IAsyncOperationWithProgress<string, HttpProgress> LeaveDataAsync( NiconicoContext context, string requestID )
+		public static Task<string> LeaveDataAsync( NiconicoContext context, string requestID )
 		{
 			if( !NiconicoRegex.IsLiveID( requestID ) )
 			{
 				throw new ArgumentException();
 			}
 
-			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.LiveLeaveUrl + "?v=" + requestID ) );
+			return context.GetClient().GetString2Async( NiconicoUrls.LiveLeaveUrl + "?v=" + requestID );
 		}
 
 		public static bool ParseLeaveData( string leaveData )
 		{
-			return leaveData == "true";
+			return leaveData.ToBooleanFromString();
 		}
 
-		public static IAsyncOperation<bool> LeaveAsync( NiconicoContext context, string requestID )
+		public static Task<bool> LeaveAsync( NiconicoContext context, string requestID )
 		{
 			return LeaveDataAsync( context, requestID )
-				.AsTask()
-				.ContinueWith( prevTask => ParseLeaveData( prevTask.Result ) )
-				.AsAsyncOperation();
+				.ContinueWith( prevTask => ParseLeaveData( prevTask.Result ) );
 		}
 	}
 }

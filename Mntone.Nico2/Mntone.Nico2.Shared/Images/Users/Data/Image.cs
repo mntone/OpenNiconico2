@@ -1,6 +1,11 @@
 ﻿using Mntone.Nico2.Images.Illusts;
 using System;
+
+#if WINDOWS_APP
 using Windows.Data.Xml.Dom;
+#else
+using System.Xml.Linq;
+#endif
 
 namespace Mntone.Nico2.Images.Users.Data
 {
@@ -9,29 +14,33 @@ namespace Mntone.Nico2.Images.Users.Data
 	/// </summary>
 	public sealed class Image
 	{
-		internal Image( IXmlNode imageNode )
-		{
-			ID = "im" + imageNode.GetNamedChildNode( "id" ).InnerText;
-			UserId = imageNode.GetNamedChildNode( "user_id" ).InnerText.ToUInt();
-			Title = imageNode.GetNamedChildNode( "title" ).InnerText;
-			Description = imageNode.GetNamedChildNode( "description" ).InnerText;
-			ViewCount = imageNode.GetNamedChildNode( "view_count" ).InnerText.ToUInt();
-			CommentCount = imageNode.GetNamedChildNode( "comment_count" ).InnerText.ToUInt();
-			ClipCount = imageNode.GetNamedChildNode( "clip_count" ).InnerText.ToUInt();
-			LastCommentBody = imageNode.GetNamedChildNode( "summary" ).InnerText;
-			Genre = ( Genre )imageNode.GetNamedChildNode( "genre" ).InnerText.ToInt();
-#if DEBUG
-			Site = ( Site )imageNode.GetNamedChildNode( "category" ).InnerText.ToInt();
+#if WINDOWS_APP
+		internal Image( IXmlNode imageXml )
+#else
+		internal Image( XElement imageXml )
 #endif
-			ImageType = imageNode.GetNamedChildNode( "image_type" ).InnerText.ToUShort();
-			IllustType = imageNode.GetNamedChildNode( "illust_type" ).InnerText.ToUShort();
-			InspectionStatus = imageNode.GetNamedChildNode( "inspection_status" ).InnerText.ToUShort();
-			IsAnonymous = imageNode.GetNamedChildNode( "anonymous_flag" ).InnerText.ToBooleanFrom1();
-			PublicStatus = imageNode.GetNamedChildNode( "public_status" ).InnerText.ToUShort();
-			IsDeleted = imageNode.GetNamedChildNode( "delete_flag" ).InnerText.ToBooleanFrom1();
-			DeleteType = imageNode.GetNamedChildNode( "delete_type" ).InnerText.ToUShort();
-			//CacheTime = ( imageNode.GetNamedChildNode( "cache_time" ).InnerText + "+09:00" ).ToDateTimeOffsetFromIso8601();
-			PostedAt = ( imageNode.GetNamedChildNode( "created" ).InnerText + "+09:00" ).ToDateTimeOffsetFromIso8601();
+		{
+			ID = "im" + imageXml.GetNamedChildNodeText( "id" );
+			UserId = imageXml.GetNamedChildNodeText( "user_id" ).ToUInt();
+			Title = imageXml.GetNamedChildNodeText( "title" );
+			Description = imageXml.GetNamedChildNodeText( "description" );
+			ViewCount = imageXml.GetNamedChildNodeText( "view_count" ).ToUInt();
+			CommentCount = imageXml.GetNamedChildNodeText( "comment_count" ).ToUInt();
+			ClipCount = imageXml.GetNamedChildNodeText( "clip_count" ).ToUInt();
+			LastCommentBody = imageXml.GetNamedChildNodeText( "summary" );
+			Genre = ( Genre )imageXml.GetNamedChildNodeText( "genre" ).ToInt();
+#if DEBUG
+			Site = ( Site )imageXml.GetNamedChildNodeText( "category" ).ToInt();
+#endif
+			ImageType = imageXml.GetNamedChildNodeText( "image_type" ).ToUShort();
+			IllustType = imageXml.GetNamedChildNodeText( "illust_type" ).ToUShort();
+			InspectionStatus = imageXml.GetNamedChildNodeText( "inspection_status" ).ToUShort();
+			IsAnonymous = imageXml.GetNamedChildNodeText( "anonymous_flag" ).ToBooleanFrom1();
+			PublicStatus = imageXml.GetNamedChildNodeText( "public_status" ).ToUShort();
+			IsDeleted = imageXml.GetNamedChildNodeText( "delete_flag" ).ToBooleanFrom1();
+			DeleteType = imageXml.GetNamedChildNodeText( "delete_type" ).ToUShort();
+			//CacheTime = ( imageNode.GetNamedChildNodeText( "cache_time" ) + "+09:00" ).ToDateTimeOffsetFromIso8601();
+			PostedAt = ( imageXml.GetNamedChildNodeText( "created" ) + "+09:00" ).ToDateTimeOffsetFromIso8601();
 		}
 
 		/// <summary>

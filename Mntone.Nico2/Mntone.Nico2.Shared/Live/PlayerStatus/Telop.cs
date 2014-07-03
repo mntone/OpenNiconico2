@@ -1,5 +1,10 @@
 ﻿using System.Linq;
+
+#if WINDOWS_APP
 using Windows.Data.Xml.Dom;
+#else
+using System.Xml.Linq;
+#endif
 
 namespace Mntone.Nico2.Live.PlayerStatus
 {
@@ -8,15 +13,19 @@ namespace Mntone.Nico2.Live.PlayerStatus
 	/// </summary>
 	public sealed class Telop
 	{
+#if WINDOWS_APP
 		internal Telop( IXmlNode telopNode )
+#else
+		internal Telop( XElement telopNode )
+#endif
 		{
-			IsEnabled = telopNode.GetNamedChildNode( "enable" ).InnerText.ToBooleanFrom1();
+			IsEnabled = telopNode.GetNamedChildNodeText( "enable" ).ToBooleanFrom1();
 
-			var mailXml = telopNode.ChildNodes.Where( node => node.NodeName == "mail" ).SingleOrDefault();
-			if( mailXml != null )
+			var mailXml = telopNode.GetNamedChildNodeText( "mail" );
+			if( !string.IsNullOrEmpty( mailXml ) )
 			{
-				Mail = mailXml.InnerText;
-				Value = telopNode.GetNamedChildNode( "caption" ).InnerText;
+				Mail = mailXml;
+				Value = telopNode.GetNamedChildNodeText( "caption" );
 			}
 			else
 			{

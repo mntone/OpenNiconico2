@@ -1,5 +1,10 @@
 ﻿using System;
+
+#if WINDOWS_APP
 using Windows.Data.Xml.Dom;
+#else
+using System.Xml.Linq;
+#endif
 
 namespace Mntone.Nico2.Live.PlayerStatus
 {
@@ -8,15 +13,19 @@ namespace Mntone.Nico2.Live.PlayerStatus
 	/// </summary>
 	public sealed class UserTwitter
 	{
+#if WINDOWS_APP
 		internal UserTwitter( IXmlNode twitterInfoXml )
+#else
+		internal UserTwitter( XElement twitterInfoXml )
+#endif
 		{
-			IsEnabled = twitterInfoXml.GetNamedChildNode( "status" ).InnerText == "enabled";
-			ScreenName = twitterInfoXml.GetNamedChildNode( "screen_name" ).InnerText;
-			FollowersCount = twitterInfoXml.GetNamedChildNode( "followers_count" ).InnerText.ToUInt();
-			IsVip = twitterInfoXml.GetNamedChildNode( "is_vip" ).InnerText.ToBooleanFrom1();
-			ProfileImageUrl = twitterInfoXml.GetNamedChildNode( "profile_image_url" ).InnerText.ToUri();
-			IsAuthenticationRequired = twitterInfoXml.GetNamedChildNode( "after_auth" ).InnerText.ToBooleanFrom1();
-			Token = twitterInfoXml.GetNamedChildNode( "tweet_token" ).InnerText;
+			IsEnabled = twitterInfoXml.GetNamedChildNodeText( "status" ) == "enabled";
+			ScreenName = twitterInfoXml.GetNamedChildNodeText( "screen_name" );
+			FollowersCount = twitterInfoXml.GetNamedChildNodeText( "followers_count" ).ToUInt();
+			IsVip = twitterInfoXml.GetNamedChildNodeText( "is_vip" ).ToBooleanFrom1();
+			ProfileImageUrl = twitterInfoXml.GetNamedChildNodeText( "profile_image_url" ).ToUri();
+			IsAuthenticationRequired = twitterInfoXml.GetNamedChildNodeText( "after_auth" ).ToBooleanFrom1();
+			Token = twitterInfoXml.GetNamedChildNodeText( "tweet_token" );
 		}
 
 		/// <summary>

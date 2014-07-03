@@ -1,5 +1,10 @@
 ﻿using System;
+
+#if WINDOWS_APP
 using Windows.Data.Xml.Dom;
+#else
+using System.Xml.Linq;
+#endif
 
 namespace Mntone.Nico2.Live.PlayerStatus
 {
@@ -8,12 +13,16 @@ namespace Mntone.Nico2.Live.PlayerStatus
 	/// </summary>
 	public sealed class Marquee
 	{
+#if WINDOWS_APP
 		internal Marquee( IXmlNode marqueeXml )
+#else
+		internal Marquee( XElement marqueeXml )
+#endif
 		{
-			Category = marqueeXml.GetNamedChildNode( "category" ).InnerText;
-			GameKey = marqueeXml.GetNamedChildNode( "game_key" ).InnerText;
-			GameTime = marqueeXml.GetNamedChildNode( "game_time" ).InnerText.ToDateTimeOffsetFromUnixTime();
-			IsNotInterruptionForced = marqueeXml.GetNamedChildNode( "force_nicowari_off" ).InnerText.ToBooleanFrom1();
+			Category = marqueeXml.GetNamedChildNodeText( "category" );
+			GameKey = marqueeXml.GetNamedChildNodeText( "game_key" );
+			GameTime = marqueeXml.GetNamedChildNodeText( "game_time" ).ToDateTimeOffsetFromUnixTime();
+			IsNotInterruptionForced = marqueeXml.GetNamedChildNodeText( "force_nicowari_off" ).ToBooleanFrom1();
 		}
 
 		/// <summary>

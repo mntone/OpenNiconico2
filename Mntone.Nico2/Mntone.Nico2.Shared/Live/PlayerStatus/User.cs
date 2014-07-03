@@ -1,5 +1,10 @@
 ﻿using System.Linq;
+
+#if WINDOWS_APP
 using Windows.Data.Xml.Dom;
+#else
+using System.Xml.Linq;
+#endif
 
 namespace Mntone.Nico2.Live.PlayerStatus
 {
@@ -8,32 +13,31 @@ namespace Mntone.Nico2.Live.PlayerStatus
 	/// </summary>
 	public sealed class User
 	{
+#if WINDOWS_APP
 		internal User( IXmlNode streamXml, IXmlNode userXml )
+#else
+		internal User( XElement streamXml, XElement userXml )
+#endif
 		{
-			ID = userXml.GetNamedChildNode( "user_id" ).InnerText.ToUInt();
-			Name = userXml.GetNamedChildNode( "nickname" ).InnerText;
-			IsPremium = userXml.GetNamedChildNode( "is_premium" ).InnerText.ToBooleanFrom1();
-			Age = userXml.GetNamedChildNode( "userAge" ).InnerText.ToUShort();
-			Sex = userXml.GetNamedChildNode( "userSex" ).InnerText.ToBooleanFrom1() ? Sex.Male : Sex.Female;
-			Domain = userXml.GetNamedChildNode( "userDomain" ).InnerText;
-			Prefecture = ( Prefecture )userXml.GetNamedChildNode( "userPrefecture" ).InnerText.ToInt();
-			Language = userXml.GetNamedChildNode( "userLanguage" ).InnerText;
+			ID = userXml.GetNamedChildNodeText( "user_id" ).ToUInt();
+			Name = userXml.GetNamedChildNodeText( "nickname" );
+			IsPremium = userXml.GetNamedChildNodeText( "is_premium" ).ToBooleanFrom1();
+			Age = userXml.GetNamedChildNodeText( "userAge" ).ToUShort();
+			Sex = userXml.GetNamedChildNodeText( "userSex" ).ToBooleanFrom1() ? Sex.Male : Sex.Female;
+			Domain = userXml.GetNamedChildNodeText( "userDomain" );
+			Prefecture = ( Prefecture )userXml.GetNamedChildNodeText( "userPrefecture" ).ToInt();
+			Language = userXml.GetNamedChildNodeText( "userLanguage" );
+			HKey = streamXml.GetNamedChildNodeText( "hkey" );
+			IsOwner = streamXml.GetNamedChildNodeText( "is_owner" ).ToBooleanFrom1();
+			IsJoin = userXml.GetNamedChildNodeText( "is_join" ).ToBooleanFrom1();
+			IsReserved = streamXml.GetNamedChildNodeText( "is_timeshift_reserved" ).ToBooleanFrom1();
+			IsPrefecturePreferential = streamXml.GetNamedChildNodeText( "is_priority_prefecture" ).ToBooleanFrom1();
 
-			var hKeyXml = streamXml.ChildNodes.Where( node => node.NodeName == "hkey" ).SingleOrDefault();
-			HKey = hKeyXml != null ? hKeyXml.InnerText : string.Empty;
-
-			IsOwner = streamXml.GetNamedChildNode( "is_owner" ).InnerText.ToBooleanFrom1();
-			IsJoin = userXml.GetNamedChildNode( "is_join" ).InnerText.ToBooleanFrom1();
-			IsReserved = streamXml.GetNamedChildNode( "is_timeshift_reserved" ).InnerText.ToBooleanFrom1();
-
-			var isPriorityPrefectureXml = streamXml.ChildNodes.Where( node => node.NodeName =="is_priority_prefecture" ).SingleOrDefault();
-			IsPrefecturePreferential = isPriorityPrefectureXml != null ? isPriorityPrefectureXml.InnerText.ToBooleanFrom1() : false;
-
-			var productPurchasedXml = streamXml.ChildNodes.Where( node => node.NodeName == "product_purchased" ).SingleOrDefault();
-			if( productPurchasedXml != null )
+			var productPurchasedXml = streamXml.GetNamedChildNodeText( "product_purchased" );
+			if( !string.IsNullOrEmpty( productPurchasedXml ) )
 			{
-				IsPurchased = productPurchasedXml.InnerText.ToBooleanFrom1();
-				IsSerialUsing = streamXml.GetNamedAttribute( "is_serial_stream" ).InnerText.ToBooleanFrom1();
+				IsPurchased = productPurchasedXml.ToBooleanFrom1();
+				IsSerialUsing = streamXml.GetNamedAttributeText( "is_serial_stream" ).ToBooleanFrom1();
 			}
 
 			Twitter = new UserTwitter( userXml.GetNamedChildNode( "twitter_info" ) );

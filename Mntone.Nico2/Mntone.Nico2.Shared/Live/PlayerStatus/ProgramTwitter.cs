@@ -1,5 +1,10 @@
 ﻿using System;
+
+#if WINDOWS_APP
 using Windows.Data.Xml.Dom;
+#else
+using System.Xml.Linq;
+#endif
 
 namespace Mntone.Nico2.Live.PlayerStatus
 {
@@ -8,11 +13,15 @@ namespace Mntone.Nico2.Live.PlayerStatus
 	/// </summary>
 	public sealed class ProgramTwitter
 	{
+#if WINDOWS_APP
 		internal ProgramTwitter( IXmlNode streamXml, IXmlNode twitterXml )
+#else
+		internal ProgramTwitter( XElement streamXml, XElement twitterXml )
+#endif
 		{
-			IsEnabled = twitterXml.GetNamedChildNode( "live_enabled" ).InnerText.ToBooleanFrom1();
-			Hashtag = streamXml.GetNamedChildNode( "twitter_tag" ).InnerText;
-			VipModeCount = twitterXml.GetNamedChildNode( "vip_mode_count" ).InnerText.ToUInt();
+			IsEnabled = twitterXml.GetNamedChildNodeText( "live_enabled" ).ToBooleanFrom1();
+			Hashtag = streamXml.GetNamedChildNodeText( "twitter_tag" );
+			VipModeCount = twitterXml.GetNamedChildNodeText( "vip_mode_count" ).ToUInt();
 		}
 
 		/// <summary>

@@ -1,4 +1,8 @@
-﻿using Windows.Data.Xml.Dom;
+﻿#if WINDOWS_APP
+using Windows.Data.Xml.Dom;
+#else
+using System.Xml.Linq;
+#endif
 
 namespace Mntone.Nico2.Images.Illusts.BlogParts
 {
@@ -7,12 +11,16 @@ namespace Mntone.Nico2.Images.Illusts.BlogParts
 	/// </summary>
 	public sealed class Image
 	{
-		internal Image( IXmlNode imageNode )
+#if WINDOWS_APP
+		internal Image( IXmlNode imageXml )
+#else
+		internal Image( XElement imageXml )
+#endif
 		{
-			ID = "im" + imageNode.GetNamedChildNode( "id" ).InnerText;
-			//CacheTime = imageNode.GetNamedChildNode( "cache_time" ).InnerText.ToDateTimeOffsetFromIso8601();
-			Title = imageNode.GetNamedChildNode( "title" ).InnerText;
-			UserName = imageNode.GetNamedChildNode( "nickname" ).InnerText;
+			ID = "im" + imageXml.GetNamedChildNodeText( "id" );
+			//CacheTime = imageXml.GetNamedChildNodeText( "cache_time" ).ToDateTimeOffsetFromIso8601();
+			Title = imageXml.GetNamedChildNodeText( "title" );
+			UserName = imageXml.GetNamedChildNodeText( "nickname" );
 		}
 
 		/// <summary>

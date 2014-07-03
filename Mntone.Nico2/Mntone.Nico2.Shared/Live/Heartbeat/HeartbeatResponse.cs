@@ -1,5 +1,10 @@
 ﻿using System;
+
+#if WINDOWS_APP
 using Windows.Data.Xml.Dom;
+#else
+using System.Xml.Linq;
+#endif
 
 namespace Mntone.Nico2.Live.Heartbeat
 {
@@ -8,14 +13,18 @@ namespace Mntone.Nico2.Live.Heartbeat
 	/// </summary>
 	public sealed class HeartbeatResponse
 	{
+#if WINDOWS_APP
 		internal HeartbeatResponse( IXmlNode heartbeatXml )
+#else
+		internal HeartbeatResponse( XElement heartbeatXml )
+#endif
 		{
-			LoadedAt = heartbeatXml.GetNamedAttribute( "time" ).InnerText.ToDateTimeOffsetFromUnixTime();
-			WatchCount = heartbeatXml.GetNamedChildNode( "watchCount" ).InnerText.ToUInt();
-			CommentCount = heartbeatXml.GetNamedChildNode( "commentCount" ).InnerText.ToUInt();
-			IsRestrict = heartbeatXml.GetNamedChildNode( "is_restrict" ).InnerText.ToBooleanFrom1();
-			Ticket = heartbeatXml.GetNamedChildNode( "ticket" ).InnerText;
-			WaitDuration = heartbeatXml.GetNamedChildNode( "waitTime" ).InnerText.ToTimeSpanFromSecondsString();
+			LoadedAt = heartbeatXml.GetNamedAttributeText( "time" ).ToDateTimeOffsetFromUnixTime();
+			WatchCount = heartbeatXml.GetNamedChildNodeText( "watchCount" ).ToUInt();
+			CommentCount = heartbeatXml.GetNamedChildNodeText( "commentCount" ).ToUInt();
+			IsRestrict = heartbeatXml.GetNamedChildNodeText( "is_restrict" ).ToBooleanFrom1();
+			Ticket = heartbeatXml.GetNamedChildNodeText( "ticket" );
+			WaitDuration = heartbeatXml.GetNamedChildNodeText( "waitTime" ).ToTimeSpanFromSecondsString();
 		}
 
 		/// <summary>

@@ -1,4 +1,8 @@
-﻿using Windows.Data.Xml.Dom;
+﻿#if WINDOWS_APP
+using Windows.Data.Xml.Dom;
+#else
+using System.Xml.Linq;
+#endif
 
 namespace Mntone.Nico2.Live.PlayerStatus
 {
@@ -7,10 +11,14 @@ namespace Mntone.Nico2.Live.PlayerStatus
 	/// </summary>
 	public sealed class NetDuetto
 	{
+#if WINDOWS_APP
 		internal NetDuetto( IXmlNode streamXml )
+#else
+		internal NetDuetto( XElement streamXml )
+#endif
 		{
-			IsEnabled = streamXml.GetNamedChildNode( "allow_netduetto" ).InnerText.ToBooleanFrom1();
-			Token = streamXml.GetNamedChildNode( "nd_token" ).InnerText;
+			IsEnabled = streamXml.GetNamedChildNodeText( "allow_netduetto" ).ToBooleanFrom1();
+			Token = streamXml.GetNamedChildNodeText( "nd_token" );
 		}
 
 		/// <summary>

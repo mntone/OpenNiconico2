@@ -1,6 +1,10 @@
 ﻿using System;
-using System.Linq;
+
+#if WINDOWS_APP
 using Windows.Data.Xml.Dom;
+#else
+using System.Xml.Linq;
+#endif
 
 namespace Mntone.Nico2.Videos.Thumbnail
 {
@@ -9,45 +13,49 @@ namespace Mntone.Nico2.Videos.Thumbnail
 	/// </summary>
 	public sealed class ThumbnailResponse
 	{
+#if WINDOWS_APP
 		internal ThumbnailResponse( IXmlNode thumbXml )
+#else
+		internal ThumbnailResponse( XElement thumbXml )
+#endif
 		{
-			ID = thumbXml.GetNamedChildNode( "video_id" ).InnerText;
-			Title = thumbXml.GetNamedChildNode( "title" ).InnerText;
-			Description = thumbXml.GetNamedChildNode( "description" ).InnerText;
-			ThumbnailUrl = thumbXml.GetNamedChildNode( "thumbnail_url" ).InnerText.ToUri();
-			PostedAt = thumbXml.GetNamedChildNode( "first_retrieve" ).InnerText.ToDateTimeOffsetFromIso8601();
-			Length = thumbXml.GetNamedChildNode( "length" ).InnerText.ToTimeSpan();
-			MovieType = thumbXml.GetNamedChildNode( "movie_type" ).InnerText.ToMovieType();
-			SizeHigh = thumbXml.GetNamedChildNode( "size_high" ).InnerText.ToULong();
-			SizeLow = thumbXml.GetNamedChildNode( "size_low" ).InnerText.ToULong();
-			ViewCount = thumbXml.GetNamedChildNode( "view_counter" ).InnerText.ToUInt();
-			CommentCount = thumbXml.GetNamedChildNode( "comment_num" ).InnerText.ToUInt();
-			MylistCount = thumbXml.GetNamedChildNode( "mylist_counter" ).InnerText.ToUInt();
-			LastCommentBody = thumbXml.GetNamedChildNode( "last_res_body" ).InnerText;
-			PageUrl = thumbXml.GetNamedChildNode( "watch_url" ).InnerText.ToUri();
-			ThumbnailType = thumbXml.GetNamedChildNode( "thumb_type" ).InnerText.ToThumbnailType();
-			IsEmbeddable = thumbXml.GetNamedChildNode( "embeddable" ).InnerText.ToBooleanFrom1();
-			CannotPlayInLive = thumbXml.GetNamedChildNode( "no_live_play" ).InnerText.ToBooleanFrom1();
+			ID = thumbXml.GetNamedChildNodeText( "video_id" );
+			Title = thumbXml.GetNamedChildNodeText( "title" );
+			Description = thumbXml.GetNamedChildNodeText( "description" );
+			ThumbnailUrl = thumbXml.GetNamedChildNodeText( "thumbnail_url" ).ToUri();
+			PostedAt = thumbXml.GetNamedChildNodeText( "first_retrieve" ).ToDateTimeOffsetFromIso8601();
+			Length = thumbXml.GetNamedChildNodeText( "length" ).ToTimeSpan();
+			MovieType = thumbXml.GetNamedChildNodeText( "movie_type" ).ToMovieType();
+			SizeHigh = thumbXml.GetNamedChildNodeText( "size_high" ).ToULong();
+			SizeLow = thumbXml.GetNamedChildNodeText( "size_low" ).ToULong();
+			ViewCount = thumbXml.GetNamedChildNodeText( "view_counter" ).ToUInt();
+			CommentCount = thumbXml.GetNamedChildNodeText( "comment_num" ).ToUInt();
+			MylistCount = thumbXml.GetNamedChildNodeText( "mylist_counter" ).ToUInt();
+			LastCommentBody = thumbXml.GetNamedChildNodeText( "last_res_body" );
+			PageUrl = thumbXml.GetNamedChildNodeText( "watch_url" ).ToUri();
+			ThumbnailType = thumbXml.GetNamedChildNodeText( "thumb_type" ).ToThumbnailType();
+			IsEmbeddable = thumbXml.GetNamedChildNodeText( "embeddable" ).ToBooleanFrom1();
+			CannotPlayInLive = thumbXml.GetNamedChildNodeText( "no_live_play" ).ToBooleanFrom1();
 
 			Tags = new Tags( thumbXml.GetNamedChildNode( "tags" ) );
 
-			var userIDXml = thumbXml.ChildNodes.Where( node => node.NodeName == "user_id" ).SingleOrDefault();
+			var userIDXml = thumbXml.GetNamedChildNode( "user_id" );
 			if( userIDXml != null )
 			{
 				UserType = UserType.User;
-				UserId = userIDXml.InnerText.ToUInt();
-				UserName = thumbXml.GetNamedChildNode( "user_nickname" ).InnerText;
-				UserIconUrl = thumbXml.GetNamedChildNode( "user_icon_url" ).InnerText.ToUri();
+				UserId = userIDXml.GetText().ToUInt();
+				UserName = thumbXml.GetNamedChildNodeText( "user_nickname" );
+				UserIconUrl = thumbXml.GetNamedChildNodeText( "user_icon_url" ).ToUri();
 				return;
 			}
 
-			var chIDXml = thumbXml.ChildNodes.Where( node => node.NodeName == "ch_id" ).SingleOrDefault();
+			var chIDXml = thumbXml.GetNamedChildNode( "ch_id" );
 			if( chIDXml != null )
 			{
 				UserType = UserType.Channel;
-				UserId = chIDXml.InnerText.ToUInt();
-				UserName = thumbXml.GetNamedChildNode( "ch_name" ).InnerText;
-				UserIconUrl = thumbXml.GetNamedChildNode( "ch_icon_url" ).InnerText.ToUri();
+				UserId = chIDXml.GetText().ToUInt();
+				UserName = thumbXml.GetNamedChildNodeText( "ch_name" );
+				UserIconUrl = thumbXml.GetNamedChildNodeText( "ch_icon_url" ).ToUri();
 				return;
 			}
 

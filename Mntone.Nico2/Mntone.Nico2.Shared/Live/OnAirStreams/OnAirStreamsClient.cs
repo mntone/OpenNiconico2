@@ -2,15 +2,13 @@
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
-using Windows.Foundation;
-using Windows.Web.Http;
+using System.Threading.Tasks;
 
 namespace Mntone.Nico2.Live.OnAirStreams
 {
 	internal sealed class OnAirStreamsClient
 	{
-		public static IAsyncOperationWithProgress<string, HttpProgress> GetOnAirStreamsIndexDataAsync(
-			NiconicoContext context, ushort pageIndex )
+		public static Task<string> GetOnAirStreamsIndexDataAsync( NiconicoContext context, ushort pageIndex )
 		{
 			var sb = new StringBuilder( NiconicoUrls.LiveZappingListIndexUrl );
 			if( pageIndex != 1 )
@@ -18,10 +16,10 @@ namespace Mntone.Nico2.Live.OnAirStreams
 				sb.Append( "&zpage=" );
 				sb.Append( pageIndex );
 			}
-			return context.GetClient().GetStringAsync( new Uri( sb.ToString() ) );
+			return context.GetClient().GetString2Async( sb.ToString() );
 		}
 
-		public static IAsyncOperationWithProgress<string, HttpProgress> GetOnAirStreamsRecentDataAsync(
+		public static Task<string> GetOnAirStreamsRecentDataAsync(
 			NiconicoContext context, ushort pageIndex, Category category, SortDirection direction, SortType type )
 		{
 			var sb = new StringBuilder( NiconicoUrls.LiveZappingListRecentUrl );
@@ -38,7 +36,7 @@ namespace Mntone.Nico2.Live.OnAirStreams
 			}
 			sb.Append( "&sort=" );
 			sb.Append( type.ToSortTypeString() );
-			return context.GetClient().GetStringAsync( new Uri( sb.ToString() ) );
+			return context.GetClient().GetString2Async( sb.ToString() );
 		}
 
 		public static OnAirStreamsResponse ParseOnAirStreamsData( string onAirStreamsData )
@@ -50,21 +48,17 @@ namespace Mntone.Nico2.Live.OnAirStreams
 			throw new Exception( "Parse Error" );
 		}
 
-		public static IAsyncOperation<OnAirStreamsResponse> GetOnAirStreamsIndexAsync( NiconicoContext context, ushort pageIndex = 1 )
+		public static Task<OnAirStreamsResponse> GetOnAirStreamsIndexAsync( NiconicoContext context, ushort pageIndex = 1 )
 		{
 			return GetOnAirStreamsIndexDataAsync( context, pageIndex )
-				.AsTask()
-				.ContinueWith( prevTask => ParseOnAirStreamsData( prevTask.Result ) )
-				.AsAsyncOperation();
+				.ContinueWith( prevTask => ParseOnAirStreamsData( prevTask.Result ) );
 		}
 
-		public static IAsyncOperation<OnAirStreamsResponse> GetOnAirStreamsRecentAsync(
+		public static Task<OnAirStreamsResponse> GetOnAirStreamsRecentAsync(
 			NiconicoContext context, ushort pageIndex, Category category, SortDirection direction = SortDirection.Ascending, SortType type = SortType.StartTime )
 		{
 			return GetOnAirStreamsRecentDataAsync( context, pageIndex, category, direction, type )
-				.AsTask()
-				.ContinueWith( prevTask => ParseOnAirStreamsData( prevTask.Result ) )
-				.AsAsyncOperation();
+				.ContinueWith( prevTask => ParseOnAirStreamsData( prevTask.Result ) );
 		}
 	}
 }

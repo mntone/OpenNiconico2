@@ -2,16 +2,15 @@
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
-using Windows.Foundation;
-using Windows.Web.Http;
+using System.Threading.Tasks;
 
 namespace Mntone.Nico2.Videos.Histories
 {
 	internal sealed class HistoriesClient
 	{
-		public static IAsyncOperationWithProgress<string, HttpProgress> GetHistoriesDataAsync( NiconicoContext context )
+		public static Task<string> GetHistoriesDataAsync( NiconicoContext context )
 		{
-			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.VideoHistoryUrl ) );
+			return context.GetClient().GetString2Async( NiconicoUrls.VideoHistoryUrl );
 		}
 
 		public static HistoriesResponse ParseHistoriesData( string historiesData )
@@ -23,12 +22,10 @@ namespace Mntone.Nico2.Videos.Histories
 			throw new Exception( "Parse Error" );
 		}
 
-		public static IAsyncOperation<HistoriesResponse> GetHistoriesAsync( NiconicoContext context )
+		public static Task<HistoriesResponse> GetHistoriesAsync( NiconicoContext context )
 		{
 			return GetHistoriesDataAsync( context )
-				.AsTask()
-				.ContinueWith( prevTask => ParseHistoriesData( prevTask.Result ) )
-				.AsAsyncOperation();
+				.ContinueWith( prevTask => ParseHistoriesData( prevTask.Result ) );
 		}
 	}
 }

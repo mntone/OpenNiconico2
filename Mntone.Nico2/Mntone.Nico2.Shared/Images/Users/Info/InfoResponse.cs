@@ -1,5 +1,10 @@
 ﻿using System;
+
+#if WINDOWS_APP
 using Windows.Data.Xml.Dom;
+#else
+using System.Xml.Linq;
+#endif
 
 namespace Mntone.Nico2.Images.Users.Info
 {
@@ -8,10 +13,15 @@ namespace Mntone.Nico2.Images.Users.Info
 	/// </summary>
 	public sealed class InfoResponse
 	{
+
+#if WINDOWS_APP
 		internal InfoResponse( IXmlNode userInfoXml )
+#else
+		internal InfoResponse( XElement userInfoXml )
+#endif
 		{
-			UserID = userInfoXml.GetNamedChildNode( "id" ).InnerText.ToUInt();
-			UserName = userInfoXml.GetNamedChildNode( "nickname" ).InnerText;
+			UserID = userInfoXml.GetNamedChildNodeText( "id" ).ToUInt();
+			UserName = userInfoXml.GetNamedChildNodeText( "nickname" );
 		}
 
 		/// <summary>

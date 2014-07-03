@@ -24,7 +24,7 @@
     <DefineConstants>TRACE;DEBUG;WINDOWS_APP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\bin\Mntone.Nico2.Vita.WinRT\Debug\Mntone.Nico2.xml</DocumentationFile>
+    <DocumentationFile>..\..\bin\Mntone.Nico2.Vita.WinRT\Debug\Mntone.Nico2.Vita.xml</DocumentationFile>
     <CodeAnalysisRuleSet>..\..\OpenNiconico2.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -34,7 +34,7 @@
     <DefineConstants>TRACE;WINDOWS_APP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\bin\Mntone.Nico2.Vita.WinRT\Release\Mntone.Nico2.xml</DocumentationFile>
+    <DocumentationFile>..\..\bin\Mntone.Nico2.Vita.WinRT\Release\Mntone.Nico2.Vita.xml</DocumentationFile>
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\..\OpenNiconico2.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>

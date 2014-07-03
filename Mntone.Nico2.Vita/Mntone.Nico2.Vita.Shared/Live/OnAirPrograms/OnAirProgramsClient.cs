@@ -3,24 +3,23 @@ using System;
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
-using Windows.Foundation;
-using Windows.Web.Http;
+using System.Threading.Tasks;
 
 namespace Mntone.Nico2.Vita.Live.OnAirPrograms
 {
 	internal sealed class OnAirProgramsClient
 	{
-		public static IAsyncOperationWithProgress<string, HttpProgress> GetOnAirProgramsDataAsync(
+		public static Task<string> GetOnAirProgramsDataAsync(
 			NiconicoVitaContext context, CommunityType type, SortDirection sortDirection, SortType sortType, Range range )
 		{
 			range.CheckMaximumLength( 149 );
 
-			return context.GetClient().GetStringAsync( new Uri(
+			return context.GetClient().GetString2Async(
 				NiconicoUrls.LiveVideoOnAirListUrl
 				+ '&' + range.ToFromLimitString()
 				+ "&order=" + sortDirection.ToChar()
 				+ "&pt=" + type.ToCommunityTypeString()
-				+ "&sort=" + sortType.ToSortTypeString() ) );
+				+ "&sort=" + sortType.ToSortTypeString() );
 		}
 
 		public static OnAirProgramsResponse ParseOnAirProgramsData( string onAirProgramsData )
@@ -32,13 +31,11 @@ namespace Mntone.Nico2.Vita.Live.OnAirPrograms
 			throw new Exception( "Parse Error" );
 		}
 
-		public static IAsyncOperation<OnAirProgramsResponse> GetOnAirProgramsAsync(
+		public static Task<OnAirProgramsResponse> GetOnAirProgramsAsync(
 			NiconicoVitaContext context, CommunityType type, SortDirection sortDirection, SortType sortType, Range range )
 		{
 			return GetOnAirProgramsDataAsync( context, type, sortDirection, sortType, range )
-				.AsTask()
-				.ContinueWith( prevTask => ParseOnAirProgramsData( prevTask.Result ) )
-				.AsAsyncOperation();
+				.ContinueWith( prevTask => ParseOnAirProgramsData( prevTask.Result ) );
 		}
 	}
 }

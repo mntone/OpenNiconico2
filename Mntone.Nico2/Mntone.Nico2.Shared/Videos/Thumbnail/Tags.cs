@@ -1,6 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+
+#if WINDOWS_APP
 using Windows.Data.Xml.Dom;
+#else
+using System.Xml.Linq;
+#endif
 
 namespace Mntone.Nico2.Videos.Thumbnail
 {
@@ -9,10 +14,14 @@ namespace Mntone.Nico2.Videos.Thumbnail
 	/// </summary>
 	public sealed class Tags
 	{
+#if WINDOWS_APP
 		internal Tags( IXmlNode tagsXml )
+#else
+		internal Tags( XElement tagsXml )
+#endif
 		{
-			Domain = tagsXml.GetNamedAttribute( "domain" ).InnerText;
-			Value = tagsXml.ChildNodes.Select( tagXml => new Tag( tagXml ) ).ToList();
+			Domain = tagsXml.GetNamedAttributeText( "domain" );
+			Value = tagsXml.GetChildNodes().Select( tagXml => new Tag( tagXml ) ).ToList();
 		}
 
 		/// <summary>

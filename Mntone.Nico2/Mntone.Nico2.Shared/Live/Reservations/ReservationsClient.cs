@@ -1,49 +1,55 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+
+#if WINDOWS_APP
 using Windows.Data.Xml.Dom;
-using Windows.Foundation;
-using Windows.Web.Http;
+#else
+using System.Xml.Linq;
+#endif
 
 namespace Mntone.Nico2.Live.Reservations
 {
 	internal sealed class ReservationsClient
 	{
-		public static IAsyncOperationWithProgress<string, HttpProgress> GetReservationsDataAsync( NiconicoContext context )
+		public static Task<string> GetReservationsDataAsync( NiconicoContext context )
 		{
-			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.LiveWatchingReservationListUrl ) );
+			return context.GetClient().GetString2Async( NiconicoUrls.LiveWatchingReservationListUrl );
 		}
 
 		public static IReadOnlyList<string> ParseReservationsData( string reservationsInDatailData )
 		{
+#if WINDOWS_APP
 			var xml = new XmlDocument();
 			xml.LoadXml( reservationsInDatailData, new XmlLoadSettings { ElementContentWhiteSpace = false, MaxElementDepth = 5 } );
+#else
+			var xml = XDocument.Parse( reservationsInDatailData );
+#endif
 
-			var responseXml = xml.ChildNodes[1];
-			if( responseXml.NodeName != "nicolive_video_response" )
+			var responseXml = xml.GetDocumentRootNode();
+			if( responseXml.GetName() != "nicolive_video_response" )
 			{
 				throw new Exception( "Parse Error: Node name is invalid." );
 			}
 
-			var listXml = responseXml.FirstChild;
-			if( listXml.NodeName != "timeshift_reserved_list" )
+			var listXml = responseXml.GetFirstChildNode();
+			if( listXml.GetName() != "timeshift_reserved_list" )
 			{
 				throw new Exception( "Parse Error: Node name is invalid." );
 			}
 
-			if( listXml.FirstChild != null )
+			if( listXml.GetFirstChildNode() != null )
 			{
-				return listXml.ChildNodes.Select( vidXml => "lv" + vidXml.InnerText ).ToList();
+				return listXml.GetChildNodes().Select( vidXml => "lv" + vidXml.GetText() ).ToList();
 			}
 			return new List<string>();
 		}
 
-		public static IAsyncOperation<IReadOnlyList<string>> GetReservationsAsync( NiconicoContext context )
+		public static Task<IReadOnlyList<string>> GetReservationsAsync( NiconicoContext context )
 		{
 			return GetReservationsDataAsync( context )
-				.AsTask()
-				.ContinueWith( prevTask => ParseReservationsData( prevTask.Result ) )
-				.AsAsyncOperation();
+				.ContinueWith( prevTask => ParseReservationsData( prevTask.Result ) );
 		}
 	}
 }

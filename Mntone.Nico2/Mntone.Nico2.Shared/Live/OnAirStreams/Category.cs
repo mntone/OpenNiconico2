@@ -1,6 +1,9 @@
 ﻿
 namespace Mntone.Nico2.Live.OnAirStreams
 {
+	/// <summary>
+	/// 生放送カテゴリー
+	/// </summary>
 	public enum Category
 	{
 		/// <summary>

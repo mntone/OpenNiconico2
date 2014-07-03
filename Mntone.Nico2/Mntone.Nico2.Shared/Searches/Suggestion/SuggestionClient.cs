@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
 using System.Threading.Tasks;
+
+#if WINDOWS_APP
+using System.Linq;
 using Windows.Data.Json;
-using Windows.Foundation;
+#else
+using System.Runtime.Serialization.Json;
+using System.IO;
+using System.Text;
+#endif
 
 namespace Mntone.Nico2.Searches.Suggestion
 {
@@ -14,26 +17,32 @@ namespace Mntone.Nico2.Searches.Suggestion
 	{
 		public static Task<string> GetSuggestionDataAsync( NiconicoContext context, string targetWord )
 		{
-			return context.GetClient()
-				.GetInputStreamAsync( new Uri( NiconicoUrls.SearchSuggestionUrl + Uri.EscapeUriString( targetWord ) ) )
-				.AsTask()
-				.ContinueWith( buffer => new StreamReader( buffer.Result.AsStreamForRead(), Encoding.UTF8 ).ReadToEnd() );
+			return context
+				.GetClient()
+				.GetConvertedString2Async( NiconicoUrls.SearchSuggestionUrl + Uri.EscapeUriString( targetWord ) );
 		}
 
 		public static IReadOnlyList<string> ParseSuggestionData( string suggestionData )
 		{
+#if WINDOWS_APP
 			return JsonValue.Parse( suggestionData )
 				.GetObject()
 				.GetNamedArray( "candidates" )
 				.Select( candidate => candidate.GetString() )
 				.ToList();
+#else
+			using( var ms = new MemoryStream( Encoding.Unicode.GetBytes( suggestionData ) ) )
+			{
+				return ( IReadOnlyList<string> )new DataContractJsonSerializer( typeof( List<string> ) ).ReadObject( ms );
+			}
+			throw new Exception( "Parse Error" );
+#endif
 		}
 
-		public static IAsyncOperation<IReadOnlyList<string>> GetSuggestionAsync( NiconicoContext context, string targetWord )
+		public static Task<IReadOnlyList<string>> GetSuggestionAsync( NiconicoContext context, string targetWord )
 		{
 			return GetSuggestionDataAsync( context, targetWord )
-				.ContinueWith( prevTask => ParseSuggestionData( prevTask.Result ) )
-				.AsAsyncOperation();
+				.ContinueWith( prevTask => ParseSuggestionData( prevTask.Result ) );
 		}
 	}
 }

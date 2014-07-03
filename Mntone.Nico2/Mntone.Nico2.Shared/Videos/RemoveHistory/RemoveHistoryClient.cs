@@ -2,14 +2,13 @@
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
-using Windows.Foundation;
-using Windows.Web.Http;
+using System.Threading.Tasks;
 
 namespace Mntone.Nico2.Videos.RemoveHistory
 {
 	internal sealed class RemoveHistoryClient
 	{
-		public static IAsyncOperationWithProgress<string, HttpProgress> RemoveHistoryDataAsync(
+		public static Task<string> RemoveHistoryDataAsync(
 			NiconicoContext context, string token, string requestID )
 		{
 			if( !NiconicoRegex.IsVideoID( requestID ) )
@@ -17,12 +16,12 @@ namespace Mntone.Nico2.Videos.RemoveHistory
 				throw new ArgumentException();
 			}
 
-			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.VideoRemoveUrl + token + "&video_id=" + requestID ) );
+			return context.GetClient().GetString2Async( NiconicoUrls.VideoRemoveUrl + token + "&video_id=" + requestID );
 		}
 
-		public static IAsyncOperationWithProgress<string, HttpProgress> RemoveAllHistoriesDataAsync( NiconicoContext context, string token )
+		public static Task<string> RemoveAllHistoriesDataAsync( NiconicoContext context, string token )
 		{
-			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.VideoRemoveUrl + token + "&video_id=all" ) );
+			return context.GetClient().GetString2Async( NiconicoUrls.VideoRemoveUrl + token + "&video_id=all" );
 		}
 
 		public static RemoveHistoryResponse ParseRemoveHistoryData( string historiesData )
@@ -34,20 +33,16 @@ namespace Mntone.Nico2.Videos.RemoveHistory
 			throw new Exception( "Parse Error" );
 		}
 
-		public static IAsyncOperation<RemoveHistoryResponse> RemoveHistoryAsync( NiconicoContext context, string token, string requestID )
+		public static Task<RemoveHistoryResponse> RemoveHistoryAsync( NiconicoContext context, string token, string requestID )
 		{
 			return RemoveHistoryDataAsync( context, token, requestID )
-				.AsTask()
-				.ContinueWith( prevTask => ParseRemoveHistoryData( prevTask.Result ) )
-				.AsAsyncOperation();
+				.ContinueWith( prevTask => ParseRemoveHistoryData( prevTask.Result ) );
 		}
 
-		public static IAsyncOperation<RemoveHistoryResponse> RemoveAllHistoriesAsync( NiconicoContext context, string token )
+		public static Task<RemoveHistoryResponse> RemoveAllHistoriesAsync( NiconicoContext context, string token )
 		{
 			return RemoveAllHistoriesDataAsync( context, token )
-				.AsTask()
-				.ContinueWith( prevTask => ParseRemoveHistoryData( prevTask.Result ) )
-				.AsAsyncOperation();
+				.ContinueWith( prevTask => ParseRemoveHistoryData( prevTask.Result ) );
 		}
 	}
 }

@@ -13,7 +13,6 @@ namespace Mntone.Nico2.Live.PlayerStatus
 				return VideoAspect.Wide;
 			case "raw":
 				return VideoAspect.Raw;
-				break;
 			default:
 				return VideoAspect.Auto;
 			}

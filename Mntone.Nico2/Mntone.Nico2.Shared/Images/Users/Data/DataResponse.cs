@@ -1,7 +1,12 @@
 ﻿using Mntone.Nico2.Images.Illusts;
 using System.Collections.Generic;
 using System.Linq;
+
+#if WINDOWS_APP
 using Windows.Data.Xml.Dom;
+#else
+using System.Xml.Linq;
+#endif
 
 namespace Mntone.Nico2.Images.Users.Data
 {
@@ -10,16 +15,20 @@ namespace Mntone.Nico2.Images.Users.Data
 	/// </summary>
 	public sealed class DataResponse
 	{
+#if WINDOWS_APP
 		internal DataResponse( IXmlNode responseXml )
+#else
+		internal DataResponse( XElement responseXml )
+#endif
 		{
 #if DEBUG
-			ImageCount = responseXml.GetNamedChildNode( "image_count" ).InnerText.ToUInt();
+			ImageCount = responseXml.GetNamedChildNodeText( "image_count" ).ToUInt();
 #endif
 
 			var imageListXml = responseXml.GetNamedChildNode( "image_list" );
-			if( imageListXml.FirstChild.FirstChild != null )
+			if( imageListXml.GetFirstChildNode().GetFirstChildNode() != null )
 			{
-				Images = imageListXml.ChildNodes.Select( imageXml => new Image( imageXml ) ).ToList();
+				Images = imageListXml.GetChildNodes().Select( imageXml => new Image( imageXml ) ).ToList();
 			}
 			else
 			{
@@ -27,9 +36,9 @@ namespace Mntone.Nico2.Images.Users.Data
 			}
 
 			var commentListXml = responseXml.GetNamedChildNode( "comment_list" );
-			if( commentListXml.FirstChild.FirstChild != null )
+			if( commentListXml.GetFirstChildNode().GetFirstChildNode() != null )
 			{
-				Comments = commentListXml.ChildNodes.Select( commentXml => new Comment( commentXml ) ).ToList();
+				Comments = commentListXml.GetChildNodes().Select( commentXml => new Comment( commentXml ) ).ToList();
 			}
 			else
 			{

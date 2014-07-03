@@ -2,16 +2,15 @@
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
-using Windows.Foundation;
-using Windows.Web.Http;
+using System.Threading.Tasks;
 
 namespace Mntone.Nico2.Dictionaries.Summary
 {
 	internal sealed class SummaryClient
 	{
-		public static IAsyncOperationWithProgress<string, HttpProgress> GetSummaryDataAsync( NiconicoContext context, string targetWord )
+		public static Task<string> GetSummaryDataAsync( NiconicoContext context, string targetWord )
 		{
-			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.DictionarySummarytUrl + Uri.EscapeUriString( targetWord ) ) );
+			return context.GetClient().GetString2Async( NiconicoUrls.DictionarySummarytUrl + Uri.EscapeUriString( targetWord ) );
 		}
 
 		public static SummaryResponse ParseSummaryData( string summaryData )
@@ -23,12 +22,10 @@ namespace Mntone.Nico2.Dictionaries.Summary
 			throw new Exception( "Parse Error" );
 		}
 
-		public static IAsyncOperation<SummaryResponse> GetSummaryAsync( NiconicoContext context, string targetWord )
+		public static Task<SummaryResponse> GetSummaryAsync( NiconicoContext context, string targetWord )
 		{
 			return GetSummaryDataAsync( context, targetWord )
-				.AsTask()
-				.ContinueWith( prevTask => ParseSummaryData( prevTask.Result ) )
-				.AsAsyncOperation();
+				.ContinueWith( prevTask => ParseSummaryData( prevTask.Result ) );
 		}
 	}
 }

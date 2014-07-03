@@ -1,13 +1,11 @@
 ﻿using System;
-using Windows.Foundation;
-using Windows.Web.Http;
+using System.Threading.Tasks;
 
 namespace Mntone.Nico2.Live.CKey
 {
 	internal sealed class CKeyClient
 	{
-		public static IAsyncOperationWithProgress<string, HttpProgress> GetCKeyDataAsync(
-			NiconicoContext context, string refererId, string requestID )
+		public static Task<string> GetCKeyDataAsync( NiconicoContext context, string refererId, string requestID )
 		{
 			if( !NiconicoRegex.IsLiveID( refererId ) )
 			{
@@ -18,7 +16,7 @@ namespace Mntone.Nico2.Live.CKey
 				throw new ArgumentException();
 			}
 
-			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.LiveCKeyUrl + "?referer_id=" + refererId + "&id=" + requestID ) );
+			return context.GetClient().GetString2Async( NiconicoUrls.LiveCKeyUrl + "?referer_id=" + refererId + "&id=" + requestID );
 		}
 
 		public static string ParseCKeyData( string cKeyData )
@@ -30,12 +28,10 @@ namespace Mntone.Nico2.Live.CKey
 			throw new Exception( "Parse Error" );
 		}
 
-		public static IAsyncOperation<string> GetCKeyAsync( NiconicoContext context, string refererId, string requestID )
+		public static Task<string> GetCKeyAsync( NiconicoContext context, string refererId, string requestID )
 		{
 			return GetCKeyDataAsync( context, refererId, requestID )
-				.AsTask()
-				.ContinueWith( prevTask => ParseCKeyData( prevTask.Result ) )
-				.AsAsyncOperation();
+				.ContinueWith( prevTask => ParseCKeyData( prevTask.Result ) );
 		}
 	}
 }

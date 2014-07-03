@@ -1,39 +1,47 @@
 ﻿using System;
+using System.Threading.Tasks;
+
+#if WINDOWS_APP
 using Windows.Data.Xml.Dom;
-using Windows.Foundation;
-using Windows.Web.Http;
+#else
+using System.Xml.Linq;
+#endif
 
 namespace Mntone.Nico2.Live.Heartbeat
 {
 	internal sealed class HeartbeatClient
 	{
-		public static IAsyncOperationWithProgress<string, HttpProgress> HeartbeatDataAsync( NiconicoContext context, string requestID )
+		public static Task<string> HeartbeatDataAsync( NiconicoContext context, string requestID )
 		{
 			if( !NiconicoRegex.IsLiveID( requestID ) )
 			{
 				throw new ArgumentException();
 			}
 
-			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.LiveHeartbeatUrl + "?v=" + requestID ) );
+			return context.GetClient().GetString2Async( NiconicoUrls.LiveHeartbeatUrl + "?v=" + requestID );
 		}
 
 		public static HeartbeatResponse ParseHeartbeatData( string heartbeatData )
 		{
+#if WINDOWS_APP
 			var xml = new XmlDocument();
-			xml.LoadXml( heartbeatData, new XmlLoadSettings { MaxElementDepth = 3 } );
+			xml.LoadXml( heartbeatData, new XmlLoadSettings { ElementContentWhiteSpace = false, MaxElementDepth = 3 } );
+#else
+			var xml = XDocument.Parse( heartbeatData );
+#endif
 
-			var heartbeatXml = xml.ChildNodes[1];
-			if( heartbeatXml.NodeName != "heartbeat" )
+			var heartbeatXml = xml.GetDocumentRootNode();
+			if( heartbeatXml.GetName() != "heartbeat" )
 			{
 				throw new Exception( "Parse Error: Node name is invalid." );
 			}
 
-			if( heartbeatXml.GetNamedAttribute( "status" ).InnerText != "ok" )
+			if( heartbeatXml.GetNamedAttributeText( "status" ) != "ok" )
 			{
-				var error = heartbeatXml.FirstChild;
-				var code = error.GetNamedChildNode( "code" ).InnerText;
-				var description = error.GetNamedChildNode( "description" ).InnerText;
-				var reject = error.GetNamedChildNode( "reject" ).InnerText.ToBooleanFromString();
+				var error = heartbeatXml.GetFirstChildNode();
+				var code = error.GetNamedChildNodeText( "code" );
+				var description = error.GetNamedChildNodeText( "description" );
+				var reject = error.GetNamedChildNodeText( "reject" ).ToBooleanFromString();
 
 				throw new Exception( "Parse Error: " + description + " (" + code + ')' );
 			}
@@ -41,12 +49,10 @@ namespace Mntone.Nico2.Live.Heartbeat
 			return new HeartbeatResponse( heartbeatXml );
 		}
 
-		public static IAsyncOperation<HeartbeatResponse> HeartbeatAsync( NiconicoContext context, string requestID )
+		public static Task<HeartbeatResponse> HeartbeatAsync( NiconicoContext context, string requestID )
 		{
 			return HeartbeatDataAsync( context, requestID )
-				.AsTask()
-				.ContinueWith( prevTask => ParseHeartbeatData( prevTask.Result ) )
-				.AsAsyncOperation();
+				.ContinueWith( prevTask => ParseHeartbeatData( prevTask.Result ) );
 		}
 	}
 }

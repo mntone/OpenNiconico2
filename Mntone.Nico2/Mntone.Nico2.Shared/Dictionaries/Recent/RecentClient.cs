@@ -2,16 +2,15 @@
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
-using Windows.Foundation;
-using Windows.Web.Http;
+using System.Threading.Tasks;
 
 namespace Mntone.Nico2.Dictionaries.Recent
 {
 	internal sealed class RecentClient
 	{
-		public static IAsyncOperationWithProgress<string, HttpProgress> GetRecentDataAsync( NiconicoContext context )
+		public static Task<string> GetRecentDataAsync( NiconicoContext context )
 		{
-			return context.GetClient().GetStringAsync( new Uri( NiconicoUrls.DictionaryRecentUrl ) );
+			return context.GetClient().GetString2Async( NiconicoUrls.DictionaryRecentUrl );
 		}
 
 		public static RecentResponse ParseRecentData( string summaryData )
@@ -23,12 +22,10 @@ namespace Mntone.Nico2.Dictionaries.Recent
 			throw new Exception( "Parse Error" );
 		}
 
-		public static IAsyncOperation<RecentResponse> GetRecentAsync( NiconicoContext context )
+		public static Task<RecentResponse> GetRecentAsync( NiconicoContext context )
 		{
 			return GetRecentDataAsync( context )
-				.AsTask()
-				.ContinueWith( prevTask => ParseRecentData( prevTask.Result ) )
-				.AsAsyncOperation();
+				.ContinueWith( prevTask => ParseRecentData( prevTask.Result ) );
 		}
 	}
 }

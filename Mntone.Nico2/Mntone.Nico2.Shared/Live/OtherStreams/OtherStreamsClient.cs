@@ -2,19 +2,18 @@
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
-using Windows.Foundation;
-using Windows.Web.Http;
+using System.Threading.Tasks;
 
 namespace Mntone.Nico2.Live.OtherStreams
 {
 	internal sealed class OtherStreamsClient
 	{
-		public static IAsyncOperationWithProgress<string, HttpProgress> GetOtherStreamsDataAsync(
+		public static Task<string> GetOtherStreamsDataAsync(
 			NiconicoContext context, StatusType status, ushort pageIndex )
 		{
-			return context.GetClient().GetStringAsync( new Uri( pageIndex > 1
+			return context.GetClient().GetString2Async( pageIndex > 1
 				? NiconicoUrls.LiveIndexZeroStreamListUrl + status.ToStatusTypeString() + "&zpage=" + pageIndex
-				: NiconicoUrls.LiveIndexZeroStreamListUrl + status.ToStatusTypeString() ) );
+				: NiconicoUrls.LiveIndexZeroStreamListUrl + status.ToStatusTypeString() );
 		}
 
 		public static OtherStreamsResponse ParseOtherStreamsData( string otherStreamsData )
@@ -26,12 +25,10 @@ namespace Mntone.Nico2.Live.OtherStreams
 			throw new Exception( "Parse Error" );
 		}
 
-		public static IAsyncOperation<OtherStreamsResponse> GetOtherStreamsAsync( NiconicoContext context, StatusType status, ushort pageIndex )
+		public static Task<OtherStreamsResponse> GetOtherStreamsAsync( NiconicoContext context, StatusType status, ushort pageIndex )
 		{
 			return GetOtherStreamsDataAsync( context, status, pageIndex )
-				.AsTask()
-				.ContinueWith( prevTask => ParseOtherStreamsData( prevTask.Result ) )
-				.AsAsyncOperation();
+				.ContinueWith( prevTask => ParseOtherStreamsData( prevTask.Result ) );
 		}
 	}
 }

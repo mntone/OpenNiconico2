@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nicovideo_ng_response status="ok">
+  <count>236</count>
+  <ngclient is_regex="true" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>[^0-9-０-９ー－](0|０)[0-9-０-９ー－]{9,}</source>
+  </ngclient>
+  <ngclient is_regex="true" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>^.?(0|０)[0-9-０-９ー－]{9,}</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>イラマチオ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>めくら</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>つんぼ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>かたわ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>片手落ち</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>■■■■■</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>□□□□□</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>○～</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>◎～</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>●～</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>☆☆☆☆</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>★★★★</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>fuck</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>Gスポット</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>SEX</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>shine</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>S〇X</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>アオカン</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>あなる</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>アヌス</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>イマラチオ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ヴァギナ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>うんこ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>エ○チ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>え○ち</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>エチトモ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ェッチ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>えっち</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>えんこう</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>お○に</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ォﾅ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>おなった</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>おなる</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>おまんまん</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>オメコ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>お口で</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>カス</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ガンシャ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>キン玉</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>くそ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>クリ○リス</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>クリトリス</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>クンニ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ザーメン</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>しこしこ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>しこった</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>しこって</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>しこる</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>スカトロ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>セクース</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>せくろす</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>せっ○す</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>せっくす</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>せんずり</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ﾀﾋね</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ちょそ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>デリヘル</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ナカダシ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>パイズリ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>パイパン</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>バイブ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ハメ撮り</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ぱんちら</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>パンツ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>パンティ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>びーちく</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ピンサロ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>フ○ラ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ファック</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ふぇら</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ボッキ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>マスターベーション</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>マソコ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>まんこ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>マン毛</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>メンヘラ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>やりまん</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>らぶほ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>レイプ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ローター</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>淫乱</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>陰毛</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>姦</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>顔射</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>騎乗位</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>乞食</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>在日</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>死ね</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>氏ね</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>自慰</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>射精</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>手こき</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>手ﾏﾝ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>手淫</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>処女</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>性器</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>正常位</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>精子</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>素股</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>中出し</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>中田氏</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>童貞</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>肉便</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>肉棒</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>売国</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>売女</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>犯し</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>犯行予告</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>犯罪予告</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>糞</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>変態</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>包茎</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>勃起</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>乱交</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>テスト</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ttp://</source>
+  </ngclient>
+  <ngword readonly="true">
+    <type>NGWORD</type>
+    <source>.jpg</source>
+    <destination> </destination>
+  </ngword>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ぺろぺろ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>○こ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>コメントして楽しそうだな</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>〇∞～</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>どぴゅ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="true" readonly="true">
+    <type>WORD</type>
+    <source>ぶっころ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>チョン</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>土人</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>●こ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>まんｋ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>レス</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>まむこ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>おなぬ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>メシウマ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>でもいい</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>呪い</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>おっぱ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ぶっかけ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>bukkake</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ぺにす</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>penis</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>キチガイ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>気狂い</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>気違い</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>幼女</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ようじ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>極東</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>殺</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>╰⋃╯</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ㄘんㄘん</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>精エキ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>1000なら</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>アホ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>娼婦</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>売春婦</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>○∞</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>いざり</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>えた</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>おし</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>せむし</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ちんば</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>トルコ嬢</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>トルコ風呂</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>びっこ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>こじき</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>業病</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>三国人</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>支那</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>植物人間</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>人夫</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>精神異常</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>鮮人</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>低能</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>屠役</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>土方</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>南鮮</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>白痴</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>非人</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>部落</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>文盲</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>北鮮</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>毛唐</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ん○</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>fuck</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>こんど</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ばたー犬</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>フェラ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>セック</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>精液</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>肉ぼう</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>膣</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>７２</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>スレ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ロリコン</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>きんたま</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>45</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>19</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ちん</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>／＼</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>おなに</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ちょん</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>チンコ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>スポット</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>乳</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>オナニ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>オマンコ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>おめこ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>チンチン</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ばーか</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>おまん</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>テポ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>クソ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>クロンボ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>マンコ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>戸松</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>アナル</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>アンチ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>犯す</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>奴隷</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>膜</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>肉壺</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>うんち</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>チンポ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>出入禁止</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>産廃</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>産業廃棄物</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ンコ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ニート</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>カルト</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>肛門</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ヤリマン</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>妊娠</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>エネマグラ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>殺せ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>ヒトモドキ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>セシウ</source>
+  </ngclient>
+  <ngclient is_regex="false" caseunify="false" readonly="true">
+    <type>WORD</type>
+    <source>やふみ</source>
+  </ngclient>
+</nicovideo_ng_response>
