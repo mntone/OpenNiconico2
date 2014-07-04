@@ -96,6 +96,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)NiconicoUrls.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Prefecture.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Searches\SearchApi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Searches\Suggestion\SuggestionResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Searches\Suggestion\SuggestionClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SerializeInteropExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sex.cs" />

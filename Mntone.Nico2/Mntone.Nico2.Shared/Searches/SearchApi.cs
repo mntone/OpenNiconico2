@@ -25,12 +25,12 @@ namespace Mntone.Nico2.Searches
 		/// <param name="targetWord">目的の単語</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
-		public IAsyncOperation<IReadOnlyList<string>> GetSuggestionAsync( string targetWord )
+		public IAsyncOperation<Suggestion.SuggestionResponse> GetSuggestionAsync( string targetWord )
 		{
 			return Suggestion.SuggestionClient.GetSuggestionAsync( _context, targetWord ).AsAsyncOperation();
 		}
 #else
-		public Task<IReadOnlyList<string>> GetSuggestionAsync( string targetWord )
+		public Task<Suggestion.SuggestionResponse> GetSuggestionAsync( string targetWord )
 		{
 			return Suggestion.SuggestionClient.GetSuggestionAsync( _context, targetWord );
 		}
