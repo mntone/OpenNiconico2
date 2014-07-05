@@ -3,6 +3,9 @@ using System.Runtime.Serialization;
 
 namespace Mntone.Nico2.Vita.Live
 {
+	/// <summary>
+	/// コミュニティー情報を格納するクラス
+	/// </summary>
 	[DataContract]
 	public sealed class CommunityInfo
 	{

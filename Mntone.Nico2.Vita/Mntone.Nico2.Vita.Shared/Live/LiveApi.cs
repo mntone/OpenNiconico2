@@ -1,4 +1,6 @@
-﻿#if WINDOWS_APP
+﻿using System.Collections.Generic;
+
+#if WINDOWS_APP
 using System;
 using Windows.Foundation;
 #else
@@ -18,6 +20,40 @@ namespace Mntone.Nico2.Vita.Live
 		}
 
 		/// <summary>
+		/// 非同期操作として番組情報を取得します
+		/// </summary>
+		/// <param name="requestID">取得したい番組の ID</param>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+#if WINDOWS_APP
+		public IAsyncOperation<Video.VideoResponse> GetVideoAsync( string requestID )
+		{
+			return Video.VideoClient.GetVideoAsync( this._context, requestID ).AsAsyncOperation();
+		}
+#else
+		public Task<Video.VideoResponse> GetVideoAsync( string requestID )
+		{
+			return Video.VideoClient.GetVideoAsync( this._context, requestID );
+		}
+#endif
+
+		/// <summary>
+		/// 非同期操作として複数番組情報を取得します
+		/// </summary>
+		/// <param name="requestIDs">取得したい複数の番組の ID</param>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+#if WINDOWS_APP
+		public IAsyncOperation<Videos.VideosResponse> GetVideosAsync( IReadOnlyList<string> requestIDs )
+		{
+			return Videos.VideosClient.GetVideosAsync( this._context, requestIDs ).AsAsyncOperation();
+		}
+#else
+		public Task<Videos.VideosResponse> GetVideosAsync( IReadOnlyList<string> requestIDs )
+		{
+			return Videos.VideosClient.GetVideosAsync( this._context, requestIDs );
+		}
+#endif
+
+		/// <summary>
 		/// 非同期操作として番組一覧を取得します
 		/// </summary>
 		/// <param name="type">提供元の種類</param>
@@ -29,13 +65,13 @@ namespace Mntone.Nico2.Vita.Live
 		public IAsyncOperation<OnAirPrograms.OnAirProgramsResponse> GetOnAirProgramsAsync(
 			Nico2.Live.CommunityType type, SortDirection sortDirection, Live.OnAirPrograms.SortType sortType, Range range )
 		{
-			return OnAirPrograms.OnAirProgramsClient.GetOnAirProgramsAsync( _context, type, sortDirection, sortType, range ).AsAsyncOperation();
+			return OnAirPrograms.OnAirProgramsClient.GetOnAirProgramsAsync( this._context, type, sortDirection, sortType, range ).AsAsyncOperation();
 		}
 #else
 		public Task<OnAirPrograms.OnAirProgramsResponse> GetOnAirProgramsAsync(
 			Nico2.Live.CommunityType type, SortDirection sortDirection, Live.OnAirPrograms.SortType sortType, Range range )
 		{
-			return OnAirPrograms.OnAirProgramsClient.GetOnAirProgramsAsync( _context, type, sortDirection, sortType, range );
+			return OnAirPrograms.OnAirProgramsClient.GetOnAirProgramsAsync( this._context, type, sortDirection, sortType, range );
 		}
 #endif
 
