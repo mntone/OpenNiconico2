@@ -26,7 +26,15 @@ namespace Mntone.Nico2.Vita.Live.OnAirPrograms
 		{
 			using( var ms = new MemoryStream( Encoding.Unicode.GetBytes( onAirProgramsData ) ) )
 			{
-				return ( ( OnAirProgramsResponseWrapper )new DataContractJsonSerializer( typeof( OnAirProgramsResponseWrapper ) ).ReadObject( ms ) ).Response;
+				var ret = ( ( OnAirProgramsResponseWrapper )new DataContractJsonSerializer( typeof( OnAirProgramsResponseWrapper ) ).ReadObject( ms ) ).Response;
+				foreach( var program in ret.Programs )
+				{
+					if( program.Video.IsOfficial )
+					{
+						program.Community = null;
+					}
+				}
+				return ret;
 			}
 			throw new Exception( "Parse Error" );
 		}

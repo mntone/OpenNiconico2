@@ -1,8 +1,9 @@
 ﻿using Mntone.Nico2.Live;
 using Mntone.Nico2.Vita;
-using Mntone.Nico2.Vita.Live.OnAirPrograms;
+using Mntone.Nico2.Vita.Live.Videos;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 
 #if WINDOWS_APP
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
@@ -13,11 +14,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Mntone.Nico2.Test.Vita.Live
 {
 	[TestClass]
-	public sealed class OnAirProgramsUnitTest
+	public sealed class VideosUnitTest
 	{
 		private void CheckMethod( string data )
 		{
-			var actual = OnAirProgramsClient.ParseOnAirProgramsData( data );
+			var actual = VideosClient.ParseVideosData( data );
 			var expected = JObject.Parse( data )["nicolive_video_response"];
 
 			var expectedProgramsInfo = expected["video_info"].AsJEnumerable();
@@ -32,36 +33,21 @@ namespace Mntone.Nico2.Test.Vita.Live
 			}
 
 			Assert.AreEqual( expected["count"].Value<ushort>(), actual.ParticalCount );
-			Assert.AreEqual( expected["total_count"].Value<ushort>(), actual.TotalCount );
 		}
 
 		[TestMethod]
-		public void OnAirPrograms_0不正なRange()
+		public void Videos_0不正なデータ()
 		{
-			Assert2.ThrowsException<ArgumentOutOfRangeException>( () =>
+			Assert2.ThrowsException<ArgumentException>( () =>
 			{
-				OnAirProgramsClient.GetOnAirProgramsAsync( new NiconicoVitaContext(), CommunityType.Official, SortDirection.Ascending, SortType.StartTime, Range.FromFor( 0, 150 ) ).GetAwaiter().GetResult();
+				VideosClient.GetVideosDataAsync( new NiconicoVitaContext(), new List<string>() { "lv9", "sm9" } ).GetAwaiter().GetResult();
 			} );
 		}
 
 		[TestMethod]
-		public void OnAirPrograms_1officialデータ()
+		public void Videos_1データ()
 		{
-			var data = TestHelper.Load( @"Vita/Live/OnAirPrograms/official.json" );
-			CheckMethod( data );
-		}
-
-		[TestMethod]
-		public void OnAirPrograms_2channelデータ()
-		{
-			var data = TestHelper.Load( @"Vita/Live/OnAirPrograms/channel.json" );
-			CheckMethod( data );
-		}
-
-		[TestMethod]
-		public void OnAirPrograms_3communityデータ()
-		{
-			var data = TestHelper.Load( @"Vita/Live/OnAirPrograms/community.json" );
+			var data = TestHelper.Load( @"Vita/Live/Videos/data.json" );
 			CheckMethod( data );
 		}
 	}

@@ -8,7 +8,7 @@ namespace Mntone.Nico2.Vita
 	public static class NiconicoUrls
 	{
 		private const string UrlBase = "http://api.ce.nicovideo.jp/";
-		private const string FormatJson = "__format=json";
+		private const string FormatJson = "?__format=json";
 		
 
 		#region Live
@@ -16,7 +16,9 @@ namespace Mntone.Nico2.Vita
 		private const string LiveUrlBase = UrlBase + "liveapi/";
 		private const string LiveVersion1UrlBase = LiveUrlBase + "v1/";
 
-		internal static string LiveVideoOnAirListUrl { get { return LiveVersion1UrlBase + "video.onairlist?" + FormatJson; } }
+		internal static string VideoUrl { get { return LiveVersion1UrlBase + "video.info" + FormatJson + "&v="; } }
+		internal static string VideosUrl { get { return LiveVersion1UrlBase + "video.array" + FormatJson; } }
+		internal static string LiveVideoOnAirListUrl { get { return LiveVersion1UrlBase + "video.onairlist" + FormatJson; } }
 
 		#endregion
 	}

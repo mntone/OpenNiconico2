@@ -174,12 +174,12 @@ namespace Mntone.Nico2.Live
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
 		[Overload( "GetOtherStreamsAsync" )]
-		public IAsyncOperation<OtherStreams.OtherStreamsResponse> GetOtherStreamsAsync( OtherStreams.StatusType status )
+		public IAsyncOperation<OtherStreams.OtherStreamsResponse> GetOtherStreamsAsync( StatusType status )
 		{
 			return OtherStreams.OtherStreamsClient.GetOtherStreamsAsync( _context, status, 1 ).AsAsyncOperation();
 		}
 #else
-		public Task<OtherStreams.OtherStreamsResponse> GetOtherStreamsAsync( OtherStreams.StatusType status )
+		public Task<OtherStreams.OtherStreamsResponse> GetOtherStreamsAsync( StatusType status )
 		{
 			return OtherStreams.OtherStreamsClient.GetOtherStreamsAsync( _context, status, 1 );
 		}
@@ -193,14 +193,12 @@ namespace Mntone.Nico2.Live
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
 		[Overload( "GetOtherStreamsWithPageIndexAsync" )]
-		public IAsyncOperation<OtherStreams.OtherStreamsResponse> GetOtherStreamsAsync(
-			OtherStreams.StatusType status, ushort pageIndex )
+		public IAsyncOperation<OtherStreams.OtherStreamsResponse> GetOtherStreamsAsync( StatusType status, ushort pageIndex )
 		{
 			return OtherStreams.OtherStreamsClient.GetOtherStreamsAsync( _context, status, pageIndex ).AsAsyncOperation();
 		}
 #else
-		public Task<OtherStreams.OtherStreamsResponse> GetOtherStreamsAsync(
-			OtherStreams.StatusType status, ushort pageIndex )
+		public Task<OtherStreams.OtherStreamsResponse> GetOtherStreamsAsync( StatusType status, ushort pageIndex )
 		{
 			return OtherStreams.OtherStreamsClient.GetOtherStreamsAsync( _context, status, pageIndex );
 		}

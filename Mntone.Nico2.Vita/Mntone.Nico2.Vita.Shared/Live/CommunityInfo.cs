@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Mntone.Nico2.Vita.Live.OnAirPrograms
+namespace Mntone.Nico2.Vita.Live
 {
 	[DataContract]
-	public sealed class OnAirProgramCommunity
+	public sealed class CommunityInfo
 	{
-		internal OnAirProgramCommunity()
+		internal CommunityInfo()
 		{ }
 
 		/// <summary>
@@ -34,6 +34,20 @@ namespace Mntone.Nico2.Vita.Live.OnAirPrograms
 		/// </summary>
 		[DataMember( Name = "name" )]
 		public string Name { get; private set; }
+
+		/// <summary>
+		/// ユーザー数
+		/// </summary>
+		/// <remarks>詳細モード時のみ存在します</remarks>
+		[DataMember( Name = "user_count" )]
+		public uint UserCount { get; private set; }
+
+		/// <summary>
+		/// レベル
+		/// </summary>
+		/// <remarks>詳細モード時のみ存在します</remarks>
+		[DataMember( Name = "level" )]
+		public ushort Level { get; private set; }
 
 		/// <summary>
 		/// サムネール URL

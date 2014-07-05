@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace Mntone.Nico2.Vita.Live.OnAirPrograms
+namespace Mntone.Nico2.Vita.Live.Videos
 {
 	/// <summary>
 	/// 番組を格納するクラス
 	/// </summary>
 	[DataContract]
-	public sealed class OnAirProgramsResponse
+	public sealed class VideosResponse
 	{
-		internal OnAirProgramsResponse()
+		internal VideosResponse()
 		{ }
 
 		[DataMember( Name = "@status" )]
@@ -44,13 +44,7 @@ namespace Mntone.Nico2.Vita.Live.OnAirPrograms
 		/// 含まれている合計番組数
 		/// </summary>
 		[DataMember( Name = "count" )]
-		public ushort ParticalCount { get; set; }
+		public ushort ParticalCount { get; private set; }
 #endif
-
-		/// <summary>
-		/// 合計番組数
-		/// </summary>
-		[DataMember( Name = "total_count" )]
-		public ushort TotalCount { get; set; }
 	}
 }

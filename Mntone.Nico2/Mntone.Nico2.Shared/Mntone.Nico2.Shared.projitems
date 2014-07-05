@@ -37,8 +37,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Live\OtherStreams\OtherStream.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\OtherStreams\OtherStreamsClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\OtherStreams\OtherStreamsResponse.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Live\OtherStreams\StatusType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Live\OtherStreams\StatusTypeExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\Command.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\Comment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\CommentPosition.cs" />
@@ -83,11 +81,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\VideoAspect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\VideoAspectExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\VideoPosition.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Live\ReservationsInDetail\Task.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\Reservations\ReservationsClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\ReservationsInDetail\ReservationsInDetailClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\ReservationsInDetail\ReservationsInDetailResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\ReservationsInDetail\Program.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\StatusType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\StatusTypeExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NiconicoAccountAuthority.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NiconicoAuthenticationToken.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NiconicoContext.cs" />

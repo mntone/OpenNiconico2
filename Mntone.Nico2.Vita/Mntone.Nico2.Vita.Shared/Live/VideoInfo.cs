@@ -2,15 +2,15 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace Mntone.Nico2.Vita.Live.OnAirPrograms
+namespace Mntone.Nico2.Vita.Live
 {
 	/// <summary>
-	/// 放送中の番組ビデオ情報を格納するクラス
+	/// 番組情報を格納するクラス
 	/// </summary>
 	[DataContract]
-	public sealed class OnAirProgramVideo
+	public sealed class VideoInfo
 	{
-		internal OnAirProgramVideo()
+		internal VideoInfo()
 		{ }
 
 		/// <summary>
@@ -24,6 +24,25 @@ namespace Mntone.Nico2.Vita.Live.OnAirPrograms
 		/// </summary>
 		[DataMember( Name = "title" )]
 		public string Title { get; private set; }
+
+		/// <summary>
+		/// 説明
+		/// </summary>
+		/// <remarks>詳細モード時のみ存在します</remarks>
+		[DataMember( Name = "description" )]
+		public string Description
+		{
+			get { return this._Description ?? string.Empty; }
+			private set { this._Description = value; }
+		}
+		private string _Description = string.Empty;
+
+		/// <summary>
+		/// ユーザー ID
+		/// </summary>
+		/// <remarks>詳細モード時のみ存在します</remarks>
+		[DataMember( Name = "user_id" )]
+		public uint UserID { get; private set; }
 
 		/// <summary>
 		/// 開場日時
@@ -116,23 +135,39 @@ namespace Mntone.Nico2.Vita.Live.OnAirPrograms
 		/// <summary>
 		/// サムネール URL
 		/// </summary>
+		/// <remarks>公式配信時のみ存在します</remarks>
 		[DataMember( Name = "_picture_url" )]
 		public Uri ThumbnailUrl { get; private set; }
 
 		/// <summary>
 		/// 小さいサムネール URL
 		/// </summary>
+		/// <remarks>公式配信時のみ存在します</remarks>
 		[DataMember( Name = "_thumbnail_url" )]
 		public Uri SmallThumbnailUrl { get; private set; }
 
 		/// <summary>
-		/// (?)
+		/// 番組の状態
+		/// </summary>
+		/// <remarks>詳細モード時のみ存在します</remarks>
+		public StatusType Status { get { return this._Status; } }
+		private StatusType _Status;
+
+		[DataMember( Name = "_currentstatus" )]
+		private string StatusImpl
+		{
+			get { return this._Status.ToStatusTypeString(); }
+			set { this._Status = value.ToStatusType(); }
+		}
+
+		/// <summary>
+		/// オンライン (?) のスコア基準
 		/// </summary>
 		[DataMember( Name = "hidescore_online" )]
 		public ushort HidescoreOnline { get; private set; }
 
 		/// <summary>
-		/// (?)
+		/// コメント非表示のスコア基準
 		/// </summary>
 		[DataMember( Name = "hidescore_comment" )]
 		public ushort HidescoreComment { get; private set; }
@@ -184,6 +219,76 @@ namespace Mntone.Nico2.Vita.Live.OnAirPrograms
 		/// </summary>
 		[DataMember( Name = "comment_count" )]
 		public uint CommentCount { get; private set; }
+
+		/// <summary>
+		/// (?)
+		/// </summary>
+		/// <remarks>詳細モード時のみ存在します</remarks>
+		[DataMember( Name = "_timeshift_limit" )]
+		public int TimeshiftLimit { get; private set; }
+
+		/// <summary>
+		/// タイムシフト有効開始時間
+		/// </summary>
+		/// <remarks>詳細モード時のみ存在します</remarks>
+		public DateTimeOffset TimeshiftArchiveReleasedAt { get { return this._TimeshiftArchiveReleasedAt; } }
+		private DateTimeOffset _TimeshiftArchiveReleasedAt = DateTimeOffset.MinValue;
+
+		[DataMember( Name = "_ts_archive_released_time" )]
+		private string TimeshiftArchiveReleasedAtImpl
+		{
+			get { return this._TimeshiftArchiveReleasedAt.ToString(); }
+			set { this._TimeshiftArchiveReleasedAt = value.ToDateTimeOffsetFromIso8601(); }
+		}
+
+		/// <summary>
+		/// タイムシフトが有効か
+		/// </summary>
+		/// <remarks>詳細モード時のみ存在します</remarks>
+		[DataMember( Name = "_use_tsarchive" )]
+		public bool IsTimeshiftUsed { get; private set; }
+
+		/// <summary>
+		/// タイムシフト有効開始時間
+		/// </summary>
+		/// <remarks>詳細モード時のみ存在します</remarks>
+		public DateTimeOffset TimeshiftArchiveStartedAt { get { return this._TimeshiftArchiveStartedAt; } }
+		private DateTimeOffset _TimeshiftArchiveStartedAt = DateTimeOffset.MinValue;
+
+		[DataMember( Name = "_ts_archive_start_time" )]
+		private string TimeshiftArchiveStartedAtImpl
+		{
+			get { return this._TimeshiftArchiveStartedAt.ToString(); }
+			set { this._TimeshiftArchiveStartedAt = value.ToDateTimeOffsetFromIso8601(); }
+		}
+
+		/// <summary>
+		/// タイムシフト有効終了時間
+		/// </summary>
+		/// <remarks>詳細モード時のみ存在します</remarks>
+		public DateTimeOffset TimeshiftArchiveEndedAt { get { return this._TimeshiftArchiveEndedAt; } }
+		private DateTimeOffset _TimeshiftArchiveEndedAt = DateTimeOffset.MinValue;
+
+		[DataMember( Name = "_ts_archive_end_time" )]
+		private string TimeshiftArchiveEndedAtImpl
+		{
+			get { return this._TimeshiftArchiveEndedAt.ToString(); }
+			set { this._TimeshiftArchiveEndedAt = value.ToDateTimeOffsetFromIso8601(); }
+		}
+
+		/// <summary>
+		/// タイムシフトの視聴回数上限 (?)
+		/// </summary>
+		/// <remarks>詳細モード時のみ存在します</remarks>
+		[DataMember( Name = "_ts_view_limit_num" )]
+		public ushort TimeshiftViewLimitCount { get; private set; }
+
+		/// <summary>
+		/// タイムシフト視聴期間に制限がないか
+		/// </summary>
+		/// <remarks>詳細モード時のみ存在します</remarks>
+		[DataMember( Name = "_ts_is_endless" )]
+		public bool IsTimeshiftEndless { get; private set; }
 
 		/// <summary>
 		/// タイムシフト予約数

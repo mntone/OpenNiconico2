@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mntone.Nico2.Live.OtherStreams
+namespace Mntone.Nico2.Live
 {
 	internal static class StatusTypeExtensions
 	{
@@ -8,6 +8,8 @@ namespace Mntone.Nico2.Live.OtherStreams
 		{
 			switch(value)
 			{
+			case "onair":
+				return StatusType.OnAir;
 			case "comingsoon":
 				return StatusType.ComingSoon;
 			case "closed":
@@ -21,6 +23,8 @@ namespace Mntone.Nico2.Live.OtherStreams
 		{
 			switch( value )
 			{
+			case StatusType.OnAir:
+				return "onair";
 			case StatusType.ComingSoon:
 				return "comingsoon";
 			case StatusType.Closed:

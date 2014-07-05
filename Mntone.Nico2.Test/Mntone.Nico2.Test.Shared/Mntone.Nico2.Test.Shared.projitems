@@ -33,6 +33,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Videos\RemoveHistoryUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Videos\HistoriesUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Videos\ThumbnailUnitTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Vita\Live\LiveAssert.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Vita\Live\VideosUnitTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Vita\Live\VideoUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Vita\Live\OnAirStreamsUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Vita\NiconicoSessionUnitTest.cs" />
   </ItemGroup>
@@ -105,6 +108,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)TestData\Vita\Live\Videos\data.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)TestData\Vita\Live\Video\official.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)TestData\Vita\Live\Video\user.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="$(MSBuildThisFileDirectory)TestData\Dictionaries\WordExist\default.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

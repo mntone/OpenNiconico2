@@ -10,14 +10,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Live\LiveApi.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirPrograms\OnAirProgram.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirPrograms\OnAirProgramCommunity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\CommunityInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirPrograms\OnAirProgramsResponseWrapper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirPrograms\OnAirProgramVideo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirPrograms\OnAirProgramsClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirPrograms\OnAirProgramsResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirPrograms\SortType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirPrograms\SortTypeExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\ProgramInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\TagInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\TagsInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\VideoInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\Videos\VideosClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\Videos\VideosResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\Videos\VideosResponseWrapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\Video\VideoClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\Video\VideoResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\Video\VideoResponseWrapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NiconicoVitaContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NiconicoUrls.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Range.cs" />
