@@ -24,18 +24,35 @@ namespace Mntone.Nico2.Live
 		/// <summary>
 		/// 非同期操作として CKey を取得します
 		/// </summary>
-		/// <param name="refererId">生放送リファラー ID</param>
+		/// <param name="refererID">生放送リファラー ID</param>
 		/// <param name="requestID">目的の動画 ID</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
-		public IAsyncOperation<string> GetCKeyAsync( string refererId, string requestID )
+		public IAsyncOperation<string> GetCKeyAsync( string refererID, string requestID )
 		{
-			return CKey.CKeyClient.GetCKeyAsync( _context, refererId, requestID ).AsAsyncOperation();
+			return CKey.CKeyClient.GetCKeyAsync( _context, refererID, requestID ).AsAsyncOperation();
 		}
 #else
-		public Task<string> GetCKeyAsync( string refererId, string requestID )
+		public Task<string> GetCKeyAsync( string refererID, string requestID )
 		{
-			return CKey.CKeyClient.GetCKeyAsync( _context, refererId, requestID );
+			return CKey.CKeyClient.GetCKeyAsync( _context, refererID, requestID );
+		}
+#endif
+
+		/// <summary>
+		/// 非同期操作として番組説明を取得します
+		/// </summary>
+		/// <param name="requestID">目的の生放送 ID</param>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+#if WINDOWS_APP
+		public IAsyncOperation<Description.DescriptionResponse> GetDescriptionAsync( string requestID )
+		{
+			return Description.DescriptionClient.GetDescriptionAsync( _context, requestID ).AsAsyncOperation();
+		}
+#else
+		public Task<Description.DescriptionResponse> GetDescriptionAsync( string requestID )
+		{
+			return Description.DescriptionClient.GetDescriptionAsync( _context, requestID );
 		}
 #endif
 

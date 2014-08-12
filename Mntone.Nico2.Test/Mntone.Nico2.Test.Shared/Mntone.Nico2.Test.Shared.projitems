@@ -25,6 +25,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Live\LeaveUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirStreamsUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\HeartbeatUnitTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\DescriptionUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NiconicoAuthenticationTokenUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NiconicoSessionUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Searches\SuggestionUnitTest.cs" />
@@ -109,6 +110,24 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)TestData\Live\Description\future_notlogin.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)TestData\Live\Description\future_premium.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)TestData\Live\Description\now_notlogin.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)TestData\Live\Description\now_premium.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)TestData\Live\Description\timeshift_notlogin.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)TestData\Live\Description\timeshift_premium.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="$(MSBuildThisFileDirectory)TestData\UserInfo\repo-en-us.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -35,6 +35,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Images\Illusts\IllustsApi.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Images\ImageApi.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Images\Comment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\Description\DescriptionClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\Description\DescriptionResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\OtherStreams\OtherStream.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\OtherStreams\OtherStreamsClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\OtherStreams\OtherStreamsResponse.cs" />
