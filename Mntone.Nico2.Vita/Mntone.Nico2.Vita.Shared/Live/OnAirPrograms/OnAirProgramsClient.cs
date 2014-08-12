@@ -12,7 +12,7 @@ namespace Mntone.Nico2.Vita.Live.OnAirPrograms
 		public static Task<string> GetOnAirProgramsDataAsync(
 			NiconicoVitaContext context, CommunityType type, SortDirection sortDirection, SortType sortType, Range range )
 		{
-			range.CheckMaximumLength( 149 );
+			range.CheckMaximumLength( 149, "range" );
 
 			return context.GetClient().GetString2Async(
 				NiconicoUrls.LiveVideoOnAirListUrl

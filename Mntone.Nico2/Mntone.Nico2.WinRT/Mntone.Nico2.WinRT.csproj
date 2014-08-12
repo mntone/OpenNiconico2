@@ -47,6 +47,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XmlDocumentExtensions.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack-PCL">
+      <HintPath>..\..\packages\HtmlAgilityPack-PCL.1.4.6\lib\HtmlAgilityPack-PCL.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="..\Mntone.Nico2.Shared\Mntone.Nico2.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

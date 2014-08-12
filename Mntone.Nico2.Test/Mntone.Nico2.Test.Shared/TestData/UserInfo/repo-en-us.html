@@ -1,0 +1,2779 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us"><head>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="copyright" content="© niwango, inc.">
+<meta name="msapplication-task" content="name=Niconico Video ; action-uri=http://www.nicovideo.jp/; icon-uri=http://uni.res.nimg.jp/img/favicon.ico">
+<meta property="fb:app_id" content="378853695459932">
+<title>My Page Latest Nico Reports - niconico</title>
+<!-- base href="http://www.nicovideo.jp/" -->
+<link rel="alternate" media="only screen and (max-width: 640px)" href="http://sp.nicovideo.jp/my">
+<link rel="shortcut icon" href="http://uni.res.nimg.jp/img/favicon.ico">
+
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="repo-en-us_files/ini.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="repo-en-us_files/zero_common.css">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="repo-en-us_files/my.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="repo-en-us_files/search.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="repo-en-us_files/multilanguage.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="repo-en-us_files/nicolib-SuggestSearch.css">
+<!--[if lte IE 7]>
+<link rel="stylesheet" type="text/css" media="all" href="http://uni.res.nimg.jp/css/zero_my/my_ie.css?120530">
+<![endif]-->
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="repo-en-us_files/introjs.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="repo-en-us_files/introjs_mypage.css">
+
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="repo-en-us_files/zero_nicorepo.css">
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="repo-en-us_files/setcountry.css" media="all">
+<script type="text/javascript">
+
+if (typeof Nico === 'undefined') Nico = {};
+if (typeof Nico.messages === 'undefined') Nico.messages = {};
+
+
+Nico.messages.remove_favorite_confirm = 'This item will be unfavorited. Proceed? (deleted items will also be removed from your Nico Report List)';
+Nico.messages.list_delete       = 'Are you sure you want to delete this list?';
+Nico.messages.target_remove     = 'Remove this item from this list?';
+Nico.messages.user_remove       = 'Remove this user from this list?';
+Nico.messages.channel_remove    = 'Remove this channel from this list?';
+Nico.messages.community_remove  = 'Remove this community from this list?';
+Nico.messages.target_removed    = 'Remove this item from this list?';
+Nico.messages.user_removed      = 'Remove this user from this list?';
+Nico.messages.channel_removed   = 'Remove this channel from this list?';
+Nico.messages.community_removed = 'Remove this community from list.';
+Nico.messages.irreversible      = '* You cannot undo this action!';
+
+</script><script type="text/javascript" charset="utf-8" src="repo-en-us_files/prototype.js"></script>
+<script type="text/javascript" charset="utf-8" src="repo-en-us_files/common.js"></script>
+<script type="text/javascript" charset="utf-8" src="repo-en-us_files/swfobject.js"></script>
+<script type="text/javascript" charset="utf-8" src="repo-en-us_files/nicolib.js"></script>
+<script type="text/javascript" charset="utf-8" src="repo-en-us_files/ads.js"></script>
+<script type="text/javascript" charset="utf-8" src="repo-en-us_files/ads-2.js"></script>
+
+
+<script type="text/javascript" src="repo-en-us_files/__utm.js"></script><script type="text/javascript" charset="utf-8" src="repo-en-us_files/base.js"></script>
+
+
+<script type="text/javascript" charset="utf-8" src="repo-en-us_files/nicolib-SuggestSearch.js"></script>
+
+<script type="text/javascript"><!--
+
+var User = { id: 20929324, age: 21, isPremium: true, isOver18: true, isMan: true };
+var q = "";
+var country = "";
+
+
+Nico.SuggestSearch.IS_ENABLED = false;
+
+--></script>
+
+<script type="text/javascript">
+(function(we, ico) {
+	try {
+		we.msSiteModeCreateJumplist('niconico(Q)');
+		we.msSiteModeAddJumpListItem('Help',         'http://faq.nicovideo.jp/',           ico);
+		we.msSiteModeAddJumpListItem('Account Settings', 'https://secure.nicovideo.jp/secure/',           ico);
+		we.msSiteModeAddJumpListItem('Watch History',       'http://www.nicovideo.jp/my/history',               ico);
+		we.msSiteModeAddJumpListItem('Upload Video',       'http://www.nicovideo.jp/my/video',                 ico);
+		we.msSiteModeAddJumpListItem('My Favorites',     'http://www.nicovideo.jp/my/watchlist',             ico);
+		we.msSiteModeAddJumpListItem('My List',     'http://www.nicovideo.jp/my/mylist',                ico);
+		we.msSiteModeAddJumpListItem('Ranking', 'http://www.nicovideo.jp/uni_ranking',              ico);
+		we.msSiteModeAddJumpListItem('Upload',     'http://www.upload.nicovideo.jp/upload',      ico);
+		we.msSiteModeAddJumpListItem('My Page',     'http://www.nicovideo.jp/my/top',                   ico);
+		we.msSiteModeAddJumpListItem('Login',       'https://secure.nicovideo.jp/secure/login_form', ico);
+	} catch(e) {}
+})(window.external, 'http://uni.res.nimg.jp/img/favicon.ico');
+</script>
+<script type="text/javascript" src="repo-en-us_files/setcountry.js"></script>
+
+<script type="text/javascript" charset="utf-8"><!--
+
+Ads.get_segment_object = function(){
+	var segment = {};
+
+	segment.age = '21';
+	segment.gender = '0';
+	return segment;
+
+};
+
+// -->
+</script>
+
+<link href="repo-en-us_files/nicoru.css" type="text/css" rel="stylesheet"><script charset="utf-8" type="text/javascript" src="repo-en-us_files/getAdvertisementsAndLogImpression.jsonp"></script></head>
+
+<body class="en-us">
+
+
+<link rel="stylesheet" type="text/css" charset="utf-8" href="repo-en-us_files/siteHeader.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" href="repo-en-us_files/nicolib-CommonNotificationHeader.css">
+<script type="text/javascript" charset="utf-8" src="repo-en-us_files/siteHeader.js"></script>
+<script type="text/javascript" charset="utf-8" src="repo-en-us_files/nicolib-CommonNotificationHeader.js"></script>
+<div id="siteHeader">
+	<div id="siteHeaderInner">
+		<ul class="siteHeaderGlovalNavigation">
+			<li><a href="http://www.nicovideo.jp/?header"><span>Niconico</span></a></li>
+			<li><a href="http://www.nicovideo.jp/video_top?header"><span>Videos </span></a></li>
+			<li><a href="http://seiga.nicovideo.jp/?header"><span>Images</span></a></li>
+			<li><a href="http://live.nicovideo.jp/?header"><span>Live </span></a></li>
+			<li><a href="http://ch.nicovideo.jp/?header"><span>Channel</span></a></li>
+			<li><a href="http://ch.nicovideo.jp/portal/blomaga?header"><span>Blomaga</span></a></li>
+			<li class="siteHeaderOther" id="siteHeaderLeftMenu">
+				<a href="javascript:void(0);"><span>More▼ </span></a>
+				<ul id="siteHeaderLeftMenuContainer" style="display: none;">
+					<li><a href="http://app.nicovideo.jp/?header">Apps</a></li>
+					<li><a href="http://dic.nicovideo.jp/?header">Nicopedia</a></li>
+					<li><a href="http://ichiba.nicovideo.jp/?header">Marketplace</a></li>
+					<li><a href="http://uad.nicovideo.jp/?header">User Ads</a></li>
+					<li><a href="http://3d.nicovideo.jp/?header">Niconi Solid</a></li>
+					<li><a href="http://commons.nicovideo.jp/?header">Commons</a></li>
+					<li><a href="http://jk.nicovideo.jp/?header">TV Commentary</a></li>
+					<li><a href="http://com.nicovideo.jp/?header">Community</a></li>
+					<li><a href="http://chokuhan.nicovideo.jp/?header">Direct Sales</a></li>
+					<li><a href="http://info.nicovideo.jp/pr_nicom/iphone.html?header">Smartphones</a></li>
+					<li><a href="http://news.nicovideo.jp/?header">News</a></li>
+					<li class="menuServiceList"><a href="http://www.nicovideo.jp/top_service?header">Niconico Services</a></li>
+				</ul>
+			</li>
+		</ul>
+
+		<ul class="siteHeaderMenuList">
+<!-- start notification header -->
+			<li id="siteHeaderNotification" data-nico-userid="20929324" data-nico-siteid="nicovideo" data-nico-api-date="1407823318" data-nico-api-version="2" data-nico-locale="en_US" data-nico-api-key="146b1ff833be6ea96b8d3c299406df5b356c9563" data-nico-jsonp-url="http://notify.nicovideo.jp/api/notify" data-nico-count="0" data-nico-usericonurl="http://usericon.nimg.jp/usericon/s/2092/20929324.jpg" data-nico-config-nicorepores="1" data-nico-config-nicoru="1" data-nico-config-stampget="1" data-nico-config-blomagacomment="1" data-nico-iserror="false" data-nico-ismaintenance="false" class="siteHeaderPremium">
+
+																														<a href="http://www.nicovideo.jp/my/top" id="siteHeaderUserContainer">
+					<span class="siteHeaderAva" id="siteHeaderUserIconContainer"><img src="repo-en-us_files/20929324_002.jpg"></span>
+										<span id="siteHeaderUserNickNameContainer">ℳກ੮ວܬ୧ </span>
+				</a>
+				<div class="siteHeaderNotificationContainer" id="siteHeaderNotificationContainer">
+					<dl id="siteHeaderNotificationWithNotification" style="display: none;"></dl>
+					<div id="siteHeaderNotificationWithoutNotification" style="display: none;">
+						<span></span>
+						<p>Your updates are shown here.</p>
+						<p id="siteHeaderShowConfigButton" class="siteHeaderInformationOption">Settings</p>
+					</div>
+					<dl id="siteHeaderNotificationLoading" style="display: none;">
+						<dt>Notices<span></span></dt>
+						<dd><span><img src="repo-en-us_files/loading.gif"></span>Loading messages...</dd>
+					</dl>
+					<dl id="siteHeaderNotificationError" style="display: none;">
+						<dt>Notices<span></span></dt>
+						<dd id="siteHeaderNotificationError503Detail">Could not retrieve messages.</dd>
+						<dd id="siteHeaderNotificationError503Config" style="display: none;">The setting could not be applied. Please wait and try again.</dd>
+						<dd id="siteHeaderNotificationError401" style="display: none;">You are not logged in. Please log in and start again.</dd>
+					</dl>
+					<dl id="siteHeaderNotificationMaintenance" style="display: none;">
+						<dt>Notices<span></span></dt>
+						<dd>Currently under maintenance.</dd>
+					</dl>
+					<dl id="siteHeaderNotificationOption" style="display: none;">
+						<dt>Settings<span></span></dt>
+						<dd>
+							<p class="siteHeaderSwitch siteHeaderFirstChild">Recent Activity Updates
+								<span id="siteHeaderConfigNicoreporesButton" class="siteHeaderEnable"></span>
+							</p>
+
+							<p class="siteHeaderSwitch">Achievement Updates
+								<span id="siteHeaderConfigStampgetButton" class="siteHeaderEnable"></span>
+							</p>
+
+							<p class="siteHeaderSwitch">Nico's Received
+								<span id="siteHeaderConfigNicoruButton" class="siteHeaderEnable"></span>
+							</p>
+
+							<p class="siteHeaderSwitch lastChild">Blomaga Comment Notice
+								<span id="siteHeaderConfigBlomagacommentButton" class="siteHeaderEnable"></span>
+							</p>
+							<a href="javascript:void(0);" id="siteHeaderApplyConfigButton" class="siteHeaderSubmitButtonDisable">Apply Changes</a>
+						</dd>
+						<dd class="siteHeaderInformationOption">
+							<a style="display: inline-block;" href="javascript:void(0);" id="siteHeaderBackDetail">Go back to list</a>
+							<a href="javascript:void(0);" id="siteHeaderBackDetailChanged" style="display: none;">Close</a>
+						</dd>
+					</dl>
+				<span class="siteHeaderNotNotifications">0</span></div>
+				<a href="http://www.nicovideo.jp/?p=premium_top&amp;sec=bar" class="siteHeaderUpgrade" id="siteHeaderNotificationPremium">
+					<small>-</small>
+					<span>Upgrade to Premium</span>
+				</a>
+							</li>
+<!-- end notification header -->
+			<li class="siteHeaderHorizon"><a href="http://www.upload.nicovideo.jp/upload"><span>Upload</span></a></li>
+			<li><a href="http://www.nicovideo.jp/uni_ranking"><span>Ranking</span></a></li>
+			<li class="siteHeaderOther" id="siteHeaderRightMenu">
+				<a href="javascript:void(0);"><span>Menu▼</span></a>
+				<ul style="display: none;" id="siteHeaderRightMenuContainer">
+					<li><a href="http://www.nicovideo.jp/my/mylist">My List</a></li>
+					<li><a href="http://www.nicovideo.jp/my/watchlist">My Favorites</a></li>
+					<li><a href="http://www.nicovideo.jp/my/video">My Uploads</a></li>
+					<li><a href="http://www.nicovideo.jp/my/history">Watch History</a></li>
+					<li><a href="https://secure.nicovideo.jp/secure/">Account Settings</a></li>
+										<li style="display: block;" id="siteHeaderRightMenuUnfix"><a href="javascript:void(0);">Header<span class="siteHeaderScroll">Pin</span></a></li>
+					<li style="display: none;" id="siteHeaderRightMenuFix"><a href="javascript:void(0);">Header<span class="siteHeaderFix">Unpin</span></a></li>
+					<li><a href="http://faq.nicovideo.jp/">Help</a></li>
+					<li><a href="https://secure.nicovideo.jp/secure/logout">Log out</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+
+
+<div id="header" class="clearfix">
+
+  <h1 id="logo_zero"><a href="http://www.nicovideo.jp/">niconico</a></h1> 
+
+      <div class="miniSearchWrap">
+	<div class="miniSearch">
+		<div class="miniSearchType"><img src="repo-en-us_files/blank.gif" alt="" title="Video Keywords" class="msTypeVideoKW"></div>
+		<form action="http://www.nicovideo.jp/search/">
+			<input class="miniSearchWord" type="text">
+			<input value="" class="miniSearchSubmit" type="submit">
+		</form>
+	</div><!-- /.miniSearch -->
+	<ul class="miniSearchTypeList">
+		<li class="msTypeVideoKW active"><a href="http://www.nicovideo.jp/search/"><img src="repo-en-us_files/blank.gif" alt=""><span class="msTypetext">Video Keywords</span></a></li>
+		<li class="msTypeVideoTag"><a href="http://www.nicovideo.jp/tag/"><img src="repo-en-us_files/blank.gif" alt=""><span class="msTypetext">Video Tags</span></a></li>
+		<li class="msTypeMylist"><a href="http://www.nicovideo.jp/mylist_search/"><img src="repo-en-us_files/blank.gif" alt=""><span class="msTypetext">My List</span></a></li>
+		<li class="msTypeSeigaKW"><a href="http://seiga.nicovideo.jp/search/"><img src="repo-en-us_files/blank.gif" alt=""><span class="msTypetext">Image Keywords</span></a></li>
+		<li class="msTypeLiveKW"><a href="http://live.nicovideo.jp/search/"><img src="repo-en-us_files/blank.gif" alt=""><span class="msTypetext">Live Broadcast Keywords</span></a></li>
+	</ul><!-- /.miniSearchTypeList -->
+</div><!-- /.miniSearchWrap -->  
+            <div id="pc_uni_top_468x60_north" class="headerBanner"></div>
+          <script type="text/javascript">
+      
+      (function () {
+        var segment = Ads.get_segment_object();
+        new Ads.Advertisement({zone: 680, segments: segment, impression: 2}).set('pc_uni_top_468x60_north');
+      })();
+      
+    </script>
+    </div>
+<!-- /#header -->
+<script type="text/javascript" src="repo-en-us_files/jquery-1.js"></script>
+
+
+<script type="text/javascript"><!--
+jQuery.noConflict();
+var nickname = "ℳກ੮ວܬ୧";
+--></script>
+<script type="text/javascript" src="repo-en-us_files/follow.js"></script>
+<script type="text/javascript" src="repo-en-us_files/my4.js"></script>
+<script type="text/javascript" src="repo-en-us_files/my_search.js"></script>
+<script type="text/javascript"><!--
+
+User_profile_description.cover_up = '▲Hide';
+User_profile_description.cover_down = '▼More';
+
+Mypage_globals.error_message = {
+'hash error' : 'The operation will be accepted in 30 minutes from the last access.\nPlease reload the page and try again.',
+'busy' : 'Please refrain from accessing repeatedly within short time.\nThis is to ease server traffic. We appreciate your understanding.\nIf you are using an external player, unexpected excessive access may occur more frequently causing this screen to appear.',
+'param error' : 'The parameter is incorrect.',
+'comment error' : 'Failed to submit comment\nYou can insert 140 letters.',
+'reslimit error' : 'Exceeded comment limit on this Nico Report.',
+'user error' : 'You do not have rights to access.',
+'many res' : 'You have exceeded the limit of submitting comments.  Please wait and try again later',
+'ng word' : 'The sentence contents word that cannot be used.\nCannot post this Nico Report comment.',
+'maintenance' : 'Cannot delete Nico Report comments due to maintenance.\nPlease wait until the maintenance is finished.  ',
+'default_message' : 'Failed to connect.\nPlease wait, and try again.'
+};
+
+Favuser_confirm_message.register = 'Would you like to favorite this user?';
+Favuser_confirm_message.unregister = 'Would you like to unfavorite this user?';
+
+WatchBtn_status.watchLoadingMsg = 'Loading...';
+WatchBtn_status.watchRegisteredMsg = 'Favorited';
+WatchBtn_status.watchUnregisteredMsg = 'Unfavorited';
+WatchBtn_status.watchBlockingMsg = 'This function cannot be completed due to a block setting.';
+WatchBtn_status.watchBlockedMsg = 'This function cannot be completed due to a block setting.';
+WatchBtn_status.watchFailedMsg = 'Failed to add';
+
+--></script>
+<script src="repo-en-us_files/nicolib-Dialog.js"></script>
+<link rel="stylesheet" type="text/css" href="repo-en-us_files/nicolib-Dialog.css">
+
+<!--↓コンテンツ↓-->
+<script type="text/javascript" src="repo-en-us_files/nicoru.js" id="nicoru-token" data-nicoru-token="1:20929324:niconico:1407823319:56ae27682eef4bfb72a987270339dda75ff32d35" data-nicoru-language="en-us"></script>
+<script type="text/javascript" src="repo-en-us_files/jquery.js"></script>
+<script type="text/javascript" src="repo-en-us_files/zero_nicorepo.js"></script>
+<script type="text/javascript"><!--
+Mypage_globals.hash = '20929324-1407826919-7bb4acc03bda63274e927ed19ad432a78061e7e4';
+
+--></script>
+
+<div class="userDetail">
+	<div class="avatar">
+		<a href="http://www.nicovideo.jp/edit_icon">
+		<img src="repo-en-us_files/20929324.jpg" alt="ℳກ੮ວܬ୧">
+		</a>
+	</div>
+
+	<div class="profile">
+		<h2>ℳກ੮ວܬ୧<small></small></h2>
+		<dl class="pullout">
+			<dt><a href="javascript:;">My Page<span></span></a></dt>
+			<dd>
+				<ul>
+					<li><a href="http://live.nicovideo.jp/my">Nico Live My Page</a></li>
+										<li><a href="http://seiga.nicovideo.jp/my">Images My Page</a></li>
+					<li><a href="http://app.nicovideo.jp/my/">Apps</a></li>
+					<li><a href="http://ichiba.nicovideo.jp/mypage">Marketplace</a></li>
+									</ul>
+			</dd>
+		</dl>
+		<a href="http://www.nicovideo.jp/user/20929324" class="profileEdit"><span></span>View/Edit Profile</a>
+
+		<div class="account">
+			<p class="accountNumber">ID:<span>20929324(原宿) Premium Member</span></p>
+						<a data-premium-enquete-entry="" href="https://secure.nicovideo.jp/payment/registration?sec=mypagestatus" class="regist"><span></span>Change Payment Method</a>
+		</div>
+        <ul class="stats">
+			<li class="fav" title="Favorited Items"><a href="http://www.nicovideo.jp/my/fav/follower"><span></span>0</a></li>
+			<li class="exp" title="Stamp points"><a href="http://www.nicovideo.jp/my/stamp"><span></span>85EXP</a></li><a href="http://www.nicovideo.jp/my/stamp">
+			</a><li class="nicoru" title="Times Nico'd"><a href="http://www.nicovideo.jp/my/stamp"></a><a href="http://www.nicovideo.jp/my/nicoru/passive"><span></span>2</a></li>
+						<li class="nicopoint" title="Buy Nico Points"><a href="http://point.nicovideo.jp/index/bank/"><span></span>0Pt</a></li>
+			<li class="cpp" title="Creator Incentive Points"><a href="http://commons.nicovideo.jp/cpp/"><span></span>0 points</a></li>
+								</ul>
+
+											<!---->
+						
+	</div>
+	<a href="https://secure.nicovideo.jp/secure/" class="accountEdit" data-step="2" data-intro="&lt;strong&gt;新しいマイページの説明(2/3)&lt;/strong&gt;&lt;br&gt;「&lt;span class='intro_red'&gt;アカウント設定&lt;/span&gt;」はこちら。" data-position="bottom" data-tooltipclass="introjsMypage introjsMypageMainStep"><span></span>Account Settings</a>
+
+	
+</div>
+<div id="premium_enquete_dialog" class="nicolib-Dialog-Body" style="width: 300px; height: 200px; display: none;">
+    <div class="nicolib-Dialog-Title">
+        <span class="nicolib-Dialog-Title-TextNode">支払い方法の変更</span>
+        <span class="nicolib-Dialog-Title-CloseNode">x</span>
+    </div>
+    <div class="nicolib-Dialog-Content">
+        <div style="text-align: center;">
+            <a href="https://secure.nicovideo.jp/payment/registration?sec=mypagestatus">支払い方法を変更する</a><br>
+            <br>
+            <a href="http://www.nicovideo.jp/premium_enquete?sec=mypagestatus">プレミアム会員を解約する</a>
+        </div>
+    </div>
+</div>
+<!-- wrapper -->
+<div class="wrapper">
+	<!-- content -->
+	<div class="contentWrapper">
+	<!-- personal_frame -->
+		<div id="personalFrame">
+	<div id="personal_title">
+		<h3><span>ℳກ੮ວܬ୧</span>さんにおすすめ情報</h3>
+		<a href="#id=956&amp;token=20929324-1407823319-5618da54dc9e8822b96c0d7d8a501fcf705d99ce" id="personalFrameDisplayed" title="非表示にする">×</a>
+	</div>
+	<div id="personal_content" class="clearfix">
+					<a href="http://www.nicovideo.jp/personal_frame_link/956?token=20929324-1407823319-5618da54dc9e8822b96c0d7d8a501fcf705d99ce" class="personal_img"><img src="repo-en-us_files/20140808222454_d0676.png"></a>
+				<div id="personal_description">
+			<h4><a href="http://www.nicovideo.jp/personal_frame_link/956?token=20929324-1407823319-5618da54dc9e8822b96c0d7d8a501fcf705d99ce">将棋電王戦 記者発表会 観覧募集中！</a></h4>
+			<p>8月29日（金）にニコファーレで開催する、将棋電王戦に関する記者発表会2014の観覧者を募集中！（おみやげもあるよ</p>
+		</div>
+	</div>
+</div>
+<script>
+	
+	(function($){
+		var isRequested = false;
+		$('#personalFrameDisplayed').on('click', function() {
+			if (isRequested) return false;
+			var href = $(this).attr('href');
+			if (!href) {
+				return false;
+			}
+			var param = href.substring(href.indexOf('#') + 1);
+			if (param) {
+				$.ajax({
+					type: 'GET',
+					url: '/api/closepersonalframe',
+					dataType: 'json',
+					data: param,
+					success: function() {
+						$('#personalFrame').hide();
+					},
+					complete: function() {
+						isRequested = false;
+					}
+				});
+				isRequested = true;
+			}
+			return false;
+		})
+	})(jQuery);
+	
+</script>
+
+	<!-- maincontent -->
+	<div class="content" id="nicorepo">
+					<h3>Latest Nico Reports<a href="https://secure.nicovideo.jp/secure/user_service/show/twitter"><span></span>Link your account with twitter</a><a href="http://alert.nicovideo.jp/"><span></span>Receive upload alerts</a></h3>
+				<div class="articleBody">
+			<div class="nicorepo" data-tracking-name="zeromypage_nicorepo" data-live-ref-name="zero_mynicorepo">
+
+	<div class="nicorepo-page">
+
+	
+		<div class="timeline">
+							
+<div class="log first log-user-live-broadcast">
+
+							
+					<div class="log-author ">
+							<a href="http://www.nicovideo.jp/user/18018308?zeromypage_nicorepo"><img src="repo-en-us_files/18018308.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/s/1801/18018308.jpg?1407745523"></a>
+						</div>
+		
+		
+		<div class="log-content">
+
+			<div class="log-body">
+				<a href="http://www.nicovideo.jp/user/18018308?zeromypage_nicorepo" class="author-user">みどりおっさん</a> started a broadcast at <a href="http://com.nicovideo.jp/community/co40119?zeromypage_nicorepo" title="co40119">チームみどえもん</a>.
+			</div>
+
+			
+
+			<div class="log-details log-target log-target-live-program">
+									<!--  -->
+											<div class="log-target-thumbnail">
+							<a href="http://live.nicovideo.jp/watch/lv189408806?ref=zero_mynicorepo">
+								<img src="repo-en-us_files/co40119.jpg" alt="" class="live_program" data-src="http://icon.nimg.jp/community/4/co40119.jpg?1407042763">
+							</a>
+						</div>
+										<div class="log-target-info">
+												<a href="http://live.nicovideo.jp/watch/lv189408806?ref=zero_mynicorepo">おっさんの艦これ夏イベ海域 AL/MI作戦 E-5</a>
+					</div>
+				
+
+				
+									<div class="log-footer">
+						<div class="log-footer-inner">
+
+						
+													<a href="#" class="log-res-open-link">Comment</a>
+						
+												<div class="nicoru-positioned">
+							<span class="nicoru-button nicorub-loaded " data-type="nicorepo" data-nicorepo="1:18018308:14077754530000"><a href="#" class="nicorub-link " rel="like">
+  <span class="nicorub-icon"></span>
+</a>
+<span class="nicorub-balloon">
+  <span class="nicorub-u"></span>
+  <span class="nicorub-d"></span>
+  <span class="nicorub-messages">
+    <span class="nicorub-caption">nico!</span>
+    <span class="nicorub-done">done!</span>
+    <span class="nicorub-failed">failed!</span>
+    <span class="nicorub-counter">0</span>
+  </span>
+</span></span>
+						</div>
+						
+						<a href="http://www.nicovideo.jp/nicorepo/1/18018308/14077754530000?zeromypage_nicorepo" class="log-footer-date ">
+							<time class="relative" datetime="2014-08-11T16:44:13Z">13 hours ago</time>
+						</a>
+
+						</div>
+
+
+					</div><!-- .log-footer -->
+				
+
+			</div><!-- .log-details -->
+
+
+
+							<!--  -->
+				
+<div class="log-reslist log-reslist-empty">
+
+	
+	
+			<div class="log-res">
+			<form class="log-res-writeform" action="/api/nicorepo/post_res" method="POST" data-reslist-url="/my/top?innerPage=1&amp;mode=res_list&amp;log_id=18018308&amp;type=1&amp;time=14077754530000">
+				<input name="log_id" value="18018308" type="hidden">
+				<input name="type" value="1" type="hidden">
+				<input name="time" value="14077754530000" type="hidden">
+				<input name="token" value="20929324-1407826919-7bb4acc03bda63274e927ed19ad432a78061e7e4" type="hidden">
+
+				<div class="log-res-thumbnail">
+					<img src="repo-en-us_files/20929324.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/2092/20929324.jpg">
+				</div>
+				<div class="log-res-submit">
+					<input class="log-res-submit-button" value="Post" type="submit">
+				</div>
+				<div class="log-res-inner">
+					<input class="log-res-input" name="message" placeholder="Comment" type="text">
+					<div class="log-res-counter">140</div>
+				</div>
+
+				<div class="ajax-loading"><span>Posting Comment...</span></div>
+				<div class="ajax-completed">Comment Successfully Posted!</div>
+			</form>
+		</div>
+	
+</div><!-- .log-reslist -->
+			
+		</div><!-- .log-content -->
+
+	
+</div>
+							
+<div class="log log-user-live-broadcast">
+
+							
+					<div class="log-author ">
+							<a href="http://www.nicovideo.jp/user/18018308?zeromypage_nicorepo"><img src="repo-en-us_files/18018308.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/s/1801/18018308.jpg?1407745523"></a>
+						</div>
+		
+		
+		<div class="log-content">
+
+			<div class="log-body">
+				<a href="http://www.nicovideo.jp/user/18018308?zeromypage_nicorepo" class="author-user">みどりおっさん</a> started a broadcast at <a href="http://com.nicovideo.jp/community/co40119?zeromypage_nicorepo" title="co40119">チームみどえもん</a>.
+			</div>
+
+			
+
+			<div class="log-details log-target log-target-live-program">
+									<!--  -->
+											<div class="log-target-thumbnail">
+							<a href="http://live.nicovideo.jp/watch/lv189404969?ref=zero_mynicorepo">
+								<img src="repo-en-us_files/co40119.jpg" alt="" class="live_program" data-src="http://icon.nimg.jp/community/4/co40119.jpg?1407042763">
+							</a>
+						</div>
+										<div class="log-target-info">
+												<a href="http://live.nicovideo.jp/watch/lv189404969?ref=zero_mynicorepo">おっさんの艦これ夏イベ海域 AL/MI作戦 E-5</a>
+					</div>
+				
+
+				
+									<div class="log-footer">
+						<div class="log-footer-inner">
+
+						
+													<a href="#" class="log-res-open-link">Comment</a>
+						
+												<div class="nicoru-positioned">
+							<span class="nicoru-button nicorub-loaded " data-type="nicorepo" data-nicorepo="1:18018308:14077736470000"><a href="#" class="nicorub-link " rel="like">
+  <span class="nicorub-icon"></span>
+</a>
+<span class="nicorub-balloon">
+  <span class="nicorub-u"></span>
+  <span class="nicorub-d"></span>
+  <span class="nicorub-messages">
+    <span class="nicorub-caption">nico!</span>
+    <span class="nicorub-done">done!</span>
+    <span class="nicorub-failed">failed!</span>
+    <span class="nicorub-counter">0</span>
+  </span>
+</span></span>
+						</div>
+						
+						<a href="http://www.nicovideo.jp/nicorepo/1/18018308/14077736470000?zeromypage_nicorepo" class="log-footer-date ">
+							<time class="relative" datetime="2014-08-11T16:14:07Z">13 hours ago</time>
+						</a>
+
+						</div>
+
+
+					</div><!-- .log-footer -->
+				
+
+			</div><!-- .log-details -->
+
+
+
+							<!--  -->
+				
+<div class="log-reslist log-reslist-empty">
+
+	
+	
+			<div class="log-res">
+			<form class="log-res-writeform" action="/api/nicorepo/post_res" method="POST" data-reslist-url="/my/top?innerPage=1&amp;mode=res_list&amp;log_id=18018308&amp;type=1&amp;time=14077736470000">
+				<input name="log_id" value="18018308" type="hidden">
+				<input name="type" value="1" type="hidden">
+				<input name="time" value="14077736470000" type="hidden">
+				<input name="token" value="20929324-1407826919-7bb4acc03bda63274e927ed19ad432a78061e7e4" type="hidden">
+
+				<div class="log-res-thumbnail">
+					<img src="repo-en-us_files/20929324.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/2092/20929324.jpg">
+				</div>
+				<div class="log-res-submit">
+					<input class="log-res-submit-button" value="Post" type="submit">
+				</div>
+				<div class="log-res-inner">
+					<input class="log-res-input" name="message" placeholder="Comment" type="text">
+					<div class="log-res-counter">140</div>
+				</div>
+
+				<div class="ajax-loading"><span>Posting Comment...</span></div>
+				<div class="ajax-completed">Comment Successfully Posted!</div>
+			</form>
+		</div>
+	
+</div><!-- .log-reslist -->
+			
+		</div><!-- .log-content -->
+
+	
+</div>
+							
+<div class="log log-user-live-broadcast">
+
+							
+					<div class="log-author ">
+							<a href="http://www.nicovideo.jp/user/18018308?zeromypage_nicorepo"><img src="repo-en-us_files/18018308.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/s/1801/18018308.jpg?1407745523"></a>
+						</div>
+		
+		
+		<div class="log-content">
+
+			<div class="log-body">
+				<a href="http://www.nicovideo.jp/user/18018308?zeromypage_nicorepo" class="author-user">みどりおっさん</a> started a broadcast at <a href="http://com.nicovideo.jp/community/co40119?zeromypage_nicorepo" title="co40119">チームみどえもん</a>.
+			</div>
+
+			
+
+			<div class="log-details log-target log-target-live-program">
+									<!--  -->
+											<div class="log-target-thumbnail">
+							<a href="http://live.nicovideo.jp/watch/lv189400607?ref=zero_mynicorepo">
+								<img src="repo-en-us_files/co40119.jpg" alt="" class="live_program" data-src="http://icon.nimg.jp/community/4/co40119.jpg?1407042763">
+							</a>
+						</div>
+										<div class="log-target-info">
+												<a href="http://live.nicovideo.jp/watch/lv189400607?ref=zero_mynicorepo">おっさんの艦これ夏イベ海域 AL/MI作戦 E-5</a>
+					</div>
+				
+
+				
+									<div class="log-footer">
+						<div class="log-footer-inner">
+
+						
+													<a href="#" class="log-res-open-link">Comment</a>
+						
+												<div class="nicoru-positioned">
+							<span class="nicoru-button nicorub-loaded " data-type="nicorepo" data-nicorepo="1:18018308:14077718400000"><a href="#" class="nicorub-link " rel="like">
+  <span class="nicorub-icon"></span>
+</a>
+<span class="nicorub-balloon">
+  <span class="nicorub-u"></span>
+  <span class="nicorub-d"></span>
+  <span class="nicorub-messages">
+    <span class="nicorub-caption">nico!</span>
+    <span class="nicorub-done">done!</span>
+    <span class="nicorub-failed">failed!</span>
+    <span class="nicorub-counter">0</span>
+  </span>
+</span></span>
+						</div>
+						
+						<a href="http://www.nicovideo.jp/nicorepo/1/18018308/14077718400000?zeromypage_nicorepo" class="log-footer-date ">
+							<time class="relative" datetime="2014-08-11T15:44:00Z">14 hours ago</time>
+						</a>
+
+						</div>
+
+
+					</div><!-- .log-footer -->
+				
+
+			</div><!-- .log-details -->
+
+
+
+							<!--  -->
+				
+<div class="log-reslist log-reslist-empty">
+
+	
+	
+			<div class="log-res">
+			<form class="log-res-writeform" action="/api/nicorepo/post_res" method="POST" data-reslist-url="/my/top?innerPage=1&amp;mode=res_list&amp;log_id=18018308&amp;type=1&amp;time=14077718400000">
+				<input name="log_id" value="18018308" type="hidden">
+				<input name="type" value="1" type="hidden">
+				<input name="time" value="14077718400000" type="hidden">
+				<input name="token" value="20929324-1407826919-7bb4acc03bda63274e927ed19ad432a78061e7e4" type="hidden">
+
+				<div class="log-res-thumbnail">
+					<img src="repo-en-us_files/20929324.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/2092/20929324.jpg">
+				</div>
+				<div class="log-res-submit">
+					<input class="log-res-submit-button" value="Post" type="submit">
+				</div>
+				<div class="log-res-inner">
+					<input class="log-res-input" name="message" placeholder="Comment" type="text">
+					<div class="log-res-counter">140</div>
+				</div>
+
+				<div class="ajax-loading"><span>Posting Comment...</span></div>
+				<div class="ajax-completed">Comment Successfully Posted!</div>
+			</form>
+		</div>
+	
+</div><!-- .log-reslist -->
+			
+		</div><!-- .log-content -->
+
+	
+</div>
+							
+<div class="log log-user-live-broadcast">
+
+							
+					<div class="log-author ">
+							<a href="http://www.nicovideo.jp/user/18018308?zeromypage_nicorepo"><img src="repo-en-us_files/18018308.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/s/1801/18018308.jpg?1407745523"></a>
+						</div>
+		
+		
+		<div class="log-content">
+
+			<div class="log-body">
+				<a href="http://www.nicovideo.jp/user/18018308?zeromypage_nicorepo" class="author-user">みどりおっさん</a> started a broadcast at <a href="http://com.nicovideo.jp/community/co40119?zeromypage_nicorepo" title="co40119">チームみどえもん</a>.
+			</div>
+
+			
+
+			<div class="log-details log-target log-target-live-program">
+									<!--  -->
+											<div class="log-target-thumbnail">
+							<a href="http://live.nicovideo.jp/watch/lv189395846?ref=zero_mynicorepo">
+								<img src="repo-en-us_files/co40119.jpg" alt="" class="live_program" data-src="http://icon.nimg.jp/community/4/co40119.jpg?1407042763">
+							</a>
+						</div>
+										<div class="log-target-info">
+												<a href="http://live.nicovideo.jp/watch/lv189395846?ref=zero_mynicorepo">おっさんの艦これ夏イベ海域 AL/MI作戦 E-5</a>
+					</div>
+				
+
+				
+									<div class="log-footer">
+						<div class="log-footer-inner">
+
+						
+													<a href="#" class="log-res-open-link">Comment</a>
+						
+												<div class="nicoru-positioned">
+							<span class="nicoru-button nicorub-loaded " data-type="nicorepo" data-nicorepo="1:18018308:14077700310000"><a href="#" class="nicorub-link " rel="like">
+  <span class="nicorub-icon"></span>
+</a>
+<span class="nicorub-balloon">
+  <span class="nicorub-u"></span>
+  <span class="nicorub-d"></span>
+  <span class="nicorub-messages">
+    <span class="nicorub-caption">nico!</span>
+    <span class="nicorub-done">done!</span>
+    <span class="nicorub-failed">failed!</span>
+    <span class="nicorub-counter">0</span>
+  </span>
+</span></span>
+						</div>
+						
+						<a href="http://www.nicovideo.jp/nicorepo/1/18018308/14077700310000?zeromypage_nicorepo" class="log-footer-date ">
+							<time class="relative" datetime="2014-08-11T15:13:51Z">14 hours ago</time>
+						</a>
+
+						</div>
+
+
+					</div><!-- .log-footer -->
+				
+
+			</div><!-- .log-details -->
+
+
+
+							<!--  -->
+				
+<div class="log-reslist log-reslist-empty">
+
+	
+	
+			<div class="log-res">
+			<form class="log-res-writeform" action="/api/nicorepo/post_res" method="POST" data-reslist-url="/my/top?innerPage=1&amp;mode=res_list&amp;log_id=18018308&amp;type=1&amp;time=14077700310000">
+				<input name="log_id" value="18018308" type="hidden">
+				<input name="type" value="1" type="hidden">
+				<input name="time" value="14077700310000" type="hidden">
+				<input name="token" value="20929324-1407826919-7bb4acc03bda63274e927ed19ad432a78061e7e4" type="hidden">
+
+				<div class="log-res-thumbnail">
+					<img src="repo-en-us_files/20929324.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/2092/20929324.jpg">
+				</div>
+				<div class="log-res-submit">
+					<input class="log-res-submit-button" value="Post" type="submit">
+				</div>
+				<div class="log-res-inner">
+					<input class="log-res-input" name="message" placeholder="Comment" type="text">
+					<div class="log-res-counter">140</div>
+				</div>
+
+				<div class="ajax-loading"><span>Posting Comment...</span></div>
+				<div class="ajax-completed">Comment Successfully Posted!</div>
+			</form>
+		</div>
+	
+</div><!-- .log-reslist -->
+			
+		</div><!-- .log-content -->
+
+	
+</div>
+							
+<div class="log log-user-live-broadcast">
+
+							
+					<div class="log-author ">
+							<a href="http://www.nicovideo.jp/user/18018308?zeromypage_nicorepo"><img src="repo-en-us_files/18018308.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/s/1801/18018308.jpg?1407745523"></a>
+						</div>
+		
+		
+		<div class="log-content">
+
+			<div class="log-body">
+				<a href="http://www.nicovideo.jp/user/18018308?zeromypage_nicorepo" class="author-user">みどりおっさん</a> started a broadcast at <a href="http://com.nicovideo.jp/community/co40119?zeromypage_nicorepo" title="co40119">チームみどえもん</a>.
+			</div>
+
+			
+
+			<div class="log-details log-target log-target-live-program">
+									<!--  -->
+											<div class="log-target-thumbnail">
+							<a href="http://live.nicovideo.jp/watch/lv189390681?ref=zero_mynicorepo">
+								<img src="repo-en-us_files/co40119.jpg" alt="" class="live_program" data-src="http://icon.nimg.jp/community/4/co40119.jpg?1407042763">
+							</a>
+						</div>
+										<div class="log-target-info">
+												<a href="http://live.nicovideo.jp/watch/lv189390681?ref=zero_mynicorepo">おっさんの艦これ夏イベ海域 AL/MI作戦 E-5</a>
+					</div>
+				
+
+				
+									<div class="log-footer">
+						<div class="log-footer-inner">
+
+						
+													<a href="#" class="log-res-open-link">Comment</a>
+						
+												<div class="nicoru-positioned">
+							<span class="nicoru-button nicorub-loaded " data-type="nicorepo" data-nicorepo="1:18018308:14077682270000"><a href="#" class="nicorub-link " rel="like">
+  <span class="nicorub-icon"></span>
+</a>
+<span class="nicorub-balloon">
+  <span class="nicorub-u"></span>
+  <span class="nicorub-d"></span>
+  <span class="nicorub-messages">
+    <span class="nicorub-caption">nico!</span>
+    <span class="nicorub-done">done!</span>
+    <span class="nicorub-failed">failed!</span>
+    <span class="nicorub-counter">0</span>
+  </span>
+</span></span>
+						</div>
+						
+						<a href="http://www.nicovideo.jp/nicorepo/1/18018308/14077682270000?zeromypage_nicorepo" class="log-footer-date ">
+							<time class="relative" datetime="2014-08-11T14:43:47Z">15 hours ago</time>
+						</a>
+
+						</div>
+
+
+					</div><!-- .log-footer -->
+				
+
+			</div><!-- .log-details -->
+
+
+
+							<!--  -->
+				
+<div class="log-reslist log-reslist-empty">
+
+	
+	
+			<div class="log-res">
+			<form class="log-res-writeform" action="/api/nicorepo/post_res" method="POST" data-reslist-url="/my/top?innerPage=1&amp;mode=res_list&amp;log_id=18018308&amp;type=1&amp;time=14077682270000">
+				<input name="log_id" value="18018308" type="hidden">
+				<input name="type" value="1" type="hidden">
+				<input name="time" value="14077682270000" type="hidden">
+				<input name="token" value="20929324-1407826919-7bb4acc03bda63274e927ed19ad432a78061e7e4" type="hidden">
+
+				<div class="log-res-thumbnail">
+					<img src="repo-en-us_files/20929324.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/2092/20929324.jpg">
+				</div>
+				<div class="log-res-submit">
+					<input class="log-res-submit-button" value="Post" type="submit">
+				</div>
+				<div class="log-res-inner">
+					<input class="log-res-input" name="message" placeholder="Comment" type="text">
+					<div class="log-res-counter">140</div>
+				</div>
+
+				<div class="ajax-loading"><span>Posting Comment...</span></div>
+				<div class="ajax-completed">Comment Successfully Posted!</div>
+			</form>
+		</div>
+	
+</div><!-- .log-reslist -->
+			
+		</div><!-- .log-content -->
+
+	
+</div>
+							
+<div class="log log-community-live-broadcast">
+
+							
+					<div class="log-author ">
+							<a href="http://com.nicovideo.jp/community/co1575269?zeromypage_nicorepo"><img src="repo-en-us_files/co1575269.jpg" alt="" class="" data-src="http://icon.nimg.jp/community/157/co1575269.jpg?1399708743"></a>
+						</div>
+		
+		
+		<div class="log-content">
+
+			<div class="log-body">
+				<a href="http://www.nicovideo.jp/user/25899011?zeromypage_nicorepo">パソピアード東京</a> has started a broadcast at <a href="http://com.nicovideo.jp/community/co1575269?zeromypage_nicorepo" class="author-community">パソピアード東京　ゲーセン生放送</a>.
+			</div>
+
+			
+
+			<div class="log-details log-target log-target-live-program">
+									<!--  -->
+											<div class="log-target-thumbnail">
+							<a href="http://live.nicovideo.jp/watch/lv189389095?ref=zero_mynicorepo">
+								<img src="repo-en-us_files/co1575269.jpg" alt="" class="live_program" data-src="http://icon.nimg.jp/community/157/co1575269.jpg?1399708743">
+							</a>
+						</div>
+										<div class="log-target-info">
+												<a href="http://live.nicovideo.jp/watch/lv189389095?ref=zero_mynicorepo">パソピアード東京　月曜 beatmaniaIIDX配信</a>
+					</div>
+				
+
+				
+									<div class="log-footer">
+						<div class="log-footer-inner">
+
+						
+													<a href="#" class="log-res-open-link">Comment</a>
+						
+												<div class="nicoru-positioned">
+							<span class="nicoru-button nicorub-loaded " data-type="nicorepo" data-nicorepo="3:1575269:14077679580000"><a href="#" class="nicorub-link " rel="like">
+  <span class="nicorub-icon"></span>
+</a>
+<span class="nicorub-balloon">
+  <span class="nicorub-u"></span>
+  <span class="nicorub-d"></span>
+  <span class="nicorub-messages">
+    <span class="nicorub-caption">nico!</span>
+    <span class="nicorub-done">done!</span>
+    <span class="nicorub-failed">failed!</span>
+    <span class="nicorub-counter">0</span>
+  </span>
+</span></span>
+						</div>
+						
+						<a href="http://www.nicovideo.jp/nicorepo/3/1575269/14077679580000?zeromypage_nicorepo" class="log-footer-date ">
+							<time class="relative" datetime="2014-08-11T14:39:18Z">15 hours ago</time>
+						</a>
+
+						</div>
+
+
+					</div><!-- .log-footer -->
+				
+
+			</div><!-- .log-details -->
+
+
+
+							<!--  -->
+				
+<div class="log-reslist log-reslist-empty">
+
+	
+	
+			<div class="log-res">
+			<form class="log-res-writeform" action="/api/nicorepo/post_res" method="POST" data-reslist-url="/my/top?innerPage=1&amp;mode=res_list&amp;log_id=1575269&amp;type=3&amp;time=14077679580000">
+				<input name="log_id" value="1575269" type="hidden">
+				<input name="type" value="3" type="hidden">
+				<input name="time" value="14077679580000" type="hidden">
+				<input name="token" value="20929324-1407826919-7bb4acc03bda63274e927ed19ad432a78061e7e4" type="hidden">
+
+				<div class="log-res-thumbnail">
+					<img src="repo-en-us_files/20929324.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/2092/20929324.jpg">
+				</div>
+				<div class="log-res-submit">
+					<input class="log-res-submit-button" value="Post" type="submit">
+				</div>
+				<div class="log-res-inner">
+					<input class="log-res-input" name="message" placeholder="Comment" type="text">
+					<div class="log-res-counter">140</div>
+				</div>
+
+				<div class="ajax-loading"><span>Posting Comment...</span></div>
+				<div class="ajax-completed">Comment Successfully Posted!</div>
+			</form>
+		</div>
+	
+</div><!-- .log-reslist -->
+			
+		</div><!-- .log-content -->
+
+	
+</div>
+							
+<div class="log log-community-live-broadcast">
+
+							
+					<div class="log-author ">
+							<a href="http://com.nicovideo.jp/community/co15460?zeromypage_nicorepo"><img src="repo-en-us_files/x.gif" alt="" class="" data-src="http://icon.nimg.jp/community/1/co15460.jpg?1399466969"></a>
+						</div>
+		
+		
+		<div class="log-content">
+
+			<div class="log-body">
+				<a href="http://www.nicovideo.jp/user/891739?zeromypage_nicorepo">もち</a> has started a broadcast at <a href="http://com.nicovideo.jp/community/co15460?zeromypage_nicorepo" class="author-community">もちが話したり凸されたり</a>.
+			</div>
+
+			
+
+			<div class="log-details log-target log-target-live-program">
+									<!--  -->
+											<div class="log-target-thumbnail">
+							<a href="http://live.nicovideo.jp/watch/lv189385558?ref=zero_mynicorepo">
+								<img src="repo-en-us_files/x.gif" alt="" class="live_program" data-src="http://icon.nimg.jp/community/1/co15460.jpg?1399466969">
+							</a>
+						</div>
+										<div class="log-target-info">
+												<a href="http://live.nicovideo.jp/watch/lv189385558?ref=zero_mynicorepo">もちがjubeat plusとかとかをiPadでのんびり兄フラプレイ 高音質128Kbps</a>
+					</div>
+				
+
+				
+									<div class="log-footer">
+						<div class="log-footer-inner">
+
+						
+													<a href="#" class="log-res-open-link">Comment</a>
+						
+												<div class="nicoru-positioned">
+							<span class="nicoru-button nicorub-loaded " data-type="nicorepo" data-nicorepo="3:15460:14077665690000"><a href="#" class="nicorub-link " rel="like">
+  <span class="nicorub-icon"></span>
+</a>
+<span class="nicorub-balloon">
+  <span class="nicorub-u"></span>
+  <span class="nicorub-d"></span>
+  <span class="nicorub-messages">
+    <span class="nicorub-caption">nico!</span>
+    <span class="nicorub-done">done!</span>
+    <span class="nicorub-failed">failed!</span>
+    <span class="nicorub-counter">0</span>
+  </span>
+</span></span>
+						</div>
+						
+						<a href="http://www.nicovideo.jp/nicorepo/3/15460/14077665690000?zeromypage_nicorepo" class="log-footer-date ">
+							<time class="relative" datetime="2014-08-11T14:16:09Z">15 hours ago</time>
+						</a>
+
+						</div>
+
+
+					</div><!-- .log-footer -->
+				
+
+			</div><!-- .log-details -->
+
+
+
+							<!--  -->
+				
+<div class="log-reslist log-reslist-empty">
+
+	
+	
+			<div class="log-res">
+			<form class="log-res-writeform" action="/api/nicorepo/post_res" method="POST" data-reslist-url="/my/top?innerPage=1&amp;mode=res_list&amp;log_id=15460&amp;type=3&amp;time=14077665690000">
+				<input name="log_id" value="15460" type="hidden">
+				<input name="type" value="3" type="hidden">
+				<input name="time" value="14077665690000" type="hidden">
+				<input name="token" value="20929324-1407826919-7bb4acc03bda63274e927ed19ad432a78061e7e4" type="hidden">
+
+				<div class="log-res-thumbnail">
+					<img src="repo-en-us_files/20929324.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/2092/20929324.jpg">
+				</div>
+				<div class="log-res-submit">
+					<input class="log-res-submit-button" value="Post" type="submit">
+				</div>
+				<div class="log-res-inner">
+					<input class="log-res-input" name="message" placeholder="Comment" type="text">
+					<div class="log-res-counter">140</div>
+				</div>
+
+				<div class="ajax-loading"><span>Posting Comment...</span></div>
+				<div class="ajax-completed">Comment Successfully Posted!</div>
+			</form>
+		</div>
+	
+</div><!-- .log-reslist -->
+			
+		</div><!-- .log-content -->
+
+	
+</div>
+							
+<div class="log log-user-live-broadcast">
+
+							
+					<div class="log-author ">
+							<a href="http://www.nicovideo.jp/user/891739?zeromypage_nicorepo"><img src="repo-en-us_files/x.gif" alt="" class="" data-src="http://usericon.nimg.jp/usericon/s/89/891739.jpg?1407817792"></a>
+						</div>
+		
+		
+		<div class="log-content">
+
+			<div class="log-body">
+				<a href="http://www.nicovideo.jp/user/891739?zeromypage_nicorepo" class="author-user">もち</a> started a broadcast at <a href="http://com.nicovideo.jp/community/co15460?zeromypage_nicorepo" title="co15460">もちが話したり凸されたり</a>.
+			</div>
+
+			
+
+			<div class="log-details log-target log-target-live-program">
+									<!--  -->
+											<div class="log-target-thumbnail">
+							<a href="http://live.nicovideo.jp/watch/lv189385558?ref=zero_mynicorepo">
+								<img src="repo-en-us_files/x.gif" alt="" class="live_program" data-src="http://icon.nimg.jp/community/1/co15460.jpg?1399466969">
+							</a>
+						</div>
+										<div class="log-target-info">
+												<a href="http://live.nicovideo.jp/watch/lv189385558?ref=zero_mynicorepo">もちがjubeat plusとかとかをiPadでのんびり兄フラプレイ 高音質128Kbps</a>
+					</div>
+				
+
+				
+									<div class="log-footer">
+						<div class="log-footer-inner">
+
+						
+													<a href="#" class="log-res-open-link">Comment</a>
+						
+												<div class="nicoru-positioned">
+							<span class="nicoru-button nicorub-loaded " data-type="nicorepo" data-nicorepo="1:891739:14077665690000"><a href="#" class="nicorub-link " rel="like">
+  <span class="nicorub-icon"></span>
+</a>
+<span class="nicorub-balloon">
+  <span class="nicorub-u"></span>
+  <span class="nicorub-d"></span>
+  <span class="nicorub-messages">
+    <span class="nicorub-caption">nico!</span>
+    <span class="nicorub-done">done!</span>
+    <span class="nicorub-failed">failed!</span>
+    <span class="nicorub-counter">0</span>
+  </span>
+</span></span>
+						</div>
+						
+						<a href="http://www.nicovideo.jp/nicorepo/1/891739/14077665690000?zeromypage_nicorepo" class="log-footer-date ">
+							<time class="relative" datetime="2014-08-11T14:16:09Z">15 hours ago</time>
+						</a>
+
+						</div>
+
+
+					</div><!-- .log-footer -->
+				
+
+			</div><!-- .log-details -->
+
+
+
+							<!--  -->
+				
+<div class="log-reslist log-reslist-empty">
+
+	
+	
+			<div class="log-res">
+			<form class="log-res-writeform" action="/api/nicorepo/post_res" method="POST" data-reslist-url="/my/top?innerPage=1&amp;mode=res_list&amp;log_id=891739&amp;type=1&amp;time=14077665690000">
+				<input name="log_id" value="891739" type="hidden">
+				<input name="type" value="1" type="hidden">
+				<input name="time" value="14077665690000" type="hidden">
+				<input name="token" value="20929324-1407826919-7bb4acc03bda63274e927ed19ad432a78061e7e4" type="hidden">
+
+				<div class="log-res-thumbnail">
+					<img src="repo-en-us_files/20929324.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/2092/20929324.jpg">
+				</div>
+				<div class="log-res-submit">
+					<input class="log-res-submit-button" value="Post" type="submit">
+				</div>
+				<div class="log-res-inner">
+					<input class="log-res-input" name="message" placeholder="Comment" type="text">
+					<div class="log-res-counter">140</div>
+				</div>
+
+				<div class="ajax-loading"><span>Posting Comment...</span></div>
+				<div class="ajax-completed">Comment Successfully Posted!</div>
+			</form>
+		</div>
+	
+</div><!-- .log-reslist -->
+			
+		</div><!-- .log-content -->
+
+	
+</div>
+							
+<div class="log log-user-live-broadcast">
+
+							
+					<div class="log-author ">
+							<a href="http://www.nicovideo.jp/user/18018308?zeromypage_nicorepo"><img src="repo-en-us_files/x.gif" alt="" class="" data-src="http://usericon.nimg.jp/usericon/s/1801/18018308.jpg?1407745523"></a>
+						</div>
+		
+		
+		<div class="log-content">
+
+			<div class="log-body">
+				<a href="http://www.nicovideo.jp/user/18018308?zeromypage_nicorepo" class="author-user">みどりおっさん</a> started a broadcast at <a href="http://com.nicovideo.jp/community/co40119?zeromypage_nicorepo" title="co40119">チームみどえもん</a>.
+			</div>
+
+			
+
+			<div class="log-details log-target log-target-live-program">
+									<!--  -->
+											<div class="log-target-thumbnail">
+							<a href="http://live.nicovideo.jp/watch/lv189385160?ref=zero_mynicorepo">
+								<img src="repo-en-us_files/x.gif" alt="" class="live_program" data-src="http://icon.nimg.jp/community/4/co40119.jpg?1407042763">
+							</a>
+						</div>
+										<div class="log-target-info">
+												<a href="http://live.nicovideo.jp/watch/lv189385160?ref=zero_mynicorepo">おっさんの艦これ夏イベ海域 AL/MI作戦 E-5</a>
+					</div>
+				
+
+				
+									<div class="log-footer">
+						<div class="log-footer-inner">
+
+						
+													<a href="#" class="log-res-open-link">Comment</a>
+						
+												<div class="nicoru-positioned">
+							<span class="nicoru-button nicorub-loaded " data-type="nicorepo" data-nicorepo="1:18018308:14077664480000"><a href="#" class="nicorub-link " rel="like">
+  <span class="nicorub-icon"></span>
+</a>
+<span class="nicorub-balloon">
+  <span class="nicorub-u"></span>
+  <span class="nicorub-d"></span>
+  <span class="nicorub-messages">
+    <span class="nicorub-caption">nico!</span>
+    <span class="nicorub-done">done!</span>
+    <span class="nicorub-failed">failed!</span>
+    <span class="nicorub-counter">0</span>
+  </span>
+</span></span>
+						</div>
+						
+						<a href="http://www.nicovideo.jp/nicorepo/1/18018308/14077664480000?zeromypage_nicorepo" class="log-footer-date ">
+							<time class="relative" datetime="2014-08-11T14:14:08Z">15 hours ago</time>
+						</a>
+
+						</div>
+
+
+					</div><!-- .log-footer -->
+				
+
+			</div><!-- .log-details -->
+
+
+
+							<!--  -->
+				
+<div class="log-reslist log-reslist-empty">
+
+	
+	
+			<div class="log-res">
+			<form class="log-res-writeform" action="/api/nicorepo/post_res" method="POST" data-reslist-url="/my/top?innerPage=1&amp;mode=res_list&amp;log_id=18018308&amp;type=1&amp;time=14077664480000">
+				<input name="log_id" value="18018308" type="hidden">
+				<input name="type" value="1" type="hidden">
+				<input name="time" value="14077664480000" type="hidden">
+				<input name="token" value="20929324-1407826919-7bb4acc03bda63274e927ed19ad432a78061e7e4" type="hidden">
+
+				<div class="log-res-thumbnail">
+					<img src="repo-en-us_files/20929324.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/2092/20929324.jpg">
+				</div>
+				<div class="log-res-submit">
+					<input class="log-res-submit-button" value="Post" type="submit">
+				</div>
+				<div class="log-res-inner">
+					<input class="log-res-input" name="message" placeholder="Comment" type="text">
+					<div class="log-res-counter">140</div>
+				</div>
+
+				<div class="ajax-loading"><span>Posting Comment...</span></div>
+				<div class="ajax-completed">Comment Successfully Posted!</div>
+			</form>
+		</div>
+	
+</div><!-- .log-reslist -->
+			
+		</div><!-- .log-content -->
+
+	
+</div>
+							
+<div class="log log-community-live-broadcast">
+
+							
+					<div class="log-author ">
+							<a href="http://com.nicovideo.jp/community/co1575269?zeromypage_nicorepo"><img src="repo-en-us_files/x.gif" alt="" class="" data-src="http://icon.nimg.jp/community/157/co1575269.jpg?1399708743"></a>
+						</div>
+		
+		
+		<div class="log-content">
+
+			<div class="log-body">
+				<a href="http://www.nicovideo.jp/user/25899011?zeromypage_nicorepo">パソピアード東京</a> has started a broadcast at <a href="http://com.nicovideo.jp/community/co1575269?zeromypage_nicorepo" class="author-community">パソピアード東京　ゲーセン生放送</a>.
+			</div>
+
+			
+
+			<div class="log-details log-target log-target-live-program">
+									<!--  -->
+											<div class="log-target-thumbnail">
+							<a href="http://live.nicovideo.jp/watch/lv189381717?ref=zero_mynicorepo">
+								<img src="repo-en-us_files/x.gif" alt="" class="live_program" data-src="http://icon.nimg.jp/community/157/co1575269.jpg?1399708743">
+							</a>
+						</div>
+										<div class="log-target-info">
+												<a href="http://live.nicovideo.jp/watch/lv189381717?ref=zero_mynicorepo">パソピアード東京　月曜 beatmaniaIIDX配信</a>
+					</div>
+				
+
+				
+									<div class="log-footer">
+						<div class="log-footer-inner">
+
+						
+													<a href="#" class="log-res-open-link">Comment</a>
+						
+												<div class="nicoru-positioned">
+							<span class="nicoru-button nicorub-loaded " data-type="nicorepo" data-nicorepo="3:1575269:14077653850000"><a href="#" class="nicorub-link " rel="like">
+  <span class="nicorub-icon"></span>
+</a>
+<span class="nicorub-balloon">
+  <span class="nicorub-u"></span>
+  <span class="nicorub-d"></span>
+  <span class="nicorub-messages">
+    <span class="nicorub-caption">nico!</span>
+    <span class="nicorub-done">done!</span>
+    <span class="nicorub-failed">failed!</span>
+    <span class="nicorub-counter">0</span>
+  </span>
+</span></span>
+						</div>
+						
+						<a href="http://www.nicovideo.jp/nicorepo/3/1575269/14077653850000?zeromypage_nicorepo" class="log-footer-date ">
+							<time class="relative" datetime="2014-08-11T13:56:25Z">16 hours ago</time>
+						</a>
+
+						</div>
+
+
+					</div><!-- .log-footer -->
+				
+
+			</div><!-- .log-details -->
+
+
+
+							<!--  -->
+				
+<div class="log-reslist log-reslist-empty">
+
+	
+	
+			<div class="log-res">
+			<form class="log-res-writeform" action="/api/nicorepo/post_res" method="POST" data-reslist-url="/my/top?innerPage=1&amp;mode=res_list&amp;log_id=1575269&amp;type=3&amp;time=14077653850000">
+				<input name="log_id" value="1575269" type="hidden">
+				<input name="type" value="3" type="hidden">
+				<input name="time" value="14077653850000" type="hidden">
+				<input name="token" value="20929324-1407826919-7bb4acc03bda63274e927ed19ad432a78061e7e4" type="hidden">
+
+				<div class="log-res-thumbnail">
+					<img src="repo-en-us_files/20929324.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/2092/20929324.jpg">
+				</div>
+				<div class="log-res-submit">
+					<input class="log-res-submit-button" value="Post" type="submit">
+				</div>
+				<div class="log-res-inner">
+					<input class="log-res-input" name="message" placeholder="Comment" type="text">
+					<div class="log-res-counter">140</div>
+				</div>
+
+				<div class="ajax-loading"><span>Posting Comment...</span></div>
+				<div class="ajax-completed">Comment Successfully Posted!</div>
+			</form>
+		</div>
+	
+</div><!-- .log-reslist -->
+			
+		</div><!-- .log-content -->
+
+	
+</div>
+							
+<div class="log log-community-live-broadcast">
+
+							
+					<div class="log-author ">
+							<a href="http://com.nicovideo.jp/community/co15460?zeromypage_nicorepo"><img src="repo-en-us_files/x.gif" alt="" class="" data-src="http://icon.nimg.jp/community/1/co15460.jpg?1399466969"></a>
+						</div>
+		
+		
+		<div class="log-content">
+
+			<div class="log-body">
+				<a href="http://www.nicovideo.jp/user/891739?zeromypage_nicorepo">もち</a> has started a broadcast at <a href="http://com.nicovideo.jp/community/co15460?zeromypage_nicorepo" class="author-community">もちが話したり凸されたり</a>.
+			</div>
+
+			
+
+			<div class="log-details log-target log-target-live-program">
+									<!--  -->
+											<div class="log-target-thumbnail">
+							<a href="http://live.nicovideo.jp/watch/lv189379662?ref=zero_mynicorepo">
+								<img src="repo-en-us_files/x.gif" alt="" class="live_program" data-src="http://icon.nimg.jp/community/1/co15460.jpg?1399466969">
+							</a>
+						</div>
+										<div class="log-target-info">
+												<a href="http://live.nicovideo.jp/watch/lv189379662?ref=zero_mynicorepo">もちがjubeat plusとかとかをiPadでのんびり兄フラプレイ 高音質128Kbps</a>
+					</div>
+				
+
+				
+									<div class="log-footer">
+						<div class="log-footer-inner">
+
+						
+													<a href="#" class="log-res-open-link">Comment</a>
+						
+												<div class="nicoru-positioned">
+							<span class="nicoru-button nicorub-loaded " data-type="nicorepo" data-nicorepo="3:15460:14077647320000"><a href="#" class="nicorub-link " rel="like">
+  <span class="nicorub-icon"></span>
+</a>
+<span class="nicorub-balloon">
+  <span class="nicorub-u"></span>
+  <span class="nicorub-d"></span>
+  <span class="nicorub-messages">
+    <span class="nicorub-caption">nico!</span>
+    <span class="nicorub-done">done!</span>
+    <span class="nicorub-failed">failed!</span>
+    <span class="nicorub-counter">0</span>
+  </span>
+</span></span>
+						</div>
+						
+						<a href="http://www.nicovideo.jp/nicorepo/3/15460/14077647320000?zeromypage_nicorepo" class="log-footer-date ">
+							<time class="relative" datetime="2014-08-11T13:45:32Z">16 hours ago</time>
+						</a>
+
+						</div>
+
+
+					</div><!-- .log-footer -->
+				
+
+			</div><!-- .log-details -->
+
+
+
+							<!--  -->
+				
+<div class="log-reslist log-reslist-empty">
+
+	
+	
+			<div class="log-res">
+			<form class="log-res-writeform" action="/api/nicorepo/post_res" method="POST" data-reslist-url="/my/top?innerPage=1&amp;mode=res_list&amp;log_id=15460&amp;type=3&amp;time=14077647320000">
+				<input name="log_id" value="15460" type="hidden">
+				<input name="type" value="3" type="hidden">
+				<input name="time" value="14077647320000" type="hidden">
+				<input name="token" value="20929324-1407826919-7bb4acc03bda63274e927ed19ad432a78061e7e4" type="hidden">
+
+				<div class="log-res-thumbnail">
+					<img src="repo-en-us_files/20929324.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/2092/20929324.jpg">
+				</div>
+				<div class="log-res-submit">
+					<input class="log-res-submit-button" value="Post" type="submit">
+				</div>
+				<div class="log-res-inner">
+					<input class="log-res-input" name="message" placeholder="Comment" type="text">
+					<div class="log-res-counter">140</div>
+				</div>
+
+				<div class="ajax-loading"><span>Posting Comment...</span></div>
+				<div class="ajax-completed">Comment Successfully Posted!</div>
+			</form>
+		</div>
+	
+</div><!-- .log-reslist -->
+			
+		</div><!-- .log-content -->
+
+	
+</div>
+							
+<div class="log log-user-live-broadcast">
+
+							
+					<div class="log-author ">
+							<a href="http://www.nicovideo.jp/user/891739?zeromypage_nicorepo"><img src="repo-en-us_files/x.gif" alt="" class="" data-src="http://usericon.nimg.jp/usericon/s/89/891739.jpg?1407817792"></a>
+						</div>
+		
+		
+		<div class="log-content">
+
+			<div class="log-body">
+				<a href="http://www.nicovideo.jp/user/891739?zeromypage_nicorepo" class="author-user">もち</a> started a broadcast at <a href="http://com.nicovideo.jp/community/co15460?zeromypage_nicorepo" title="co15460">もちが話したり凸されたり</a>.
+			</div>
+
+			
+
+			<div class="log-details log-target log-target-live-program">
+									<!--  -->
+											<div class="log-target-thumbnail">
+							<a href="http://live.nicovideo.jp/watch/lv189379662?ref=zero_mynicorepo">
+								<img src="repo-en-us_files/x.gif" alt="" class="live_program" data-src="http://icon.nimg.jp/community/1/co15460.jpg?1399466969">
+							</a>
+						</div>
+										<div class="log-target-info">
+												<a href="http://live.nicovideo.jp/watch/lv189379662?ref=zero_mynicorepo">もちがjubeat plusとかとかをiPadでのんびり兄フラプレイ 高音質128Kbps</a>
+					</div>
+				
+
+				
+									<div class="log-footer">
+						<div class="log-footer-inner">
+
+						
+													<a href="#" class="log-res-open-link">Comment</a>
+						
+												<div class="nicoru-positioned">
+							<span class="nicoru-button nicorub-loaded " data-type="nicorepo" data-nicorepo="1:891739:14077647320000"><a href="#" class="nicorub-link " rel="like">
+  <span class="nicorub-icon"></span>
+</a>
+<span class="nicorub-balloon">
+  <span class="nicorub-u"></span>
+  <span class="nicorub-d"></span>
+  <span class="nicorub-messages">
+    <span class="nicorub-caption">nico!</span>
+    <span class="nicorub-done">done!</span>
+    <span class="nicorub-failed">failed!</span>
+    <span class="nicorub-counter">0</span>
+  </span>
+</span></span>
+						</div>
+						
+						<a href="http://www.nicovideo.jp/nicorepo/1/891739/14077647320000?zeromypage_nicorepo" class="log-footer-date ">
+							<time class="relative" datetime="2014-08-11T13:45:32Z">16 hours ago</time>
+						</a>
+
+						</div>
+
+
+					</div><!-- .log-footer -->
+				
+
+			</div><!-- .log-details -->
+
+
+
+							<!--  -->
+				
+<div class="log-reslist log-reslist-empty">
+
+	
+	
+			<div class="log-res">
+			<form class="log-res-writeform" action="/api/nicorepo/post_res" method="POST" data-reslist-url="/my/top?innerPage=1&amp;mode=res_list&amp;log_id=891739&amp;type=1&amp;time=14077647320000">
+				<input name="log_id" value="891739" type="hidden">
+				<input name="type" value="1" type="hidden">
+				<input name="time" value="14077647320000" type="hidden">
+				<input name="token" value="20929324-1407826919-7bb4acc03bda63274e927ed19ad432a78061e7e4" type="hidden">
+
+				<div class="log-res-thumbnail">
+					<img src="repo-en-us_files/20929324.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/2092/20929324.jpg">
+				</div>
+				<div class="log-res-submit">
+					<input class="log-res-submit-button" value="Post" type="submit">
+				</div>
+				<div class="log-res-inner">
+					<input class="log-res-input" name="message" placeholder="Comment" type="text">
+					<div class="log-res-counter">140</div>
+				</div>
+
+				<div class="ajax-loading"><span>Posting Comment...</span></div>
+				<div class="ajax-completed">Comment Successfully Posted!</div>
+			</form>
+		</div>
+	
+</div><!-- .log-reslist -->
+			
+		</div><!-- .log-content -->
+
+	
+</div>
+							
+<div class="log log-user-live-broadcast">
+
+							
+					<div class="log-author ">
+							<a href="http://www.nicovideo.jp/user/18018308?zeromypage_nicorepo"><img src="repo-en-us_files/x.gif" alt="" class="" data-src="http://usericon.nimg.jp/usericon/s/1801/18018308.jpg?1407745523"></a>
+						</div>
+		
+		
+		<div class="log-content">
+
+			<div class="log-body">
+				<a href="http://www.nicovideo.jp/user/18018308?zeromypage_nicorepo" class="author-user">みどりおっさん</a> started a broadcast at <a href="http://com.nicovideo.jp/community/co40119?zeromypage_nicorepo" title="co40119">チームみどえもん</a>.
+			</div>
+
+			
+
+			<div class="log-details log-target log-target-live-program">
+									<!--  -->
+											<div class="log-target-thumbnail">
+							<a href="http://live.nicovideo.jp/watch/lv189379444?ref=zero_mynicorepo">
+								<img src="repo-en-us_files/x.gif" alt="" class="live_program" data-src="http://icon.nimg.jp/community/4/co40119.jpg?1407042763">
+							</a>
+						</div>
+										<div class="log-target-info">
+												<a href="http://live.nicovideo.jp/watch/lv189379444?ref=zero_mynicorepo">おっさんの艦これ夏イベ海域 AL/MI作戦 E-5</a>
+					</div>
+				
+
+				
+									<div class="log-footer">
+						<div class="log-footer-inner">
+
+						
+													<a href="#" class="log-res-open-link">Comment</a>
+						
+												<div class="nicoru-positioned">
+							<span class="nicoru-button nicorub-loaded " data-type="nicorepo" data-nicorepo="1:18018308:14077646070000"><a href="#" class="nicorub-link " rel="like">
+  <span class="nicorub-icon"></span>
+</a>
+<span class="nicorub-balloon">
+  <span class="nicorub-u"></span>
+  <span class="nicorub-d"></span>
+  <span class="nicorub-messages">
+    <span class="nicorub-caption">nico!</span>
+    <span class="nicorub-done">done!</span>
+    <span class="nicorub-failed">failed!</span>
+    <span class="nicorub-counter">0</span>
+  </span>
+</span></span>
+						</div>
+						
+						<a href="http://www.nicovideo.jp/nicorepo/1/18018308/14077646070000?zeromypage_nicorepo" class="log-footer-date ">
+							<time class="relative" datetime="2014-08-11T13:43:27Z">16 hours ago</time>
+						</a>
+
+						</div>
+
+
+					</div><!-- .log-footer -->
+				
+
+			</div><!-- .log-details -->
+
+
+
+							<!--  -->
+				
+<div class="log-reslist log-reslist-empty">
+
+	
+	
+			<div class="log-res">
+			<form class="log-res-writeform" action="/api/nicorepo/post_res" method="POST" data-reslist-url="/my/top?innerPage=1&amp;mode=res_list&amp;log_id=18018308&amp;type=1&amp;time=14077646070000">
+				<input name="log_id" value="18018308" type="hidden">
+				<input name="type" value="1" type="hidden">
+				<input name="time" value="14077646070000" type="hidden">
+				<input name="token" value="20929324-1407826919-7bb4acc03bda63274e927ed19ad432a78061e7e4" type="hidden">
+
+				<div class="log-res-thumbnail">
+					<img src="repo-en-us_files/20929324.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/2092/20929324.jpg">
+				</div>
+				<div class="log-res-submit">
+					<input class="log-res-submit-button" value="Post" type="submit">
+				</div>
+				<div class="log-res-inner">
+					<input class="log-res-input" name="message" placeholder="Comment" type="text">
+					<div class="log-res-counter">140</div>
+				</div>
+
+				<div class="ajax-loading"><span>Posting Comment...</span></div>
+				<div class="ajax-completed">Comment Successfully Posted!</div>
+			</form>
+		</div>
+	
+</div><!-- .log-reslist -->
+			
+		</div><!-- .log-content -->
+
+	
+</div>
+							
+<div class="log log-community-live-broadcast">
+
+							
+					<div class="log-author ">
+							<a href="http://com.nicovideo.jp/community/co1575269?zeromypage_nicorepo"><img src="repo-en-us_files/x.gif" alt="" class="" data-src="http://icon.nimg.jp/community/157/co1575269.jpg?1399708743"></a>
+						</div>
+		
+		
+		<div class="log-content">
+
+			<div class="log-body">
+				<a href="http://www.nicovideo.jp/user/25899011?zeromypage_nicorepo">パソピアード東京</a> has started a broadcast at <a href="http://com.nicovideo.jp/community/co1575269?zeromypage_nicorepo" class="author-community">パソピアード東京　ゲーセン生放送</a>.
+			</div>
+
+			
+
+			<div class="log-details log-target log-target-live-program">
+									<!--  -->
+											<div class="log-target-thumbnail">
+							<a href="http://live.nicovideo.jp/watch/lv189375870?ref=zero_mynicorepo">
+								<img src="repo-en-us_files/x.gif" alt="" class="live_program" data-src="http://icon.nimg.jp/community/157/co1575269.jpg?1399708743">
+							</a>
+						</div>
+										<div class="log-target-info">
+												<a href="http://live.nicovideo.jp/watch/lv189375870?ref=zero_mynicorepo">パソピアード東京　月曜 beatmaniaIIDX配信</a>
+					</div>
+				
+
+				
+									<div class="log-footer">
+						<div class="log-footer-inner">
+
+						
+													<a href="#" class="log-res-open-link">Comment</a>
+						
+												<div class="nicoru-positioned">
+							<span class="nicoru-button nicorub-loaded " data-type="nicorepo" data-nicorepo="3:1575269:14077635230000"><a href="#" class="nicorub-link " rel="like">
+  <span class="nicorub-icon"></span>
+</a>
+<span class="nicorub-balloon">
+  <span class="nicorub-u"></span>
+  <span class="nicorub-d"></span>
+  <span class="nicorub-messages">
+    <span class="nicorub-caption">nico!</span>
+    <span class="nicorub-done">done!</span>
+    <span class="nicorub-failed">failed!</span>
+    <span class="nicorub-counter">0</span>
+  </span>
+</span></span>
+						</div>
+						
+						<a href="http://www.nicovideo.jp/nicorepo/3/1575269/14077635230000?zeromypage_nicorepo" class="log-footer-date ">
+							<time class="relative" datetime="2014-08-11T13:25:23Z">16 hours ago</time>
+						</a>
+
+						</div>
+
+
+					</div><!-- .log-footer -->
+				
+
+			</div><!-- .log-details -->
+
+
+
+							<!--  -->
+				
+<div class="log-reslist log-reslist-empty">
+
+	
+	
+			<div class="log-res">
+			<form class="log-res-writeform" action="/api/nicorepo/post_res" method="POST" data-reslist-url="/my/top?innerPage=1&amp;mode=res_list&amp;log_id=1575269&amp;type=3&amp;time=14077635230000">
+				<input name="log_id" value="1575269" type="hidden">
+				<input name="type" value="3" type="hidden">
+				<input name="time" value="14077635230000" type="hidden">
+				<input name="token" value="20929324-1407826919-7bb4acc03bda63274e927ed19ad432a78061e7e4" type="hidden">
+
+				<div class="log-res-thumbnail">
+					<img src="repo-en-us_files/20929324.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/2092/20929324.jpg">
+				</div>
+				<div class="log-res-submit">
+					<input class="log-res-submit-button" value="Post" type="submit">
+				</div>
+				<div class="log-res-inner">
+					<input class="log-res-input" name="message" placeholder="Comment" type="text">
+					<div class="log-res-counter">140</div>
+				</div>
+
+				<div class="ajax-loading"><span>Posting Comment...</span></div>
+				<div class="ajax-completed">Comment Successfully Posted!</div>
+			</form>
+		</div>
+	
+</div><!-- .log-reslist -->
+			
+		</div><!-- .log-content -->
+
+	
+</div>
+							
+<div class="log log-user-live-broadcast">
+
+							
+					<div class="log-author ">
+							<a href="http://www.nicovideo.jp/user/18018308?zeromypage_nicorepo"><img src="repo-en-us_files/x.gif" alt="" class="" data-src="http://usericon.nimg.jp/usericon/s/1801/18018308.jpg?1407745523"></a>
+						</div>
+		
+		
+		<div class="log-content">
+
+			<div class="log-body">
+				<a href="http://www.nicovideo.jp/user/18018308?zeromypage_nicorepo" class="author-user">みどりおっさん</a> started a broadcast at <a href="http://com.nicovideo.jp/community/co40119?zeromypage_nicorepo" title="co40119">チームみどえもん</a>.
+			</div>
+
+			
+
+			<div class="log-details log-target log-target-live-program">
+									<!--  -->
+											<div class="log-target-thumbnail">
+							<a href="http://live.nicovideo.jp/watch/lv189373844?ref=zero_mynicorepo">
+								<img src="repo-en-us_files/x.gif" alt="" class="live_program" data-src="http://icon.nimg.jp/community/4/co40119.jpg?1407042763">
+							</a>
+						</div>
+										<div class="log-target-info">
+												<a href="http://live.nicovideo.jp/watch/lv189373844?ref=zero_mynicorepo">おっさんの艦これ夏イベ海域 AL/MI作戦 E-5</a>
+					</div>
+				
+
+				
+									<div class="log-footer">
+						<div class="log-footer-inner">
+
+						
+													<a href="#" class="log-res-open-link">Comment</a>
+						
+												<div class="nicoru-positioned">
+							<span class="nicoru-button nicorub-loaded " data-type="nicorepo" data-nicorepo="1:18018308:14077628010000"><a href="#" class="nicorub-link " rel="like">
+  <span class="nicorub-icon"></span>
+</a>
+<span class="nicorub-balloon">
+  <span class="nicorub-u"></span>
+  <span class="nicorub-d"></span>
+  <span class="nicorub-messages">
+    <span class="nicorub-caption">nico!</span>
+    <span class="nicorub-done">done!</span>
+    <span class="nicorub-failed">failed!</span>
+    <span class="nicorub-counter">0</span>
+  </span>
+</span></span>
+						</div>
+						
+						<a href="http://www.nicovideo.jp/nicorepo/1/18018308/14077628010000?zeromypage_nicorepo" class="log-footer-date ">
+							<time class="relative" datetime="2014-08-11T13:13:21Z">16 hours ago</time>
+						</a>
+
+						</div>
+
+
+					</div><!-- .log-footer -->
+				
+
+			</div><!-- .log-details -->
+
+
+
+							<!--  -->
+				
+<div class="log-reslist log-reslist-empty">
+
+	
+	
+			<div class="log-res">
+			<form class="log-res-writeform" action="/api/nicorepo/post_res" method="POST" data-reslist-url="/my/top?innerPage=1&amp;mode=res_list&amp;log_id=18018308&amp;type=1&amp;time=14077628010000">
+				<input name="log_id" value="18018308" type="hidden">
+				<input name="type" value="1" type="hidden">
+				<input name="time" value="14077628010000" type="hidden">
+				<input name="token" value="20929324-1407826919-7bb4acc03bda63274e927ed19ad432a78061e7e4" type="hidden">
+
+				<div class="log-res-thumbnail">
+					<img src="repo-en-us_files/20929324.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/2092/20929324.jpg">
+				</div>
+				<div class="log-res-submit">
+					<input class="log-res-submit-button" value="Post" type="submit">
+				</div>
+				<div class="log-res-inner">
+					<input class="log-res-input" name="message" placeholder="Comment" type="text">
+					<div class="log-res-counter">140</div>
+				</div>
+
+				<div class="ajax-loading"><span>Posting Comment...</span></div>
+				<div class="ajax-completed">Comment Successfully Posted!</div>
+			</form>
+		</div>
+	
+</div><!-- .log-reslist -->
+			
+		</div><!-- .log-content -->
+
+	
+</div>
+							
+<div class="log passive log-user-live-video-introduced">
+
+							
+					<div class="log-author ">
+							<a href="http://www.nicovideo.jp/user/806024?zeromypage_nicorepo"><img src="repo-en-us_files/x.gif" alt="" class="" data-src="http://usericon.nimg.jp/usericon/s/80/806024.jpg?1407775408"></a>
+						</div>
+		
+		
+		<div class="log-content">
+
+			<div class="log-body">
+				<a href="http://www.nicovideo.jp/user/806024?zeromypage_nicorepo" class="author-user">5zj</a>'s video has been introduced at <a href="http://live.nicovideo.jp/watch/lv189188501#10:21?ref=zero_mynicorepo">【世界の新着動画】科学・技術</a> live broadcast.
+			</div>
+
+			
+
+			<div class="log-details log-target log-target-video">
+									<!--  -->
+											<div class="log-target-thumbnail">
+							<a href="http://www.nicovideo.jp/watch/sm24210423?zeromypage_nicorepo">
+								<img src="repo-en-us_files/x.gif" alt="" class="video" data-src="http://tn-skr.smilevideo.jp/smile?i=24210423">
+							</a>
+						</div>
+										<div class="log-target-info">
+													<span class="log-target-type-video">Videos </span>
+												<a href="http://www.nicovideo.jp/watch/sm24210423?zeromypage_nicorepo">イマドキ C++er のモテカワリソース管理術！ - #pronamaclrhsapporocpp</a>
+					</div>
+				
+
+				
+									<div class="log-footer">
+						<div class="log-footer-inner">
+
+						
+													<a href="#" class="log-res-open-link">Comment</a>
+						
+												<div class="nicoru-positioned">
+							<span class="nicoru-button nicorub-loaded " data-type="nicorepo" data-nicorepo="1:806024:14077620683635"><a href="#" class="nicorub-link " rel="like">
+  <span class="nicorub-icon"></span>
+</a>
+<span class="nicorub-balloon">
+  <span class="nicorub-u"></span>
+  <span class="nicorub-d"></span>
+  <span class="nicorub-messages">
+    <span class="nicorub-caption">nico!</span>
+    <span class="nicorub-done">done!</span>
+    <span class="nicorub-failed">failed!</span>
+    <span class="nicorub-counter">0</span>
+  </span>
+</span></span>
+						</div>
+						
+						<a href="http://www.nicovideo.jp/nicorepo/1/806024/14077620683635?zeromypage_nicorepo" class="log-footer-date ">
+							<time class="relative" datetime="2014-08-11T13:01:08Z">17 hours ago</time>
+						</a>
+
+						</div>
+
+
+					</div><!-- .log-footer -->
+				
+
+			</div><!-- .log-details -->
+
+
+
+							<!--  -->
+				
+<div class="log-reslist log-reslist-empty">
+
+	
+	
+			<div class="log-res">
+			<form class="log-res-writeform" action="/api/nicorepo/post_res" method="POST" data-reslist-url="/my/top?innerPage=1&amp;mode=res_list&amp;log_id=806024&amp;type=1&amp;time=14077620683635">
+				<input name="log_id" value="806024" type="hidden">
+				<input name="type" value="1" type="hidden">
+				<input name="time" value="14077620683635" type="hidden">
+				<input name="token" value="20929324-1407826919-7bb4acc03bda63274e927ed19ad432a78061e7e4" type="hidden">
+
+				<div class="log-res-thumbnail">
+					<img src="repo-en-us_files/20929324.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/2092/20929324.jpg">
+				</div>
+				<div class="log-res-submit">
+					<input class="log-res-submit-button" value="Post" type="submit">
+				</div>
+				<div class="log-res-inner">
+					<input class="log-res-input" name="message" placeholder="Comment" type="text">
+					<div class="log-res-counter">140</div>
+				</div>
+
+				<div class="ajax-loading"><span>Posting Comment...</span></div>
+				<div class="ajax-completed">Comment Successfully Posted!</div>
+			</form>
+		</div>
+	
+</div><!-- .log-reslist -->
+			
+		</div><!-- .log-content -->
+
+	
+</div>
+							
+<div class="log passive log-user-live-video-introduced">
+
+							
+					<div class="log-author ">
+							<a href="http://www.nicovideo.jp/user/806024?zeromypage_nicorepo"><img src="repo-en-us_files/x.gif" alt="" class="" data-src="http://usericon.nimg.jp/usericon/s/80/806024.jpg?1407775408"></a>
+						</div>
+		
+		
+		<div class="log-content">
+
+			<div class="log-body">
+				<a href="http://www.nicovideo.jp/user/806024?zeromypage_nicorepo" class="author-user">5zj</a>'s video has been introduced at <a href="http://live.nicovideo.jp/watch/lv189188501#09:04?ref=zero_mynicorepo">【世界の新着動画】科学・技術</a> live broadcast.
+			</div>
+
+			
+
+			<div class="log-details log-target log-target-video">
+									<!--  -->
+											<div class="log-target-thumbnail">
+							<a href="http://www.nicovideo.jp/watch/sm24209001?zeromypage_nicorepo">
+								<img src="repo-en-us_files/x.gif" alt="" class="video" data-src="http://tn-skr.smilevideo.jp/smile?i=24209001">
+							</a>
+						</div>
+										<div class="log-target-info">
+													<span class="log-target-type-video">Videos </span>
+												<a href="http://www.nicovideo.jp/watch/sm24209001?zeromypage_nicorepo">Socket.IO 1.0 で始めるリアルタイム Web アプリケーション - #pronamaclrhsapporocpp</a>
+					</div>
+				
+
+				
+									<div class="log-footer">
+						<div class="log-footer-inner">
+
+						
+													<a href="#" class="log-res-open-link">Comment</a>
+						
+												<div class="nicoru-positioned">
+							<span class="nicoru-button nicorub-loaded " data-type="nicorepo" data-nicorepo="1:806024:14077620681636"><a href="#" class="nicorub-link " rel="like">
+  <span class="nicorub-icon"></span>
+</a>
+<span class="nicorub-balloon">
+  <span class="nicorub-u"></span>
+  <span class="nicorub-d"></span>
+  <span class="nicorub-messages">
+    <span class="nicorub-caption">nico!</span>
+    <span class="nicorub-done">done!</span>
+    <span class="nicorub-failed">failed!</span>
+    <span class="nicorub-counter">0</span>
+  </span>
+</span></span>
+						</div>
+						
+						<a href="http://www.nicovideo.jp/nicorepo/1/806024/14077620681636?zeromypage_nicorepo" class="log-footer-date ">
+							<time class="relative" datetime="2014-08-11T13:01:08Z">17 hours ago</time>
+						</a>
+
+						</div>
+
+
+					</div><!-- .log-footer -->
+				
+
+			</div><!-- .log-details -->
+
+
+
+							<!--  -->
+				
+<div class="log-reslist log-reslist-empty">
+
+	
+	
+			<div class="log-res">
+			<form class="log-res-writeform" action="/api/nicorepo/post_res" method="POST" data-reslist-url="/my/top?innerPage=1&amp;mode=res_list&amp;log_id=806024&amp;type=1&amp;time=14077620681636">
+				<input name="log_id" value="806024" type="hidden">
+				<input name="type" value="1" type="hidden">
+				<input name="time" value="14077620681636" type="hidden">
+				<input name="token" value="20929324-1407826919-7bb4acc03bda63274e927ed19ad432a78061e7e4" type="hidden">
+
+				<div class="log-res-thumbnail">
+					<img src="repo-en-us_files/20929324.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/2092/20929324.jpg">
+				</div>
+				<div class="log-res-submit">
+					<input class="log-res-submit-button" value="Post" type="submit">
+				</div>
+				<div class="log-res-inner">
+					<input class="log-res-input" name="message" placeholder="Comment" type="text">
+					<div class="log-res-counter">140</div>
+				</div>
+
+				<div class="ajax-loading"><span>Posting Comment...</span></div>
+				<div class="ajax-completed">Comment Successfully Posted!</div>
+			</form>
+		</div>
+	
+</div><!-- .log-reslist -->
+			
+		</div><!-- .log-content -->
+
+	
+</div>
+							
+<div class="log passive log-user-live-video-introduced">
+
+							
+					<div class="log-author ">
+							<a href="http://www.nicovideo.jp/user/806024?zeromypage_nicorepo"><img src="repo-en-us_files/x.gif" alt="" class="" data-src="http://usericon.nimg.jp/usericon/s/80/806024.jpg?1407775408"></a>
+						</div>
+		
+		
+		<div class="log-content">
+
+			<div class="log-body">
+				<a href="http://www.nicovideo.jp/user/806024?zeromypage_nicorepo" class="author-user">5zj</a>'s video has been introduced at <a href="http://live.nicovideo.jp/watch/lv189188501#05:14?ref=zero_mynicorepo">【世界の新着動画】科学・技術</a> live broadcast.
+			</div>
+
+			
+
+			<div class="log-details log-target log-target-video">
+									<!--  -->
+											<div class="log-target-thumbnail">
+							<a href="http://www.nicovideo.jp/watch/sm24209487?zeromypage_nicorepo">
+								<img src="repo-en-us_files/x.gif" alt="" class="video" data-src="http://tn-skr.smilevideo.jp/smile?i=24209487">
+							</a>
+						</div>
+										<div class="log-target-info">
+													<span class="log-target-type-video">Videos </span>
+												<a href="http://www.nicovideo.jp/watch/sm24209487?zeromypage_nicorepo">Boost.Graph で「JR 全線乗り尽くしプラン」を立てる - #pronamaclrhsapporocpp</a>
+					</div>
+				
+
+				
+									<div class="log-footer">
+						<div class="log-footer-inner">
+
+						
+													<a href="#" class="log-res-open-link">Comment</a>
+						
+												<div class="nicoru-positioned">
+							<span class="nicoru-button nicorub-loaded " data-type="nicorepo" data-nicorepo="1:806024:14077620674767"><a href="#" class="nicorub-link " rel="like">
+  <span class="nicorub-icon"></span>
+</a>
+<span class="nicorub-balloon">
+  <span class="nicorub-u"></span>
+  <span class="nicorub-d"></span>
+  <span class="nicorub-messages">
+    <span class="nicorub-caption">nico!</span>
+    <span class="nicorub-done">done!</span>
+    <span class="nicorub-failed">failed!</span>
+    <span class="nicorub-counter">0</span>
+  </span>
+</span></span>
+						</div>
+						
+						<a href="http://www.nicovideo.jp/nicorepo/1/806024/14077620674767?zeromypage_nicorepo" class="log-footer-date ">
+							<time class="relative" datetime="2014-08-11T13:01:07Z">17 hours ago</time>
+						</a>
+
+						</div>
+
+
+					</div><!-- .log-footer -->
+				
+
+			</div><!-- .log-details -->
+
+
+
+							<!--  -->
+				
+<div class="log-reslist log-reslist-empty">
+
+	
+	
+			<div class="log-res">
+			<form class="log-res-writeform" action="/api/nicorepo/post_res" method="POST" data-reslist-url="/my/top?innerPage=1&amp;mode=res_list&amp;log_id=806024&amp;type=1&amp;time=14077620674767">
+				<input name="log_id" value="806024" type="hidden">
+				<input name="type" value="1" type="hidden">
+				<input name="time" value="14077620674767" type="hidden">
+				<input name="token" value="20929324-1407826919-7bb4acc03bda63274e927ed19ad432a78061e7e4" type="hidden">
+
+				<div class="log-res-thumbnail">
+					<img src="repo-en-us_files/20929324.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/2092/20929324.jpg">
+				</div>
+				<div class="log-res-submit">
+					<input class="log-res-submit-button" value="Post" type="submit">
+				</div>
+				<div class="log-res-inner">
+					<input class="log-res-input" name="message" placeholder="Comment" type="text">
+					<div class="log-res-counter">140</div>
+				</div>
+
+				<div class="ajax-loading"><span>Posting Comment...</span></div>
+				<div class="ajax-completed">Comment Successfully Posted!</div>
+			</form>
+		</div>
+	
+</div><!-- .log-reslist -->
+			
+		</div><!-- .log-content -->
+
+	
+</div>
+							
+<div class="log passive log-user-live-video-introduced">
+
+							
+					<div class="log-author ">
+							<a href="http://www.nicovideo.jp/user/806024?zeromypage_nicorepo"><img src="repo-en-us_files/x.gif" alt="" class="" data-src="http://usericon.nimg.jp/usericon/s/80/806024.jpg?1407775408"></a>
+						</div>
+		
+		
+		<div class="log-content">
+
+			<div class="log-body">
+				<a href="http://www.nicovideo.jp/user/806024?zeromypage_nicorepo" class="author-user">5zj</a>'s video has been introduced at <a href="http://live.nicovideo.jp/watch/lv189188501#02:40?ref=zero_mynicorepo">【世界の新着動画】科学・技術</a> live broadcast.
+			</div>
+
+			
+
+			<div class="log-details log-target log-target-video">
+									<!--  -->
+											<div class="log-target-thumbnail">
+							<a href="http://www.nicovideo.jp/watch/sm24210361?zeromypage_nicorepo">
+								<img src="repo-en-us_files/x.gif" alt="" class="video" data-src="http://tn-skr.smilevideo.jp/smile?i=24210361">
+							</a>
+						</div>
+										<div class="log-target-info">
+													<span class="log-target-type-video">Videos </span>
+												<a href="http://www.nicovideo.jp/watch/sm24210361?zeromypage_nicorepo">今更始める Win32 + DirectWrite - #pronamaclrhsapporocpp</a>
+					</div>
+				
+
+				
+									<div class="log-footer">
+						<div class="log-footer-inner">
+
+						
+													<a href="#" class="log-res-open-link">Comment</a>
+						
+												<div class="nicoru-positioned">
+							<span class="nicoru-button nicorub-loaded " data-type="nicorepo" data-nicorepo="1:806024:14077620671174"><a href="#" class="nicorub-link " rel="like">
+  <span class="nicorub-icon"></span>
+</a>
+<span class="nicorub-balloon">
+  <span class="nicorub-u"></span>
+  <span class="nicorub-d"></span>
+  <span class="nicorub-messages">
+    <span class="nicorub-caption">nico!</span>
+    <span class="nicorub-done">done!</span>
+    <span class="nicorub-failed">failed!</span>
+    <span class="nicorub-counter">0</span>
+  </span>
+</span></span>
+						</div>
+						
+						<a href="http://www.nicovideo.jp/nicorepo/1/806024/14077620671174?zeromypage_nicorepo" class="log-footer-date ">
+							<time class="relative" datetime="2014-08-11T13:01:07Z">17 hours ago</time>
+						</a>
+
+						</div>
+
+
+					</div><!-- .log-footer -->
+				
+
+			</div><!-- .log-details -->
+
+
+
+							<!--  -->
+				
+<div class="log-reslist log-reslist-empty">
+
+	
+	
+			<div class="log-res">
+			<form class="log-res-writeform" action="/api/nicorepo/post_res" method="POST" data-reslist-url="/my/top?innerPage=1&amp;mode=res_list&amp;log_id=806024&amp;type=1&amp;time=14077620671174">
+				<input name="log_id" value="806024" type="hidden">
+				<input name="type" value="1" type="hidden">
+				<input name="time" value="14077620671174" type="hidden">
+				<input name="token" value="20929324-1407826919-7bb4acc03bda63274e927ed19ad432a78061e7e4" type="hidden">
+
+				<div class="log-res-thumbnail">
+					<img src="repo-en-us_files/20929324.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/2092/20929324.jpg">
+				</div>
+				<div class="log-res-submit">
+					<input class="log-res-submit-button" value="Post" type="submit">
+				</div>
+				<div class="log-res-inner">
+					<input class="log-res-input" name="message" placeholder="Comment" type="text">
+					<div class="log-res-counter">140</div>
+				</div>
+
+				<div class="ajax-loading"><span>Posting Comment...</span></div>
+				<div class="ajax-completed">Comment Successfully Posted!</div>
+			</form>
+		</div>
+	
+</div><!-- .log-reslist -->
+			
+		</div><!-- .log-content -->
+
+	
+</div>
+							
+<div class="log log-user-live-broadcast">
+
+							
+					<div class="log-author ">
+							<a href="http://www.nicovideo.jp/user/891739?zeromypage_nicorepo"><img src="repo-en-us_files/x.gif" alt="" class="" data-src="http://usericon.nimg.jp/usericon/s/89/891739.jpg?1407817792"></a>
+						</div>
+		
+		
+		<div class="log-content">
+
+			<div class="log-body">
+				<a href="http://www.nicovideo.jp/user/891739?zeromypage_nicorepo" class="author-user">もち</a> started a broadcast at <a href="http://com.nicovideo.jp/community/co15460?zeromypage_nicorepo" title="co15460">もちが話したり凸されたり</a>.
+			</div>
+
+			
+
+			<div class="log-details log-target log-target-live-program">
+									<!--  -->
+											<div class="log-target-thumbnail">
+							<a href="http://live.nicovideo.jp/watch/lv189370771?ref=zero_mynicorepo">
+								<img src="repo-en-us_files/x.gif" alt="" class="live_program" data-src="http://icon.nimg.jp/community/1/co15460.jpg?1399466969">
+							</a>
+						</div>
+										<div class="log-target-info">
+												<a href="http://live.nicovideo.jp/watch/lv189370771?ref=zero_mynicorepo">もちがjubeat plusとかとかをiPadでのんびりプレイ 高音質128Kbps</a>
+					</div>
+				
+
+				
+									<div class="log-footer">
+						<div class="log-footer-inner">
+
+						
+													<a href="#" class="log-res-open-link">Comment</a>
+						
+												<div class="nicoru-positioned">
+							<span class="nicoru-button nicorub-loaded " data-type="nicorepo" data-nicorepo="1:891739:14077618580000"><a href="#" class="nicorub-link " rel="like">
+  <span class="nicorub-icon"></span>
+</a>
+<span class="nicorub-balloon">
+  <span class="nicorub-u"></span>
+  <span class="nicorub-d"></span>
+  <span class="nicorub-messages">
+    <span class="nicorub-caption">nico!</span>
+    <span class="nicorub-done">done!</span>
+    <span class="nicorub-failed">failed!</span>
+    <span class="nicorub-counter">0</span>
+  </span>
+</span></span>
+						</div>
+						
+						<a href="http://www.nicovideo.jp/nicorepo/1/891739/14077618580000?zeromypage_nicorepo" class="log-footer-date ">
+							<time class="relative" datetime="2014-08-11T12:57:38Z">17 hours ago</time>
+						</a>
+
+						</div>
+
+
+					</div><!-- .log-footer -->
+				
+
+			</div><!-- .log-details -->
+
+
+
+							<!--  -->
+				
+<div class="log-reslist log-reslist-empty">
+
+	
+	
+			<div class="log-res">
+			<form class="log-res-writeform" action="/api/nicorepo/post_res" method="POST" data-reslist-url="/my/top?innerPage=1&amp;mode=res_list&amp;log_id=891739&amp;type=1&amp;time=14077618580000">
+				<input name="log_id" value="891739" type="hidden">
+				<input name="type" value="1" type="hidden">
+				<input name="time" value="14077618580000" type="hidden">
+				<input name="token" value="20929324-1407826919-7bb4acc03bda63274e927ed19ad432a78061e7e4" type="hidden">
+
+				<div class="log-res-thumbnail">
+					<img src="repo-en-us_files/20929324.jpg" alt="" class="" data-src="http://usericon.nimg.jp/usericon/2092/20929324.jpg">
+				</div>
+				<div class="log-res-submit">
+					<input class="log-res-submit-button" value="Post" type="submit">
+				</div>
+				<div class="log-res-inner">
+					<input class="log-res-input" name="message" placeholder="Comment" type="text">
+					<div class="log-res-counter">140</div>
+				</div>
+
+				<div class="ajax-loading"><span>Posting Comment...</span></div>
+				<div class="ajax-completed">Comment Successfully Posted!</div>
+			</form>
+		</div>
+	
+</div><!-- .log-reslist -->
+			
+		</div><!-- .log-content -->
+
+	
+</div>
+					</div>
+
+					<div class="next-page">
+				<a class="next-page-link" href="http://www.nicovideo.jp/my/top/all?innerPage=1&amp;mode=next_page&amp;last_timeline=14077618580000">[Past Nico Reports] </a>
+				<div class="next-page-loading ajax-loading">Loading...</div>
+			</div>
+		
+	
+	</div><!-- .nicorepo-page -->
+
+	<div class="nicorepo_error_messages" data-too-long-res="The comment is too long." data-ajax-failed="Failed to connect. Please refresh and try again." data-bad-parameter="Invalid parameter. Please refresh and try again." data-no-login="You are not logged in.  Please log in and refresh the page." data-maintenance="The Nico Report feature is currently under maintenance." data-token-expires="The screen has expired (30minutes). Please refresh and try again." data-token-invalid="Token is invalid. Please refresh and try again." data-not-allowed="The action you are trying to perform is not allowed." data-internal="An system error has occurred. Please refresh and try again." data-throttled="Please avoid mulitple access in short period of time. Please refresh and try again." data-unknown="An system error has occurred. Please refresh and try again."></div>
+</div><!-- .nicorepo -->
+		</div>
+	</div>
+	</div>
+	<!-- //content -->
+
+	<!-- sidebar -->
+	<script type="text/javascript"><!--
+Side_bar_message.tab_cover_up = 'Hide';
+Side_bar_message.tab_cover_down = 'Expand';
+--></script>
+
+<div style="height: 2294px;" data-sub-contents="" class="sidebar">
+	<ul>
+		<li class="favTab" data-step="1" data-intro="&lt;h6&gt;新しいマイページへようこそ&lt;/h6&gt;&lt;strong&gt;新しいマイページの説明(1/3)&lt;/strong&gt;&lt;br&gt;・お気に入りユーザー&lt;br&gt;・お気に入りコミュニティ&lt;br&gt;・お気に入りチャンネル&lt;br&gt;・フレンド&lt;br&gt;は「&lt;span class='intro_red'&gt;お気に入り&lt;/span&gt;」にまとめました。
+" data-position="right" data-tooltipclass="introjsMypage introjsMypageMainStep">
+			<a href="http://www.nicovideo.jp/my/fav/user"><span></span>My Favorites</a>
+					</li>
+		
+		<li class="nicorepoTab">
+			<a href="http://www.nicovideo.jp/my/top"><span></span>Nico Report</a>
+			<a href="#" class="handler"><span class="up"></span>Hide</a>		</li>
+				<li class="parent nicorepoTabChild">
+			<div class="navInner">
+				<ul class="child">
+					<li class="active"><a href="http://www.nicovideo.jp/my/top/all"><small>└</small>All</a></li>
+					<li><a href="http://www.nicovideo.jp/my/top/myself"><small>└</small>Me</a></li>
+					<li><a href="http://www.nicovideo.jp/my/top/user"><small>└</small>Favorited Users</a></li>
+					<li><a href="http://www.nicovideo.jp/my/top/chcom"><small>└</small>Channels &amp; Communities</a></li>
+					<li><a href="http://www.nicovideo.jp/my/top/mylist"><small>└</small>My List</a></li>
+
+									</ul>
+				<ul class="menu">
+					<li class="categoryEdit"><a href="javascript:void(0);" data-nico-nicorepolist="create"><span></span>New List</a></li>
+				</ul>
+			</div>
+		</li>
+		
+						<li class="mylistTab"><a href="http://www.nicovideo.jp/my/mylist"><span></span>My List</a></li>
+		
+		<li class="videoTab">
+			<a href="http://www.nicovideo.jp/my/video"><span></span>Post</a>
+					</li>
+		<div class="intro_container" data-step="3" data-intro="&lt;strong&gt;新しいマイページの説明(3/3)&lt;/strong&gt;&lt;br&gt;「&lt;span class='intro_red'&gt;生放送&lt;/span&gt;」をメニューに追加しました。&lt;br&gt;・放送中番組数とタイムシフト数が表示されます&lt;br&gt;&lt;br&gt;以下のメニューを新しく追加しました。&lt;br&gt;・「ニコる」&lt;br&gt;・「購入履歴」" data-position="right" data-tooltipclass="introjsMypage introjsMypageLastStep">
+		<li class="liveTab "><a href="http://www.nicovideo.jp/my/live"><span></span>Live <span class="live" title="Broadcasted Programs">
+			0</span><span class="timeshift" title="Timeshifted Programs">
+			7</span></a>
+		</li>
+
+		<li class="stampTab "><a href="http://www.nicovideo.jp/my/stamp"><span></span>Stamp Book</a></li>
+
+		<li class="nicoruTab">
+			<a href="http://www.nicovideo.jp/my/nicoru"><span></span>Nico!</a>
+					</li>
+		
+		<li class="buyhistoryTab">
+			<a href="http://www.nicovideo.jp/my/buyhistory/contents"><span></span>Purchase History</a>
+					</li>
+				<li class="translationTab"><a href="http://www.nicovideo.jp/my/translation"><span></span>Translation History</a></li>
+		<li class="historyTab "><a href="http://www.nicovideo.jp/my/history"><span></span>Watch History</a></li>
+</div>
+	</ul>
+    <div style="width: 240px; position: static; margin: 0px;" data-follow-container="">
+        <div id="pc_video_my_160x600_left_container">
+    <ins style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px">
+        <ins id="pc_video_my_160x600_left" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px">
+        </ins>
+    </ins>
+</div>
+
+
+<script type="text/javascript" language="JavaScript"><!--
+
+  (function(){
+    var segment = Ads.get_segment_object();
+    new Ads.Advertisement({zone: 563, segments: segment, impression: 2}).set('pc_video_my_160x600_left', function () {
+      if (this.getHeight() > 600) {
+        jQuery('#pc_video_my_160x600_left_container ins').height(600);
+      }
+      return this.getTag();
+    });
+    var userAgent = window.navigator.userAgent.toLowerCase();
+    var appVersion = window.navigator.appVersion.toLowerCase();
+    if (userAgent.indexOf("msie") > -1 && appVersion.indexOf("msie 7.0") > -1) {
+      jQuery("#pc_video_my_160x600_left_container").append("<div></div>");
+    }
+  })();
+
+--></script>
+
+    </div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+	Mypage_globals.hash = "20929324-1407826919-7bb4acc03bda63274e927ed19ad432a78061e7e4";
+</script>
+<script type="text/javascript" src="repo-en-us_files/nicorepolist.js" charset="utf-8"></script>
+<script src="repo-en-us_files/NicorepolistDao.js"></script>
+<script src="repo-en-us_files/nicolib-NicorepolistDialog.js"></script>
+<link rel="stylesheet" type="text/css" href="repo-en-us_files/nicolib-Dialog.css">
+<link rel="stylesheet" type="text/css" href="repo-en-us_files/nicolib-NicorepolistDialog.css">
+<script type="text/javascript">
+  var MESSAGE_NICOREPOLIST_ERROR_ADD_OVER = " (Due to exceeding the maximum number)";
+  var MESSAGE_NICOREPOLIST_ERROR_ADD_ERROR = " (Failed to add)";
+  var MESSAGE_NICOREPOLIST_ERROR_REMOVE_ERROR = " (Failed to delete)";
+  var MESSAGE_NICOREPOLIST_DEFAULT_LIST_NAME = "List ";
+  var MESSAGE_NICOREPOLIST_ERROR_NO_LIST = "You have not made any Nico Report Lists.";
+  var MESSAGE_NICOREPOLIST_TITLE_CREATE = "Create Nico Report List";
+  var MESSAGE_NICOREPOLIST_TITLE_UPDATE = "Add/Edit Nico Reports";
+</script>
+
+<div id="nicorepolistDialog_" class="nicolib-Dialog-Body" style="width: 500px; height: 200px; display: none;">
+	<div class="nicolib-Dialog-Title">
+		<span class="nicolib-Dialog-Title-TextNode"></span>
+		<span class="nicolib-Dialog-Title-CloseNode">Close</span>
+	</div>
+	<div class="nicolib-Dialog-Content">
+		<div id="nicorepolistDialog_Loading">
+			<p class="loading"><img src="repo-en-us_files/loading_002.gif" alt=""></p>
+		</div>
+		
+		<div id="nicorepolistDialog_Update">
+			<div>
+				<span id="nicorepolistDialog_UpdateText">
+				</span>
+				<div id="nicorepolistDialog_UpdateTextOnCreate" style="display: none;">
+					<p>Create new Nico Report List.</p><p style="color: gray;">*Nico Report List is a private list for personal use.</p>
+				</div>
+			</div>
+			<form onsubmit="return false;">
+				<p class="listEditTriger"><a href="javascript:void(0);"><span></span>Create New List</a></p>
+				<div class="listEdit" style="display: none;">
+					<p class="inputText"><input placeholder="List name" maxlength="12" type="text"></p>
+					<p class="inputSubmit"><input value="Create" type="submit"></p>
+					<p class="inputButton"><input value="Cancel" type="button"></p>
+				</div>
+			</form>
+		
+			<form>
+				<div class="listContainer">
+					<ul>
+											</ul>
+				</div>
+			</form>
+			<p class="buttonContainer">
+				<a href="javascript:void(0);" class="complete">OK</a>
+				<a href="javascript:void(0);" class="cancel">Cancel</a>
+			</p>
+		</div>
+
+		<div id="nicorepolistDialog_Create">
+			<p class="contsText">Creating a list of Nico Reports <br>
+allows you to view your Nico Reports at a glance.</p>
+			<p class="attentionText">*Nico Report List is a private list for personal use.</p>
+			
+			<form onsubmit="return false;">
+				<div class="listEdit">
+					<p class="inputText"><input placeholder="List name" maxlength="12" type="text"></p>
+					<p class="inputSubmit"><input value="Create" type="submit"></p>
+					<p class="inputButton"><input value="Cancel" type="button"></p>
+				</div>
+			</form>
+		
+		</div>
+		<div id="nicorepolistDialog_ResultUpdate">
+			<div class="listCompleteList">
+				<p id="nicorepolistDialog_ResultUpdateAddedTarget">
+				</p>
+			
+				<ul class="listComplete" id="nicorepolistDialog_ResultUpdateAddedLists">
+				</ul>
+			
+				<p id="nicorepolistDialog_ResultUpdateRemovedTarget">
+				</p>
+				
+				<ul class="listComplete" id="nicorepolistDialog_ResultUpdateRemovedLists">
+				</ul>
+				
+				<p id="nicorepolistDialog_ResultUpdateErrorTarget">
+				Failed to upadate list
+				</p>
+				
+				<ul class="listComplete" id="nicorepolistDialog_ResultUpdateErrorLists">
+				</ul>
+				
+			</div>
+			<p class="buttonContainer">
+				<a href="javascript:void(0);" class="windowClose">Close</a>
+			</p>
+		</div>
+		<div id="nicorepolistDialog_ResultCreate">
+			<div class="listEditComplete" style="text-align: center;">
+				<p>Created <strong class="listName"></strong>. </p>
+				<p style="margin-top: 10px;">Add your favorited users and communities to your Nico Report List!</p>
+			</div>
+			<p class="buttonContainer">
+				<a href="javascript:void(0);" class="windowClose">Close</a>
+			</p>
+		</div>
+	</div>
+</div>	<!-- //sidebar -->
+
+</div>
+<!--↑コンテンツ↑-->
+
+<div id="web_pc_footer" class="footerBanner"></div>
+<script type="text/javascript" language="JavaScript">
+
+	(function(){
+		var segment = Ads.get_segment_object();
+		new Ads.Advertisement({zone: 130, segments: segment, impression: 2}).set('web_pc_footer');
+	})();
+
+</script>
+
+<!---->
+
+
+
+
+
+<div class="toPageTopWrap">
+	<div class="inner">
+		<a href="#" class="toPageTopBtn"><span></span>Back to Top</a>
+								</div>
+</div><!-- /.toPageTop -->
+
+<div id="footerWrap">
+
+	<div id="footerNav">
+		<div class="outer">
+
+			<h3>About Niconico</h3>
+			<ul class="footerNavList">
+				<li><a href="http://www.nicovideo.jp/top_service/">Niconico Services</a></li>
+				<li><a href="http://www.nicovideo.jp/rss">RSS Updates</a></li>
+				<li><a href="http://www.upload.nicovideo.jp/license_search/">Audio Search (Japanese only)</a></li>
+				<li><a href="http://ex.nicovideo.jp/base/declaration">Announcements</a></li>
+				<li><a href="http://info.nicovideo.jp/base/term.html">Terms of Use</a></li>							</ul>
+		</div>
+
+		<div class="outer">
+			<h3>Notices</h3>
+			<ul class="footerNavList">
+				<li><a href="http://blog.nicovideo.jp/niconews/">Nico Blog</a></li>
+				<li><a href="http://blog.nicovideo.jp/niconews/ge_function/">Features &amp; Updates (Japanese only)</a></li>								<li><a href="http://blog.nicovideo.jp/niconews/ge_maintenance/">Maintenance News (Japanese only)</a></li>				<li><a href="http://info.nicovideo.jp/base/phishing.html">Avoid phishing scams</a></li>			</ul>
+		</div>
+		<div class="outer">
+			<h3>Inquire</h3>
+			<ul class="footerNavList">
+				<li><a href="http://faq.nicovideo.jp/">Help Home Page</a></li>
+				<li><a href="http://bbs.nicovideo.jp/request/">Send Feedback</a></li>
+				<li><a href="http://rcp-smile.nicovideo.jp/static/rule/">Copyright Holders (Japanese only)</a></li>
+				<li><a href="https://secure.ch.nicovideo.jp/application/info/top">Corporate (Japanese only)</a></li>
+				<li><a href="https://secure.nicovideo.jp/form/ads">Advertise</a></li>
+				<li><a href="https://secure.nicovideo.jp/form/press">Press</a></li>
+				<li><a href="http://info.dwango.co.jp/recruit/">Work with us! (Japanese only)</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="copyright">
+					<div class="setCountryOuter">
+    <ul class="setCountry">
+        <li class="selector" id="area">
+            <p>Region: </p>
+            <div class="outer">
+                <p class="trigger" id="areaTrigger">
+                    <span class="currentType JP">Japan</span>
+                    <span class="arrow"></span>
+                </p>
+                <div class="expandContainer" id="areaExpandContainer">
+                                                                                            <a href="#" class="selectType US" onclick="document.site_footer_setcountry.area.value='US';return Nico.CommonFooter.setCountry();">United States</a>
+                                                                            <a href="#" class="selectType TW" onclick="document.site_footer_setcountry.area.value='TW';return Nico.CommonFooter.setCountry();">Taiwan</a>
+                                                    </div>
+            </div>
+        </li>
+        <li class="selector" id="lang">
+            <p>Language: </p>
+            <div class="outer">
+                <p class="trigger" id="langTrigger">
+                    <span class="currentType">English (US)</span>
+                    <span class="arrow"></span>
+                </p>
+                <div class="expandContainer" id="langExpandContainer">
+                                                        <a href="#" class="selectType ja-jp" onclick="document.site_footer_setcountry.language.value='ja-jp';return Nico.CommonFooter.setCountry();">日本語</a>
+                                                                                                                <a href="#" class="selectType zh-tw" onclick="document.site_footer_setcountry.language.value='zh-tw';return Nico.CommonFooter.setCountry();">中文 (繁體)</a>
+                                                    </div>
+            </div>
+        </li>
+    </ul>
+    <form method="post" action="http://www.nicovideo.jp/api/setcountry" id="site_footer_setcountry" name="site_footer_setcountry">
+            <input name="user_id" value="20929324" id="site_footer_setcountry_userid" type="hidden">
+        <input name="token" value="20929324-1407823318-93f30ff765dabb661440284f381e67f6206da1c7" type="hidden">
+            <input name="area" value="" type="hidden">
+        <input name="language" value="" type="hidden">
+    </form>
+</div>				<p class="figureWrap">
+			<img src="repo-en-us_files/logo_jasrac.png" alt="Licensed by JASRAC"><span>JASRAC License Number: 9013388001Y45123<br>9013388004Y30005 </span>
+						<small>©niwango,inc. All rights reserved.</small>
+		</p>
+	</div>
+</div><!-- /#footerWrap -->
+
+
+<div style="position: absolute; left: -1000px; top: -1000px; width: 1px; height: 1px;" id="external_nicoru_swf_1"><embed type="application/x-shockwave-flash" id="external_flash8603" name="external_flash8603" src="repo-en-us_files/nicoru.swf" flashvars="token=1%3A20929324%3Aniconico%3A1407823319%3A56ae27682eef4bfb72a987270339dda75ff32d35" allowscriptaccess="always" height="1" width="1"></div></body></html>

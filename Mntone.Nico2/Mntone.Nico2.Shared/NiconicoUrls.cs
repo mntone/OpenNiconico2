@@ -18,6 +18,11 @@ namespace Mntone.Nico2
 		/// </summary>
 		public static string TopPageUrl { get { return VideoUrlBase; } }
 
+		/// <summary>
+		/// ニコニコ ユーザー ページ URL テキスト
+		/// </summary>
+		public static string UserPageUrl { get { return VideoUrlBase + "my/top"; } }
+
 
 		#region Authentication
 

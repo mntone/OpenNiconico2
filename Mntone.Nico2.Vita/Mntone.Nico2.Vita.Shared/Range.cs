@@ -72,6 +72,19 @@ namespace Mntone.Nico2.Vita
 		/// <summary>
 		/// 長さの確認
 		/// </summary>
+		/// <param name="availableMaximumLength">有効な最大の長さ</param>
+		/// <param name="parameterName">引数名</param>
+		public void CheckMaximumLength( ushort availableMaximumLength, string parameterName )
+		{
+			if( this.Length > availableMaximumLength )
+			{
+				throw new ArgumentOutOfRangeException( parameterName );
+			}
+		}
+
+		/// <summary>
+		/// 長さの確認
+		/// </summary>
 		/// <param name="availableLength">有効な長さの範囲</param>
 		public void CheckLengthRange( Range availableLength )
 		{
