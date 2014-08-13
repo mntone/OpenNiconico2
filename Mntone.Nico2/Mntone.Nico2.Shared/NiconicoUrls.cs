@@ -21,7 +21,7 @@ namespace Mntone.Nico2
 		/// <summary>
 		/// ニコニコ ユーザー ページ URL テキスト
 		/// </summary>
-		public static string UserPageUrl { get { return VideoUrlBase + "my/top"; } }
+		public static string UserPageUrl { get { return VideoUrlBase + "my"; } }
 
 
 		#region Authentication
