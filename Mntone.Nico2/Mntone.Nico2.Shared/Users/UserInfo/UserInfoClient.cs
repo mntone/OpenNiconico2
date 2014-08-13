@@ -1,7 +1,7 @@
 ﻿using HtmlAgilityPack;
 using System.Threading.Tasks;
 
-namespace Mntone.Nico2.UserInfo
+namespace Mntone.Nico2.Users.UserInfo
 {
 	internal sealed class UserInfoClient
 	{

@@ -104,8 +104,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Sex.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SortDirection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SortDirectionExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)UserInfo\UserInfoClient.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)UserInfo\UserInfoResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Users\UserApi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Users\UserInfo\UserInfoClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Users\UserInfo\UserInfoResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Videos\Flv\PrivateReasonType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Videos\Flv\FlvResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Videos\Flv\FlvClient.cs" />

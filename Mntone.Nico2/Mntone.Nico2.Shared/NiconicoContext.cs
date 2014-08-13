@@ -83,23 +83,6 @@ namespace Mntone.Nico2
 
 
 		/// <summary>
-		/// 非同期操作としてユーザー情報を取得します
-		/// </summary>
-		/// <returns>非同期操作を表すオブジェクト</returns>
-#if WINDOWS_APP
-		public IAsyncOperation<UserInfo.UserInfoResponse> GetUserInfoAsync()
-		{
-			return UserInfo.UserInfoClient.GetUserInfoAsync( this ).AsAsyncOperation();
-		}
-#else
-		public Task<UserInfo.UserInfoResponse> GetUserInfoAsync()
-		{
-			return UserInfo.UserInfoClient.GetUserInfoAsync( this );
-		}
-#endif
-
-
-		/// <summary>
 		/// 非同期操作としてログオン要求を送信します。ログオン完了後、ログオンが正常にできているかをチェックし、その状態をセッションに記録します。
 		/// </summary>
 		/// <returns>非同期操作を表すオブジェクト</returns>
@@ -313,6 +296,15 @@ namespace Mntone.Nico2
 			get { return this._Dictionary ?? ( this._Dictionary = new Dictionaries.DictionaryApi( this ) ); }
 		}
 		private Dictionaries.DictionaryApi _Dictionary = null;
+
+		/// <summary>
+		/// ニコニコ ユーザー API 群
+		/// </summary>
+		public Users.UserApi User
+		{
+			get { return this._User ?? ( this._User = new Users.UserApi( this ) ); }
+		}
+		private Users.UserApi _User = null;
 
 		#endregion
 

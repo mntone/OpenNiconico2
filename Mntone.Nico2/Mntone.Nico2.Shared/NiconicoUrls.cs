@@ -18,11 +18,6 @@ namespace Mntone.Nico2
 		/// </summary>
 		public static string TopPageUrl { get { return VideoUrlBase; } }
 
-		/// <summary>
-		/// ニコニコ ユーザー ページ URL テキスト
-		/// </summary>
-		public static string UserPageUrl { get { return VideoUrlBase + "my"; } }
-
 
 		#region Authentication
 
@@ -190,6 +185,23 @@ namespace Mntone.Nico2
 		/// </summary>
 		public static string AppMyPageUrl { get { return AppUrlBase + "my/apps"; } }
 
+		#endregion
+
+
+		#region Users
+
+		/// <summary>
+		/// ニコニコ ユーザー ページ URL テキスト
+		/// </summary>
+		public static string UserPageUrl { get { return VideoUrlBase + "my"; } }
+
+		/// <summary>
+		/// ニコニコ ユーザー アイコン URL テキスト
+		/// {0}: UserID / 1000
+		/// {1}: UserID
+		/// </summary>
+		public static string UserIconUrl { get { return "http://usericon.nimg.jp/usericon/{0}/{1}.jpg"; } }
+		
 		#endregion
 	}
 }

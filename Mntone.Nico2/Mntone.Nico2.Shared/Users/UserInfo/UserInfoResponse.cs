@@ -1,7 +1,7 @@
 ﻿using HtmlAgilityPack;
 using System.Linq;
 
-namespace Mntone.Nico2.UserInfo
+namespace Mntone.Nico2.Users.UserInfo
 {
 	public sealed class UserInfoResponse
 	{

@@ -30,7 +30,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)NiconicoSessionUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Searches\SuggestionUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)UserInfoUnitTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Users\UserInfoUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Videos\FlvUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Videos\RemoveHistoryUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Videos\HistoriesUnitTest.cs" />
@@ -128,13 +128,13 @@
     <Content Include="$(MSBuildThisFileDirectory)TestData\Live\Description\timeshift_premium.htm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="$(MSBuildThisFileDirectory)TestData\UserInfo\repo-en-us.html">
+    <Content Include="$(MSBuildThisFileDirectory)TestData\Users\UserInfo\repo-en-us.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="$(MSBuildThisFileDirectory)TestData\UserInfo\repo-ja-jp.html">
+    <Content Include="$(MSBuildThisFileDirectory)TestData\Users\UserInfo\repo-ja-jp.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="$(MSBuildThisFileDirectory)TestData\UserInfo\repo-zh-tw.html">
+    <Content Include="$(MSBuildThisFileDirectory)TestData\Users\UserInfo\repo-zh-tw.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="$(MSBuildThisFileDirectory)TestData\Vita\Live\Videos\data.json">

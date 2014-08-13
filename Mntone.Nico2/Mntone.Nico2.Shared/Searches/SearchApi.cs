@@ -27,12 +27,12 @@ namespace Mntone.Nico2.Searches
 #if WINDOWS_APP
 		public IAsyncOperation<Suggestion.SuggestionResponse> GetSuggestionAsync( string targetWord )
 		{
-			return Suggestion.SuggestionClient.GetSuggestionAsync( _context, targetWord ).AsAsyncOperation();
+			return Suggestion.SuggestionClient.GetSuggestionAsync( this._context, targetWord ).AsAsyncOperation();
 		}
 #else
 		public Task<Suggestion.SuggestionResponse> GetSuggestionAsync( string targetWord )
 		{
-			return Suggestion.SuggestionClient.GetSuggestionAsync( _context, targetWord );
+			return Suggestion.SuggestionClient.GetSuggestionAsync( this._context, targetWord );
 		}
 #endif
 
