@@ -1,26 +1,26 @@
 ﻿using HtmlAgilityPack;
 using System.Threading.Tasks;
 
-namespace Mntone.Nico2.Users.UserInfo
+namespace Mntone.Nico2.Users.Info
 {
-	internal sealed class UserInfoClient
+	internal sealed class InfoClient
 	{
 		public static Task<string> GetUserInfoDataAsync( NiconicoContext context )
 		{
 			return context.GetClient().GetConvertedString2Async( NiconicoUrls.UserPageUrl );
 		}
 
-		public static UserInfoResponse ParseUserInfoData( string userInfoData )
+		public static InfoResponse ParseUserInfoData( string userInfoData )
 		{
 			var html = new HtmlDocument();
 			html.LoadHtml( userInfoData );
 
 			var htmlHtml = html.DocumentNode.Element( "html" );
 			var language = htmlHtml.GetAttributeValue( "lang", "ja-jp" );
-			return new UserInfoResponse( htmlHtml.Element( "body" ), language );
+			return new InfoResponse( htmlHtml.Element( "body" ), language );
 		}
 
-		public static Task<UserInfoResponse> GetUserInfoAsync( NiconicoContext context )
+		public static Task<InfoResponse> GetUserInfoAsync( NiconicoContext context )
 		{
 			return GetUserInfoDataAsync( context )
 				.ContinueWith( prevTask => ParseUserInfoData( prevTask.Result ) );

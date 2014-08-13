@@ -9,6 +9,19 @@ namespace Mntone.Nico2
 {
 	internal static class HttpClientExtensions
 	{
+		public static Task<byte[]> GetByteArrayAsync( this HttpClient client, string uri )
+		{
+			return client
+				.GetStreamAsync( uri )
+				.ContinueWith( prevTask =>
+				{
+					var stream = prevTask.Result;
+					var ret = new byte[stream.Length];
+					stream.Read( ret, 0, ( int )stream.Length );
+					return ret;
+				} );
+		}
+
 		public static Task<string> GetString2Async( this HttpClient client, string uri )
 		{
 			return client.GetStringAsync( uri );

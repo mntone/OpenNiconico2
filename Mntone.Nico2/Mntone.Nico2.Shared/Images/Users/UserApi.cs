@@ -25,12 +25,12 @@ namespace Mntone.Nico2.Images.Users
 #if WINDOWS_APP
 		public IAsyncOperation<Info.InfoResponse> GetInfoAsync( uint requestUserID )
 		{
-			return Info.InfoClient.GetInfoAsync( _context, requestUserID ).AsAsyncOperation();
+			return Info.InfoClient.GetInfoAsync( this._context, requestUserID ).AsAsyncOperation();
 		}
 #else
 		public Task<Info.InfoResponse> GetInfoAsync( uint requestUserID )
 		{
-			return Info.InfoClient.GetInfoAsync( _context, requestUserID );
+			return Info.InfoClient.GetInfoAsync( this._context, requestUserID );
 		}
 #endif
 
@@ -42,12 +42,12 @@ namespace Mntone.Nico2.Images.Users
 #if WINDOWS_APP
 		public IAsyncOperation<Data.DataResponse> GetDataAsync( uint requestUserID )
 		{
-			return Data.DataClient.GetDataAsync( _context, requestUserID ).AsAsyncOperation();
+			return Data.DataClient.GetDataAsync( this._context, requestUserID ).AsAsyncOperation();
 		}
 #else
 		public Task<Data.DataResponse> GetDataAsync( uint requestUserID )
 		{
-			return Data.DataClient.GetDataAsync( _context, requestUserID );
+			return Data.DataClient.GetDataAsync( this._context, requestUserID );
 		}
 #endif
 

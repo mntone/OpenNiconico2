@@ -1,11 +1,14 @@
 ﻿using HtmlAgilityPack;
 using System.Linq;
 
-namespace Mntone.Nico2.Users.UserInfo
+namespace Mntone.Nico2.Users.Info
 {
-	public sealed class UserInfoResponse
+	/// <summary>
+	/// ユーザー情報を格納するクラス
+	/// </summary>
+	public sealed class InfoResponse
 	{
-		internal UserInfoResponse( HtmlNode bodyHtml, string language )
+		internal InfoResponse( HtmlNode bodyHtml, string language )
 		{
 			var profileHtml = bodyHtml.GetElementByClassName( "userDetail" ).GetElementByClassName( "profile" );
 			{

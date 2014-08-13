@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace Mntone.Nico2.Live.Description
 {
+	/// <summary>
+	/// 番組情報を格納するクラス
+	/// </summary>
 	public sealed class DescriptionResponse
 	{
 		internal DescriptionResponse( HtmlNode coverHtml, string language )

@@ -1,4 +1,4 @@
-﻿using Mntone.Nico2.Users.UserInfo;
+﻿using Mntone.Nico2.Users.Info;
 using System;
 
 #if WINDOWS_APP
@@ -10,12 +10,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Mntone.Nico2.Test.Users
 {
 	[TestClass]
-	public sealed class UserInfoUnitTest
+	public sealed class InfoUnitTest
 	{
 		[TestMethod]
 		public void UserInfo_1日本語データ()
 		{
-			var ret = UserInfoClient.ParseUserInfoData( TestHelper.Load( @"Users/UserInfo/repo-ja-jp.html" ) );
+			var ret = InfoClient.ParseUserInfoData( TestHelper.Load( @"Users/UserInfo/repo-ja-jp.html" ) );
 			Assert.AreEqual( "ℳກ੮ວܬ୧", ret.Name );
 			Assert.AreEqual( 20929324u, ret.Id );
 			Assert.AreEqual( "原宿", ret.JoinedVersion );
@@ -31,7 +31,7 @@ namespace Mntone.Nico2.Test.Users
 		[TestMethod]
 		public void UserInfo_2英語データ()
 		{
-			var ret = UserInfoClient.ParseUserInfoData( TestHelper.Load( @"Users/UserInfo/repo-en-us.html" ) );
+			var ret = InfoClient.ParseUserInfoData( TestHelper.Load( @"Users/UserInfo/repo-en-us.html" ) );
 			Assert.AreEqual( "ℳກ੮ວܬ୧", ret.Name );
 			Assert.AreEqual( 20929324u, ret.Id );
 			Assert.AreEqual( "原宿", ret.JoinedVersion );
@@ -47,7 +47,7 @@ namespace Mntone.Nico2.Test.Users
 		[TestMethod]
 		public void UserInfo_3中国語データ()
 		{
-			var ret = UserInfoClient.ParseUserInfoData( TestHelper.Load( @"Users/UserInfo/repo-zh-tw.html" ) );
+			var ret = InfoClient.ParseUserInfoData( TestHelper.Load( @"Users/UserInfo/repo-zh-tw.html" ) );
 			Assert.AreEqual( "ℳກ੮ວܬ୧", ret.Name );
 			Assert.AreEqual( 20929324u, ret.Id );
 			Assert.AreEqual( "原宿", ret.JoinedVersion );

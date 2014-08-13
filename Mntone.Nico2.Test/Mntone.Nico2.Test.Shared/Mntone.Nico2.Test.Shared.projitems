@@ -30,7 +30,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)NiconicoSessionUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Searches\SuggestionUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Users\UserInfoUnitTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Users\InfoUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Videos\FlvUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Videos\RemoveHistoryUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Videos\HistoriesUnitTest.cs" />

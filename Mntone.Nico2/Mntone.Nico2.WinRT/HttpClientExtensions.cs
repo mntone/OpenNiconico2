@@ -4,12 +4,32 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation;
+using Windows.Storage.Streams;
 using Windows.Web.Http;
 
 namespace Mntone.Nico2
 {
 	internal static class HttpClientExtensions
 	{
+		public static Task<IBuffer> GetBufferAsync( this HttpClient client, string uri )
+		{
+			return client.GetBufferAsync( new Uri( uri ) ).AsTask();
+		}
+
+		public static Task<byte[]> GetByteArrayAsync( this HttpClient client, string uri )
+		{
+			return client
+				.GetInputStreamAsync( new Uri( uri ) )
+				.AsTask()
+				.ContinueWith( prevTask =>
+				{
+					var stream = prevTask.Result.AsStreamForRead();
+					var ret = new byte[stream.Length];
+					stream.Read( ret, 0, ( int )stream.Length );
+					return ret;
+				} );
+		}
+
 		public static Task<string> GetString2Async( this HttpClient client, string uri )
 		{
 			return client.GetStringAsync( new Uri( uri ) ).AsTask();
