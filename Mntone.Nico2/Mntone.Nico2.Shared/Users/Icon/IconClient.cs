@@ -12,7 +12,7 @@ namespace Mntone.Nico2.Users.Icon
 #if WINDOWS_APP
 		public static Task<IBuffer> GetIconDataAsync( NiconicoContext context, uint userID )
 		{
-			return context.GetClient().GetBufferAsync( string.Format( NiconicoUrls.UserIconUrl, userID / 1000, userID ) );
+			return context.GetClient().GetBufferAsync( string.Format( NiconicoUrls.UserIconUrl, userID / 10000, userID ) );
 		}
 
 		public static Task<IBuffer> GetIconAsync( NiconicoContext context, uint userID )

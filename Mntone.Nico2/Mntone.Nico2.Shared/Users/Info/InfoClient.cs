@@ -5,12 +5,12 @@ namespace Mntone.Nico2.Users.Info
 {
 	internal sealed class InfoClient
 	{
-		public static Task<string> GetUserInfoDataAsync( NiconicoContext context )
+		public static Task<string> GetInfoDataAsync( NiconicoContext context )
 		{
 			return context.GetClient().GetConvertedString2Async( NiconicoUrls.UserPageUrl );
 		}
 
-		public static InfoResponse ParseUserInfoData( string userInfoData )
+		public static InfoResponse ParseInfoData( string userInfoData )
 		{
 			var html = new HtmlDocument();
 			html.LoadHtml( userInfoData );
@@ -20,10 +20,10 @@ namespace Mntone.Nico2.Users.Info
 			return new InfoResponse( htmlHtml.Element( "body" ), language );
 		}
 
-		public static Task<InfoResponse> GetUserInfoAsync( NiconicoContext context )
+		public static Task<InfoResponse> GetInfoAsync( NiconicoContext context )
 		{
-			return GetUserInfoDataAsync( context )
-				.ContinueWith( prevTask => ParseUserInfoData( prevTask.Result ) );
+			return GetInfoDataAsync( context )
+				.ContinueWith( prevTask => ParseInfoData( prevTask.Result ) );
 		}
 	}
 }

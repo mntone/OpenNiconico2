@@ -42,14 +42,14 @@ namespace Mntone.Nico2.Users
 		/// </summary>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
-		public IAsyncOperation<Info.InfoResponse> GetUserInfoAsync()
+		public IAsyncOperation<Info.InfoResponse> GetInfoAsync()
 		{
-			return Info.InfoClient.GetUserInfoAsync( this._context ).AsAsyncOperation();
+			return Info.InfoClient.GetInfoAsync( this._context ).AsAsyncOperation();
 		}
 #else
-		public Task<Info.InfoResponse> GetUserInfoAsync()
+		public Task<Info.InfoResponse> GetInfoAsync()
 		{
-			return Info.InfoClient.GetUserInfoAsync( this._context );
+			return Info.InfoClient.GetInfoAsync( this._context );
 		}
 #endif
 
