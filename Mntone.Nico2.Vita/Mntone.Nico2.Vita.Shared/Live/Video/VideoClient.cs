@@ -1,7 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Runtime.Serialization.Json;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Mntone.Nico2.Vita.Live.Video
@@ -20,16 +17,12 @@ namespace Mntone.Nico2.Vita.Live.Video
 
 		public static VideoResponse ParseVideoData( string videoData )
 		{
-			using( var ms = new MemoryStream( Encoding.Unicode.GetBytes( videoData ) ) )
+			var ret = JsonSerializerExtensions.Load<VideoResponseWrapper>( videoData ).Response;
+			if( ret.Program.Video.IsOfficial )
 			{
-				var ret = ( ( VideoResponseWrapper )new DataContractJsonSerializer( typeof( VideoResponseWrapper ) ).ReadObject( ms ) ).Response;
-				if( ret.Program.Video.IsOfficial )
-				{
-					ret.Program.Community = null;
-				}
-				return ret;
+				ret.Program.Community = null;
 			}
-			throw new Exception( "Parse Error" );
+			return ret;
 		}
 
 		public static Task<VideoResponse> GetVideoAsync( NiconicoVitaContext context, string requestID )

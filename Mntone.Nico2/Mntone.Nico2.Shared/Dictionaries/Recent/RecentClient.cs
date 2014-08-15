@@ -1,8 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Runtime.Serialization.Json;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace Mntone.Nico2.Dictionaries.Recent
 {
@@ -13,13 +9,9 @@ namespace Mntone.Nico2.Dictionaries.Recent
 			return context.GetClient().GetString2Async( NiconicoUrls.DictionaryRecentUrl );
 		}
 
-		public static RecentResponse ParseRecentData( string summaryData )
+		public static RecentResponse ParseRecentData( string recentData )
 		{
-			using( var ms = new MemoryStream( Encoding.Unicode.GetBytes( summaryData ) ) )
-			{
-				return ( RecentResponse )new DataContractJsonSerializer( typeof( RecentResponse ) ).ReadObject( ms );
-			}
-			throw new Exception( "Parse Error" );
+			return JsonSerializerExtensions.Load<RecentResponse>( recentData );
 		}
 
 		public static Task<RecentResponse> GetRecentAsync( NiconicoContext context )

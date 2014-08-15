@@ -1,7 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Runtime.Serialization.Json;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Mntone.Nico2.Searches.Suggestion
@@ -17,11 +14,7 @@ namespace Mntone.Nico2.Searches.Suggestion
 
 		public static SuggestionResponse ParseSuggestionData( string suggestionData )
 		{
-			using( var ms = new MemoryStream( Encoding.Unicode.GetBytes( suggestionData ) ) )
-			{
-				return ( SuggestionResponse )new DataContractJsonSerializer( typeof( SuggestionResponse ) ).ReadObject( ms );
-			}
-			throw new Exception( "Parse Error" );
+			return JsonSerializerExtensions.Load<SuggestionResponse>( suggestionData );
 		}
 
 		public static Task<SuggestionResponse> GetSuggestionAsync( NiconicoContext context, string targetWord )

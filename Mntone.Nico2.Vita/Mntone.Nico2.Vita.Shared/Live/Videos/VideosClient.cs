@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Runtime.Serialization.Json;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Mntone.Nico2.Vita.Live.Videos
@@ -24,19 +21,15 @@ namespace Mntone.Nico2.Vita.Live.Videos
 
 		public static VideosResponse ParseVideosData( string videosData )
 		{
-			using( var ms = new MemoryStream( Encoding.Unicode.GetBytes( videosData ) ) )
+			var ret = JsonSerializerExtensions.Load<VideosResponseWrapper>( videosData ).Response;
+			foreach( var program in ret.Programs )
 			{
-				var ret = ( ( VideosResponseWrapper )new DataContractJsonSerializer( typeof( VideosResponseWrapper ) ).ReadObject( ms ) ).Response;
-				foreach( var program in ret.Programs )
+				if( program.Video.IsOfficial )
 				{
-					if( program.Video.IsOfficial )
-					{
-						program.Community = null;
-					}
+					program.Community = null;
 				}
-				return ret;
 			}
-			throw new Exception( "Parse Error" );
+			return ret;
 		}
 
 		public static Task<VideosResponse> GetVideosAsync( NiconicoVitaContext context, IReadOnlyList<string> requestIDs )

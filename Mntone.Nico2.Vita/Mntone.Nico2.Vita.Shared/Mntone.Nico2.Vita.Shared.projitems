@@ -9,11 +9,12 @@
     <Import_RootNamespace>Mntone.Nico2.Vita</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Live\ComingSoonPrograms\ComingSoonProgramsClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\LiveApi.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\CommunityInfo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirPrograms\OnAirProgramsResponseWrapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\ProgramsResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\ProgramsResponseWrapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirPrograms\OnAirProgramsClient.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirPrograms\OnAirProgramsResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirPrograms\SortType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirPrograms\SortTypeExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\ProgramInfo.cs" />

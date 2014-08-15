@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace Mntone.Nico2.Vita.Live.OnAirPrograms
+namespace Mntone.Nico2.Vita.Live
 {
 	/// <summary>
 	/// 番組を格納するクラス
 	/// </summary>
 	[DataContract]
-	public sealed class OnAirProgramsResponse
+	public sealed class ProgramsResponse
 	{
-		internal OnAirProgramsResponse()
+		internal ProgramsResponse()
 		{ }
 
 		[DataMember( Name = "@status" )]

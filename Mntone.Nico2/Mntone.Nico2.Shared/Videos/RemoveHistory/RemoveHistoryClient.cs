@@ -1,7 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Runtime.Serialization.Json;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Mntone.Nico2.Videos.RemoveHistory
@@ -26,11 +23,7 @@ namespace Mntone.Nico2.Videos.RemoveHistory
 
 		public static RemoveHistoryResponse ParseRemoveHistoryData( string historiesData )
 		{
-			using( var ms = new MemoryStream( Encoding.Unicode.GetBytes( historiesData ) ) )
-			{
-				return ( RemoveHistoryResponse )new DataContractJsonSerializer( typeof( RemoveHistoryResponse ) ).ReadObject( ms );
-			}
-			throw new Exception( "Parse Error" );
+			return JsonSerializerExtensions.Load<RemoveHistoryResponse>( historiesData );
 		}
 
 		public static Task<RemoveHistoryResponse> RemoveHistoryAsync( NiconicoContext context, string token, string requestID )

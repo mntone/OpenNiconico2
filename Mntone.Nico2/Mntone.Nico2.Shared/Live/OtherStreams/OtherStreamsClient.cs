@@ -1,8 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Runtime.Serialization.Json;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace Mntone.Nico2.Live.OtherStreams
 {
@@ -18,11 +14,7 @@ namespace Mntone.Nico2.Live.OtherStreams
 
 		public static OtherStreamsResponse ParseOtherStreamsData( string otherStreamsData )
 		{
-			using( var ms = new MemoryStream( Encoding.Unicode.GetBytes( otherStreamsData ) ) )
-			{
-				return ( OtherStreamsResponse )new DataContractJsonSerializer( typeof( OtherStreamsResponse ) ).ReadObject( ms );
-			}
-			throw new Exception( "Parse Error" );
+			return JsonSerializerExtensions.Load<OtherStreamsResponse>( otherStreamsData );
 		}
 
 		public static Task<OtherStreamsResponse> GetOtherStreamsAsync( NiconicoContext context, StatusType status, ushort pageIndex )

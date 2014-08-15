@@ -1,7 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Runtime.Serialization.Json;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Mntone.Nico2.Dictionaries.Summary
@@ -15,11 +12,7 @@ namespace Mntone.Nico2.Dictionaries.Summary
 
 		public static SummaryResponse ParseSummaryData( string summaryData )
 		{
-			using( var ms = new MemoryStream( Encoding.Unicode.GetBytes( summaryData ) ) )
-			{
-				return ( SummaryResponse )new DataContractJsonSerializer( typeof( SummaryResponse ) ).ReadObject( ms );
-			}
-			throw new Exception( "Parse Error" );
+			return JsonSerializerExtensions.Load<SummaryResponse>( summaryData );
 		}
 
 		public static Task<SummaryResponse> GetSummaryAsync( NiconicoContext context, string targetWord )

@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Runtime.Serialization.Json;
-using System.Text;
+﻿using System.Text;
 using System.Threading.Tasks;
 
 namespace Mntone.Nico2.Live.OnAirStreams
@@ -41,11 +38,7 @@ namespace Mntone.Nico2.Live.OnAirStreams
 
 		public static OnAirStreamsResponse ParseOnAirStreamsData( string onAirStreamsData )
 		{
-			using( var ms = new MemoryStream( Encoding.Unicode.GetBytes( onAirStreamsData ) ) )
-			{
-				return ( OnAirStreamsResponse )new DataContractJsonSerializer( typeof( OnAirStreamsResponse ) ).ReadObject( ms );
-			}
-			throw new Exception( "Parse Error" );
+			return JsonSerializerExtensions.Load<OnAirStreamsResponse>( onAirStreamsData );
 		}
 
 		public static Task<OnAirStreamsResponse> GetOnAirStreamsIndexAsync( NiconicoContext context, ushort pageIndex = 1 )

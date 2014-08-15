@@ -1,8 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Runtime.Serialization.Json;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace Mntone.Nico2.Videos.Histories
 {
@@ -15,11 +11,7 @@ namespace Mntone.Nico2.Videos.Histories
 
 		public static HistoriesResponse ParseHistoriesData( string historiesData )
 		{
-			using( var ms = new MemoryStream( Encoding.Unicode.GetBytes( historiesData ) ) )
-			{
-				return ( HistoriesResponse )new DataContractJsonSerializer( typeof( HistoriesResponse ) ).ReadObject( ms );
-			}
-			throw new Exception( "Parse Error" );
+			return JsonSerializerExtensions.Load<HistoriesResponse>( historiesData );
 		}
 
 		public static Task<HistoriesResponse> GetHistoriesAsync( NiconicoContext context )

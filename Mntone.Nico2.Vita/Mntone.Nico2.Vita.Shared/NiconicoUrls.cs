@@ -19,6 +19,7 @@ namespace Mntone.Nico2.Vita
 		internal static string VideoUrl { get { return LiveVersion1UrlBase + "video.info" + FormatJson + "&v="; } }
 		internal static string VideosUrl { get { return LiveVersion1UrlBase + "video.array" + FormatJson; } }
 		internal static string LiveVideoOnAirListUrl { get { return LiveVersion1UrlBase + "video.onairlist" + FormatJson; } }
+		internal static string LiveVideoComingSoonListUrl { get { return LiveVersion1UrlBase + "video.comingsoon" + FormatJson; } }
 
 		#endregion
 	}
