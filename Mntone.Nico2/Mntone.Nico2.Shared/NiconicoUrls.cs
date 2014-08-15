@@ -197,10 +197,15 @@ namespace Mntone.Nico2
 
 		/// <summary>
 		/// ニコニコ ユーザー アイコン URL テキスト
-		/// {0}: UserID / 1000
+		/// {0}: UserID / 10000
 		/// {1}: UserID
 		/// </summary>
 		public static string UserIconUrl { get { return "http://usericon.nimg.jp/usericon/{0}/{1}.jpg"; } }
+
+		/// <summary>
+		/// ニコニコ ユーザー アイコン未設定 URL テキスト
+		/// </summary>
+		public static string UserBlankIconUrl { get { return "http://uni.res.nimg.jp/img/user/thumb/blank.jpg"; } }
 		
 		#endregion
 	}

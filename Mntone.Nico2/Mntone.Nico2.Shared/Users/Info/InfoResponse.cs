@@ -49,7 +49,7 @@ namespace Mntone.Nico2.Users.Info
 				var stampText = statsHtml.GetElementByClassName( "exp" ).FirstChild.InnerText;
 				this.StampCount = stampText.Substring( 0, stampText.Length - 3 ).ToUShort();
 
-				this.NicoruCount = statsHtml.GetElementByClassName( "nicoru" ).ChildNodes[1].InnerText.ToUShort();
+				this.NicoruCount = statsHtml.GetElementByClassName( "nicoru" ).FirstChild.ChildNodes[1].InnerText.ToUShort();
 
 				var pointsText = statsHtml.GetElementByClassName( "nicopoint" ).FirstChild.InnerText;
 				this.Points = pointsText.Substring( 0, pointsText.Length - 2 ).ToUInt();

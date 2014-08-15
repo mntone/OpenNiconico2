@@ -314,19 +314,7 @@ namespace Mntone.Nico2
 		/// <summary>
 		/// ニコニコ　トークン
 		/// </summary>
-		public NiconicoAuthenticationToken AuthenticationToken
-		{
-			get { return this._AuthenticationToken; }
-			set
-			{
-				if( value == null )
-				{
-					throw new ArgumentNullException();
-				}
-				this._AuthenticationToken = value;
-			}
-		}
-		private NiconicoAuthenticationToken _AuthenticationToken = null;
+		public NiconicoAuthenticationToken AuthenticationToken { get; set; }
 
 		/// <summary>
 		/// ニコニコ セッション
