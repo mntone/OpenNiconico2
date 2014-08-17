@@ -15,29 +15,12 @@ namespace Mntone.Nico2.Users.Icon
 #if WINDOWS_APP
 		public static Task<IBuffer> GetIconAsync( NiconicoContext context, uint userID )
 		{
-			return context.GetClient()
-				.GetBufferAsync( string.Format( NiconicoUrls.UserIconUrl, userID / 10000, userID ) )
-				.ContinueWith( prevTask =>
-				{
-					try
-					{
-						return prevTask.Result;
-					}
-					catch( Exception ex )
-					{
-						if( ex.HResult != -2146233088 )
-						{
-							throw;
-						}
-					}
-					return context.GetClient().GetBufferAsync( NiconicoUrls.UserBlankIconUrl ).Result;
-				} );
-		}
+			return context.GetClient().GetBufferAsync( string.Format( NiconicoUrls.UserIconUrl, userID / 10000, userID ) )
 #else
 		public static Task<byte[]> GetIconAsync( NiconicoContext context, uint userID )
 		{
-			return context.GetClient()
-				.GetByteArrayAsync( string.Format( NiconicoUrls.UserIconUrl, userID / 1000, userID ) )
+			return context.GetClient().GetByteArrayAsync( string.Format( NiconicoUrls.UserIconUrl, userID / 10000, userID ) )
+#endif
 				.ContinueWith( prevTask =>
 				{
 					try
@@ -51,9 +34,12 @@ namespace Mntone.Nico2.Users.Icon
 							throw;
 						}
 					}
+#if WINDOWS_APP
+					return context.GetClient().GetBufferAsync( NiconicoUrls.UserBlankIconUrl ).Result;
+#else
 					return context.GetClient().GetByteArrayAsync( NiconicoUrls.UserBlankIconUrl ).Result;
+#endif
 				} );
 		}
-#endif
 	}
 }

@@ -9,6 +9,7 @@
     <Import_RootNamespace>Mntone.Nico2</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Communities\Icon\IconClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Dictionaries\Category.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Dictionaries\CategoryExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Dictionaries\DictionaryApi.cs" />

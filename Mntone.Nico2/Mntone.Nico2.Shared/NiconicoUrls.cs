@@ -188,6 +188,23 @@ namespace Mntone.Nico2
 		#endregion
 
 
+		#region Communities
+
+		/// <summary>
+		/// ニコニコ コミュニティー アイコン URL テキスト
+		/// {0}: CommunityID / 10000
+		/// {1}: CommunityID
+		/// </summary>
+		public static string CommunityIconUrl { get { return "http://icon.nimg.jp/community/{0}/co{1}.jpg"; } }
+
+		/// <summary>
+		/// ニコニコ コミュニティー アイコン未設定 URL テキスト
+		/// </summary>
+		public static string CommunityBlankIconUrl { get { return "http://icon.nimg.jp/404.jpg"; } }
+		
+		#endregion
+
+
 		#region Users
 
 		/// <summary>
