@@ -298,6 +298,15 @@ namespace Mntone.Nico2
 		private Dictionaries.DictionaryApi _Dictionary = null;
 
 		/// <summary>
+		/// ニコニコ コミュニティー API 群
+		/// </summary>
+		public Communities.CommunityApi Community
+		{
+			get { return this._Community ?? ( this._Community = new Communities.CommunityApi( this ) ); }
+		}
+		private Communities.CommunityApi _Community = null;
+
+		/// <summary>
 		/// ニコニコ ユーザー API 群
 		/// </summary>
 		public Users.UserApi User

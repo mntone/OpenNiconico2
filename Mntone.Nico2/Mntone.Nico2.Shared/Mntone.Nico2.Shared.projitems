@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Communities\Icon\IconClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Communities\CommunityApi.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Dictionaries\Category.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Dictionaries\CategoryExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Dictionaries\DictionaryApi.cs" />
