@@ -137,24 +137,6 @@ namespace Mntone.Nico2.Vita.Live
 		/// <summary>
 		/// 非同期操作として放送予定の番組一覧を取得します
 		/// </summary>
-		/// <param name="range">取得範囲</param>
-		/// <returns>非同期操作を表すオブジェクト</returns>
-#if WINDOWS_APP
-		[Overload( "GetComingSoonProgramsAsync" )]
-		public IAsyncOperation<ProgramsResponse> GetComingSoonProgramsAsync( Range range )
-		{
-			return ComingSoonPrograms.ComingSoonProgramsClient.GetOnAirProgramsAsync( this._context, null, range ).AsAsyncOperation();
-		}
-#else
-		public Task<ProgramsResponse> GetComingSoonProgramsAsync( Range range )
-		{
-			return ComingSoonPrograms.ComingSoonProgramsClient.GetOnAirProgramsAsync( this._context, null, range );
-		}
-#endif
-
-		/// <summary>
-		/// 非同期操作として放送予定の番組一覧を取得します
-		/// </summary>
 		/// <param name="type">提供元の種類</param>
 		/// <param name="range">取得範囲</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
