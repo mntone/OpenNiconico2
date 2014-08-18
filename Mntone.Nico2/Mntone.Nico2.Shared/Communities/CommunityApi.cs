@@ -26,12 +26,12 @@ namespace Mntone.Nico2.Communities
 		/// <param name="requestCommunityID">目的のコミュニティー ID</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
-		public IAsyncOperation<IBuffer> GetIconAsync( uint requestCommunityID )
+		public IAsyncOperation<IBuffer> GetIconAsync( string requestCommunityID )
 		{
 			return Icon.IconClient.GetIconAsync( this._context, requestCommunityID ).AsAsyncOperation();
 		}
 #else
-		public Task<byte[]> GetIconAsync( uint requestUserID )
+		public Task<byte[]> GetIconAsync( string requestUserID )
 		{
 			return Icon.IconClient.GetIconAsync( this._context, requestUserID );
 		}

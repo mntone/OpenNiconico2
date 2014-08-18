@@ -13,13 +13,22 @@ namespace Mntone.Nico2.Communities.Icon
 	internal sealed class IconClient
 	{
 #if WINDOWS_APP
-		public static Task<IBuffer> GetIconAsync( NiconicoContext context, uint communityID )
-		{
-			return context.GetClient().GetBufferAsync( string.Format( NiconicoUrls.CommunityIconUrl, communityID / 10000, communityID ) )
+		public static Task<IBuffer> GetIconAsync( NiconicoContext context, string requestID )
 #else
-		public static Task<byte[]> GetIconAsync( NiconicoContext context, uint communityID )
+		public static Task<byte[]> GetIconAsync( NiconicoContext context, string requestID )
+#endif
 		{
-			return context.GetClient().GetByteArrayAsync( string.Format( NiconicoUrls.CommunityIconUrl, communityID / 10000, communityID ) )
+			if( !NiconicoRegex.IsCommunityID( requestID ) )
+			{
+				throw new ArgumentException();
+			}
+
+			var communityNumber = requestID.Substring( 2 ).ToUInt();
+			return context.GetClient()
+#if WINDOWS_APP
+				.GetBufferAsync( string.Format( NiconicoUrls.CommunityIconUrl, communityNumber / 10000, communityNumber ) )
+#else
+				.GetByteArrayAsync( string.Format( NiconicoUrls.CommunityIconUrl, communityNumber / 10000, communityNumber ) )
 #endif
 				.ContinueWith( prevTask =>
 				{
