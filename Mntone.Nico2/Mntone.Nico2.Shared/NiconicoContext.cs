@@ -83,13 +83,14 @@ namespace Mntone.Nico2
 
 
 		/// <summary>
-		/// 非同期操作としてログオン要求を送信します。ログオン完了後、ログオンが正常にできているかをチェックし、その状態をセッションに記録します。
+		/// 非同期操作としてログイン要求を送信します。
+		/// ログイン完了後、ログインが正常にできているかをチェックし、その状態をセッションに記録します。
 		/// </summary>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
-		public IAsyncOperation<bool> LogOnAsync()
+		public IAsyncOperation<NiconicoSignInStatus> SignInAsync()
 #else
-		public Task<bool> LogOnAsync()
+		public Task<NiconicoSignInStatus> SignInAsync()
 #endif
 		{
 			var request = new Dictionary<string, string>();
@@ -98,83 +99,92 @@ namespace Mntone.Nico2
 
 			return this.GetClient()
 				.Post2Async( NiconicoUrls.LogOnUrl, request )
-				.ContinueWith( prevTask => this.GetIsLoggedOnInternalAsync() )
+				.ContinueWith( prevTask => this.GetIsSignedInOnInternalAsync() )
 				.Unwrap()
 #if WINDOWS_APP
 				.AsAsyncOperation()
 #endif
-				;
+;
 		}
 
 		/// <summary>
-		/// 非同期操作としてログオン確認のための要求を送信します。ログオンが正常にできている場合、その状態をセッションに記録します。
+		/// 非同期操作としてログイン確認のための要求を送信します。
+		/// ログインが正常にできている場合、その状態をセッションに記録します。
 		/// </summary>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
-		public IAsyncOperation<bool> GetIsLoggedOnAsync()
+		public IAsyncOperation<NiconicoSignInStatus> GetIsSignedInAsync()
 		{
-			return this.GetIsLoggedOnInternalAsync().AsAsyncOperation();
+			return this.GetIsSignedInOnInternalAsync().AsAsyncOperation();
 		}
 #else
-		public Task<bool> GetIsLoggedOnAsync()
+		public Task<NiconicoSignInStatus> GetIsSignedInAsync()
 		{
-			return this.GetIsLoggedOnInternalAsync();
+			return this.GetIsSignedInOnInternalAsync();
 		}
 #endif
 
-		internal Task<bool> GetIsLoggedOnInternalAsync()
+		internal Task<NiconicoSignInStatus> GetIsSignedInOnInternalAsync()
 		{
 			return this.GetClient()
 				.Head2Async( NiconicoUrls.TopPageUrl )
 				.ContinueWith( prevTask =>
 				{
 					var response = prevTask.Result;
-
 #if WINDOWS_APP
-					this.CurrentSession.AccountAuthority = ( NiconicoAccountAuthority )response.Headers[XNiconicoAuthflag].ToInt();
-#else
-					this.CurrentSession.AccountAuthority = ( NiconicoAccountAuthority )response.Headers.GetValues( XNiconicoAuthflag ).Single().ToInt();
-#endif
-					if( this.CurrentSession.AccountAuthority != NiconicoAccountAuthority.NotLoggedOn )
+					if( response.StatusCode == HttpStatusCode.Ok )
 					{
-#if WINDOWS_APP
-						this.CurrentSession.UserId = uint.Parse( response.Headers[XNiconicoId] );
+						this.CurrentSession.AccountAuthority = ( NiconicoAccountAuthority )response.Headers[XNiconicoAuthflag].ToInt();
 #else
-						this.CurrentSession.UserId = uint.Parse( response.Headers.GetValues( XNiconicoId ).Single() );
+					if( response.StatusCode == HttpStatusCode.OK )
+					{
+						this.CurrentSession.AccountAuthority = ( NiconicoAccountAuthority )response.Headers.GetValues( XNiconicoAuthflag ).Single().ToInt();
 #endif
-						try
+						if( this.CurrentSession.AccountAuthority != NiconicoAccountAuthority.NotLoggedOn )
 						{
 #if WINDOWS_APP
-							var cookie = this._httpBaseProtocolFilter
-								.CookieManager
-								.GetCookies( NiconicoCookieUrl )
-								.Where( c => c.Name == UserSessionName && c.Path == "/" )
-								.SingleOrDefault();
-							if( cookie != null && cookie.Expires.HasValue )
-							{
-								this.CurrentSession.Key = cookie.Value;
-								this.CurrentSession.Expires = cookie.Expires.Value;
-								return true;
-							}
+							this.CurrentSession.UserId = uint.Parse( response.Headers[XNiconicoId] );
 #else
-							var cookie = this._httpClientHandler
-								.CookieContainer
-								.GetCookies( NiconicoCookieUrl )
-								.Cast<Cookie>()
-								.Where( c => c.Name == UserSessionName && c.Path == "/" )
-								.SingleOrDefault();
-							if( cookie != null && cookie.Expires != null )
-							{
-								this.CurrentSession.Key = cookie.Value;
-								this.CurrentSession.Expires = cookie.Expires;
-								return true;
-							}
+							this.CurrentSession.UserId = uint.Parse( response.Headers.GetValues( XNiconicoId ).Single() );
 #endif
+							try
+							{
+#if WINDOWS_APP
+								var cookie = this._httpBaseProtocolFilter
+									.CookieManager
+									.GetCookies( NiconicoCookieUrl )
+									.Where( c => c.Name == UserSessionName && c.Path == "/" )
+									.SingleOrDefault();
+								if( cookie != null && cookie.Expires.HasValue )
+								{
+									this.CurrentSession.Key = cookie.Value;
+									this.CurrentSession.Expires = cookie.Expires.Value;
+									return NiconicoSignInStatus.Success;
+								}
+#else
+								var cookie = this._httpClientHandler
+									.CookieContainer
+									.GetCookies( NiconicoCookieUrl )
+									.Cast<Cookie>()
+									.Where( c => c.Name == UserSessionName && c.Path == "/" )
+									.SingleOrDefault();
+								if( cookie != null && cookie.Expires != null )
+								{
+									this.CurrentSession.Key = cookie.Value;
+									this.CurrentSession.Expires = cookie.Expires;
+									return NiconicoSignInStatus.Success;
+								}
+#endif
+							}
+							catch( InvalidOperationException )
+							{ }
 						}
-						catch( InvalidOperationException )
-						{ }
 					}
-					return false;
+					else if( response.StatusCode == HttpStatusCode.ServiceUnavailable )
+					{
+						return NiconicoSignInStatus.ServiceUnavailable;
+					}
+					return NiconicoSignInStatus.Failed;
 				} );
 		}
 
@@ -183,9 +193,9 @@ namespace Mntone.Nico2
 		/// </summary>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
-		public IAsyncOperation<bool> LogOffAsync()
+		public IAsyncOperation<NiconicoSignInStatus> SignOutOffAsync()
 #else
-		public Task<bool> LogOffAsync()
+		public Task<NiconicoSignInStatus> SignOutOffAsync()
 #endif
 		{
 			return this.GetClient()
@@ -193,13 +203,13 @@ namespace Mntone.Nico2
 				.ContinueWith( prevTask =>
 				{
 					this.CurrentSession = null;
-					return this.GetIsLoggedOnInternalAsync();
+					return this.GetIsSignedInOnInternalAsync();
 				} )
 				.Unwrap()
 #if WINDOWS_APP
 				.AsAsyncOperation()
 #endif
-				;
+;
 		}
 
 		internal HttpClient GetClient()

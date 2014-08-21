@@ -98,6 +98,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)NiconicoContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NiconicoRegex.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NiconicoSession.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NiconicoSignInStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NiconicoUrls.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Prefecture.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Searches\SearchApi.cs" />
