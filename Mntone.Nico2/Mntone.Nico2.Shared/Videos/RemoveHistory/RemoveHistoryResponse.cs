@@ -36,6 +36,6 @@ namespace Mntone.Nico2.Videos.RemoveHistory
 		/// 削除した動画の ID
 		/// </summary>
 		[DataMember( Name = "removed" )]
-		public string RemovedID { get; private set; }
+		public string RemovedId { get; private set; }
 	}
 }

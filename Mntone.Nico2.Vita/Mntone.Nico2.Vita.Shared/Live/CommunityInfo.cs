@@ -16,21 +16,21 @@ namespace Mntone.Nico2.Vita.Live
 		/// 生 ID
 		/// </summary>
 		[DataMember( Name = "id" )]
-		public uint RawID { get; private set; }
+		public uint RawId { get; private set; }
 
 #if DEBUG
 		/// <summary>
 		/// チャンネル ID
 		/// </summary>
 		[DataMember( Name = "channel_id" )]
-		public string ChannelID { get; private set; }
+		public string ChannelId { get; private set; }
 #endif
 
 		/// <summary>
 		/// ID
 		/// </summary>
 		[DataMember( Name = "global_id" )]
-		public string ID { get; private set; }
+		public string Id { get; private set; }
 
 		/// <summary>
 		/// 名前

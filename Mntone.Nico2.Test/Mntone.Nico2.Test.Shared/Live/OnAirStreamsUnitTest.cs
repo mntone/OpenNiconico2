@@ -25,7 +25,7 @@ namespace Mntone.Nico2.Test.Live
 				var retOnAirStream = ret.OnAirStreams[i];
 				var ret2OnAirStream = ret2OnAirStreams[i];
 				Assert.AreEqual( ret2OnAirStream["hide_zapping"].Value<bool>(), retOnAirStream.IsHidden );
-				Assert.AreEqual( "lv" + ret2OnAirStream["id"].Value<string>(), retOnAirStream.ID );
+				Assert.AreEqual( "lv" + ret2OnAirStream["id"].Value<string>(), retOnAirStream.Id );
 				Assert.AreEqual( ret2OnAirStream["is_nsen"].Value<bool>(), retOnAirStream.IsNsen );
 				Assert.AreEqual( ret2OnAirStream["is_product"].Value<bool>(), retOnAirStream.IsProduct );
 				Assert.AreEqual( ret2OnAirStream["is_zapping_mode_enabled"].Value<bool>(), retOnAirStream.IsZappingModeEnabled );
@@ -41,7 +41,7 @@ namespace Mntone.Nico2.Test.Live
 				var ret2ReservedStream = ret2ReservedStreams[i];
 				Assert.AreEqual( ret2ReservedStream["gauge_level"].Value<ushort>(), retResevedStream.GaugeLevel );
 				Assert.AreEqual( ret2ReservedStream["hide_zapping"].Value<bool>(), retResevedStream.IsHidden );
-				Assert.AreEqual( "lv" + ret2ReservedStream["id"].Value<string>(), retResevedStream.ID );
+				Assert.AreEqual( "lv" + ret2ReservedStream["id"].Value<string>(), retResevedStream.Id );
 				Assert.AreEqual( ret2ReservedStream["is_nsen"].Value<bool>(), retResevedStream.IsNsen );
 				Assert.AreEqual( ret2ReservedStream["is_product"].Value<bool>(), retResevedStream.IsProduct );
 				Assert.AreEqual( ret2ReservedStream["is_zapping_mode_enabled"].Value<bool>(), retResevedStream.IsZappingModeEnabled );
@@ -63,7 +63,7 @@ namespace Mntone.Nico2.Test.Live
 				var retOnAirStream = ret.OnAirStreams[i];
 				var ret2OnAirStream = ret2OnAirStreams[i];
 				Assert.AreEqual( ret2OnAirStream["hide_zapping"].Value<bool>(), retOnAirStream.IsHidden );
-				Assert.AreEqual( "lv" + ret2OnAirStream["id"].Value<string>(), retOnAirStream.ID );
+				Assert.AreEqual( "lv" + ret2OnAirStream["id"].Value<string>(), retOnAirStream.Id );
 				Assert.AreEqual( ret2OnAirStream["is_nsen"].Value<bool>(), retOnAirStream.IsNsen );
 				Assert.AreEqual( ret2OnAirStream["is_product"].Value<bool>(), retOnAirStream.IsProduct );
 				Assert.AreEqual( ret2OnAirStream["is_zapping_mode_enabled"].Value<bool>(), retOnAirStream.IsZappingModeEnabled );

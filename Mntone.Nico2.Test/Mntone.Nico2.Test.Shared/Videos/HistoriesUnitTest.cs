@@ -28,11 +28,11 @@ namespace Mntone.Nico2.Test.Videos
 				var ret2History = ret2Histories[i];
 				Assert.AreEqual( ret2History["deleted"].Value<bool>(), retHistory.IsDeleted );
 				Assert.AreEqual( ret2History["device"].Value<ushort>(), retHistory.Device );
-				Assert.AreEqual( ret2History["item_id"].Value<string>(), retHistory.ItemID );
+				Assert.AreEqual( ret2History["item_id"].Value<string>(), retHistory.ItemId );
 				Assert.AreEqual( ret2History["length"].Value<string>().ToTimeSpan(), retHistory.Length );
 				Assert.AreEqual( ret2History["thumbnail_url"].Value<string>().ToUri(), retHistory.ThumbnailUrl );
 				Assert.AreEqual( ret2History["title"].Value<string>(), retHistory.Title );
-				Assert.AreEqual( ret2History["video_id"].Value<string>(), retHistory.ID );
+				Assert.AreEqual( ret2History["video_id"].Value<string>(), retHistory.Id );
 				Assert.AreEqual( ret2History["watch_count"].Value<uint>(), retHistory.WatchCount );
 				Assert.AreEqual( ret2History["watch_date"].Value<long>().ToDateTimeOffsetFromUnixTime(), retHistory.WatchedAt );
 			}

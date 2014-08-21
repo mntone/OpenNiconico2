@@ -29,7 +29,7 @@ namespace Mntone.Nico2.Test.Live
 
 			Assert.AreEqual( new DateTimeOffset( 2014, 2, 5, 8, 8, 2, TimeSpan.FromHours( 9 ) ), ret.LoadedAt );
 
-			Assert.AreEqual( "lv168235211", ret.Program.ID );
+			Assert.AreEqual( "lv168235211", ret.Program.Id );
 			Assert.AreEqual( "ゼルダの伝説トワイライトプリンセス", ret.Program.Title );
 			Assert.AreEqual( "いい加減クリアしますー！５人で色々な放送をやってます！コミュニティをどうぞよろしく！！→co1342124サブコミュ→co1842118", ret.Program.Description );
 
@@ -40,8 +40,8 @@ namespace Mntone.Nico2.Test.Live
 			Assert.IsFalse( ret.Program.IsChannel );
 			Assert.IsTrue( ret.Program.IsCommunity );
 			Assert.AreEqual( CommunityType.Community, ret.Program.CommunityType );
-			Assert.AreEqual( "co1342124", ret.Program.CommunityID );
-			Assert.AreEqual( 7051053u, ret.Program.BroadcasterID );
+			Assert.AreEqual( "co1342124", ret.Program.CommunityId );
+			Assert.AreEqual( 7051053u, ret.Program.BroadcasterId );
 			Assert.AreEqual( "ひろやす＠ピュアホワイト", ret.Program.BroadcasterName );
 
 			Assert.AreEqual( 13u, ret.Program.International );
@@ -93,7 +93,7 @@ namespace Mntone.Nico2.Test.Live
 			Assert.AreEqual( 10000u, ret.Program.Twitter.VipModeCount );
 
 			Assert.AreEqual( "co1342124", ret.Room.Name );
-			Assert.AreEqual( 8u, ret.Room.SeatID );
+			Assert.AreEqual( 8u, ret.Room.SeatId );
 			Assert.AreEqual( string.Empty, ret.Room.SeatToken );
 
 			Assert.IsTrue( ret.Stream.IsFlashMediaServer );
@@ -103,7 +103,7 @@ namespace Mntone.Nico2.Test.Live
 			Assert.IsNull( ret.Stream.Tickets );
 
 			Assert.AreEqual( 1, ret.Stream.Contents.Count );
-			Assert.AreEqual( "main", ret.Stream.Contents[0].ID );
+			Assert.AreEqual( "main", ret.Stream.Contents[0].Id );
 			Assert.IsFalse( ret.Stream.Contents[0].IsAudioDisabled );
 			Assert.IsFalse( ret.Stream.Contents[0].IsVideoDisabled );
 			Assert.AreEqual( new DateTimeOffset( 2014, 2, 5, 7, 58, 28, TimeSpan.FromHours( 9 ) ), ret.Stream.Contents[0].StartedAt );
@@ -129,8 +129,8 @@ namespace Mntone.Nico2.Test.Live
 
 			Assert.AreEqual( "msg102.live.nicovideo.jp", ret.Comment.Server.Host.ToString() );
 			Assert.AreEqual( 2806u, ret.Comment.Server.Port );
-			Assert.AreEqual( 1, ret.Comment.Server.ThreadIDs.Count );
-			Assert.AreEqual( 1329132457u, ret.Comment.Server.ThreadIDs[0] );
+			Assert.AreEqual( 1, ret.Comment.Server.ThreadIds.Count );
+			Assert.AreEqual( 1329132457u, ret.Comment.Server.ThreadIds[0] );
 
 			Assert.IsFalse( ret.Telop.IsEnabled );
 			Assert.AreEqual( string.Empty, ret.Telop.Mail );
@@ -144,7 +144,7 @@ namespace Mntone.Nico2.Test.Live
 			Assert.AreEqual( new DateTimeOffset( 2014, 2, 5, 8, 8, 2, TimeSpan.FromHours( 9 ) ), ret.Marquee.GameTime );
 			Assert.IsFalse( ret.Marquee.IsNotInterruptionForced );
 
-			Assert.AreEqual( 20929324u, ret.User.ID );
+			Assert.AreEqual( 20929324u, ret.User.Id );
 			Assert.AreEqual( "ℳກ੮ວܬ୧", ret.User.Name );
 			Assert.IsTrue( ret.User.IsPremium );
 			Assert.AreEqual( 21u, ret.User.Age );
@@ -179,7 +179,7 @@ namespace Mntone.Nico2.Test.Live
 
 			Assert.AreEqual( new DateTimeOffset( 2014, 2, 19, 16, 14, 40, TimeSpan.FromHours( 9 ) ), ret.LoadedAt );
 
-			Assert.AreEqual( "lv169798840", ret.Program.ID );
+			Assert.AreEqual( "lv169798840", ret.Program.Id );
 			Assert.AreEqual( "【衆議院 国会生中継】 予算委員会", ret.Program.Title );
 			Assert.AreEqual( "～平成26年2月19日 予算委員会～<br>", ret.Program.Description );
 
@@ -190,8 +190,8 @@ namespace Mntone.Nico2.Test.Live
 			Assert.IsFalse( ret.Program.IsChannel );
 			Assert.IsFalse( ret.Program.IsCommunity );
 			Assert.AreEqual( CommunityType.Official, ret.Program.CommunityType );
-			Assert.AreEqual( string.Empty, ret.Program.CommunityID );
-			Assert.AreEqual( 394u, ret.Program.BroadcasterID );
+			Assert.AreEqual( string.Empty, ret.Program.CommunityId );
+			Assert.AreEqual( 394u, ret.Program.BroadcasterId );
 			Assert.AreEqual( string.Empty, ret.Program.BroadcasterName );
 
 			Assert.AreEqual( 1u, ret.Program.International );
@@ -243,7 +243,7 @@ namespace Mntone.Nico2.Test.Live
 			Assert.AreEqual( 10000u, ret.Program.Twitter.VipModeCount );
 
 			Assert.AreEqual( "アリーナ 最前列", ret.Room.Name );
-			Assert.AreEqual( 147u, ret.Room.SeatID );
+			Assert.AreEqual( 147u, ret.Room.SeatId );
 			Assert.AreEqual( string.Empty, ret.Room.SeatToken );
 
 			Assert.IsFalse( ret.Stream.IsFlashMediaServer );
@@ -265,7 +265,7 @@ namespace Mntone.Nico2.Test.Live
 			Assert.AreEqual( "uid=20929324&h=7ebea07abe44d4afcc5b8e2278285519", ret.Stream.Tickets["s_lv169798840_sub9"] );
 
 			Assert.AreEqual( 1, ret.Stream.Contents.Count );
-			Assert.AreEqual( "main", ret.Stream.Contents[0].ID );
+			Assert.AreEqual( "main", ret.Stream.Contents[0].Id );
 			Assert.IsFalse( ret.Stream.Contents[0].IsAudioDisabled );
 			Assert.IsFalse( ret.Stream.Contents[0].IsVideoDisabled );
 			Assert.AreEqual( new DateTimeOffset( 2014, 2, 18, 19, 19, 57, TimeSpan.FromHours( 9 ) ), ret.Stream.Contents[0].StartedAt );
@@ -291,8 +291,8 @@ namespace Mntone.Nico2.Test.Live
 
 			Assert.AreEqual( "omsg101.live.nicovideo.jp", ret.Comment.Server.Host.ToString() );
 			Assert.AreEqual( 2805u, ret.Comment.Server.Port );
-			Assert.AreEqual( 1, ret.Comment.Server.ThreadIDs.Count );
-			Assert.AreEqual( 1332290557u, ret.Comment.Server.ThreadIDs[0] );
+			Assert.AreEqual( 1, ret.Comment.Server.ThreadIds.Count );
+			Assert.AreEqual( 1332290557u, ret.Comment.Server.ThreadIds[0] );
 
 			Assert.IsFalse( ret.Telop.IsEnabled );
 			Assert.AreEqual( string.Empty, ret.Telop.Mail );
@@ -306,7 +306,7 @@ namespace Mntone.Nico2.Test.Live
 			Assert.AreEqual( new DateTimeOffset( 2014, 2, 19, 16, 14, 40, TimeSpan.FromHours( 9 ) ), ret.Marquee.GameTime );
 			Assert.IsTrue( ret.Marquee.IsNotInterruptionForced );
 
-			Assert.AreEqual( 20929324u, ret.User.ID );
+			Assert.AreEqual( 20929324u, ret.User.Id );
 			Assert.AreEqual( "ℳກ੮ວܬ୧", ret.User.Name );
 			Assert.IsTrue( ret.User.IsPremium );
 			Assert.AreEqual( 21u, ret.User.Age );

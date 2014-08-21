@@ -21,7 +21,7 @@ namespace Mntone.Nico2.Test.Images
 
 			Assert.AreEqual( 3, ret.Images.Count );
 
-			Assert.AreEqual( "im3937109", ret.Images[0].ID );
+			Assert.AreEqual( "im3937109", ret.Images[0].Id );
 			Assert.AreEqual( 27849771u, ret.Images[0].UserId );
 			Assert.AreEqual( "ｶｾﾞ", ret.Images[0].Title );
 			Assert.AreEqual( string.Empty, ret.Images[0].Description );
@@ -40,7 +40,7 @@ namespace Mntone.Nico2.Test.Images
 			Assert.AreEqual( 0u, ret.Images[0].DeleteType );
 			Assert.AreEqual( new DateTimeOffset( 2014, 4, 19, 14, 27, 28, TimeSpan.FromHours( 9 ) ), ret.Images[0].PostedAt );
 
-			Assert.AreEqual( "im3937107", ret.Images[1].ID );
+			Assert.AreEqual( "im3937107", ret.Images[1].Id );
 			Assert.AreEqual( 27849771u, ret.Images[1].UserId );
 			Assert.AreEqual( "ﾏﾘｰ", ret.Images[1].Title );
 			Assert.AreEqual( "５月４日カゲプロオンリーでの、まにおさんの個人イラスト本にゲスト寄稿したものの一部です。（一部と見せかけてほとんど見せている）", ret.Images[1].Description );
@@ -59,7 +59,7 @@ namespace Mntone.Nico2.Test.Images
 			Assert.AreEqual( 0u, ret.Images[1].DeleteType );
 			Assert.AreEqual( new DateTimeOffset( 2014, 4, 19, 14, 25, 10, TimeSpan.FromHours( 9 ) ), ret.Images[1].PostedAt );
 
-			Assert.AreEqual( "im3937098", ret.Images[2].ID );
+			Assert.AreEqual( "im3937098", ret.Images[2].Id );
 			Assert.AreEqual( 27849771u, ret.Images[2].UserId );
 			Assert.AreEqual( "咲", ret.Images[2].Title );
 			Assert.AreEqual( "おなにーするぞ", ret.Images[2].Description );
@@ -80,9 +80,9 @@ namespace Mntone.Nico2.Test.Images
 
 			Assert.AreEqual( 8, ret.Comments.Count );
 
-			Assert.AreEqual( 18534505u, ret.Comments[0].ID );
-			Assert.AreEqual( "im3937109", ret.Comments[0].ImageID );
-			Assert.AreEqual( 0u, ret.Comments[0].ResID );
+			Assert.AreEqual( 18534505u, ret.Comments[0].Id );
+			Assert.AreEqual( "im3937109", ret.Comments[0].ImageId );
+			Assert.AreEqual( 0u, ret.Comments[0].ResId );
 			Assert.AreEqual( "ふぅ・・・", ret.Comments[0].Value );
 			Assert.AreEqual( string.Empty, ret.Comments[0].Command );
 			Assert.AreEqual( new DateTimeOffset( 2014, 4, 19, 15, 25, 53, TimeSpan.FromHours( 9 ) ), ret.Comments[0].PostedAt );
@@ -90,9 +90,9 @@ namespace Mntone.Nico2.Test.Images
 			Assert.AreEqual( "3rP8+l9ny9Y/iKhs8r9vSn/+jQA", ret.Comments[0].UserHash );
 			Assert.IsTrue( ret.Comments[0].IsAnonymous );
 
-			Assert.AreEqual( 18534610u, ret.Comments[1].ID );
-			Assert.AreEqual( "im3937109", ret.Comments[1].ImageID );
-			Assert.AreEqual( 0u, ret.Comments[1].ResID );
+			Assert.AreEqual( 18534610u, ret.Comments[1].Id );
+			Assert.AreEqual( "im3937109", ret.Comments[1].ImageId );
+			Assert.AreEqual( 0u, ret.Comments[1].ResId );
 			Assert.AreEqual( "ぺろりてぇ・・・", ret.Comments[1].Value );
 			Assert.AreEqual( string.Empty, ret.Comments[1].Command );
 			Assert.AreEqual( new DateTimeOffset( 2014, 4, 19, 15, 33, 18, TimeSpan.FromHours( 9 ) ), ret.Comments[1].PostedAt );
@@ -100,9 +100,9 @@ namespace Mntone.Nico2.Test.Images
 			Assert.AreEqual( "RT4Uif3Ry5bDGAcRhin5orV/HHs", ret.Comments[1].UserHash );
 			Assert.IsTrue( ret.Comments[1].IsAnonymous );
 
-			Assert.AreEqual( 18535030u, ret.Comments[2].ID );
-			Assert.AreEqual( "im3937109", ret.Comments[2].ImageID );
-			Assert.AreEqual( 0u, ret.Comments[2].ResID );
+			Assert.AreEqual( 18535030u, ret.Comments[2].Id );
+			Assert.AreEqual( "im3937109", ret.Comments[2].ImageId );
+			Assert.AreEqual( 0u, ret.Comments[2].ResId );
 			Assert.AreEqual( "やわらかい(確信)", ret.Comments[2].Value );
 			Assert.AreEqual( string.Empty, ret.Comments[2].Command );
 			Assert.AreEqual( new DateTimeOffset( 2014, 4, 19, 16, 27, 1, TimeSpan.FromHours( 9 ) ), ret.Comments[2].PostedAt );
@@ -110,9 +110,9 @@ namespace Mntone.Nico2.Test.Images
 			Assert.AreEqual( "9qiGEltBimLXeoC3e34PbQAloDE", ret.Comments[2].UserHash );
 			Assert.IsTrue( ret.Comments[2].IsAnonymous );
 
-			Assert.AreEqual( 18535065u, ret.Comments[3].ID );
-			Assert.AreEqual( "im3937109", ret.Comments[3].ImageID );
-			Assert.AreEqual( 0u, ret.Comments[3].ResID );
+			Assert.AreEqual( 18535065u, ret.Comments[3].Id );
+			Assert.AreEqual( "im3937109", ret.Comments[3].ImageId );
+			Assert.AreEqual( 0u, ret.Comments[3].ResId );
 			Assert.AreEqual( "淡い塗りがいいですねー", ret.Comments[3].Value );
 			Assert.AreEqual( string.Empty, ret.Comments[3].Command );
 			Assert.AreEqual( new DateTimeOffset( 2014, 4, 19, 16, 32, 25, TimeSpan.FromHours( 9 ) ), ret.Comments[3].PostedAt );
@@ -120,9 +120,9 @@ namespace Mntone.Nico2.Test.Images
 			Assert.AreEqual( "yIPiLKswUDzzOrf9mPCNQpKvYNw", ret.Comments[3].UserHash );
 			Assert.IsTrue( ret.Comments[3].IsAnonymous );
 
-			Assert.AreEqual( 18535187u, ret.Comments[4].ID );
-			Assert.AreEqual( "im3937109", ret.Comments[4].ImageID );
-			Assert.AreEqual( 0u, ret.Comments[4].ResID );
+			Assert.AreEqual( 18535187u, ret.Comments[4].Id );
+			Assert.AreEqual( "im3937109", ret.Comments[4].ImageId );
+			Assert.AreEqual( 0u, ret.Comments[4].ResId );
 			Assert.AreEqual( "いいわぁ・・・", ret.Comments[4].Value );
 			Assert.AreEqual( string.Empty, ret.Comments[4].Command );
 			Assert.AreEqual( new DateTimeOffset( 2014, 4, 19, 16, 50, 57, TimeSpan.FromHours( 9 ) ), ret.Comments[4].PostedAt );
@@ -130,9 +130,9 @@ namespace Mntone.Nico2.Test.Images
 			Assert.AreEqual( "fzOgikO+edl+vnjOJHmKbO3B3MI", ret.Comments[4].UserHash );
 			Assert.IsTrue( ret.Comments[4].IsAnonymous );
 
-			Assert.AreEqual( 18535527u, ret.Comments[5].ID );
-			Assert.AreEqual( "im3937109", ret.Comments[5].ImageID );
-			Assert.AreEqual( 0u, ret.Comments[5].ResID );
+			Assert.AreEqual( 18535527u, ret.Comments[5].Id );
+			Assert.AreEqual( "im3937109", ret.Comments[5].ImageId );
+			Assert.AreEqual( 0u, ret.Comments[5].ResId );
 			Assert.AreEqual( "あらきれい", ret.Comments[5].Value );
 			Assert.AreEqual( string.Empty, ret.Comments[5].Command );
 			Assert.AreEqual( new DateTimeOffset( 2014, 4, 19, 17, 31, 56, TimeSpan.FromHours( 9 ) ), ret.Comments[5].PostedAt );
@@ -140,9 +140,9 @@ namespace Mntone.Nico2.Test.Images
 			Assert.AreEqual( "26751669", ret.Comments[5].UserHash );
 			Assert.IsFalse( ret.Comments[5].IsAnonymous );
 
-			Assert.AreEqual( 18535595u, ret.Comments[6].ID );
-			Assert.AreEqual( "im3937109", ret.Comments[6].ImageID );
-			Assert.AreEqual( 0u, ret.Comments[6].ResID );
+			Assert.AreEqual( 18535595u, ret.Comments[6].Id );
+			Assert.AreEqual( "im3937109", ret.Comments[6].ImageId );
+			Assert.AreEqual( 0u, ret.Comments[6].ResId );
 			Assert.AreEqual( "幼い肢体の太股…", ret.Comments[6].Value );
 			Assert.AreEqual( string.Empty, ret.Comments[6].Command );
 			Assert.AreEqual( new DateTimeOffset( 2014, 4, 19, 17, 42, 19, TimeSpan.FromHours( 9 ) ), ret.Comments[6].PostedAt );
@@ -150,9 +150,9 @@ namespace Mntone.Nico2.Test.Images
 			Assert.AreEqual( "iRATiyaRxT904yOlMBjjXqLsBCQ", ret.Comments[6].UserHash );
 			Assert.IsTrue( ret.Comments[6].IsAnonymous );
 
-			Assert.AreEqual( 18536848u, ret.Comments[7].ID );
-			Assert.AreEqual( "im3937109", ret.Comments[7].ImageID );
-			Assert.AreEqual( 0u, ret.Comments[7].ResID );
+			Assert.AreEqual( 18536848u, ret.Comments[7].Id );
+			Assert.AreEqual( "im3937109", ret.Comments[7].ImageId );
+			Assert.AreEqual( 0u, ret.Comments[7].ResId );
 			Assert.AreEqual( "かわいい・・・", ret.Comments[7].Value );
 			Assert.AreEqual( string.Empty, ret.Comments[7].Command );
 			Assert.AreEqual( new DateTimeOffset( 2014, 4, 19, 19, 40, 45, TimeSpan.FromHours( 9 ) ), ret.Comments[7].PostedAt );

@@ -19,7 +19,7 @@ namespace Mntone.Nico2.Test.Vita.Live
 			CheckVideo( expected, actual );
 
 			Assert.AreEqual( string.Empty, actual.Description );
-			Assert.AreEqual( ( ushort )0u, actual.UserID );
+			Assert.AreEqual( ( ushort )0u, actual.UserId );
 
 			Assert.AreEqual( StatusType.Invalid, actual.Status );
 
@@ -37,7 +37,7 @@ namespace Mntone.Nico2.Test.Vita.Live
 			CheckVideo( expected, actual );
 
 			Assert.AreEqual( expected["description"].Value<string>(), actual.Description );
-			Assert.AreEqual( expected["user_id"].Value<uint>(), actual.UserID );
+			Assert.AreEqual( expected["user_id"].Value<uint>(), actual.UserId );
 
 			Assert.AreEqual( expected["_currentstatus"].Value<string>().ToStatusType(), actual.Status );
 
@@ -52,7 +52,7 @@ namespace Mntone.Nico2.Test.Vita.Live
 
 		private static void CheckVideo( IJEnumerable<JToken> expected, VideoInfo actual )
 		{
-			Assert.AreEqual( expected["id"].Value<string>(), actual.ID );
+			Assert.AreEqual( expected["id"].Value<string>(), actual.Id );
 			Assert.AreEqual( expected["title"].Value<string>(), actual.Title );
 			Assert.AreEqual( expected["open_time"].Value<string>().ToDateTimeOffsetFromIso8601(), actual.OpenedAt );
 			Assert.AreEqual( expected["start_time"].Value<string>().ToDateTimeOffsetFromIso8601(), actual.StartedAt );
@@ -65,7 +65,7 @@ namespace Mntone.Nico2.Test.Vita.Live
 			Assert.AreEqual( comType == CommunityType.Community, actual.IsCommunity );
 			Assert.AreEqual( comType, actual.CommunityType );
 
-			Assert.AreEqual( expected["related_channel_id"].Value<string>(), actual.RelatedChannelID );
+			Assert.AreEqual( expected["related_channel_id"].Value<string>(), actual.RelatedChannelId );
 			Assert.AreEqual( expected["_picture_url"] != null ? expected["_picture_url"].Value<string>().ToUri() : null, actual.ThumbnailUrl );
 			Assert.AreEqual( expected["_thumbnail_url"] != null ? expected["_thumbnail_url"].Value<string>().ToUri() : null, actual.SmallThumbnailUrl );
 			Assert.AreEqual( expected["hidescore_online"].Value<ushort>(), actual.HidescoreOnline );
@@ -102,9 +102,9 @@ namespace Mntone.Nico2.Test.Vita.Live
 			var expected2 = expected as JObject;
 			if( expected2 != null )
 			{
-				Assert.AreEqual( expected["id"].Value<uint>(), actual.RawID );
-				Assert.AreEqual( expected["channel_id"] != null ? expected["channel_id"].Value<string>() : null, actual.ChannelID );
-				Assert.AreEqual( expected["global_id"].Value<string>(), actual.ID );
+				Assert.AreEqual( expected["id"].Value<uint>(), actual.RawId );
+				Assert.AreEqual( expected["channel_id"] != null ? expected["channel_id"].Value<string>() : null, actual.ChannelId );
+				Assert.AreEqual( expected["global_id"].Value<string>(), actual.Id );
 				Assert.AreEqual( expected["name"].Value<string>(), actual.Name );
 				Assert.AreEqual( expected["thumbnail"].Value<string>().ToUri(), actual.ThumbnailUrl );
 				Assert.AreEqual( expected["thumbnail_small"].Value<string>().ToUri(), actual.SmallThumbnailUrl );

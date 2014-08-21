@@ -16,9 +16,9 @@ namespace Mntone.Nico2.Live.PlayerStatus
 	public sealed class CommentServer
 	{
 #if WINDOWS_APP
-		internal CommentServer( IXmlNode commentServerXml, IXmlNode threadIDsXml )
+		internal CommentServer( IXmlNode commentServerXml, IXmlNode threadIdsXml )
 #else
-		internal CommentServer( XElement commentServerXml, XElement threadIDsXml )
+		internal CommentServer( XElement commentServerXml, XElement threadIdsXml )
 #endif
 		{
 #if WINDOWS_APP
@@ -27,13 +27,13 @@ namespace Mntone.Nico2.Live.PlayerStatus
 			Host = commentServerXml.GetNamedChildNodeText( "addr" );
 #endif
 			Port = commentServerXml.GetNamedChildNodeText( "port" ).ToUShort();
-			if( threadIDsXml.GetFirstChildNode() != null )
+			if( threadIdsXml.GetFirstChildNode() != null )
 			{
-				ThreadIDs = threadIDsXml.GetChildNodes().Select( threadIDXml => threadIDXml.GetText().ToUInt() ).ToList();
+				ThreadIds = threadIdsXml.GetChildNodes().Select( threadIdXml => threadIdXml.GetText().ToUInt() ).ToList();
 			}
 			else
 			{
-				ThreadIDs = new List<uint>()
+				ThreadIds = new List<uint>()
 				{
 					commentServerXml.GetNamedChildNodeText( "thread" ).ToUInt()
 				};
@@ -61,6 +61,6 @@ namespace Mntone.Nico2.Live.PlayerStatus
 		/// 配信者がこの API を叩くと、複数のスレッド ID を得ることができる。
 		/// それにより、メインと立ち見の部屋を移動することができる。
 		/// </remarks>
-		public IReadOnlyList<uint> ThreadIDs { get; private set; }
+		public IReadOnlyList<uint> ThreadIds { get; private set; }
 	}
 }

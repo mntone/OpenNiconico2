@@ -55,7 +55,7 @@ namespace Mntone.Nico2
 			get { return this._AccountAuthority; }
 			internal set { this._AccountAuthority = value; }
 		}
-		private NiconicoAccountAuthority _AccountAuthority = NiconicoAccountAuthority.NotLoggedOn;
+		private NiconicoAccountAuthority _AccountAuthority = NiconicoAccountAuthority.NotSignedIn;
 
 		/// <summary>
 		/// ユーザー ID

@@ -24,86 +24,86 @@ namespace Mntone.Nico2.Live
 		/// <summary>
 		/// 非同期操作として CKey を取得します
 		/// </summary>
-		/// <param name="refererID">生放送リファラー ID</param>
-		/// <param name="requestID">目的の動画 ID</param>
+		/// <param name="refererId">生放送リファラー ID</param>
+		/// <param name="requestId">目的の動画 ID</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
-		public IAsyncOperation<string> GetCKeyAsync( string refererID, string requestID )
+		public IAsyncOperation<string> GetCKeyAsync( string refererId, string requestId )
 		{
-			return CKey.CKeyClient.GetCKeyAsync( _context, refererID, requestID ).AsAsyncOperation();
+			return CKey.CKeyClient.GetCKeyAsync( _context, refererId, requestId ).AsAsyncOperation();
 		}
 #else
-		public Task<string> GetCKeyAsync( string refererID, string requestID )
+		public Task<string> GetCKeyAsync( string refererId, string requestId )
 		{
-			return CKey.CKeyClient.GetCKeyAsync( _context, refererID, requestID );
+			return CKey.CKeyClient.GetCKeyAsync( _context, refererId, requestId );
 		}
 #endif
 
 		/// <summary>
 		/// 非同期操作として番組説明を取得します
 		/// </summary>
-		/// <param name="requestID">目的の生放送 ID</param>
+		/// <param name="requestId">目的の生放送 ID</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
-		public IAsyncOperation<Description.DescriptionResponse> GetDescriptionAsync( string requestID )
+		public IAsyncOperation<Description.DescriptionResponse> GetDescriptionAsync( string requestId )
 		{
-			return Description.DescriptionClient.GetDescriptionAsync( _context, requestID ).AsAsyncOperation();
+			return Description.DescriptionClient.GetDescriptionAsync( _context, requestId ).AsAsyncOperation();
 		}
 #else
-		public Task<Description.DescriptionResponse> GetDescriptionAsync( string requestID )
+		public Task<Description.DescriptionResponse> GetDescriptionAsync( string requestId )
 		{
-			return Description.DescriptionClient.GetDescriptionAsync( _context, requestID );
+			return Description.DescriptionClient.GetDescriptionAsync( _context, requestId );
 		}
 #endif
 
 		/// <summary>
 		/// 非同期操作としてハートビートを行います
 		/// </summary>
-		/// <param name="requestID">目的の生放送 ID</param>
+		/// <param name="requestId">目的の生放送 ID</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
-		public IAsyncOperation<Heartbeat.HeartbeatResponse> HeartbeatAsync( string requestID )
+		public IAsyncOperation<Heartbeat.HeartbeatResponse> HeartbeatAsync( string requestId )
 		{
-			return Heartbeat.HeartbeatClient.HeartbeatAsync( _context, requestID ).AsAsyncOperation();
+			return Heartbeat.HeartbeatClient.HeartbeatAsync( _context, requestId ).AsAsyncOperation();
 		}
 #else
-		public Task<Heartbeat.HeartbeatResponse> HeartbeatAsync( string requestID )
+		public Task<Heartbeat.HeartbeatResponse> HeartbeatAsync( string requestId )
 		{
-			return Heartbeat.HeartbeatClient.HeartbeatAsync( _context, requestID );
+			return Heartbeat.HeartbeatClient.HeartbeatAsync( _context, requestId );
 		}
 #endif
 
 		/// <summary>
 		/// 非同期操作としてプレイヤー情報を取得します
 		/// </summary>
-		/// <param name="requestID">目的の生放送 ID</param>
+		/// <param name="requestId">目的の生放送 ID</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
-		public IAsyncOperation<PlayerStatus.PlayerStatusResponse> GetPlayerStatusAsync( string requestID )
+		public IAsyncOperation<PlayerStatus.PlayerStatusResponse> GetPlayerStatusAsync( string requestId )
 		{
-			return PlayerStatus.PlayerStatusClient.GetPlayerStatusAsync( _context, requestID ).AsAsyncOperation();
+			return PlayerStatus.PlayerStatusClient.GetPlayerStatusAsync( _context, requestId ).AsAsyncOperation();
 		}
 #else
-		public Task<PlayerStatus.PlayerStatusResponse> GetPlayerStatusAsync( string requestID )
+		public Task<PlayerStatus.PlayerStatusResponse> GetPlayerStatusAsync( string requestId )
 		{
-			return PlayerStatus.PlayerStatusClient.GetPlayerStatusAsync( _context, requestID );
+			return PlayerStatus.PlayerStatusClient.GetPlayerStatusAsync( _context, requestId );
 		}
 #endif
 
 		/// <summary>
 		/// 非同期操作として放送を退出する要求を行います
 		/// </summary>
-		/// <param name="requestID">目的の生放送 ID</param>
+		/// <param name="requestId">目的の生放送 ID</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
-		public IAsyncOperation<bool> LeaveAsync( string requestID )
+		public IAsyncOperation<bool> LeaveAsync( string requestId )
 		{
-			return Leave.LeaveClient.LeaveAsync( _context, requestID ).AsAsyncOperation();
+			return Leave.LeaveClient.LeaveAsync( _context, requestId ).AsAsyncOperation();
 		}
 #else
-		public Task<bool> LeaveAsync( string requestID )
+		public Task<bool> LeaveAsync( string requestId )
 		{
-			return Leave.LeaveClient.LeaveAsync( _context, requestID );
+			return Leave.LeaveClient.LeaveAsync( _context, requestId );
 		}
 #endif
 

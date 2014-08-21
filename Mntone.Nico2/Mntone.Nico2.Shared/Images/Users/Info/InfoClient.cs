@@ -11,9 +11,9 @@ namespace Mntone.Nico2.Images.Users.Info
 {
 	internal sealed class InfoClient
 	{
-		public static Task<string> GetInfoDataAsync( NiconicoContext context, uint requestUserID )
+		public static Task<string> GetInfoDataAsync( NiconicoContext context, uint requestUserId )
 		{
-			return context.GetClient().GetString2Async( NiconicoUrls.ImageUserInfoUrl + requestUserID );
+			return context.GetClient().GetString2Async( NiconicoUrls.ImageUserInfoUrl + requestUserId );
 		}
 
 		public static InfoResponse ParseInfoData( string infoData )
@@ -40,9 +40,9 @@ namespace Mntone.Nico2.Images.Users.Info
 			return new InfoResponse( userXml );
 		}
 
-		public static Task<InfoResponse> GetInfoAsync( NiconicoContext context, uint requestUserID )
+		public static Task<InfoResponse> GetInfoAsync( NiconicoContext context, uint requestUserId )
 		{
-			return GetInfoDataAsync( context, requestUserID )
+			return GetInfoDataAsync( context, requestUserId )
 				.ContinueWith( prevTask => ParseInfoData( prevTask.Result ) );
 		}
 	}

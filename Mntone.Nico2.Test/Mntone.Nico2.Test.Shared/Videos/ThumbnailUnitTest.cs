@@ -26,7 +26,7 @@ namespace Mntone.Nico2.Test.Videos
 		{
 			var ret = ThumbnailClient.ParseThumbnailData( TestHelper.Load( @"Videos/Thumbnail/default.xml" ) );
 
-			Assert.AreEqual( "sm9", ret.ID );
+			Assert.AreEqual( "sm9", ret.Id );
 			Assert.AreEqual( "新・豪血寺一族 -煩悩解放 - レッツゴー！陰陽師", ret.Title );
 			Assert.AreEqual( "レッツゴー！陰陽師（フルコーラスバージョン）", ret.Description );
 			Assert.AreEqual( "http://tn-skr2.smilevideo.jp/smile?i=9", ret.ThumbnailUrl.ToString() );
@@ -98,7 +98,7 @@ namespace Mntone.Nico2.Test.Videos
 		{
 			var ret = ThumbnailClient.ParseThumbnailData( TestHelper.Load( @"Videos/Thumbnail/channel.xml" ) );
 
-			Assert.AreEqual( "so22734676", ret.ID );
+			Assert.AreEqual( "so22734676", ret.Id );
 			Assert.AreEqual( "魔法戦争　第1話「真夏の魔法少女」", ret.Title );
 			Assert.AreEqual( "ある夏の日のこと。七瀬武は部室棟で、見たことがない制服を着た少女・相羽六が倒れるのを目撃する。意識を失いかけている六を介抱するため、保健室まで運ぶ武だったが、意識が戻った六に不審者と勘違いされてしまう。お互いの立場の違いか、今ひとつかみ合わない会話の中、何とか誤解は解けそうになるも、そこに怪しい集団が現われ六を連れ去ろうとするのだった。原作ノベル・コミック版が今すぐ読める動画一覧はこちら", ret.Description );
 			Assert.AreEqual( "http://tn-skr1.smilevideo.jp/smile?i=22734676", ret.ThumbnailUrl.ToString() );

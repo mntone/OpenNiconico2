@@ -19,7 +19,7 @@ namespace Mntone.Nico2.Live.PlayerStatus
 		internal User( XElement streamXml, XElement userXml )
 #endif
 		{
-			ID = userXml.GetNamedChildNodeText( "user_id" ).ToUInt();
+			Id = userXml.GetNamedChildNodeText( "user_id" ).ToUInt();
 			Name = userXml.GetNamedChildNodeText( "nickname" );
 			IsPremium = userXml.GetNamedChildNodeText( "is_premium" ).ToBooleanFrom1();
 			Age = userXml.GetNamedChildNodeText( "userAge" ).ToUShort();
@@ -46,7 +46,7 @@ namespace Mntone.Nico2.Live.PlayerStatus
 		/// <summary>
 		/// ID
 		/// </summary>
-		public uint ID { get; private set; }
+		public uint Id { get; private set; }
 
 		/// <summary>
 		/// 名前

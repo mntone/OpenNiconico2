@@ -17,8 +17,8 @@ namespace Mntone.Nico2.Users.Info
 			}
 
 			{
-				var accountIDHtml = profileHtml.GetElementByClassName( "account" ).GetElementByClassName( "accountNumber" ).Element( "span" );
-				var keywords = accountIDHtml.InnerText.Split( new char[] { ' ', '(', ')' } );
+				var accountIdHtml = profileHtml.GetElementByClassName( "account" ).GetElementByClassName( "accountNumber" ).Element( "span" );
+				var keywords = accountIdHtml.InnerText.Split( new char[] { ' ', '(', ')' } );
 				if( keywords.Count() >= 4 )
 				{
 					switch( language )

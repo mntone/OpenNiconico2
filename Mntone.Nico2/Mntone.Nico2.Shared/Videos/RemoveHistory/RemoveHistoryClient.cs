@@ -6,14 +6,14 @@ namespace Mntone.Nico2.Videos.RemoveHistory
 	internal sealed class RemoveHistoryClient
 	{
 		public static Task<string> RemoveHistoryDataAsync(
-			NiconicoContext context, string token, string requestID )
+			NiconicoContext context, string token, string requestId )
 		{
-			if( !NiconicoRegex.IsVideoID( requestID ) )
+			if( !NiconicoRegex.IsVideoId( requestId ) )
 			{
 				throw new ArgumentException();
 			}
 
-			return context.GetClient().GetString2Async( NiconicoUrls.VideoRemoveUrl + token + "&video_id=" + requestID );
+			return context.GetClient().GetString2Async( NiconicoUrls.VideoRemoveUrl + token + "&video_id=" + requestId );
 		}
 
 		public static Task<string> RemoveAllHistoriesDataAsync( NiconicoContext context, string token )
@@ -26,9 +26,9 @@ namespace Mntone.Nico2.Videos.RemoveHistory
 			return JsonSerializerExtensions.Load<RemoveHistoryResponse>( historiesData );
 		}
 
-		public static Task<RemoveHistoryResponse> RemoveHistoryAsync( NiconicoContext context, string token, string requestID )
+		public static Task<RemoveHistoryResponse> RemoveHistoryAsync( NiconicoContext context, string token, string requestId )
 		{
-			return RemoveHistoryDataAsync( context, token, requestID )
+			return RemoveHistoryDataAsync( context, token, requestId )
 				.ContinueWith( prevTask => ParseRemoveHistoryData( prevTask.Result ) );
 		}
 

@@ -20,7 +20,7 @@ namespace Mntone.Nico2.Test.Videos
 			var ret = RemoveHistoryClient.ParseRemoveHistoryData( data );
 			var ret2 = JObject.Parse( data );
 
-			Assert.AreEqual( ret2["removed"].Value<string>(), ret.RemovedID );
+			Assert.AreEqual( ret2["removed"].Value<string>(), ret.RemovedId );
 			Assert.AreEqual( ret2["count"].Value<ushort>(), ret.HistoryCount );
 		}
 

@@ -11,14 +11,14 @@ namespace Mntone.Nico2.Videos.Thumbnail
 {
 	internal sealed class ThumbnailClient
 	{
-		public static Task<string> GetThumbnailDataAsync( NiconicoContext context, string requestID )
+		public static Task<string> GetThumbnailDataAsync( NiconicoContext context, string requestId )
 		{
-			if( !NiconicoRegex.IsVideoID( requestID ) )
+			if( !NiconicoRegex.IsVideoId( requestId ) )
 			{
 				throw new ArgumentException();
 			}
 
-			return context.GetClient().GetString2Async( NiconicoUrls.VideoThumbInfoUrl + requestID );
+			return context.GetClient().GetString2Async( NiconicoUrls.VideoThumbInfoUrl + requestId );
 		}
 
 		public static ThumbnailResponse ParseThumbnailData( string thumbnailData )
@@ -48,9 +48,9 @@ namespace Mntone.Nico2.Videos.Thumbnail
 			return new ThumbnailResponse( thumbRes.GetFirstChildNode() );
 		}
 
-		public static Task<ThumbnailResponse> GetThumbnailAsync( NiconicoContext context, string requestID )
+		public static Task<ThumbnailResponse> GetThumbnailAsync( NiconicoContext context, string requestId )
 		{
-			return GetThumbnailDataAsync( context, requestID )
+			return GetThumbnailDataAsync( context, requestId )
 				.ContinueWith( prevTask => ParseThumbnailData( prevTask.Result ) );
 		}
 	}

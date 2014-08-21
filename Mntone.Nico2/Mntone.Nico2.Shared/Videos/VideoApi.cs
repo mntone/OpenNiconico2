@@ -21,54 +21,54 @@ namespace Mntone.Nico2.Videos
 		/// <summary>
 		/// 非同期操作として flv 情報を取得します
 		/// </summary>
-		/// <param name="requestID">目的の動画 ID</param>
+		/// <param name="requestId">目的の動画 ID</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
 		[Overload( "GetFlvAsync" )]
-		public IAsyncOperation<Flv.FlvResponse> GetFlvAsync( string requestID )
+		public IAsyncOperation<Flv.FlvResponse> GetFlvAsync( string requestId )
 		{
-			return Flv.FlvClient.GetFlvAsync( _context, requestID ).AsAsyncOperation();
+			return Flv.FlvClient.GetFlvAsync( _context, requestId ).AsAsyncOperation();
 		}
 #else
-		public Task<Flv.FlvResponse> GetFlvAsync( string requestID )
+		public Task<Flv.FlvResponse> GetFlvAsync( string requestId )
 		{
-			return Flv.FlvClient.GetFlvAsync( _context, requestID );
+			return Flv.FlvClient.GetFlvAsync( _context, requestId );
 		}
 #endif
 
 		/// <summary>
 		/// 非同期操作として flv 情報を取得します
 		/// </summary>
-		/// <param name="requestID">目的の動画 ID</param>
+		/// <param name="requestId">目的の動画 ID</param>
 		/// <param name="cKey">CKey</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
 		[Overload( "GetFlvWithCKeyAsync" )]
-		public IAsyncOperation<Flv.FlvResponse> GetFlvAsync( string requestID, string cKey )
+		public IAsyncOperation<Flv.FlvResponse> GetFlvAsync( string requestId, string cKey )
 		{
-			return Flv.FlvClient.GetFlvAsync( _context, requestID, cKey ).AsAsyncOperation();
+			return Flv.FlvClient.GetFlvAsync( _context, requestId, cKey ).AsAsyncOperation();
 		}
 #else
-		public Task<Flv.FlvResponse> GetFlvAsync( string requestID, string cKey )
+		public Task<Flv.FlvResponse> GetFlvAsync( string requestId, string cKey )
 		{
-			return Flv.FlvClient.GetFlvAsync( _context, requestID, cKey );
+			return Flv.FlvClient.GetFlvAsync( _context, requestId, cKey );
 		}
 #endif
 
 		/// <summary>
 		/// 非同期操作として thumbnail 情報を取得します
 		/// </summary>
-		/// <param name="requestID">目的の動画 ID</param>
+		/// <param name="requestId">目的の動画 ID</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
-		public IAsyncOperation<Thumbnail.ThumbnailResponse> GetThumbnailAsync( string requestID )
+		public IAsyncOperation<Thumbnail.ThumbnailResponse> GetThumbnailAsync( string requestId )
 		{
-			return Thumbnail.ThumbnailClient.GetThumbnailAsync( _context, requestID ).AsAsyncOperation();
+			return Thumbnail.ThumbnailClient.GetThumbnailAsync( _context, requestId ).AsAsyncOperation();
 		}
 #else
-		public Task<Thumbnail.ThumbnailResponse> GetThumbnailAsync( string requestID )
+		public Task<Thumbnail.ThumbnailResponse> GetThumbnailAsync( string requestId )
 		{
-			return Thumbnail.ThumbnailClient.GetThumbnailAsync( _context, requestID );
+			return Thumbnail.ThumbnailClient.GetThumbnailAsync( _context, requestId );
 		}
 #endif
 
@@ -92,17 +92,17 @@ namespace Mntone.Nico2.Videos
 		/// 非同期操作として videoviewhistory/remove で履歴を削除します
 		/// </summary>
 		/// <param name="token">視聴履歴を取得したときに取得したトークン</param>
-		/// <param name="requestID">目的の動画 ID</param>
+		/// <param name="requestId">目的の動画 ID</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
-		public IAsyncOperation<RemoveHistory.RemoveHistoryResponse> RemoveHistoryAsync( string token, string requestID )
+		public IAsyncOperation<RemoveHistory.RemoveHistoryResponse> RemoveHistoryAsync( string token, string requestId )
 		{
-			return RemoveHistory.RemoveHistoryClient.RemoveHistoryAsync( _context, token, requestID ).AsAsyncOperation();
+			return RemoveHistory.RemoveHistoryClient.RemoveHistoryAsync( _context, token, requestId ).AsAsyncOperation();
 		}
 #else
-		public Task<RemoveHistory.RemoveHistoryResponse> RemoveHistoryAsync( string token, string requestID )
+		public Task<RemoveHistory.RemoveHistoryResponse> RemoveHistoryAsync( string token, string requestId )
 		{
-			return RemoveHistory.RemoveHistoryClient.RemoveHistoryAsync( _context, token, requestID );
+			return RemoveHistory.RemoveHistoryClient.RemoveHistoryAsync( _context, token, requestId );
 		}
 #endif
 

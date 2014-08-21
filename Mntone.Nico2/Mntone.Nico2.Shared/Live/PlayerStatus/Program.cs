@@ -20,7 +20,7 @@ namespace Mntone.Nico2.Live.PlayerStatus
 		internal Program( XElement streamXml, XElement playerXml, XElement nsenXml, ProgramTwitter programTwitter )
 #endif
 		{
-			ID = streamXml.GetNamedChildNodeText( "id" );
+			Id = streamXml.GetNamedChildNodeText( "id" );
 			Title = streamXml.GetNamedChildNodeText( "title" );
 			Description = streamXml.GetNamedChildNodeText( "description" );
 
@@ -28,8 +28,8 @@ namespace Mntone.Nico2.Live.PlayerStatus
 			CommentCount = streamXml.GetNamedChildNodeText( "comment_count" ).ToUInt();
 
 			CommunityType = streamXml.GetNamedChildNodeText( "provider_type" ).ToCommunityType();
-			CommunityID = streamXml.GetNamedChildNodeText( "default_community" );
-			BroadcasterID = streamXml.GetNamedChildNodeText( "owner_id" ).ToUInt();
+			CommunityId = streamXml.GetNamedChildNodeText( "default_community" );
+			BroadcasterId = streamXml.GetNamedChildNodeText( "owner_id" ).ToUInt();
 			BroadcasterName = streamXml.GetNamedChildNodeText( "owner_name" );
 
 			International = streamXml.GetNamedChildNodeText( "international" ).ToUShort();
@@ -124,7 +124,7 @@ namespace Mntone.Nico2.Live.PlayerStatus
 		/// <summary>
 		/// ID
 		/// </summary>
-		public string ID { get; private set; }
+		public string Id { get; private set; }
 
 		/// <summary>
 		/// 題名
@@ -171,12 +171,12 @@ namespace Mntone.Nico2.Live.PlayerStatus
 		/// <summary>
 		/// コミュニティーの ID
 		/// </summary>
-		public string CommunityID { get; private set; }
+		public string CommunityId { get; private set; }
 
 		/// <summary>
 		/// 配信者 ID
 		/// </summary>
-		public uint BroadcasterID { get; private set; }
+		public uint BroadcasterId { get; private set; }
 
 		/// <summary>
 		/// 配信者名

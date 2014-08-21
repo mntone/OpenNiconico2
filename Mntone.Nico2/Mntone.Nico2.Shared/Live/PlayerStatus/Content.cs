@@ -19,7 +19,7 @@ namespace Mntone.Nico2.Live.PlayerStatus
 		internal Content( XElement contentsXml )
 #endif
 		{
-			ID = contentsXml.GetNamedAttributeText( "id" );
+			Id = contentsXml.GetNamedAttributeText( "id" );
 			IsAudioDisabled = contentsXml.GetNamedAttributeText( "disableAudio" ).ToBooleanFrom1();
 			IsVideoDisabled = contentsXml.GetNamedAttributeText( "disableVideo" ).ToBooleanFrom1();
 			StartedAt = contentsXml.GetNamedAttributeText( "start_time" ).ToDateTimeOffsetFromUnixTime();
@@ -31,7 +31,7 @@ namespace Mntone.Nico2.Live.PlayerStatus
 		/// <summary>
 		/// ID
 		/// </summary>
-		public string ID { get; private set; }
+		public string Id { get; private set; }
 
 		/// <summary>
 		/// 音声が無効か

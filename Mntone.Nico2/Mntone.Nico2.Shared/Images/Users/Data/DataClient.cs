@@ -11,9 +11,9 @@ namespace Mntone.Nico2.Images.Users.Data
 {
 	internal sealed class DataClient
 	{
-		public static Task<string> GetDataDataAsync( NiconicoContext context, uint requestUserID )
+		public static Task<string> GetDataDataAsync( NiconicoContext context, uint requestUserId )
 		{
-			return context.GetClient().GetString2Async( NiconicoUrls.ImageUserDataUrl + requestUserID );
+			return context.GetClient().GetString2Async( NiconicoUrls.ImageUserDataUrl + requestUserId );
 		}
 
 		public static DataResponse ParseDataData( string dataData )
@@ -34,9 +34,9 @@ namespace Mntone.Nico2.Images.Users.Data
 			return new DataResponse( responseXml );
 		}
 
-		public static Task<DataResponse> GetDataAsync( NiconicoContext context, uint requestUserID )
+		public static Task<DataResponse> GetDataAsync( NiconicoContext context, uint requestUserId )
 		{
-			return GetDataDataAsync( context, requestUserID )
+			return GetDataDataAsync( context, requestUserId )
 				.ContinueWith( prevTask => ParseDataData( prevTask.Result ) );
 		}
 	}

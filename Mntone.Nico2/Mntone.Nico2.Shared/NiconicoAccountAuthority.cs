@@ -2,22 +2,22 @@
 namespace Mntone.Nico2
 {
 	/// <summary>
-	/// ログオンしたアカウントの権限
+	/// ログインしたアカウントの権限
 	/// </summary>
 	public enum NiconicoAccountAuthority
 	{
 		/// <summary>
-		/// ログオンしていない
+		/// ログインしていない
 		/// </summary>
-		NotLoggedOn = 0,
+		NotSignedIn = 0,
 
 		/// <summary>
-		/// 一般会員でログオンしている
+		/// 一般会員でログインしている
 		/// </summary>
 		Normal = 1,
 
 		/// <summary>
-		/// プレミアム会員でログオンしている
+		/// プレミアム会員でログインしている
 		/// </summary>
 		Premium = 3,
 	}

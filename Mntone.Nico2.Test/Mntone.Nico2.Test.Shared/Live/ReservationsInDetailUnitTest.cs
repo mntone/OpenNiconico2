@@ -24,7 +24,7 @@ namespace Mntone.Nico2.Test.Live
 			list.MoveNext();
 			for( var i = 0; i < ret.ReservedProgram.Count; ++i )
 			{
-				Assert.AreEqual( "lv" + list.Current.Element( "vid" ).Value, ret.ReservedProgram[i].ID );
+				Assert.AreEqual( "lv" + list.Current.Element( "vid" ).Value, ret.ReservedProgram[i].Id );
 				Assert.AreEqual( list.Current.Element( "title" ).Value, ret.ReservedProgram[i].Title );
 				Assert.AreEqual( list.Current.Element( "status" ).Value, ret.ReservedProgram[i].Status );
 				Assert.AreEqual( list.Current.Element( "unwatch" ).Value.ToBooleanFrom1(), ret.ReservedProgram[i].IsUnwatched );

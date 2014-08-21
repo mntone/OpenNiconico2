@@ -23,17 +23,17 @@ namespace Mntone.Nico2.Communities
 		/// <summary>
 		/// [非ログオン可] 非同期操作としてコミュニティー アイコンを取得します
 		/// </summary>
-		/// <param name="requestCommunityID">目的のコミュニティー ID</param>
+		/// <param name="requestCommunityId">目的のコミュニティー ID</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
-		public IAsyncOperation<IBuffer> GetIconAsync( string requestCommunityID )
+		public IAsyncOperation<IBuffer> GetIconAsync( string requestCommunityId )
 		{
-			return Icon.IconClient.GetIconAsync( this._context, requestCommunityID ).AsAsyncOperation();
+			return Icon.IconClient.GetIconAsync( this._context, requestCommunityId ).AsAsyncOperation();
 		}
 #else
-		public Task<byte[]> GetIconAsync( string requestUserID )
+		public Task<byte[]> GetIconAsync( string requestCommunityId )
 		{
-			return Icon.IconClient.GetIconAsync( this._context, requestUserID );
+			return Icon.IconClient.GetIconAsync( this._context, requestCommunityId );
 		}
 #endif
 

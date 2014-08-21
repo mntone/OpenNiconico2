@@ -15,7 +15,7 @@ namespace Mntone.Nico2.Test.Images
 		public void UserInfo_0通常データ()
 		{
 			var ret = InfoClient.ParseInfoData( TestHelper.Load( @"Images/Users/Info/default.xml" ) );
-			Assert.AreEqual( 2u, ret.UserID );
+			Assert.AreEqual( 2u, ret.UserId );
 			Assert.AreEqual( "戀塚", ret.UserName );
 		}
 	}

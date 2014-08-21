@@ -17,7 +17,7 @@ namespace Mntone.Nico2.Images.Illusts.BlogPartsRanking
 		internal Image( XElement imageXml )
 #endif
 		{
-			ID = "im" + imageXml.GetNamedChildNodeText( "id" );
+			Id = "im" + imageXml.GetNamedChildNodeText( "id" );
 			//CacheTime = imageNode.GetNamedChildNodeText( "cache_time" ).ToDateTimeOffsetFromIso8601();
 
 			var titleAndRank = imageXml.GetNamedChildNodeText( "title" );
@@ -31,7 +31,7 @@ namespace Mntone.Nico2.Images.Illusts.BlogPartsRanking
 		/// <summary>
 		/// ID
 		/// </summary>
-		public string ID { get; private set; }
+		public string Id { get; private set; }
 
 		///// <summary>
 		///// キャッシュ時間 (?)

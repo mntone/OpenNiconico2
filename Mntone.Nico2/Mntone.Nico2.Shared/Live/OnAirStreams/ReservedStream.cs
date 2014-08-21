@@ -27,14 +27,14 @@ namespace Mntone.Nico2.Live.OnAirStreams
 		/// <summary>
 		/// ID
 		/// </summary>
-		public string ID { get { return this._ID; } }
-		private string _ID = string.Empty;
+		public string Id { get { return this._Id; } }
+		private string _Id = string.Empty;
 
 		[DataMember( Name = "id" )]
-		private string IDImpl
+		private string IdImpl
 		{
-			get { return this._ID != null && this._ID.Length > 2 ? this._ID.Substring( 2 ) : null; }
-			set { this._ID = "lv" + value; }
+			get { return this._Id != null && this._Id.Length > 2 ? this._Id.Substring( 2 ) : null; }
+			set { this._Id = "lv" + value; }
 		}
 
 		/// <summary>

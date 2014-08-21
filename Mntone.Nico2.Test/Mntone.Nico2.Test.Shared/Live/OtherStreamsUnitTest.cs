@@ -26,7 +26,7 @@ namespace Mntone.Nico2.Test.Live
 			{
 				var retStream = ret.Streams[i];
 				var ret2Stream = ret2Streams[i];
-				Assert.AreEqual( "lv" + ret2Stream["id"].Value<string>(), retStream.ID );
+				Assert.AreEqual( "lv" + ret2Stream["id"].Value<string>(), retStream.Id );
 				Assert.AreEqual( ret2Stream["currentstatus"].Value<string>().ToStatusType(), retStream.Status );
 				Assert.AreEqual( ret2Stream["title"].Value<string>(), retStream.Title );
 				Assert.AreEqual( ret2Stream["description"].Value<string>(), retStream.Description );
@@ -71,7 +71,7 @@ namespace Mntone.Nico2.Test.Live
 			{
 				var retStream = ret.Streams[i];
 				var ret2Stream = ret2Streams[i];
-				Assert.AreEqual( "lv" + ret2Stream["id"].Value<string>(), retStream.ID );
+				Assert.AreEqual( "lv" + ret2Stream["id"].Value<string>(), retStream.Id );
 				Assert.AreEqual( ret2Stream["currentstatus"].Value<string>().ToStatusType(), retStream.Status );
 				Assert.AreEqual( ret2Stream["title"].Value<string>(), retStream.Title );
 				Assert.AreEqual( ret2Stream["description"].Value<string>(), retStream.Description );

@@ -20,7 +20,7 @@ namespace Mntone.Nico2.Live.ReservationsInDetail
 		internal Program( XElement reservedItemXml )
 #endif
 		{
-			ID = "lv" + reservedItemXml.GetNamedChildNodeText( "vid" );
+			Id = "lv" + reservedItemXml.GetNamedChildNodeText( "vid" );
 			Title = reservedItemXml.GetNamedChildNodeText( "title" );
 			Status = reservedItemXml.GetNamedChildNodeText( "status" );
 			IsUnwatched = reservedItemXml.GetNamedChildNodeText( "unwatch" ).ToBooleanFrom1();
@@ -32,7 +32,7 @@ namespace Mntone.Nico2.Live.ReservationsInDetail
 		/// <summary>
 		/// ID
 		/// </summary>
-		public string ID { get; private set; }
+		public string Id { get; private set; }
 
 		/// <summary>
 		/// 題名

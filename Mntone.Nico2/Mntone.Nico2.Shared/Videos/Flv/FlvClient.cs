@@ -6,19 +6,19 @@ namespace Mntone.Nico2.Videos.Flv
 {
 	internal sealed class FlvClient
 	{
-		public static Task<string> GetFlvDataAsync( NiconicoContext context, string requestID )
+		public static Task<string> GetFlvDataAsync( NiconicoContext context, string requestId )
 		{
-			if( !NiconicoRegex.IsVideoID( requestID ) )
+			if( !NiconicoRegex.IsVideoId( requestId ) )
 			{
 				throw new ArgumentException();
 			}
 
-			return context.GetClient().GetString2Async( NiconicoUrls.VideoFlvUrl + requestID + "?as3=1" );
+			return context.GetClient().GetString2Async( NiconicoUrls.VideoFlvUrl + requestId + "?as3=1" );
 		}
 
-		public static Task<string> GetFlvDataAsync( NiconicoContext context, string requestID, string cKey )
+		public static Task<string> GetFlvDataAsync( NiconicoContext context, string requestId, string cKey )
 		{
-			return context.GetClient().GetString2Async( NiconicoUrls.VideoFlvUrl + requestID + "?as3=1&ckey=" + cKey );
+			return context.GetClient().GetString2Async( NiconicoUrls.VideoFlvUrl + requestId + "?as3=1&ckey=" + cKey );
 		}
 
 		public static FlvResponse ParseFlvData( string flvData )
@@ -35,15 +35,15 @@ namespace Mntone.Nico2.Videos.Flv
 			return new FlvResponse( response );
 		}
 
-		public static Task<FlvResponse> GetFlvAsync( NiconicoContext context, string requestID )
+		public static Task<FlvResponse> GetFlvAsync( NiconicoContext context, string requestId )
 		{
-			return GetFlvDataAsync( context, requestID )
+			return GetFlvDataAsync( context, requestId )
 				.ContinueWith( prevTask => ParseFlvData( prevTask.Result ) );
 		}
 
-		public static Task<FlvResponse> GetFlvAsync( NiconicoContext context, string requestID, string cKey )
+		public static Task<FlvResponse> GetFlvAsync( NiconicoContext context, string requestId, string cKey )
 		{
-			return GetFlvDataAsync( context, requestID, cKey )
+			return GetFlvDataAsync( context, requestId, cKey )
 				.ContinueWith( prevTask => ParseFlvData( prevTask.Result ) );
 		}
 	}

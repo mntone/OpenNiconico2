@@ -140,7 +140,7 @@ namespace Mntone.Nico2
 					{
 						this.CurrentSession.AccountAuthority = ( NiconicoAccountAuthority )response.Headers.GetValues( XNiconicoAuthflag ).Single().ToInt();
 #endif
-						if( this.CurrentSession.AccountAuthority != NiconicoAccountAuthority.NotLoggedOn )
+						if( this.CurrentSession.AccountAuthority != NiconicoAccountAuthority.NotSignedIn )
 						{
 #if WINDOWS_APP
 							this.CurrentSession.UserId = uint.Parse( response.Headers[XNiconicoId] );

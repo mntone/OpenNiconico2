@@ -20,34 +20,34 @@ namespace Mntone.Nico2.Images.Illusts
 		/// <summary>
 		/// [非ログオン可] 非同期操作としてクリップの一部 (最大 25 件) を取得します
 		/// </summary>
-		/// <param name="requestClipID">目的のクリップ ID</param>
+		/// <param name="requestClipId">目的のクリップ ID</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
-		public IAsyncOperation<BlogParts.BlogPartsResponse> GetClipAsync( uint requestClipID )
+		public IAsyncOperation<BlogParts.BlogPartsResponse> GetClipAsync( uint requestClipId )
 		{
-			return BlogParts.BlogPartsClient.GetClipAsync( _context, requestClipID ).AsAsyncOperation();
+			return BlogParts.BlogPartsClient.GetClipAsync( _context, requestClipId ).AsAsyncOperation();
 		}
 #else
-		public Task<BlogParts.BlogPartsResponse> GetClipAsync( uint requestClipID )
+		public Task<BlogParts.BlogPartsResponse> GetClipAsync( uint requestClipId )
 		{
-			return BlogParts.BlogPartsClient.GetClipAsync( _context, requestClipID );
+			return BlogParts.BlogPartsClient.GetClipAsync( _context, requestClipId );
 		}
 #endif
 
 		/// <summary>
 		/// [非ログオン可] 非同期操作としてユーザーのイラスト リストの一部 (最大 25 件) を取得します
 		/// </summary>
-		/// <param name="requestUserID">目的のユーザー ID</param>
+		/// <param name="requestUserId">目的のユーザー ID</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
-		public IAsyncOperation<BlogParts.BlogPartsResponse> GetUserAsync( uint requestUserID )
+		public IAsyncOperation<BlogParts.BlogPartsResponse> GetUserAsync( uint requestUserId )
 		{
-			return BlogParts.BlogPartsClient.GetUserAsync( _context, requestUserID ).AsAsyncOperation();
+			return BlogParts.BlogPartsClient.GetUserAsync( _context, requestUserId ).AsAsyncOperation();
 		}
 #else
-		public Task<BlogParts.BlogPartsResponse> GetUserAsync( uint requestUserID )
+		public Task<BlogParts.BlogPartsResponse> GetUserAsync( uint requestUserId )
 		{
-			return BlogParts.BlogPartsClient.GetUserAsync( _context, requestUserID );
+			return BlogParts.BlogPartsClient.GetUserAsync( _context, requestUserId );
 		}
 #endif
 

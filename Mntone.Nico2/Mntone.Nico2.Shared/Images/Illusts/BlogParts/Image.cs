@@ -17,7 +17,7 @@ namespace Mntone.Nico2.Images.Illusts.BlogParts
 		internal Image( XElement imageXml )
 #endif
 		{
-			ID = "im" + imageXml.GetNamedChildNodeText( "id" );
+			Id = "im" + imageXml.GetNamedChildNodeText( "id" );
 			//CacheTime = imageXml.GetNamedChildNodeText( "cache_time" ).ToDateTimeOffsetFromIso8601();
 			Title = imageXml.GetNamedChildNodeText( "title" );
 			UserName = imageXml.GetNamedChildNodeText( "nickname" );
@@ -26,7 +26,7 @@ namespace Mntone.Nico2.Images.Illusts.BlogParts
 		/// <summary>
 		/// ID
 		/// </summary>
-		public string ID { get; private set; }
+		public string Id { get; private set; }
 
 		///// <summary>
 		///// キャッシュ時間 (?)

@@ -11,14 +11,14 @@ namespace Mntone.Nico2.Images.Illusts.BlogParts
 {
 	internal sealed class BlogPartsClient
 	{
-		public static Task<string> GetClipDataAsync( NiconicoContext context, uint requestClipID )
+		public static Task<string> GetClipDataAsync( NiconicoContext context, uint requestClipId )
 		{
-			return context.GetClient().GetString2Async( NiconicoUrls.ImageBlogPartsUrl + "clip&key=" + requestClipID );
+			return context.GetClient().GetString2Async( NiconicoUrls.ImageBlogPartsUrl + "clip&key=" + requestClipId );
 		}
 
-		public static Task<string> GetUserDataAsync( NiconicoContext context, uint requestUserID )
+		public static Task<string> GetUserDataAsync( NiconicoContext context, uint requestUserId )
 		{
-			return context.GetClient().GetString2Async( NiconicoUrls.ImageBlogPartsUrl + "user&key=" + requestUserID );
+			return context.GetClient().GetString2Async( NiconicoUrls.ImageBlogPartsUrl + "user&key=" + requestUserId );
 		}
 
 		public static BlogPartsResponse ParseBlogPartsData( string blogPartsData )
@@ -39,15 +39,15 @@ namespace Mntone.Nico2.Images.Illusts.BlogParts
 			return new BlogPartsResponse( responseXml );
 		}
 
-		public static Task<BlogPartsResponse> GetClipAsync( NiconicoContext context, uint requestClipID )
+		public static Task<BlogPartsResponse> GetClipAsync( NiconicoContext context, uint requestClipId )
 		{
-			return GetClipDataAsync( context, requestClipID )
+			return GetClipDataAsync( context, requestClipId )
 				.ContinueWith( prevTask => ParseBlogPartsData( prevTask.Result ) );
 		}
 
-		public static Task<BlogPartsResponse> GetUserAsync( NiconicoContext context, uint requestUserID )
+		public static Task<BlogPartsResponse> GetUserAsync( NiconicoContext context, uint requestUserId )
 		{
-			return GetUserDataAsync( context, requestUserID )
+			return GetUserDataAsync( context, requestUserId )
 				.ContinueWith( prevTask => ParseBlogPartsData( prevTask.Result ) );
 		}
 	}

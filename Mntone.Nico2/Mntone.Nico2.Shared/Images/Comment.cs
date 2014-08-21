@@ -19,9 +19,9 @@ namespace Mntone.Nico2.Images
 		internal Comment( XElement commentXml )
 #endif
 		{
-			ID = commentXml.GetNamedChildNodeText( "comment_id" ).ToULong();
-			ImageID = "im" + commentXml.GetNamedChildNodeText( "image_id" );
-			ResID = commentXml.GetNamedChildNodeText( "res_id" ).ToULong();
+			Id = commentXml.GetNamedChildNodeText( "comment_id" ).ToULong();
+			ImageId = "im" + commentXml.GetNamedChildNodeText( "image_id" );
+			ResId = commentXml.GetNamedChildNodeText( "res_id" ).ToULong();
 			Value = commentXml.GetNamedChildNodeText( "content" );
 			Command = commentXml.GetNamedChildNodeText( "command" );
 			PostedAt = ( commentXml.GetNamedChildNodeText( "created" ) + "+09:00" ).ToDateTimeOffsetFromIso8601();
@@ -33,17 +33,17 @@ namespace Mntone.Nico2.Images
 		/// <summary>
 		/// ID
 		/// </summary>
-		public ulong ID { get; private set; }
+		public ulong Id { get; private set; }
 
 		/// <summary>
 		/// 画像 ID
 		/// </summary>
-		public string ImageID { get; private set; }
+		public string ImageId { get; private set; }
 
 		/// <summary>
 		/// レス先 ID
 		/// </summary>
-		public ulong ResID { get; private set; }
+		public ulong ResId { get; private set; }
 
 		/// <summary>
 		/// 内容

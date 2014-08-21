@@ -19,7 +19,7 @@ namespace Mntone.Nico2.Videos.Thumbnail
 		internal ThumbnailResponse( XElement thumbXml )
 #endif
 		{
-			ID = thumbXml.GetNamedChildNodeText( "video_id" );
+			Id = thumbXml.GetNamedChildNodeText( "video_id" );
 			Title = thumbXml.GetNamedChildNodeText( "title" );
 			Description = thumbXml.GetNamedChildNodeText( "description" );
 			ThumbnailUrl = thumbXml.GetNamedChildNodeText( "thumbnail_url" ).ToUri();
@@ -39,21 +39,21 @@ namespace Mntone.Nico2.Videos.Thumbnail
 
 			Tags = new Tags( thumbXml.GetNamedChildNode( "tags" ) );
 
-			var userIDXml = thumbXml.GetNamedChildNode( "user_id" );
-			if( userIDXml != null )
+			var userIdXml = thumbXml.GetNamedChildNode( "user_id" );
+			if( userIdXml != null )
 			{
 				UserType = UserType.User;
-				UserId = userIDXml.GetText().ToUInt();
+				UserId = userIdXml.GetText().ToUInt();
 				UserName = thumbXml.GetNamedChildNodeText( "user_nickname" );
 				UserIconUrl = thumbXml.GetNamedChildNodeText( "user_icon_url" ).ToUri();
 				return;
 			}
 
-			var chIDXml = thumbXml.GetNamedChildNode( "ch_id" );
-			if( chIDXml != null )
+			var chIdXml = thumbXml.GetNamedChildNode( "ch_id" );
+			if( chIdXml != null )
 			{
 				UserType = UserType.Channel;
-				UserId = chIDXml.GetText().ToUInt();
+				UserId = chIdXml.GetText().ToUInt();
 				UserName = thumbXml.GetNamedChildNodeText( "ch_name" );
 				UserIconUrl = thumbXml.GetNamedChildNodeText( "ch_icon_url" ).ToUri();
 				return;
@@ -65,7 +65,7 @@ namespace Mntone.Nico2.Videos.Thumbnail
 		/// <summary>
 		/// ID
 		/// </summary>
-		public string ID { get; private set; }
+		public string Id { get; private set; }
 
 		/// <summary>
 		/// 題名

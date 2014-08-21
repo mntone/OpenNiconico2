@@ -28,7 +28,7 @@ namespace Mntone.Nico2.Test.Images
 			list.MoveNext();
 			for( var i = 0; i < ret.Images.Count; ++i )
 			{
-				Assert.AreEqual( "im" + list.Current.Element( "id" ).Value, ret.Images[i].ID );
+				Assert.AreEqual( "im" + list.Current.Element( "id" ).Value, ret.Images[i].Id );
 				Assert.AreEqual( list.Current.Element( "title" ).Value, ret.Images[i].Rank + "位 " + ret.Images[i].Title );
 				Assert.AreEqual( list.Current.Element( "nickname" ).Value, ret.Images[i].UserName );
 				list.MoveNext();

@@ -14,7 +14,7 @@ namespace Mntone.Nico2.Videos.Flv
 	{
 		internal FlvResponse( Dictionary<string, string> wwwFormData )
 		{
-			ThreadID = wwwFormData["thread_id"].ToUInt();
+			ThreadId = wwwFormData["thread_id"].ToUInt();
 			Length = wwwFormData["l"].ToTimeSpanFromSecondsString();
 			VideoUrl = wwwFormData["url"].ToUri();
 			ReportUrl = wwwFormData["link"].ToUri();
@@ -33,7 +33,7 @@ namespace Mntone.Nico2.Videos.Flv
 			}
 			if( wwwFormData.ContainsKey( "optional_thread_id" ) )
 			{
-				OptionalThreadID = wwwFormData["optional_thread_id"].ToUInt();
+				OptionalThreadId = wwwFormData["optional_thread_id"].ToUInt();
 			}
 			ChannelFilter = wwwFormData.ContainsKey( "ng_ch" ) ? wwwFormData["ng_ch"] : string.Empty;
 			FlashMediaServerToken = wwwFormData.ContainsKey( "fmst" ) ? wwwFormData["fmst"] : string.Empty;
@@ -44,7 +44,7 @@ namespace Mntone.Nico2.Videos.Flv
 			AppsHost = wwwFormData["hms"];
 #endif
 			AppsPort = wwwFormData["hmsp"].ToUShort();
-			AppsThreadID = wwwFormData["hmst"].ToUShort();
+			AppsThreadId = wwwFormData["hmst"].ToUShort();
 			AppsTicket = wwwFormData["hmstk"];
 
 #if DEBUG
@@ -56,7 +56,7 @@ namespace Mntone.Nico2.Videos.Flv
 		/// <summary>
 		/// スレッド ID
 		/// </summary>
-		public uint ThreadID { get; private set; }
+		public uint ThreadId { get; private set; }
 
 		/// <summary>
 		/// 長さ
@@ -124,7 +124,7 @@ namespace Mntone.Nico2.Videos.Flv
 		/// <summary>
 		/// 追加のスレッド ID
 		/// </summary>
-		public uint OptionalThreadID { get; private set; }
+		public uint OptionalThreadId { get; private set; }
 
 		/// <summary>
 		/// チャンネル動画のフィルター
@@ -165,7 +165,7 @@ namespace Mntone.Nico2.Videos.Flv
 		/// <summary>
 		/// ニコニコアプリのスレッド ID
 		/// </summary>
-		public uint AppsThreadID { get; set; }
+		public uint AppsThreadId { get; set; }
 
 		/// <summary>
 		/// ニコニコアプリのチケット

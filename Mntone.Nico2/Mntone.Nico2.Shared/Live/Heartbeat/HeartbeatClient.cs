@@ -11,14 +11,14 @@ namespace Mntone.Nico2.Live.Heartbeat
 {
 	internal sealed class HeartbeatClient
 	{
-		public static Task<string> HeartbeatDataAsync( NiconicoContext context, string requestID )
+		public static Task<string> HeartbeatDataAsync( NiconicoContext context, string requestId )
 		{
-			if( !NiconicoRegex.IsLiveID( requestID ) )
+			if( !NiconicoRegex.IsLiveId( requestId ) )
 			{
 				throw new ArgumentException();
 			}
 
-			return context.GetClient().GetString2Async( NiconicoUrls.LiveHeartbeatUrl + "?v=" + requestID );
+			return context.GetClient().GetString2Async( NiconicoUrls.LiveHeartbeatUrl + "?v=" + requestId );
 		}
 
 		public static HeartbeatResponse ParseHeartbeatData( string heartbeatData )
@@ -49,9 +49,9 @@ namespace Mntone.Nico2.Live.Heartbeat
 			return new HeartbeatResponse( heartbeatXml );
 		}
 
-		public static Task<HeartbeatResponse> HeartbeatAsync( NiconicoContext context, string requestID )
+		public static Task<HeartbeatResponse> HeartbeatAsync( NiconicoContext context, string requestId )
 		{
-			return HeartbeatDataAsync( context, requestID )
+			return HeartbeatDataAsync( context, requestId )
 				.ContinueWith( prevTask => ParseHeartbeatData( prevTask.Result ) );
 		}
 	}

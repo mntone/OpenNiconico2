@@ -23,17 +23,17 @@ namespace Mntone.Nico2.Users
 		/// <summary>
 		/// [非ログオン可] 非同期操作としてユーザー アイコンを取得します
 		/// </summary>
-		/// <param name="requestUserID">目的のユーザー ID</param>
+		/// <param name="requestUserId">目的のユーザー ID</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
-		public IAsyncOperation<IBuffer> GetIconAsync( uint requestUserID )
+		public IAsyncOperation<IBuffer> GetIconAsync( uint requestUserId )
 		{
-			return Icon.IconClient.GetIconAsync( this._context, requestUserID ).AsAsyncOperation();
+			return Icon.IconClient.GetIconAsync( this._context, requestUserId ).AsAsyncOperation();
 		}
 #else
-		public Task<byte[]> GetIconAsync( uint requestUserID )
+		public Task<byte[]> GetIconAsync( uint requestUserId )
 		{
-			return Icon.IconClient.GetIconAsync( this._context, requestUserID );
+			return Icon.IconClient.GetIconAsync( this._context, requestUserId );
 		}
 #endif
 

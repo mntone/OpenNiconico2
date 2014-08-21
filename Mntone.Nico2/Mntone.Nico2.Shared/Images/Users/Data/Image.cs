@@ -20,7 +20,7 @@ namespace Mntone.Nico2.Images.Users.Data
 		internal Image( XElement imageXml )
 #endif
 		{
-			ID = "im" + imageXml.GetNamedChildNodeText( "id" );
+			Id = "im" + imageXml.GetNamedChildNodeText( "id" );
 			UserId = imageXml.GetNamedChildNodeText( "user_id" ).ToUInt();
 			Title = imageXml.GetNamedChildNodeText( "title" );
 			Description = imageXml.GetNamedChildNodeText( "description" );
@@ -46,7 +46,7 @@ namespace Mntone.Nico2.Images.Users.Data
 		/// <summary>
 		/// ID
 		/// </summary>
-		public string ID { get; private set; }
+		public string Id { get; private set; }
 
 		/// <summary>
 		/// ユーザー ID

@@ -23,34 +23,34 @@ namespace Mntone.Nico2.Vita.Live
 		/// <summary>
 		/// 非同期操作として番組情報を取得します
 		/// </summary>
-		/// <param name="requestID">取得したい番組の ID</param>
+		/// <param name="requestId">取得したい番組の ID</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
-		public IAsyncOperation<Video.VideoResponse> GetVideoAsync( string requestID )
+		public IAsyncOperation<Video.VideoResponse> GetVideoAsync( string requestId )
 		{
-			return Video.VideoClient.GetVideoAsync( this._context, requestID ).AsAsyncOperation();
+			return Video.VideoClient.GetVideoAsync( this._context, requestId ).AsAsyncOperation();
 		}
 #else
-		public Task<Video.VideoResponse> GetVideoAsync( string requestID )
+		public Task<Video.VideoResponse> GetVideoAsync( string requestId )
 		{
-			return Video.VideoClient.GetVideoAsync( this._context, requestID );
+			return Video.VideoClient.GetVideoAsync( this._context, requestId );
 		}
 #endif
 
 		/// <summary>
 		/// 非同期操作として複数番組情報を取得します
 		/// </summary>
-		/// <param name="requestIDs">取得したい複数の番組の ID</param>
+		/// <param name="requestIds">取得したい複数の番組の ID</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
-		public IAsyncOperation<Videos.VideosResponse> GetVideosAsync( IReadOnlyList<string> requestIDs )
+		public IAsyncOperation<Videos.VideosResponse> GetVideosAsync( IReadOnlyList<string> requestIds )
 		{
-			return Videos.VideosClient.GetVideosAsync( this._context, requestIDs ).AsAsyncOperation();
+			return Videos.VideosClient.GetVideosAsync( this._context, requestIds ).AsAsyncOperation();
 		}
 #else
-		public Task<Videos.VideosResponse> GetVideosAsync( IReadOnlyList<string> requestIDs )
+		public Task<Videos.VideosResponse> GetVideosAsync( IReadOnlyList<string> requestIds )
 		{
-			return Videos.VideosClient.GetVideosAsync( this._context, requestIDs );
+			return Videos.VideosClient.GetVideosAsync( this._context, requestIds );
 		}
 #endif
 

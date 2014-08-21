@@ -6,17 +6,17 @@ namespace Mntone.Nico2.Vita.Live.Videos
 {
 	internal sealed class VideosClient
 	{
-		public static Task<string> GetVideosDataAsync( NiconicoVitaContext context, IReadOnlyList<string> requestIDs )
+		public static Task<string> GetVideosDataAsync( NiconicoVitaContext context, IReadOnlyList<string> requestIds )
 		{
-			foreach( var requestID in requestIDs )
+			foreach( var requestId in requestIds )
 			{
-				if( !NiconicoRegex.IsLiveID( requestID ) )
+				if( !NiconicoRegex.IsLiveId( requestId ) )
 				{
 					throw new ArgumentException();
 				}
 			}
 
-			return context.GetClient().GetString2Async( NiconicoUrls.VideosUrl + string.Join( ",", requestIDs ) );
+			return context.GetClient().GetString2Async( NiconicoUrls.VideosUrl + string.Join( ",", requestIds ) );
 		}
 
 		public static VideosResponse ParseVideosData( string videosData )
@@ -32,9 +32,9 @@ namespace Mntone.Nico2.Vita.Live.Videos
 			return ret;
 		}
 
-		public static Task<VideosResponse> GetVideosAsync( NiconicoVitaContext context, IReadOnlyList<string> requestIDs )
+		public static Task<VideosResponse> GetVideosAsync( NiconicoVitaContext context, IReadOnlyList<string> requestIds )
 		{
-			return GetVideosDataAsync( context, requestIDs )
+			return GetVideosDataAsync( context, requestIds )
 				.ContinueWith( prevTask => ParseVideosData( prevTask.Result ) );
 		}
 	}

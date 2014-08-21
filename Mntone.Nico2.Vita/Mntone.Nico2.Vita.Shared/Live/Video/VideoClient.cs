@@ -5,14 +5,14 @@ namespace Mntone.Nico2.Vita.Live.Video
 {
 	internal sealed class VideoClient
 	{
-		public static Task<string> GetVideoDataAsync( NiconicoVitaContext context, string requestID )
+		public static Task<string> GetVideoDataAsync( NiconicoVitaContext context, string requestId )
 		{
-			if( !NiconicoRegex.IsLiveID( requestID ) )
+			if( !NiconicoRegex.IsLiveId( requestId ) )
 			{
 				throw new ArgumentException();
 			}
 
-			return context.GetClient().GetString2Async( NiconicoUrls.VideoUrl + requestID );
+			return context.GetClient().GetString2Async( NiconicoUrls.VideoUrl + requestId );
 		}
 
 		public static VideoResponse ParseVideoData( string videoData )
@@ -25,9 +25,9 @@ namespace Mntone.Nico2.Vita.Live.Video
 			return ret;
 		}
 
-		public static Task<VideoResponse> GetVideoAsync( NiconicoVitaContext context, string requestID )
+		public static Task<VideoResponse> GetVideoAsync( NiconicoVitaContext context, string requestId )
 		{
-			return GetVideoDataAsync( context, requestID )
+			return GetVideoDataAsync( context, requestId )
 				.ContinueWith( prevTask => ParseVideoData( prevTask.Result ) );
 		}
 	}

@@ -17,7 +17,7 @@ namespace Mntone.Nico2.Vita.Live
 		/// ID
 		/// </summary>
 		[DataMember( Name = "id" )]
-		public string ID { get; private set; }
+		public string Id { get; private set; }
 
 		/// <summary>
 		/// 題名
@@ -42,7 +42,7 @@ namespace Mntone.Nico2.Vita.Live
 		/// </summary>
 		/// <remarks>詳細モード時のみ存在します</remarks>
 		[DataMember( Name = "user_id" )]
-		public uint UserID { get; private set; }
+		public uint UserId { get; private set; }
 
 		/// <summary>
 		/// 開場日時
@@ -130,7 +130,7 @@ namespace Mntone.Nico2.Vita.Live
 		/// 公式配信時、関連したチャンネル ID が格納されている
 		/// </remarks>
 		[DataMember( Name = "related_channel_id" )]
-		public string RelatedChannelID { get; private set; }
+		public string RelatedChannelId { get; private set; }
 
 		/// <summary>
 		/// サムネール URL

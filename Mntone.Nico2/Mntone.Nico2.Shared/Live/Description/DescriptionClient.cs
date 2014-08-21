@@ -6,14 +6,14 @@ namespace Mntone.Nico2.Live.Description
 {
 	internal sealed class DescriptionClient
 	{
-		public static Task<string> GetDescriptionDataAsync( NiconicoContext context, string requestID )
+		public static Task<string> GetDescriptionDataAsync( NiconicoContext context, string requestId )
 		{
-			if( !NiconicoRegex.IsLiveID( requestID ) )
+			if( !NiconicoRegex.IsLiveId( requestId ) )
 			{
 				throw new ArgumentException();
 			}
 
-			return context.GetClient().GetConvertedString2Async( NiconicoUrls.LiveGatePageUrl + requestID );
+			return context.GetClient().GetConvertedString2Async( NiconicoUrls.LiveGatePageUrl + requestId );
 		}
 
 		public static DescriptionResponse ParseDescriptionData( string userInfoData )
@@ -26,9 +26,9 @@ namespace Mntone.Nico2.Live.Description
 			return new DescriptionResponse( htmlHtml.Element( "body" ).GetElementById( "all_cover" ).GetElementById( "all" ), language );
 		}
 
-		public static Task<DescriptionResponse> GetDescriptionAsync( NiconicoContext context, string requestID )
+		public static Task<DescriptionResponse> GetDescriptionAsync( NiconicoContext context, string requestId )
 		{
-			return GetDescriptionDataAsync( context, requestID )
+			return GetDescriptionDataAsync( context, requestId )
 				.ContinueWith( prevTask => ParseDescriptionData( prevTask.Result ) );
 		}
 	}

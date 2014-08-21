@@ -28,7 +28,7 @@ namespace Mntone.Nico2.Videos.Histories
 		/// 要素の ID
 		/// </summary>
 		[DataMember( Name = "item_id" )]
-		public string ItemID { get; private set; }
+		public string ItemId { get; private set; }
 
 		/// <summary>
 		/// 長さ
@@ -67,7 +67,7 @@ namespace Mntone.Nico2.Videos.Histories
 		/// 動画 ID
 		/// </summary>
 		[DataMember( Name = "video_id" )]
-		public string ID { get; private set; }
+		public string Id { get; private set; }
 
 		/// <summary>
 		/// 閲覧数

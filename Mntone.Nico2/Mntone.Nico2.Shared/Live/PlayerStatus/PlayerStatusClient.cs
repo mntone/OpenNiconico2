@@ -11,14 +11,14 @@ namespace Mntone.Nico2.Live.PlayerStatus
 {
 	internal sealed class PlayerStatusClient
 	{
-		public static Task<string> GetPlayerStatusDataAsync( NiconicoContext context, string requestID )
+		public static Task<string> GetPlayerStatusDataAsync( NiconicoContext context, string requestId )
 		{
-			if( !NiconicoRegex.IsLiveID( requestID ) )
+			if( !NiconicoRegex.IsLiveId( requestId ) )
 			{
 				throw new ArgumentException();
 			}
 
-			return context.GetClient().GetConvertedString2Async( NiconicoUrls.LivePlayerStatustUrl + requestID );
+			return context.GetClient().GetConvertedString2Async( NiconicoUrls.LivePlayerStatustUrl + requestId );
 		}
 
 		public static PlayerStatusResponse ParsePlayerStatusData( string playerStatusData )
@@ -46,9 +46,9 @@ namespace Mntone.Nico2.Live.PlayerStatus
 			return new PlayerStatusResponse( getPlayerStatusXml );
 		}
 
-		public static Task<PlayerStatusResponse> GetPlayerStatusAsync( NiconicoContext context, string requestID )
+		public static Task<PlayerStatusResponse> GetPlayerStatusAsync( NiconicoContext context, string requestId )
 		{
-			return GetPlayerStatusDataAsync( context, requestID )
+			return GetPlayerStatusDataAsync( context, requestId )
 				.ContinueWith( prevTask => ParsePlayerStatusData( prevTask.Result ) );
 		}
 	}
