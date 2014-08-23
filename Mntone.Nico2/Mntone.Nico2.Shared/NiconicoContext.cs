@@ -317,6 +317,15 @@ namespace Mntone.Nico2
 		private Communities.CommunityApi _Community = null;
 
 		/// <summary>
+		/// ニコニコ チャンネル API 群
+		/// </summary>
+		public Channels.ChannelApi Channel
+		{
+			get { return this._Channel ?? ( this._Channel = new Channels.ChannelApi( this ) ); }
+		}
+		private Channels.ChannelApi _Channel = null;
+
+		/// <summary>
 		/// ニコニコ ユーザー API 群
 		/// </summary>
 		public Users.UserApi User

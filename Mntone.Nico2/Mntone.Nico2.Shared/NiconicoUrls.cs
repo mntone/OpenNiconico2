@@ -198,10 +198,34 @@ namespace Mntone.Nico2
 		public static string CommunityIconUrl { get { return "http://icon.nimg.jp/community/{0}/co{1}.jpg"; } }
 
 		/// <summary>
+		/// ニコニコ コミュニティー 小アイコン URL テキスト
+		/// {0}: CommunityID / 10000
+		/// {1}: CommunityID
+		/// </summary>
+		public static string CommunitySmallIconUrl { get { return "http://icon.nimg.jp/community/s/{0}/co{1}.jpg"; } }
+
+		/// <summary>
 		/// ニコニコ コミュニティー アイコン未設定 URL テキスト
 		/// </summary>
 		public static string CommunityBlankIconUrl { get { return "http://icon.nimg.jp/404.jpg"; } }
 		
+		#endregion
+
+
+		#region Channels
+
+		/// <summary>
+		/// ニコニコ チャンネル アイコン URL テキスト
+		/// {0}: ChannelID
+		/// </summary>
+		public static string ChannelIconUrl { get { return "http://icon.nimg.jp/channel/ch{0}.jpg"; } }
+
+		/// <summary>
+		/// ニコニコ チャンネル 小アイコン URL テキスト
+		/// {0}: ChannelID
+		/// </summary>
+		public static string ChannelSmallIconUrl { get { return "http://icon.nimg.jp/channel/s/ch{0}.jpg"; } }
+
 		#endregion
 
 
@@ -218,6 +242,13 @@ namespace Mntone.Nico2
 		/// {1}: UserID
 		/// </summary>
 		public static string UserIconUrl { get { return "http://usericon.nimg.jp/usericon/{0}/{1}.jpg"; } }
+
+		/// <summary>
+		/// ニコニコ ユーザー 小アイコン URL テキスト
+		/// {0}: UserID / 10000
+		/// {1}: UserID
+		/// </summary>
+		public static string UserSmallIconUrl { get { return "http://usericon.nimg.jp/usericon/s/{0}/{1}.jpg"; } }
 
 		/// <summary>
 		/// ニコニコ ユーザー アイコン未設定 URL テキスト

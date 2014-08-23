@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Mntone.Nico2.Communities
 {
 	/// <summary>
-	/// ニコニコ コミュニティーAPI 群
+	/// ニコニコ コミュニティー API 群
 	/// </summary>
 	public sealed class CommunityApi
 	{
