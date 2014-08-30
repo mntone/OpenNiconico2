@@ -18,7 +18,7 @@ namespace Mntone.Nico2.Vita.Live.OnAirPrograms
 			if( sortDirection == SortDirection.Descending )
 			{
 				sb.Append( "&order=" );
-				sb.Append( sortDirection.ToShortString() );
+				sb.Append( sortDirection.ToChar() );
 			}
 			if( type.HasValue )
 			{
