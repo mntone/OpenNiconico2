@@ -22,15 +22,7 @@ namespace Mntone.Nico2.Vita.Live.ComingSoonPrograms
 
 		public static ProgramsResponse ParseOnAirProgramsData( string comingSoonProgramsData )
 		{
-			var ret = JsonSerializerExtensions.Load<ProgramsResponseWrapper>( comingSoonProgramsData ).Response;
-			foreach( var program in ret.Programs )
-			{
-				if( program.Video.IsOfficial )
-				{
-					program.Community = null;
-				}
-			}
-			return ret;
+			return JsonSerializerExtensions.Load<ProgramsResponseWrapper>( ProgramsResponseWrapper.PatchJson2( comingSoonProgramsData ) ).Response;
 		}
 
 		public static Task<ProgramsResponse> GetOnAirProgramsAsync(

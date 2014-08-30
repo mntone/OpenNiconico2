@@ -15,7 +15,7 @@ namespace Mntone.Nico2.Vita.Live
 		/// <summary>
 		/// 生 ID
 		/// </summary>
-		[DataMember( Name = "id" )]
+		[DataMember( Name = "id", IsRequired = true )]
 		public uint RawId { get; private set; }
 
 #if DEBUG
@@ -29,13 +29,13 @@ namespace Mntone.Nico2.Vita.Live
 		/// <summary>
 		/// ID
 		/// </summary>
-		[DataMember( Name = "global_id" )]
+		[DataMember( Name = "global_id", IsRequired = true )]
 		public string Id { get; private set; }
 
 		/// <summary>
 		/// 名前
 		/// </summary>
-		[DataMember( Name = "name" )]
+		[DataMember( Name = "name", IsRequired = true )]
 		public string Name { get; private set; }
 
 		/// <summary>
@@ -55,13 +55,13 @@ namespace Mntone.Nico2.Vita.Live
 		/// <summary>
 		/// サムネール URL
 		/// </summary>
-		[DataMember( Name = "thumbnail" )]
+		[DataMember( Name = "thumbnail", IsRequired = true )]
 		public Uri ThumbnailUrl { get; private set; }
 
 		/// <summary>
 		/// 小さいサムネール URL
 		/// </summary>
-		[DataMember( Name = "thumbnail_small" )]
+		[DataMember( Name = "thumbnail_small", IsRequired = true )]
 		public Uri SmallThumbnailUrl { get; private set; }
 	}
 }

@@ -12,7 +12,7 @@ namespace Mntone.Nico2
 	{
 		public static bool ToBooleanFrom1( this string value )
 		{
-			return !string.IsNullOrEmpty( value ) && value.Length == 1 && value[0] == '1' ? true : false;
+			return value != null && value.Length == 1 && value[0] == '1' ? true : false;
 		}
 
 		public static bool ToBooleanFromString( this string value )
@@ -126,5 +126,10 @@ namespace Mntone.Nico2
 			return new HostName( value );
 		}
 #endif
+
+		public static string ToString1Or0( this bool value )
+		{
+			return value ? "1" : "0";
+		}
 	}
 }

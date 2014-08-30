@@ -16,13 +16,13 @@ namespace Mntone.Nico2.Vita.Live
 		/// <summary>
 		/// ID
 		/// </summary>
-		[DataMember( Name = "id" )]
+		[DataMember( Name = "id", IsRequired = true )]
 		public string Id { get; private set; }
 
 		/// <summary>
 		/// 題名
 		/// </summary>
-		[DataMember( Name = "title" )]
+		[DataMember( Name = "title", IsRequired = true )]
 		public string Title { get; private set; }
 
 		/// <summary>
@@ -50,7 +50,7 @@ namespace Mntone.Nico2.Vita.Live
 		public DateTimeOffset OpenedAt { get { return this._OpenedAt; } }
 		private DateTimeOffset _OpenedAt = DateTimeOffset.MinValue;
 
-		[DataMember( Name = "open_time" )]
+		[DataMember( Name = "open_time", IsRequired = true )]
 		private string OpenedAtImpl
 		{
 			get { return this._OpenedAt.ToString(); }
@@ -63,7 +63,7 @@ namespace Mntone.Nico2.Vita.Live
 		public DateTimeOffset StartedAt { get { return this._StartedAt; } }
 		private DateTimeOffset _StartedAt = DateTimeOffset.MinValue;
 
-		[DataMember( Name = "start_time" )]
+		[DataMember( Name = "start_time", IsRequired = true )]
 		private string StartedAtImpl
 		{
 			get { return this._StartedAt.ToString(); }
@@ -89,7 +89,7 @@ namespace Mntone.Nico2.Vita.Live
 		public DateTimeOffset EndedAt { get { return this._EndedAt; } }
 		private DateTimeOffset _EndedAt = DateTimeOffset.MinValue;
 
-		[DataMember( Name = "end_time" )]
+		[DataMember( Name = "end_time", IsRequired = true )]
 		private string EndedAtImpl
 		{
 			get { return this._EndedAt.ToString(); }
@@ -116,7 +116,7 @@ namespace Mntone.Nico2.Vita.Live
 		/// </summary>
 		public CommunityType CommunityType { get; private set; }
 
-		[DataMember( Name = "provider_type" )]
+		[DataMember( Name = "provider_type", IsRequired = true )]
 		private string CommunityTypeImpl
 		{
 			get { return this.CommunityType.ToCommunityTypeString(); }
@@ -163,13 +163,13 @@ namespace Mntone.Nico2.Vita.Live
 		/// <summary>
 		/// オンライン (?) のスコア基準
 		/// </summary>
-		[DataMember( Name = "hidescore_online" )]
+		[DataMember( Name = "hidescore_online", IsRequired = true )]
 		public ushort HidescoreOnline { get; private set; }
 
 		/// <summary>
 		/// コメント非表示のスコア基準
 		/// </summary>
-		[DataMember( Name = "hidescore_comment" )]
+		[DataMember( Name = "hidescore_comment", IsRequired = true )]
 		public ushort HidescoreComment { get; private set; }
 
 		/// <summary>
@@ -183,12 +183,12 @@ namespace Mntone.Nico2.Vita.Live
 		private bool _IsMemberOnly = false;
 
 		[DataMember( Name = "community_only" )]
-		private bool IsCommunityOnly
+		private string IsCommunityOnly
 		{
-			get { return this._IsMemberOnly; }
+			get { return this._IsMemberOnly.ToString1Or0(); }
 			set
 			{
-				if( value )
+				if( value.ToBooleanFrom1() )
 				{
 					this._IsMemberOnly = true;
 				}
@@ -196,12 +196,12 @@ namespace Mntone.Nico2.Vita.Live
 		}
 
 		[DataMember( Name = "channel_only" )]
-		private bool IsChannelOnly
+		private string IsChannelOnly
 		{
-			get { return this._IsMemberOnly; }
+			get { return this._IsMemberOnly.ToString1Or0(); }
 			set
 			{
-				if( value )
+				if( value.ToBooleanFrom1() )
 				{
 					this._IsMemberOnly = true;
 				}
@@ -211,13 +211,13 @@ namespace Mntone.Nico2.Vita.Live
 		/// <summary>
 		/// 閲覧数
 		/// </summary>
-		[DataMember( Name = "view_counter" )]
+		[DataMember( Name = "view_counter", IsRequired = true )]
 		public uint ViewCount { get; private set; }
 
 		/// <summary>
 		/// コメント数
 		/// </summary>
-		[DataMember( Name = "comment_count" )]
+		[DataMember( Name = "comment_count", IsRequired = true )]
 		public uint CommentCount { get; private set; }
 
 		/// <summary>
@@ -245,8 +245,14 @@ namespace Mntone.Nico2.Vita.Live
 		/// タイムシフトが有効か
 		/// </summary>
 		/// <remarks>詳細モード時のみ存在します</remarks>
-		[DataMember( Name = "_use_tsarchive" )]
 		public bool IsTimeshiftUsed { get; private set; }
+
+		[DataMember( Name = "_use_tsarchive" )]
+		private string IsTimeshiftUsedImpl
+		{
+			get { return this.IsTimeshiftUsed.ToString1Or0(); }
+			set { this.IsTimeshiftUsed = value.ToBooleanFrom1(); }
+		}
 
 		/// <summary>
 		/// タイムシフト有効開始時間
@@ -287,25 +293,37 @@ namespace Mntone.Nico2.Vita.Live
 		/// タイムシフト視聴期間に制限がないか
 		/// </summary>
 		/// <remarks>詳細モード時のみ存在します</remarks>
-		[DataMember( Name = "_ts_is_endless" )]
 		public bool IsTimeshiftEndless { get; private set; }
+
+		[DataMember( Name = "_ts_is_endless" )]
+		private string IsTimeshiftEndlessImpl
+		{
+			get { return this.IsTimeshiftEndless.ToString1Or0(); }
+			set { this.IsTimeshiftEndless = value.ToBooleanFrom1(); }
+		}
 
 		/// <summary>
 		/// タイムシフト予約数
 		/// </summary>
-		[DataMember( Name = "_ts_reserved_count" )]
+		[DataMember( Name = "_ts_reserved_count", IsRequired = true )]
 		public uint TimeshiftReservedCount { get; private set; }
 
 		/// <summary>
 		/// タイムシフトが有効か
 		/// </summary>
-		[DataMember( Name = "timeshift_enabled" )]
+		[DataMember( Name = "timeshift_enabled", IsRequired = true )]
 		public ushort TimeshiftEnabled { get; private set; }
 
 		/// <summary>
 		/// 高画質放送か
 		/// </summary>
-		[DataMember( Name = "is_hq" )]
 		public bool IsHighQuality { get; private set; }
+
+		[DataMember( Name = "is_hq", IsRequired = true )]
+		private string IsHighQualityImpl
+		{
+			get { return this.IsHighQuality.ToString1Or0(); }
+			set { this.IsHighQuality = value.ToBooleanFrom1(); }
+		}
 	}
 }

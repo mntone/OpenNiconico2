@@ -13,7 +13,7 @@ namespace Mntone.Nico2.Vita.Live
 		internal ProgramsResponse()
 		{ }
 
-		[DataMember( Name = "@status" )]
+		[DataMember( Name = "@status", IsRequired = true )]
 		private string StatusImpl
 		{
 			get { return string.Empty; }
@@ -29,11 +29,11 @@ namespace Mntone.Nico2.Vita.Live
 		/// <summary>
 		/// 番組の一覧
 		/// </summary>
-		public IReadOnlyList<ProgramInfo> Programs { get { return this._Programs ?? ( this._Programs = new List<ProgramInfo>() ); } }
+		public IReadOnlyList<ProgramInfo> Programs { get { return this._Programs; } }
 		private List<ProgramInfo> _Programs = null;
 
-		[DataMember( Name = "video_info" )]
-		private List<ProgramInfo> ProgramsImpl
+		[DataMember( Name = "video_info", IsRequired = true )]
+		internal List<ProgramInfo> ProgramsImpl
 		{
 			get { return this._Programs ?? ( this._Programs = new List<ProgramInfo>() ); }
 			set { this._Programs = value; }
@@ -50,7 +50,7 @@ namespace Mntone.Nico2.Vita.Live
 		/// <summary>
 		/// 合計番組数
 		/// </summary>
-		[DataMember( Name = "total_count" )]
+		[DataMember( Name = "total_count", IsRequired = true )]
 		public ushort TotalCount { get; set; }
 	}
 }

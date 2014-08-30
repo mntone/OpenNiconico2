@@ -21,15 +21,7 @@ namespace Mntone.Nico2.Vita.Live.Videos
 
 		public static VideosResponse ParseVideosData( string videosData )
 		{
-			var ret = JsonSerializerExtensions.Load<VideosResponseWrapper>( videosData ).Response;
-			foreach( var program in ret.Programs )
-			{
-				if( program.Video.IsOfficial )
-				{
-					program.Community = null;
-				}
-			}
-			return ret;
+			return JsonSerializerExtensions.Load<VideosResponseWrapper>( ProgramsResponseWrapper.PatchJson2( videosData ) ).Response;
 		}
 
 		public static Task<VideosResponse> GetVideosAsync( NiconicoVitaContext context, IReadOnlyList<string> requestIds )

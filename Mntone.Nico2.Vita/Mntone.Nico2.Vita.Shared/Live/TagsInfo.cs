@@ -40,11 +40,17 @@ namespace Mntone.Nico2.Vita.Live
 				get { return null; }
 				set
 				{
+					if( value == null )
+					{
+						return;
+					}
+
 					var type = value.GetType();
 					if( type == typeof( string ) )
 					{
 						this._Tag = new List<string>();
 						this._Tag.Add( ( string )value );
+						return;
 					}
 
 					if( type == typeof( object[] ) )

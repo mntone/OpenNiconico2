@@ -21,7 +21,7 @@ namespace Mntone.Nico2.Vita.Live
 		/// コミュニティー
 		/// </summary>
 		[DataMember( Name = "community" )]
-		public CommunityInfo Community { get; internal set; }
+		public CommunityInfo Community { get; private set; }
 
 		/// <summary>
 		/// タグ情報
