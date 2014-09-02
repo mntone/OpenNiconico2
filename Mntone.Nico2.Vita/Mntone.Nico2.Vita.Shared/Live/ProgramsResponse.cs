@@ -29,10 +29,10 @@ namespace Mntone.Nico2.Vita.Live
 		/// <summary>
 		/// 番組の一覧
 		/// </summary>
-		public IReadOnlyList<ProgramInfo> Programs { get { return this._Programs; } }
+		public IReadOnlyList<ProgramInfo> Programs { get { return this._Programs ?? ( this._Programs = new List<ProgramInfo>() ); } }
 		private List<ProgramInfo> _Programs = null;
 
-		[DataMember( Name = "video_info", IsRequired = true )]
+		[DataMember( Name = "video_info" )]
 		internal List<ProgramInfo> ProgramsImpl
 		{
 			get { return this._Programs ?? ( this._Programs = new List<ProgramInfo>() ); }
