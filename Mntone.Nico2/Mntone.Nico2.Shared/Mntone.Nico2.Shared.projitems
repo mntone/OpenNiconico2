@@ -24,6 +24,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Dictionaries\Summary\SummaryResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Dictionaries\WordExist\WordExistClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HtmlDocumentExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HttpClientExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Images\Illusts\BlogPartsRanking\BlogPartsRankingClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Images\Illusts\BlogPartsRanking\BlogPartsRankingResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Images\Illusts\BlogPartsRanking\DurationType.cs" />

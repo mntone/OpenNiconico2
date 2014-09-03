@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 #if WINDOWS_APP
 using Windows.Foundation;
-using Windows.Web.Http;
-using Windows.Web.Http.Filters;
-#else
-using System.Collections;
-using System.Net;
-using System.Net.Http;
 #endif
 
 namespace Mntone.Nico2
@@ -65,19 +61,11 @@ namespace Mntone.Nico2
 				this._httpClient.Dispose();
 				this._httpClient = null;
 
-#if WINDOWS_APP
-				if( this._httpBaseProtocolFilter != null )
-				{
-					this._httpBaseProtocolFilter.Dispose();
-					this._httpBaseProtocolFilter = null;
-				}
-#else
 				if( this._httpClientHandler != null )
 				{
 					this._httpClientHandler.Dispose();
 					this._httpClientHandler = null;
 				}
-#endif
 			}
 		}
 
@@ -131,50 +119,27 @@ namespace Mntone.Nico2
 				.ContinueWith( prevTask =>
 				{
 					var response = prevTask.Result;
-#if WINDOWS_APP
-					if( response.StatusCode == HttpStatusCode.Ok )
-					{
-						this.CurrentSession.AccountAuthority = ( NiconicoAccountAuthority )response.Headers[XNiconicoAuthflag].ToInt();
-#else
 					if( response.StatusCode == HttpStatusCode.OK )
 					{
 						this.CurrentSession.AccountAuthority = ( NiconicoAccountAuthority )response.Headers.GetValues( XNiconicoAuthflag ).Single().ToInt();
-#endif
 						if( this.CurrentSession.AccountAuthority != NiconicoAccountAuthority.NotSignedIn )
 						{
-#if WINDOWS_APP
-							this.CurrentSession.UserId = uint.Parse( response.Headers[XNiconicoId] );
-#else
 							this.CurrentSession.UserId = uint.Parse( response.Headers.GetValues( XNiconicoId ).Single() );
-#endif
 							try
 							{
-#if WINDOWS_APP
-								var cookie = this._httpBaseProtocolFilter
-									.CookieManager
-									.GetCookies( NiconicoCookieUrl )
-									.Where( c => c.Name == UserSessionName && c.Path == "/" )
-									.SingleOrDefault();
-								if( cookie != null && cookie.Expires.HasValue )
-								{
-									this.CurrentSession.Key = cookie.Value;
-									this.CurrentSession.Expires = cookie.Expires.Value;
-									return NiconicoSignInStatus.Success;
-								}
-#else
 								var cookie = this._httpClientHandler
 									.CookieContainer
 									.GetCookies( NiconicoCookieUrl )
 									.Cast<Cookie>()
 									.Where( c => c.Name == UserSessionName && c.Path == "/" )
-									.SingleOrDefault();
+									.OrderByDescending( c => c.Expires.Ticks )
+									.First();
 								if( cookie != null && cookie.Expires != null )
 								{
 									this.CurrentSession.Key = cookie.Value;
 									this.CurrentSession.Expires = cookie.Expires;
 									return NiconicoSignInStatus.Success;
 								}
-#endif
 							}
 							catch( InvalidOperationException )
 							{ }
@@ -216,23 +181,6 @@ namespace Mntone.Nico2
 		{
 			if( this._httpClient == null )
 			{
-#if WINDOWS_APP
-				this._httpBaseProtocolFilter = new HttpBaseProtocolFilter();
-				this._httpBaseProtocolFilter.AllowAutoRedirect = false;
-				this._httpBaseProtocolFilter.CacheControl.ReadBehavior = HttpCacheReadBehavior.MostRecent;
-				this._httpClient = new HttpClient( this._httpBaseProtocolFilter );
-				this._httpClient.DefaultRequestHeaders["user-agent"] = this._AdditionalUserAgent != null
-					? NiconicoContext.DefaultUserAgent + " (" + this._AdditionalUserAgent + ')'
-					: NiconicoContext.DefaultUserAgent;
-
-				if( this.CurrentSession != null )
-				{
-					var cookie = new HttpCookie( UserSessionName, "nicovideo.jp", "/" );
-					cookie.Value = this.CurrentSession.Key;
-					cookie.Expires = this.CurrentSession.Expires;
-					this._httpBaseProtocolFilter.CookieManager.SetCookie( cookie );
-				}
-#else
 				this._httpClientHandler = new HttpClientHandler();
 				this._httpClientHandler.AllowAutoRedirect = false;
 				this._httpClientHandler.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
@@ -250,7 +198,6 @@ namespace Mntone.Nico2
 						this.CurrentSession.Expires.ToUniversalTime().ToString() );
 					this._httpClientHandler.CookieContainer.SetCookies( NiconicoCookieUrl, cookie );
 				}
-#endif
 				else
 				{
 					this._CurrentSession = new NiconicoSession();
@@ -366,8 +313,8 @@ namespace Mntone.Nico2
 		/// </remarks>
 		public string AdditionalUserAgent
 		{
-			get { return _AdditionalUserAgent; }
-			set { _AdditionalUserAgent = value; }
+			get { return this._AdditionalUserAgent; }
+			set { this._AdditionalUserAgent = value; }
 		}
 		private string _AdditionalUserAgent = null;
 
@@ -384,11 +331,7 @@ namespace Mntone.Nico2
 		internal const string DefaultUserAgent = "OpenNiconico/2.0";
 		private readonly Uri NiconicoCookieUrl = new Uri( "http://nicovideo.jp/" );
 
-#if WINDOWS_APP
-		private HttpBaseProtocolFilter _httpBaseProtocolFilter = null;
-#else
 		private HttpClientHandler _httpClientHandler = null;
-#endif
 		private HttpClient _httpClient = null;
 
 		#endregion

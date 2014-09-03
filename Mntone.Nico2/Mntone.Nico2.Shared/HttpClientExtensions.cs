@@ -1,38 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.Foundation;
+
+#if WINDOWS_APP
+using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Storage.Streams;
-using Windows.Web.Http;
+#endif
 
 namespace Mntone.Nico2
 {
 	internal static class HttpClientExtensions
 	{
+#if WINDOWS_APP
 		public static Task<IBuffer> GetBufferAsync( this HttpClient client, string uri )
 		{
-			return client.GetBufferAsync( new Uri( uri ) ).AsTask();
+			return client
+				.GetStreamAsync( uri )
+				.ContinueWith( prevTask =>
+				{
+					var stream = prevTask.Result;
+					var byteArray = new byte[stream.Length];
+					stream.Read( byteArray, 0, ( int )stream.Length );
+					return byteArray.AsBuffer();
+				} );
 		}
-
+#else
 		public static Task<byte[]> GetByteArrayAsync( this HttpClient client, string uri )
 		{
 			return client
-				.GetInputStreamAsync( new Uri( uri ) )
-				.AsTask()
+				.GetStreamAsync( uri )
 				.ContinueWith( prevTask =>
 				{
-					var stream = prevTask.Result.AsStreamForRead();
+					var stream = prevTask.Result;
 					var ret = new byte[stream.Length];
 					stream.Read( ret, 0, ( int )stream.Length );
 					return ret;
 				} );
 		}
+#endif
 
 		public static Task<string> GetString2Async( this HttpClient client, string uri )
 		{
-			return client.GetStringAsync( new Uri( uri ) ).AsTask();
+			return client.GetStringAsync( uri );
 		}
 
 		public static Task<string> GetConvertedString2Async( this HttpClient client, string uri )
@@ -43,24 +55,23 @@ namespace Mntone.Nico2
 		public static Task<string> GetConvertedString2Async( this HttpClient client, string uri, Encoding encoding )
 		{
 			return client
-				.GetInputStreamAsync( new Uri( uri ) )
-				.AsTask()
-				.ContinueWith( buffer => new StreamReader( buffer.Result.AsStreamForRead(), encoding ).ReadToEnd() );
+				.GetStreamAsync( uri )
+				.ContinueWith( stream => new StreamReader( stream.Result, encoding ).ReadToEnd() );
 		}
 
 		public static Task<HttpResponseMessage> Post2Async( this HttpClient client, string uri, IEnumerable<KeyValuePair<string, string>> content )
 		{
-			return client.PostAsync( new Uri( uri ), new HttpFormUrlEncodedContent( content ) ).AsTask();
+			return client.PostAsync( uri, new FormUrlEncodedContent( content ) );
 		}
 
-		public static IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress> HeadAsync( this HttpClient client, Uri uri )
+		public static Task<HttpResponseMessage> HeadAsync( this HttpClient client, Uri uri )
 		{
-			return client.SendRequestAsync( new HttpRequestMessage( HttpMethod.Head, uri ) );
+			return client.SendAsync( new HttpRequestMessage( HttpMethod.Head, uri ) );
 		}
 
 		public static Task<HttpResponseMessage> Head2Async( this HttpClient client, string uri )
 		{
-			return client.HeadAsync( new Uri( uri ) ).AsTask();
+			return client.HeadAsync( new Uri( uri ) );
 		}
 	}
 }

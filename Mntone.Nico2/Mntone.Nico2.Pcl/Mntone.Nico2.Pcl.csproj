@@ -39,7 +39,6 @@
     <CodeAnalysisRuleSet>..\..\OpenNiconico2.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="HttpClientExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XmlDocumentExtensions.cs" />
   </ItemGroup>
