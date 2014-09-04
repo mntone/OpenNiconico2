@@ -163,8 +163,20 @@ namespace Mntone.Nico2.Vita.Live
 		/// <summary>
 		/// オンライン (?) のスコア基準
 		/// </summary>
-		[DataMember( Name = "hidescore_online", IsRequired = true )]
 		public ushort HidescoreOnline { get; private set; }
+
+		[DataMember( Name = "hidescore_online", IsRequired = true )]
+		public string HidescoreOnlineImpl
+		{
+			get { return this.HidescoreOnline.ToString(); }
+			set
+			{
+				if( !string.IsNullOrEmpty( value ) )
+				{
+					this.HidescoreOnline = value.ToUShort();
+				}
+			}
+		}
 
 		/// <summary>
 		/// コメント非表示のスコア基準
