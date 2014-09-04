@@ -195,7 +195,7 @@ namespace Mntone.Nico2
 						"{0}={1}; expires={2}",
 						UserSessionName,
 						this.CurrentSession.Key,
-						this.CurrentSession.Expires.ToUniversalTime().ToString() );
+						this.CurrentSession.Expires.ToUniversalTime().ToString( "ddd, dd-MMM-yyyy HH:mm:ss' GMT'", System.Globalization.CultureInfo.InvariantCulture ) );
 					this._httpClientHandler.CookieContainer.SetCookies( NiconicoCookieUrl, cookie );
 				}
 				else
