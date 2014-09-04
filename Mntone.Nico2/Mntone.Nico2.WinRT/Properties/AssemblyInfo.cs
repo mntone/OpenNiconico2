@@ -12,8 +12,8 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyCulture( "" )]
 [assembly: NeutralResourcesLanguage( "ja" )]
 
-[assembly: AssemblyVersion( "1.9.0.0" )]
-[assembly: AssemblyFileVersion( "1.9.0.0" )]
+[assembly: AssemblyVersion( "1.9.1.0" )]
+[assembly: AssemblyFileVersion( "1.9.1.0" )]
 
 [assembly: InternalsVisibleTo( "Mntone.Nico2.Vita" )]
 #if DEBUG
