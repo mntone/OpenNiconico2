@@ -20,7 +20,7 @@ namespace Mntone.Nico2.Live.PlayerStatus
 #endif
 		{
 			Name = userXml.GetNamedChildNodeText( "room_label" );
-			SeatId = userXml.GetNamedChildNodeText( "room_seetno" ).ToUShort();
+			SeatId = userXml.GetNamedChildNodeText( "room_seetno" ).ToUInt();
 
 			SeatToken = userXml.GetNamedChildNodeText( "seat_token" );
 		}
@@ -33,7 +33,7 @@ namespace Mntone.Nico2.Live.PlayerStatus
 		/// <summary>
 		/// 席番号
 		/// </summary>
-		public ushort SeatId { get; private set; }
+		public uint SeatId { get; private set; }
 
 		/// <summary>
 		/// 座席のトークン
