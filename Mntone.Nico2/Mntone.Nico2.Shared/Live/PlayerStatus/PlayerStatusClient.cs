@@ -33,14 +33,36 @@ namespace Mntone.Nico2.Live.PlayerStatus
 			var getPlayerStatusXml = xml.GetDocumentRootNode();
 			if( getPlayerStatusXml.GetName() != "getplayerstatus" )
 			{
-				throw new Exception( "Parse Error: Node name is invalid." );
+				throw new ParseException( "Parse Error: Node name is invalid." );
 			}
 
 			if( getPlayerStatusXml.GetNamedAttributeText( "status" ) != "ok" )
 			{
 				var error = getPlayerStatusXml.GetFirstChildNode();
 				var code = error.GetNamedChildNodeText( "code" );
-				throw new Exception( "Parse Error: " + code );
+				switch( code )
+				{
+				case "not_found":
+					throw CustomExceptionFactory.Create( NiconicoHResult.E_LIVE_NOT_FOUND );
+
+				case "closed":
+					throw CustomExceptionFactory.Create( NiconicoHResult.E_LIVE_CLOSED );
+
+				case "maintenance":
+					throw CustomExceptionFactory.Create( NiconicoHResult.E_LIVE_MAINTENANCE );
+
+				case "require_community_member":
+					throw CustomExceptionFactory.Create( NiconicoHResult.E_LIVE_COMMUNITY_MEMBER_ONLY );
+
+				case "full":
+					throw CustomExceptionFactory.Create( NiconicoHResult.E_LIVE_FULL );
+
+				case "premium_only":
+					throw CustomExceptionFactory.Create( NiconicoHResult.E_LIVE_PREMIUM_ONLY );
+
+				default:
+					throw CustomExceptionFactory.Create( NiconicoHResult.E_LIVE_UNKNOWN );
+				}
 			}
 
 			return new PlayerStatusResponse( getPlayerStatusXml );
