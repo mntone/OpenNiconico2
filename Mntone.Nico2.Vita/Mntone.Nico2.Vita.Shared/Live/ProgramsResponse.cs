@@ -21,7 +21,11 @@ namespace Mntone.Nico2.Vita.Live
 			{
 				if( value != "ok" )
 				{
-					throw new Exception( "Parse Error." );
+					if( value == "maintenance" )
+					{
+						throw CustomExceptionFactory.Create( NiconicoHResult.E_MAINTENANCE );
+					}
+					throw new ParseException();
 				}
 			}
 		}

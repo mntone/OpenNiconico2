@@ -49,7 +49,7 @@ namespace Mntone.Nico2.Live.PlayerStatus
 					throw CustomExceptionFactory.Create( NiconicoHResult.E_LIVE_CLOSED );
 
 				case "maintenance":
-					throw CustomExceptionFactory.Create( NiconicoHResult.E_LIVE_MAINTENANCE );
+					throw CustomExceptionFactory.Create( NiconicoHResult.E_MAINTENANCE );
 
 				case "require_community_member":
 					throw CustomExceptionFactory.Create( NiconicoHResult.E_LIVE_COMMUNITY_MEMBER_ONLY );
@@ -59,6 +59,9 @@ namespace Mntone.Nico2.Live.PlayerStatus
 
 				case "premium_only":
 					throw CustomExceptionFactory.Create( NiconicoHResult.E_LIVE_PREMIUM_ONLY );
+
+				case "notlogin":
+					throw CustomExceptionFactory.Create( NiconicoHResult.E_NOT_SIGNING_IN );
 
 				default:
 					throw CustomExceptionFactory.Create( NiconicoHResult.E_LIVE_UNKNOWN );

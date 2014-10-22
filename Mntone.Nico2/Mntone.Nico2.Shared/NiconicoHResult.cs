@@ -16,6 +16,27 @@ namespace Mntone.Nico2
 	/// </remarks>
 	public sealed class NiconicoHResult
 	{
+		private NiconicoHResult()
+		{ }
+
+		/// <summary>
+		/// ログインしていない
+		/// </summary>
+		public static int ENotSigningIn
+		{
+			get { return E_NOT_SIGNING_IN; }
+		}
+		internal const int E_NOT_SIGNING_IN = unchecked( ( int )0xc0040000 );
+
+		/// <summary>
+		/// メンテナンス中
+		/// </summary>
+		public static int EMaintenance
+		{
+			get { return E_MAINTENANCE; }
+		}
+		internal const int E_MAINTENANCE = unchecked( ( int )0xc0040001 );
+
 		/// <summary>
 		/// パース失敗
 		/// </summary>
@@ -23,7 +44,7 @@ namespace Mntone.Nico2
 		{
 			get { return E_PARSE; }
 		}
-		internal const int E_PARSE = unchecked( ( int )0xc0040000 );
+		internal const int E_PARSE = unchecked( ( int )0xc0040002 );
 
 		/// <summary>
 		/// 不明な生放送のエラー
@@ -51,15 +72,6 @@ namespace Mntone.Nico2
 			get { return E_LIVE_CLOSED; }
 		}
 		internal const int E_LIVE_CLOSED = unchecked( ( int )0xc0042002 );
-
-		/// <summary>
-		/// メンテナンス中
-		/// </summary>
-		public static int ELiveMaintenance
-		{
-			get { return E_LIVE_MAINTENANCE; }
-		}
-		internal const int E_LIVE_MAINTENANCE = unchecked( ( int )0xc0042003 );
 
 		/// <summary>
 		/// コミュニティー限定
