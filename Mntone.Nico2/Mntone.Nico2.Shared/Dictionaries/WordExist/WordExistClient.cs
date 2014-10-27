@@ -7,7 +7,7 @@ namespace Mntone.Nico2.Dictionaries.WordExist
 	{
 		public static Task<string> WordExistDataAsync( NiconicoContext context, string targetWord )
 		{
-			return context.GetClient().GetString2Async( NiconicoUrls.DictionaryWordExistUrl + Uri.EscapeUriString( targetWord ) );
+			return context.GetClient().GetStringAsync( NiconicoUrls.DictionaryWordExistUrl + Uri.EscapeUriString( targetWord ) );
 		}
 
 		public static bool ParseWordExistData( string wordExistData )

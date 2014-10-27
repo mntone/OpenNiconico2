@@ -15,7 +15,7 @@ namespace Mntone.Nico2.Live.Reservations
 	{
 		public static Task<string> GetReservationsDataAsync( NiconicoContext context )
 		{
-			return context.GetClient().GetString2Async( NiconicoUrls.LiveWatchingReservationListUrl );
+			return context.GetClient().GetStringAsync( NiconicoUrls.LiveWatchingReservationListUrl );
 		}
 
 		public static IReadOnlyList<string> ParseReservationsData( string reservationsInDatailData )

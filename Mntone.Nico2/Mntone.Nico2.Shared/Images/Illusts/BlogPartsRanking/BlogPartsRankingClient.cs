@@ -14,7 +14,7 @@ namespace Mntone.Nico2.Images.Illusts.BlogPartsRanking
 		public static Task<string> GetRankingDataAsync(
 			NiconicoContext context, DurationType targetDuration, GenreOrCategory targetGenreOrCategory )
 		{
-			return context.GetClient().GetString2Async(
+			return context.GetClient().GetStringAsync(
 				NiconicoUrls.ImageBlogPartsUrl
 				+ "ranking&key=" + targetDuration.ToDurationTypeString()
 				+ "%2c" + targetGenreOrCategory.ToGenreAndCategoryString() );

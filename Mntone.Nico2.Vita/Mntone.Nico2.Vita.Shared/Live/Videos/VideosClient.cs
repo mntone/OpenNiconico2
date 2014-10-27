@@ -16,7 +16,7 @@ namespace Mntone.Nico2.Vita.Live.Videos
 				}
 			}
 
-			return context.GetClient().GetString2Async( NiconicoUrls.VideosUrl + string.Join( ",", requestIds ) );
+			return context.GetClient().GetStringWithoutHttpRequestExceptionAsync( NiconicoUrls.VideosUrl + string.Join( ",", requestIds ) );
 		}
 
 		public static VideosResponse ParseVideosData( string videosData )

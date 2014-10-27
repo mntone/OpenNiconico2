@@ -12,7 +12,7 @@ namespace Mntone.Nico2.Vita.Live.Video
 				throw new ArgumentException();
 			}
 
-			return context.GetClient().GetString2Async( NiconicoUrls.VideoUrl + requestId );
+			return context.GetClient().GetStringWithoutHttpRequestExceptionAsync( NiconicoUrls.VideoUrl + requestId );
 		}
 
 		public static VideoResponse ParseVideoData( string videoData )

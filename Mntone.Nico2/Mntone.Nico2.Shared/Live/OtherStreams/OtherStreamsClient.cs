@@ -7,7 +7,7 @@ namespace Mntone.Nico2.Live.OtherStreams
 		public static Task<string> GetOtherStreamsDataAsync(
 			NiconicoContext context, StatusType status, ushort pageIndex )
 		{
-			return context.GetClient().GetString2Async( pageIndex > 1
+			return context.GetClient().GetStringAsync( pageIndex > 1
 				? NiconicoUrls.LiveIndexZeroStreamListUrl + status.ToStatusTypeString() + "&zpage=" + pageIndex
 				: NiconicoUrls.LiveIndexZeroStreamListUrl + status.ToStatusTypeString() );
 		}

@@ -17,7 +17,7 @@ namespace Mntone.Nico2.Vita.Live.ComingSoonPrograms
 			sb.Append( range.ToFromLimitString() );
 			sb.Append( "&pt=" );
 			sb.Append( type.ToCommunityTypeString() );
-			return context.GetClient().GetString2Async( sb.ToString() );
+			return context.GetClient().GetStringWithoutHttpRequestExceptionAsync( sb.ToString() );
 		}
 
 		public static ProgramsResponse ParseOnAirProgramsData( string comingSoonProgramsData )

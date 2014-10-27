@@ -7,7 +7,7 @@ namespace Mntone.Nico2.Users.Info
 	{
 		public static Task<string> GetInfoDataAsync( NiconicoContext context )
 		{
-			return context.GetClient().GetConvertedString2Async( NiconicoUrls.UserPageUrl );
+			return context.GetClient().GetConvertedStringAsync( NiconicoUrls.UserPageUrl );
 		}
 
 		public static InfoResponse ParseInfoData( string userInfoData )

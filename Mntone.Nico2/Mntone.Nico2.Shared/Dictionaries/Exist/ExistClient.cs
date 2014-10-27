@@ -7,7 +7,7 @@ namespace Mntone.Nico2.Dictionaries.Exist
 	{
 		public static Task<string> ExistDataAsync( NiconicoContext context, Category targetCategory, string targetWord )
 		{
-			return context.GetClient().GetString2Async(
+			return context.GetClient().GetStringAsync(
 				NiconicoUrls.DictionaryExistUrl + targetCategory.ToCategoryChar() + '/' + Uri.EscapeUriString( targetWord ) );
 		}
 

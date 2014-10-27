@@ -6,7 +6,7 @@ namespace Mntone.Nico2.Dictionaries.Recent
 	{
 		public static Task<string> GetRecentDataAsync( NiconicoContext context )
 		{
-			return context.GetClient().GetString2Async( NiconicoUrls.DictionaryRecentUrl );
+			return context.GetClient().GetStringAsync( NiconicoUrls.DictionaryRecentUrl );
 		}
 
 		public static RecentResponse ParseRecentData( string recentData )

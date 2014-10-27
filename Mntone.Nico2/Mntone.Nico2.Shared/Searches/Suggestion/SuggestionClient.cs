@@ -9,7 +9,7 @@ namespace Mntone.Nico2.Searches.Suggestion
 		{
 			return context
 				.GetClient()
-				.GetConvertedString2Async( NiconicoUrls.SearchSuggestionUrl + Uri.EscapeUriString( targetWord ) );
+				.GetConvertedStringAsync( NiconicoUrls.SearchSuggestionUrl + Uri.EscapeUriString( targetWord ) );
 		}
 
 		public static SuggestionResponse ParseSuggestionData( string suggestionData )

@@ -13,12 +13,12 @@ namespace Mntone.Nico2.Images.Illusts.BlogParts
 	{
 		public static Task<string> GetClipDataAsync( NiconicoContext context, uint requestClipId )
 		{
-			return context.GetClient().GetString2Async( NiconicoUrls.ImageBlogPartsUrl + "clip&key=" + requestClipId );
+			return context.GetClient().GetStringAsync( NiconicoUrls.ImageBlogPartsUrl + "clip&key=" + requestClipId );
 		}
 
 		public static Task<string> GetUserDataAsync( NiconicoContext context, uint requestUserId )
 		{
-			return context.GetClient().GetString2Async( NiconicoUrls.ImageBlogPartsUrl + "user&key=" + requestUserId );
+			return context.GetClient().GetStringAsync( NiconicoUrls.ImageBlogPartsUrl + "user&key=" + requestUserId );
 		}
 
 		public static BlogPartsResponse ParseBlogPartsData( string blogPartsData )

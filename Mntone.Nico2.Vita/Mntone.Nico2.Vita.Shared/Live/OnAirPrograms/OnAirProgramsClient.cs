@@ -30,7 +30,8 @@ namespace Mntone.Nico2.Vita.Live.OnAirPrograms
 				sb.Append( "&sort=" );
 				sb.Append( sortType.ToSortTypeString() );
 			}
-			return context.GetClient().GetString2Async( sb.ToString() );
+
+			return context.GetClient().GetStringWithoutHttpRequestExceptionAsync( sb.ToString() );
 		}
 
 		public static ProgramsResponse ParseOnAirProgramsData( string onAirProgramsData )

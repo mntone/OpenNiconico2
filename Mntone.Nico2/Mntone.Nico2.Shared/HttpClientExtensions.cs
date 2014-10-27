@@ -42,17 +42,20 @@ namespace Mntone.Nico2
 		}
 #endif
 
-		public static Task<string> GetString2Async( this HttpClient client, string uri )
+		public static Task<string> GetStringWithoutHttpRequestExceptionAsync( this HttpClient client, string uri )
 		{
-			return client.GetStringAsync( uri );
+			return client
+				.SendAsync( new HttpRequestMessage( HttpMethod.Get, uri ) )
+				.ContinueWith( prevTask => prevTask.Result.Content.ReadAsStringAsync() )
+				.Unwrap();
 		}
 
-		public static Task<string> GetConvertedString2Async( this HttpClient client, string uri )
+		public static Task<string> GetConvertedStringAsync( this HttpClient client, string uri )
 		{
-			return client.GetConvertedString2Async( uri, Encoding.UTF8 );
+			return client.GetConvertedStringAsync( uri, Encoding.UTF8 );
 		}
 
-		public static Task<string> GetConvertedString2Async( this HttpClient client, string uri, Encoding encoding )
+		public static Task<string> GetConvertedStringAsync( this HttpClient client, string uri, Encoding encoding )
 		{
 			return client
 				.GetStreamAsync( uri )

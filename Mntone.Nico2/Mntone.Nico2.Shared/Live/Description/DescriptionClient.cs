@@ -13,7 +13,7 @@ namespace Mntone.Nico2.Live.Description
 				throw new ArgumentException();
 			}
 
-			return context.GetClient().GetConvertedString2Async( NiconicoUrls.LiveGatePageUrl + requestId );
+			return context.GetClient().GetConvertedStringAsync( NiconicoUrls.LiveGatePageUrl + requestId );
 		}
 
 		public static DescriptionResponse ParseDescriptionData( string userInfoData )

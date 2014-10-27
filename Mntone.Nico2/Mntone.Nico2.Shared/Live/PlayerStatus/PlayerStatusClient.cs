@@ -18,7 +18,7 @@ namespace Mntone.Nico2.Live.PlayerStatus
 				throw new ArgumentException();
 			}
 
-			return context.GetClient().GetConvertedString2Async( NiconicoUrls.LivePlayerStatustUrl + requestId );
+			return context.GetClient().GetConvertedStringAsync( NiconicoUrls.LivePlayerStatustUrl + requestId );
 		}
 
 		public static PlayerStatusResponse ParsePlayerStatusData( string playerStatusData )

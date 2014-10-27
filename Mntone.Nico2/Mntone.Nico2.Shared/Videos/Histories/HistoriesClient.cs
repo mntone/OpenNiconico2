@@ -6,7 +6,7 @@ namespace Mntone.Nico2.Videos.Histories
 	{
 		public static Task<string> GetHistoriesDataAsync( NiconicoContext context )
 		{
-			return context.GetClient().GetString2Async( NiconicoUrls.VideoHistoryUrl );
+			return context.GetClient().GetStringAsync( NiconicoUrls.VideoHistoryUrl );
 		}
 
 		public static HistoriesResponse ParseHistoriesData( string historiesData )

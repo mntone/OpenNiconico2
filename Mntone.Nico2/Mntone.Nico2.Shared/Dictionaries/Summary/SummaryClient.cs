@@ -7,7 +7,7 @@ namespace Mntone.Nico2.Dictionaries.Summary
 	{
 		public static Task<string> GetSummaryDataAsync( NiconicoContext context, string targetWord )
 		{
-			return context.GetClient().GetString2Async( NiconicoUrls.DictionarySummarytUrl + Uri.EscapeUriString( targetWord ) );
+			return context.GetClient().GetStringAsync( NiconicoUrls.DictionarySummarytUrl + Uri.EscapeUriString( targetWord ) );
 		}
 
 		public static SummaryResponse ParseSummaryData( string summaryData )
