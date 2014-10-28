@@ -84,9 +84,10 @@ namespace Mntone.Nico2
 		public static string LiveGatePageUrl { get { return LiveUrlBase + "gate/"; } }
 
 		internal static string LiveCKeyUrl { get { return LiveApiUrlBase + "getckey"; } }
-		internal static string LivePlayerStatustUrl { get { return LiveApiUrlBase + "getplayerstatus/"; } }
+		internal static string LivePlayerStatusUrl { get { return LiveApiUrlBase + "getplayerstatus/"; } }
 		internal static string LiveHeartbeatUrl { get { return LiveApiUrlBase + "heartbeat"; } }
 		internal static string LiveLeaveUrl { get { return LiveApiUrlBase + "leave"; } }
+		internal static string LiveTagRevisionUrl { get { return LiveApiUrlBase + "tagrev/"; } }
 		internal static string LiveZappingListIndexUrl { get { return LiveApiUrlBase + "getzappinglist?zroute=index"; } }
 		internal static string LiveZappingListRecentUrl { get { return LiveApiUrlBase + "getzappinglist?zroute=recent"; } }
 		internal static string LiveIndexZeroStreamListUrl { get { return LiveApiUrlBase + "getindexzerostreamlist?status="; } }

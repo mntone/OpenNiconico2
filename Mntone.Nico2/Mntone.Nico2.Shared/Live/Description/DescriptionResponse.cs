@@ -1,5 +1,6 @@
 ﻿using HtmlAgilityPack;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Mntone.Nico2.Live.Description
@@ -42,6 +43,25 @@ namespace Mntone.Nico2.Live.Description
 				var bgmHtml = leBoxHtml.GetElementByClassName( "bgm" ).GetElementByClassName( "text_area" );
 				this.Description = bgmHtml.InnerHtml;
 			}
+
+			{
+				var tableHtml = leBoxHtml.GetElementById( "livetags" ).GetElementByTagName( "table" );
+				var tbodyHtml = tableHtml.GetElementByTagName( "tbody" );
+				var trHtml = tbodyHtml != null ? tbodyHtml.GetElementByTagName( "tr" ) : tableHtml.GetElementByTagName( "tr" );
+				this._Tags = trHtml
+					.GetElementsByTagName( "td" ).Last()
+					.GetElementsByTagName( "nobr" )
+					.Select( child =>
+					{
+						var imgTag = child.GetElementByTagName( "img" );
+						var isCategoryTag = imgTag != null ? imgTag.GetAttributeValue( "src", string.Empty ) == "img/watch/icon_ctgry/ja-jp.gif" : false;
+						var value = child.GetElementByClassName( "nicopedia" ).InnerText.Trim( new char[] { ' ', '\t', '\n' } );
+						var countText = child.GetElementByClassName( "npit" ).InnerText;
+						var count = !string.IsNullOrEmpty( countText ) ? countText.Substring( 1, countText.Length - 2 ).ToUShort() : ( ushort )0u;
+						return new Tags.TagInfo( isCategoryTag, value, count );
+					} )
+					.ToList();
+			}
 		}
 
 		/// <summary>
@@ -68,5 +88,11 @@ namespace Mntone.Nico2.Live.Description
 		/// 開場時間
 		/// </summary>
 		public DateTimeOffset OpenedAt { get; private set; }
+
+		/// <summary>
+		/// タグ 一覧
+		/// </summary>
+		public IReadOnlyList<Tags.TagInfo> Tags { get { return this._Tags; } }
+		private List<Tags.TagInfo> _Tags = null;
 	}
 }

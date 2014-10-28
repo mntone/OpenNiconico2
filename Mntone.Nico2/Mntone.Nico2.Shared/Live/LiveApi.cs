@@ -30,12 +30,12 @@ namespace Mntone.Nico2.Live
 #if WINDOWS_APP
 		public IAsyncOperation<string> GetCKeyAsync( string refererId, string requestId )
 		{
-			return CKey.CKeyClient.GetCKeyAsync( _context, refererId, requestId ).AsAsyncOperation();
+			return CKey.CKeyClient.GetCKeyAsync( this._context, refererId, requestId ).AsAsyncOperation();
 		}
 #else
 		public Task<string> GetCKeyAsync( string refererId, string requestId )
 		{
-			return CKey.CKeyClient.GetCKeyAsync( _context, refererId, requestId );
+			return CKey.CKeyClient.GetCKeyAsync( this._context, refererId, requestId );
 		}
 #endif
 
@@ -47,12 +47,12 @@ namespace Mntone.Nico2.Live
 #if WINDOWS_APP
 		public IAsyncOperation<Description.DescriptionResponse> GetDescriptionAsync( string requestId )
 		{
-			return Description.DescriptionClient.GetDescriptionAsync( _context, requestId ).AsAsyncOperation();
+			return Description.DescriptionClient.GetDescriptionAsync( this._context, requestId ).AsAsyncOperation();
 		}
 #else
 		public Task<Description.DescriptionResponse> GetDescriptionAsync( string requestId )
 		{
-			return Description.DescriptionClient.GetDescriptionAsync( _context, requestId );
+			return Description.DescriptionClient.GetDescriptionAsync( this._context, requestId );
 		}
 #endif
 
@@ -64,12 +64,12 @@ namespace Mntone.Nico2.Live
 #if WINDOWS_APP
 		public IAsyncOperation<Heartbeat.HeartbeatResponse> HeartbeatAsync( string requestId )
 		{
-			return Heartbeat.HeartbeatClient.HeartbeatAsync( _context, requestId ).AsAsyncOperation();
+			return Heartbeat.HeartbeatClient.HeartbeatAsync( this._context, requestId ).AsAsyncOperation();
 		}
 #else
 		public Task<Heartbeat.HeartbeatResponse> HeartbeatAsync( string requestId )
 		{
-			return Heartbeat.HeartbeatClient.HeartbeatAsync( _context, requestId );
+			return Heartbeat.HeartbeatClient.HeartbeatAsync( this._context, requestId );
 		}
 #endif
 
@@ -81,12 +81,12 @@ namespace Mntone.Nico2.Live
 #if WINDOWS_APP
 		public IAsyncOperation<PlayerStatus.PlayerStatusResponse> GetPlayerStatusAsync( string requestId )
 		{
-			return PlayerStatus.PlayerStatusClient.GetPlayerStatusAsync( _context, requestId ).AsAsyncOperation();
+			return PlayerStatus.PlayerStatusClient.GetPlayerStatusAsync( this._context, requestId ).AsAsyncOperation();
 		}
 #else
 		public Task<PlayerStatus.PlayerStatusResponse> GetPlayerStatusAsync( string requestId )
 		{
-			return PlayerStatus.PlayerStatusClient.GetPlayerStatusAsync( _context, requestId );
+			return PlayerStatus.PlayerStatusClient.GetPlayerStatusAsync( this._context, requestId );
 		}
 #endif
 
@@ -98,12 +98,12 @@ namespace Mntone.Nico2.Live
 #if WINDOWS_APP
 		public IAsyncOperation<bool> LeaveAsync( string requestId )
 		{
-			return Leave.LeaveClient.LeaveAsync( _context, requestId ).AsAsyncOperation();
+			return Leave.LeaveClient.LeaveAsync( this._context, requestId ).AsAsyncOperation();
 		}
 #else
 		public Task<bool> LeaveAsync( string requestId )
 		{
-			return Leave.LeaveClient.LeaveAsync( _context, requestId );
+			return Leave.LeaveClient.LeaveAsync( this._context, requestId );
 		}
 #endif
 
@@ -115,12 +115,12 @@ namespace Mntone.Nico2.Live
 		[Overload( "GetOnAirStreamsIndexAsync" )]
 		public IAsyncOperation<OnAirStreams.OnAirStreamsResponse> GetOnAirStreamsIndexAsync()
 		{
-			return OnAirStreams.OnAirStreamsClient.GetOnAirStreamsIndexAsync( _context ).AsAsyncOperation();
+			return OnAirStreams.OnAirStreamsClient.GetOnAirStreamsIndexAsync( this._context ).AsAsyncOperation();
 		}
 #else
 		public Task<OnAirStreams.OnAirStreamsResponse> GetOnAirStreamsIndexAsync()
 		{
-			return OnAirStreams.OnAirStreamsClient.GetOnAirStreamsIndexAsync( _context );
+			return OnAirStreams.OnAirStreamsClient.GetOnAirStreamsIndexAsync( this._context );
 		}
 #endif
 
@@ -133,12 +133,12 @@ namespace Mntone.Nico2.Live
 		[Overload( "GetOnAirStreamsIndexWithPageIndexAsync" )]
 		public IAsyncOperation<OnAirStreams.OnAirStreamsResponse> GetOnAirStreamsIndexAsync( ushort pageIndex )
 		{
-			return OnAirStreams.OnAirStreamsClient.GetOnAirStreamsIndexAsync( _context, pageIndex ).AsAsyncOperation();
+			return OnAirStreams.OnAirStreamsClient.GetOnAirStreamsIndexAsync( this._context, pageIndex ).AsAsyncOperation();
 		}
 #else
 		public Task<OnAirStreams.OnAirStreamsResponse> GetOnAirStreamsIndexAsync( ushort pageIndex )
 		{
-			return OnAirStreams.OnAirStreamsClient.GetOnAirStreamsIndexAsync( _context, pageIndex );
+			return OnAirStreams.OnAirStreamsClient.GetOnAirStreamsIndexAsync( this._context, pageIndex );
 		}
 #endif
 
@@ -152,12 +152,12 @@ namespace Mntone.Nico2.Live
 		[Overload( "GetOnAirStreamsRecentAsync" )]
 		public IAsyncOperation<OnAirStreams.OnAirStreamsResponse> GetOnAirStreamsRecentAsync( ushort pageIndex, Category category )
 		{
-			return OnAirStreams.OnAirStreamsClient.GetOnAirStreamsRecentAsync( _context, pageIndex, category ).AsAsyncOperation();
+			return OnAirStreams.OnAirStreamsClient.GetOnAirStreamsRecentAsync( this._context, pageIndex, category ).AsAsyncOperation();
 		}
 #else
 		public Task<OnAirStreams.OnAirStreamsResponse> GetOnAirStreamsRecentAsync( ushort pageIndex, Category category )
 		{
-			return OnAirStreams.OnAirStreamsClient.GetOnAirStreamsRecentAsync( _context, pageIndex, category );
+			return OnAirStreams.OnAirStreamsClient.GetOnAirStreamsRecentAsync( this._context, pageIndex, category );
 		}
 #endif
 
@@ -174,13 +174,13 @@ namespace Mntone.Nico2.Live
 		public IAsyncOperation<OnAirStreams.OnAirStreamsResponse> GetOnAirStreamsRecentAsync(
 			ushort pageIndex, Category category, SortDirection direction, SortType type )
 		{
-			return OnAirStreams.OnAirStreamsClient.GetOnAirStreamsRecentAsync( _context, pageIndex, category, direction, type ).AsAsyncOperation();
+			return OnAirStreams.OnAirStreamsClient.GetOnAirStreamsRecentAsync( this._context, pageIndex, category, direction, type ).AsAsyncOperation();
 		}
 #else
 		public Task<OnAirStreams.OnAirStreamsResponse> GetOnAirStreamsRecentAsync(
 			ushort pageIndex, Category category, SortDirection direction, SortType type )
 		{
-			return OnAirStreams.OnAirStreamsClient.GetOnAirStreamsRecentAsync( _context, pageIndex, category, direction, type );
+			return OnAirStreams.OnAirStreamsClient.GetOnAirStreamsRecentAsync( this._context, pageIndex, category, direction, type );
 		}
 #endif
 
@@ -193,12 +193,12 @@ namespace Mntone.Nico2.Live
 		[Overload( "GetOtherStreamsAsync" )]
 		public IAsyncOperation<OtherStreams.OtherStreamsResponse> GetOtherStreamsAsync( StatusType status )
 		{
-			return OtherStreams.OtherStreamsClient.GetOtherStreamsAsync( _context, status, 1 ).AsAsyncOperation();
+			return OtherStreams.OtherStreamsClient.GetOtherStreamsAsync( this._context, status, 1 ).AsAsyncOperation();
 		}
 #else
 		public Task<OtherStreams.OtherStreamsResponse> GetOtherStreamsAsync( StatusType status )
 		{
-			return OtherStreams.OtherStreamsClient.GetOtherStreamsAsync( _context, status, 1 );
+			return OtherStreams.OtherStreamsClient.GetOtherStreamsAsync( this._context, status, 1 );
 		}
 #endif
 
@@ -212,12 +212,12 @@ namespace Mntone.Nico2.Live
 		[Overload( "GetOtherStreamsWithPageIndexAsync" )]
 		public IAsyncOperation<OtherStreams.OtherStreamsResponse> GetOtherStreamsAsync( StatusType status, ushort pageIndex )
 		{
-			return OtherStreams.OtherStreamsClient.GetOtherStreamsAsync( _context, status, pageIndex ).AsAsyncOperation();
+			return OtherStreams.OtherStreamsClient.GetOtherStreamsAsync( this._context, status, pageIndex ).AsAsyncOperation();
 		}
 #else
 		public Task<OtherStreams.OtherStreamsResponse> GetOtherStreamsAsync( StatusType status, ushort pageIndex )
 		{
-			return OtherStreams.OtherStreamsClient.GetOtherStreamsAsync( _context, status, pageIndex );
+			return OtherStreams.OtherStreamsClient.GetOtherStreamsAsync( this._context, status, pageIndex );
 		}
 #endif
 
@@ -228,12 +228,12 @@ namespace Mntone.Nico2.Live
 #if WINDOWS_APP
 		public IAsyncOperation<IReadOnlyList<string>> GetReservationsAsync()
 		{
-			return Reservations.ReservationsClient.GetReservationsAsync( _context ).AsAsyncOperation();
+			return Reservations.ReservationsClient.GetReservationsAsync( this._context ).AsAsyncOperation();
 		}
 #else
 		public Task<IReadOnlyList<string>> GetReservationsAsync()
 		{
-			return Reservations.ReservationsClient.GetReservationsAsync( _context );
+			return Reservations.ReservationsClient.GetReservationsAsync( this._context );
 		}
 #endif
 
@@ -244,12 +244,44 @@ namespace Mntone.Nico2.Live
 #if WINDOWS_APP
 		public IAsyncOperation<ReservationsInDetail.ReservationsInDetailResponse> GetReservationsInDetailAsync()
 		{
-			return ReservationsInDetail.ReservationsInDetailClient.GetReservationsInDetailAsync( _context ).AsAsyncOperation();
+			return ReservationsInDetail.ReservationsInDetailClient.GetReservationsInDetailAsync( this._context ).AsAsyncOperation();
 		}
 #else
 		public Task<ReservationsInDetail.ReservationsInDetailResponse> GetReservationsInDetailAsync()
 		{
-			return ReservationsInDetail.ReservationsInDetailClient.GetReservationsInDetailAsync( _context );
+			return ReservationsInDetail.ReservationsInDetailClient.GetReservationsInDetailAsync( this._context );
+		}
+#endif
+
+		/// <summary>
+		/// 非同期操作としてタグ リビジョンを取得します
+		/// </summary>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+#if WINDOWS_APP
+		public IAsyncOperation<ushort> GetTagRevisionAsync( string requestId )
+		{
+			return TagRevision.TagRevisionClient.GetTagRevisionAsync( this._context, requestId ).AsAsyncOperation();
+		}
+#else
+		public Task<ushort> GetTagRevisionAsync( string requestId )
+		{
+			return TagRevision.TagRevisionClient.GetTagRevisionAsync( this._context, requestId );
+		}
+#endif
+
+		/// <summary>
+		/// 非同期操作としてタグの内容を取得します
+		/// </summary>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+#if WINDOWS_APP
+		public IAsyncOperation<Tags.TagsResponse> GetTagsAsync( string requestId )
+		{
+			return Tags.TagsClient.GetTagsAsync( this._context, requestId ).AsAsyncOperation();
+		}
+#else
+		public Task<Tags.TagsResponse> GetTagsAsync( string requestId )
+		{
+			return Tags.TagsClient.GetTagsAsync( this._context, requestId );
 		}
 #endif
 

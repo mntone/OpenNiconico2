@@ -97,6 +97,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Live\ReservationsInDetail\Program.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\StatusType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\StatusTypeExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\TagRevision\TagRevisionClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\Tags\TagInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\Tags\TagsClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\Tags\TagsResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NiconicoAccountAuthority.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NiconicoAuthenticationToken.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NiconicoContext.cs" />

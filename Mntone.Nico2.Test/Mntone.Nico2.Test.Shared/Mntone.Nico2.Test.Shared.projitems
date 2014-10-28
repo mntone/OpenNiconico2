@@ -18,6 +18,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Images\UserDataUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Images\UserInfoUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\CKeyUnitTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\TagRevisionUnitTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\TagsUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\OtherStreamsUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\ReservationsUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\ReservationsInDetailUnitTest.cs" />
@@ -126,6 +128,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="$(MSBuildThisFileDirectory)TestData\Live\Description\timeshift_premium.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)TestData\Live\Tags\tags.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="$(MSBuildThisFileDirectory)TestData\Users\UserInfo\repo-en-us.html">
