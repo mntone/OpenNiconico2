@@ -48,6 +48,9 @@ namespace Mntone.Nico2.Live.PlayerStatus
 				case "closed":
 					throw CustomExceptionFactory.Create( NiconicoHResult.E_LIVE_CLOSED );
 
+				case "comingsoon":
+					throw CustomExceptionFactory.Create( NiconicoHResult.E_LIVE_COMING_SOON );
+
 				case "maintenance":
 					throw CustomExceptionFactory.Create( NiconicoHResult.E_MAINTENANCE );
 

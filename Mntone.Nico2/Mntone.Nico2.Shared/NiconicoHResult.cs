@@ -74,6 +74,15 @@ namespace Mntone.Nico2
 		internal const int E_LIVE_CLOSED = unchecked( ( int )0xc0042002 );
 
 		/// <summary>
+		/// 放送予定
+		/// </summary>
+		public static int ELiveComingSoon
+		{
+			get { return E_LIVE_COMING_SOON; }
+		}
+		internal const int E_LIVE_COMING_SOON = unchecked( ( int )0xc0042003 );
+
+		/// <summary>
 		/// コミュニティー限定
 		/// </summary>
 		public static int ELiveCommunityMemberOnly
