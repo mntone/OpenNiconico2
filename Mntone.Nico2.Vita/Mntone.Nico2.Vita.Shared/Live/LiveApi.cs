@@ -153,6 +153,23 @@ namespace Mntone.Nico2.Vita.Live
 		}
 #endif
 
+		/// <summary>
+		/// 非同期操作として検索番組情報を取得します
+		/// </summary>
+		/// <param name="request">検索リクエスト情報</param>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+#if WINDOWS_APP
+		public IAsyncOperation<SearchPrograms.SearchProgramsResponse> GetSearchProgramsAsync( SearchPrograms.SearchProgramsRequest request )
+		{
+			return SearchPrograms.SearchProgramsClient.GetSearchProgramsAsync( this._context, request ).AsAsyncOperation();
+		}
+#else
+		public Task<SearchPrograms.SearchProgramsResponse> GetSearchProgramsAsync( SearchPrograms.SearchProgramsRequest request )
+		{
+			return SearchPrograms.SearchProgramsClient.GetSearchProgramsAsync( this._context, request );
+		}
+#endif
+
 		#region field
 
 		private NiconicoVitaContext _context;

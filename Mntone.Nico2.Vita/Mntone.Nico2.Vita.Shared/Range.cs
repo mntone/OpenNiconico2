@@ -145,5 +145,15 @@ namespace Mntone.Nico2.Vita
 		/// 大きさ
 		/// </summary>
 		public ushort Size { get { return this.Length; } }
+
+		/// <summary>
+		/// 等しいかどうか
+		/// </summary>
+		/// <param name="other">他の Range</param>
+		/// <returns>等しければ true、そうでなければ false</returns>
+		public bool Equals( Range other )
+		{
+			return this._from == other._from && this._length == other._length;
+		}
 	}
 }

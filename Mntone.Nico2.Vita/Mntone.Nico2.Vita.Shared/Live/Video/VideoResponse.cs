@@ -12,7 +12,7 @@ namespace Mntone.Nico2.Vita.Live.Video
 		internal VideoResponse()
 		{ }
 
-		[DataMember( Name = "@status" )]
+		[DataMember( Name = "@status", IsRequired = true )]
 		private string StatusImpl
 		{
 			get { return string.Empty; }
@@ -32,7 +32,7 @@ namespace Mntone.Nico2.Vita.Live.Video
 		/// <summary>
 		/// 番組情報
 		/// </summary>
-		[DataMember( Name = "video_info" )]
+		[DataMember( Name = "video_info", IsRequired = true )]
 		public ProgramInfo Program { get; private set; }
 	}
 }

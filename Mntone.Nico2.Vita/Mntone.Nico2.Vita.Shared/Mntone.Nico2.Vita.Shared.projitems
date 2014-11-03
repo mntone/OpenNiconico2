@@ -18,6 +18,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirPrograms\SortType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirPrograms\SortTypeExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\ProgramInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\SearchPrograms\DurationType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\SearchPrograms\DurationTypeExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\SearchPrograms\SearchProgramsClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\SearchPrograms\SearchProgramsRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\SearchPrograms\SearchProgramsResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\SearchPrograms\SearchProgramsResponseWrapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\SearchPrograms\SearchType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\SearchPrograms\SortType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\SearchPrograms\TagInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\SearchPrograms\TotalCountInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\TagInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\TagsInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\VideoInfo.cs" />

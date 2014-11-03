@@ -166,7 +166,7 @@ namespace Mntone.Nico2.Vita.Live
 		public ushort HidescoreOnline { get; private set; }
 
 		[DataMember( Name = "hidescore_online", IsRequired = true )]
-		public string HidescoreOnlineImpl
+		private string HidescoreOnlineImpl
 		{
 			get { return this.HidescoreOnline.ToString(); }
 			set
