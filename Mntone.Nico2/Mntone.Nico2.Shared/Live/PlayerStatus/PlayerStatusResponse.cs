@@ -29,6 +29,7 @@ namespace Mntone.Nico2.Live.PlayerStatus
 			var streamXml = playerStatusXml.GetNamedChildNode( "stream" );
 			var userXml = playerStatusXml.GetNamedChildNode( "user" );
 			var playerXml = playerStatusXml.GetNamedChildNode( "player" );
+			var farreXml = playerStatusXml.GetNamedChildNode( "farre" );
 
 			LoadedAt = playerStatusXml.GetNamedAttributeText( "time" ).ToDateTimeOffsetFromUnixTime();
 			Program = new Program(
@@ -49,6 +50,7 @@ namespace Mntone.Nico2.Live.PlayerStatus
 					playerStatusXml.GetNamedChildNode( "tid_list" ) ) );
 			Telop = new Telop( streamXml.GetNamedChildNode( "telop" ) );
 			NetDuetto = new NetDuetto( streamXml );
+			Farre = farreXml != null ? new Farre( farreXml ) : null;
 			Marquee = new Marquee( playerStatusXml.GetNamedChildNode( "marquee" ) );
 			User = new User( streamXml, userXml );
 		}
@@ -87,6 +89,11 @@ namespace Mntone.Nico2.Live.PlayerStatus
 		/// ネット デュエット情報
 		/// </summary>
 		public NetDuetto NetDuetto { get; private set; }
+
+		/// <summary>
+		/// ニコファーレ情報
+		/// </summary>
+		public Farre Farre { get; private set; }
 
 		/// <summary>
 		/// Marquee 情報

@@ -54,6 +54,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\CommentSexMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\Content.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\Marquee.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\Farre.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\NetDuetto.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\PlayerStatus\CommentFilteringLevel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\OnAirStreams\OnAirStreamsClient.cs" />
