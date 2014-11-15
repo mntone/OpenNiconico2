@@ -1,0 +1,1610 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja-jp">
+<head>
+
+    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta name="copyright" content="(C) niwango, inc. All rights reserved.">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+	
+	
+		
+		
+		
+			<link rel="alternate" media="only screen and (max-width: 640px)" href="http://sp.live.nicovideo.jp/my" />
+	
+		<link rel="Shortcut Icon" type="image/x-icon" href="http://live.nicovideo.jp/img/favicon.ico?090706">
+	<link rel="icon" href="http://live.nicovideo.jp/img/favicon.ico?090706" type="image/x-icon">
+
+
+		<title>マイページ - ニコニコ生放送</title>
+
+	<base href="http://live.nicovideo.jp/">
+
+															
+			<!---->
+
+<script type="text/javascript">
+  <!--
+	var timeDiffSec = (new Date()).getTime()/1000 - 1415146986;
+	if(Math.abs(timeDiffSec) > 5.0) {
+	   timeDiffSec = undefined;
+	}
+	-->
+</script>
+
+
+<!---->
+<script type="text/javascript">
+<!--
+	var VideoId = "";
+	var BaseUrl = "http://live.nicovideo.jp/";
+	var BasePath = "/";
+	var HonkeUrl = "http://www.nicovideo.jp/";
+	var ApiUrl = "http://watch.live.nicovideo.jp/";
+	var ProxyRatio = "0";
+	var User = {
+		id: 20929324,
+		isPremium: true	};
+--></script>
+
+
+	  <link rel="stylesheet" type="text/css" charset="utf-8" href="http://nl.simg.jp/public/inc/my_cb.css?14102207">
+ 
+
+<!--[if lt IE 8]>
+  <link rel="stylesheet" type="text/css" charset="utf-8" href="http://nl.simg.jp/public/inc/ie2.css?10090205">
+ <![endif]-->
+
+<!--[if lt IE 7]>
+  <link rel="stylesheet" type="text/css" charset="utf-8" href="http://nl.simg.jp/public/inc/ie62.css?13061004">
+ <![endif]-->
+
+
+
+<!--[if IE 6]>
+	  <script type="text/javascript" src="http://nl.simg.jp/public/inc/DD_belatedPNG_0.0.7a.js?10082301"></script>
+ 	<script>
+		DD_belatedPNG.fix('img, a, span, div');
+	</script>
+<![endif]-->			<!--[if lt IE 9]>
+<script src="http://nl.simg.jp/public/inc/assets/zero/js/lib/html5shiv.js"></script>
+<![endif]-->
+<script src="http://ads.nicovideo.jp/assets/js/ads-2.10.0.min.js"></script></head>
+
+<body >
+		
+<!-- twitter sdk -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	
+<!-- facebook sdk -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+	<div id="page_top"></div>
+			
+	<div id="body_header">
+		
+		<link rel="stylesheet" type="text/css" href="./nicoheader/resources/siteHeader.css?20141023" />
+<link rel="stylesheet" type="text/css" href="./nicoheader/resources/nicolib-CommonNotificationHeader.css?20141023" />
+<link rel="stylesheet" type="text/css" href="./nicoheader/resources/nicolive-modified.css?20130522" />
+<script type="text/javascript" src="./nicoheader/siteHeader.js?20141023"></script>
+<script type="text/javascript" src="./nicoheader/nicolib-CommonNotificationHeader.js?20141023"></script>
+<div id="siteHeader">
+	<div id="siteHeaderInner">
+	  	  	  	  
+	  
+	  		<ul class="siteHeaderGlovalNavigation">
+			<li><a href="http://www.nicovideo.jp/?header"><span>niconico</span></a></li>
+			<li><a href="http://www.nicovideo.jp/video_top/?header"><span>動画</span></a></li>
+			<li><a href="http://seiga.nicovideo.jp/?header"><span>静画</span></a></li>
+			<li><a href="http://live.nicovideo.jp/?header"><span>生放送</span></a></li>
+			<li><a href="http://ch.nicovideo.jp/?header"><span>チャンネル</span></a></li>
+			<li><a href="http://ch.nicovideo.jp/portal/blomaga?header"><span>ブロマガ</span></a></li>
+			<li class="siteHeaderOther" id="siteHeaderLeftMenu">
+				<a href="javascript:void(0);"><span>その他▼</span></a>
+				<ul id="siteHeaderLeftMenuContainer" style="display: none;">
+					<li><a href="http://app.nicovideo.jp/?header">アプリ</a></li>
+					<li><a href="http://dic.nicovideo.jp/?header">大百科</a></li>
+					<li><a href="http://ichiba.nicovideo.jp/?header">市場</a></li>
+					<li><a href="http://uad.nicovideo.jp/?header">ニコニ広告</a></li>
+					<li><a href="http://3d.nicovideo.jp/?header">ニコニ立体</a></li>
+					<li><a href="http://commons.nicovideo.jp/?header">コモンズ</a></li>
+					<li><a href="http://jk.nicovideo.jp/?header">実況</a></li>
+					<li><a href="http://com.nicovideo.jp/?header">コミュ二ティ</a></li>
+					<li><a href="http://chokuhan.nicovideo.jp/?header">ニコニコ直販</a></li>
+					<li><a href="http://info.nicovideo.jp/pr_nicom/iphone.html?header">スマートフォン</a></li>
+					<li><a href="http://news.nicovideo.jp/?header">ニュース</a></li>
+					<li class="menuServiceList"><a href="http://www.nicovideo.jp/top_service?header">サービス一覧</a></li>
+				</ul>
+			</li>
+		</ul>
+
+				<span id="polling" style="display:none"
+			  api-key="9b7e0f048c722c0d74e8211f3f3158c98ef1bfc3"
+			  url="http://papi.live.nicovideo.jp/api/polling"
+			  interval="130000"
+			  data-max-running-time="3600000"
+			  >
+		</span>
+		<script type="text/javascript"><!--
+		var nicolive_polling_json_param = {"stop_polling_message":"\u4e00\u5b9a\u6642\u9593\u304c\u7d4c\u904e\u3057\u305f\u305f\u3081\u30ea\u30a2\u30eb\u30bf\u30a4\u30e0\u901a\u77e5BOX\u306e\u81ea\u52d5\u66f4\u65b0\u3092\u505c\u6b62\u3057\u307e\u3057\u305f\u3002\u518d\u958b\u3055\u305b\u308b\u5834\u5408\u306f\u518d\u8aad\u307f\u8fbc\u307f\u3092\u884c\u3063\u3066\u304f\u3060\u3055\u3044\u3002"};
+		--></script>
+
+		<ul class="siteHeaderMenuList">
+						<li id="siteHeaderNotification" data-nico-userId="20929324" data-nico-siteId="nicolive"
+			  data-nico-API-Date="1415146986" data-nico-API-Version="2" data-nico-locale="ja-jp"
+			  data-nico-API-Key="7a4e8494619975568ad7d509686525c1fa5255c1"
+			  data-nico-JSONP-URL="http://notify.nicovideo.jp/api/notify"
+			  class="siteHeaderPremium"			>
+				<a href="http://www.nicovideo.jp/my/top" id="siteHeaderUserContainer">
+					<span class="siteHeaderAva" id="siteHeaderUserIconContainer"></span>
+					<span id="siteHeaderUserNickNameContainer">ℳກ੮ວܬ୧さん</span>
+				</a>
+				<div class="siteHeaderNotificationContainer" id="siteHeaderNotificationContainer">
+					<dl id="siteHeaderNotificationWithNotification" style="display: none;">
+					</dl>
+					<div id="siteHeaderNotificationWithoutNotification" style="display: none;">
+						<span></span>
+						<p>あなた宛のお知らせが届くとここに表示されます。</p>
+						<p id="siteHeaderShowConfigButton" class="siteHeaderInformationOption">設定変更</p>
+					</div>
+					<dl id="siteHeaderNotificationLoading" style="display: none;">
+						<dt>お知らせ<span></span></dt>
+						<dd><span><img src="http://res.nimg.jp/img/loading.gif" /></span>お知らせを読み込んでいます…</dd>
+					</dl>
+					<dl id="siteHeaderNotificationError" style="display: none;">
+						<dt>お知らせ<span></span></dt>
+						<dd id="siteHeaderNotificationError503Detail">お知らせが取得できませんでした。しばらく待って再度お試しください。</dd>
+						<dd id="siteHeaderNotificationError503Config" style="display: none;">設定が反映できませんでした。しばらく待って再度お試しください。</dd>
+						<dd id="siteHeaderNotificationError401" style="display: none;">ログインされておりません。再度ログインしなおしてください。</dd>
+					</dl>
+					<dl id="siteHeaderNotificationMaintenance" style="display: none;">
+						<dt>お知らせ<span></span></dt>
+						<dd>只今メンテナンス中です。</dd>
+					</dl>
+
+					<dl id="siteHeaderNotificationOption" style="display: none;">
+						<dt>設定<span></span></dt>
+						<dd>
+							<p class="siteHeaderSwitch siteHeaderFirstChild">ニコレポコメントのお知らせ								<span id="siteHeaderConfigNicoreporesButton" class="siteHeaderEnable"></span>
+							</p>
+
+							<p class="siteHeaderSwitch">スタンプ取得のお知らせ								<span id="siteHeaderConfigStampgetButton" class="siteHeaderEnable"></span>
+							</p>
+
+							<p class="siteHeaderSwitch">ニコられた数の通知								<span id="siteHeaderConfigNicoruButton" class="siteHeaderEnable"></span>
+							</p>
+
+							<p class="siteHeaderSwitch lastChild">ブロマガコメントのお知らせ								<span id="siteHeaderConfigBlomagacommentButton" class="siteHeaderEnable"></span>
+							</p>
+							<a href="javascript:void(0);" id="siteHeaderApplyConfigButton" class="siteHeaderSubmitButtonDisable">変更を適用する</a>
+						</dd>
+						<dd class="siteHeaderInformationOption">
+							<a href="javascript:void(0);" id="siteHeaderBackDetail">一覧に戻る</a>
+							<a href="javascript:void(0);" id="siteHeaderBackDetailChanged" style="display: none;">閉じる</a>
+						</dd>
+					</dl>
+				</div>
+								<a href="https://account.nicovideo.jp/premium/register?sec=nicolive_bar&sub=my_haderbar_0" class="siteHeaderUpgrade" id="siteHeaderNotificationPremium">
+									<small>－</small>
+					<span>プレミアム登録</span>
+				</a>
+									<span class="siteHeaderNicopo">
+						<a href="http://point.nicovideo.jp/index/bank/?from_notification=1" class="siteHeaderNicopoBalance"><span id="siteHeaderNicopointContainer">-</span><span class="unit">pt</span></a>
+						<a href="http://point.nicovideo.jp/index/asp/purchase_point?from_notification=1" class="siteHeaderNicopoPurchase" id="siteHeaderNicopoPurchase" data-F_site_cd="S0011"><span class="tooltip">ニコニコポイントを購入</span></a>
+					</span>
+							</li>
+
+															  <script type="text/javascript" src="http://nl.simg.jp/public/inc/notifybox_preload.js?20130627143259"></script>
+ 
+			<li class="favorite" id="notify_box_count">
+			<a title="お気に入り登録を表示します" href="javascript:void(0)" onclick="notifybox_toggle();">
+			  <span class="favoriteText">お気に入り</span>
+			  <span class="score" id="notify_box_count_num" >1</span>
+			  <span style="display:none" id="notifybox_reference">other</span>
+			  <span style="display:none" id="notifybox_rows">5</span>
+			</a>
+			</li>
+			<div class="infoBox" id="notify_box_container" style="display:none;">
+			  <div style="padding:4px; text-align:center">
+				読み込み中			  </div>
+			</div><!-- /.infoBox -->
+												<li>
+				<a href="http://live.nicovideo.jp/ranking" title="ランキングを表示します">
+					<span>ランキング</span>
+				</a>
+			</li>
+			<li class="siteHeaderOther" id="siteHeaderRightMenu">
+				<a href="javascript:void(0);"><span>メニュー▼</span></a>
+								<ul style="display: none;" id="siteHeaderRightMenuContainer">
+											<li><a href="http://live.nicovideo.jp/my" title="ニコニコ生放送のマイページへ移動します">マイページ</a></li>
+						<li><a href="http://live.nicovideo.jp/history" title="ニコニコ生放送の視聴履歴へ移動します">視聴履歴</a></li>
+																		<li>
+							 							<a href="http://live.nicovideo.jp/editstream" title="ユーザー生放送番組作成ページに移動します">放送する</a>
+													</li>
+																					<li><a href="http://live.nicovideo.jp/nsen" title="Nsenへ移動します">Nsen</a></li>
+															<li><a href="http://live.nicovideo.jp/cruise" title="現在出航中のニコ生クルーズへ移動します">ニコ生クルーズ</a></li>
+										<li><a href="http://live.nicovideo.jp/newworld" title="投稿された新着動画を毎日放送中!!">世界の新着動画</a></li>
+					<li><a href="http://point.nicovideo.jp/index/bank/?from_notification=2">ポイント購入</a></li>
+					<li id="siteHeaderRightMenuUnfix"><a href="javascript:void(0);">ヘッダー:<span class="siteHeaderScroll">追従</span></a></li>
+					<li id="siteHeaderRightMenuFix"><a href="javascript:void(0);">ヘッダー:<span class="siteHeaderFix">固定</span></a></li>
+					<li><a href="http://faq.nicovideo.jp/EokpControl?&event=CE0002&cid=10308" title="ニコニコ生放送ヘルプに別ウインドウで移動します" target="_blank">ヘルプ</a></li>
+										<li><a href="http://live.nicovideo.jp/logout" class="out" title="ニコニコ生放送からログアウトします">ログアウト</a></li>
+									</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+					<div id="infoAreaPadding" style="position:static"></div>
+	<div id="infoArea" style="display: none;">
+		<div id="infoAreaInner">
+			<table border="0"><tr>
+				<td><img src="http://nl.simg.jp/public/img/icon_information.png" width="23" hegith="23"></td>
+				<td><div id="infoAreaText"></div></td>
+			</tr></table>
+		</div>
+	</div>
+	
+				
+				  <link rel="stylesheet" type="text/css" charset="utf-8" href="http://nl.simg.jp/public/inc/renewal.css?13111806">
+ 	</div>
+
+			
+								<div id="all_cover"><div id="all" >
+
+		<div id="live_header">
+		<h1 class="logo"><a href="http://live.nicovideo.jp/"><span>ニコニコ生放送</span></a></h1>
+					<div class="score_search">
+				<p>現在放送中<strong class="count">741</strong>番組</p>
+								<form action="http://live.nicovideo.jp/search" method="get" accept-charset="UTF-8" class="search_program">
+					<input type="hidden" name="sort" value=point>
+					<input type="text" name="keyword" value="番組を探す" class="search_word"><button type="submit" class="submit"><span class="btn_text">検索</span></button>
+				</form>
+							</div><!-- ./score_search -->
+						<div id="ad_bnr">
+		<div id="headerAd" class="bannerWrap">
+		<script>
+			var switch_span_second = 30;
+			new Ads.Advertisement({
+				zone: 439,
+				count: Ads.ALL,
+				view: new Ads.SwitchView(switch_span_second)
+			}).set('headerAd');
+		</script>
+</div>
+		</div>
+	</div><!-- /#live_header -->
+
+			
+	<style TYPE="text/css">
+		<!--
+		/* -----------------------------------------------
+			ニコ生共通ヘッダー
+			#page_header
+		----------------------------------------------- */
+		#page_header{
+			margin: 0;
+			position: relative;
+		}
+
+		#live_header{
+			margin: 0 auto;
+			position: relative;
+			width: 960px;
+			height: 71px;
+			text-align: left;
+		}
+
+		#live_header:after{
+			content: "";
+			clear: both;
+			display: block;
+		}
+
+		/*
+			.logo
+		----------------------------------------------- */
+		#live_header .logo{position: absolute;top: 15px;left: 0;}
+		#live_header .logo a{width: 200px;height: 40px;display: block;background:url(inc/assets/zero/img/base/logo.png) 0 0 no-repeat;overflow: hidden;}
+		#live_header .logo a span{display: block;text-indent: -999px;cursor: pointer;}
+
+		/*
+			.score_search
+		----------------------------------------------- */
+		#live_header .score_search{position: absolute;top: 7px;left: 220px;width: 260px;}
+		#live_header .score_search p{margin: 0 0 4px 2px;font-size: 12px;}
+		#live_header .score_search p .count{margin: 0 3px;font-size: 18px;font-weight: normal;font-family: "Lucida Grande","Lucida Sans Unicode","Arial",Meiryo,"Meiryo UI",sans-serif;line-height: 1;}
+
+		/* 検索窓 */
+		#live_header .score_search .search_word{
+			padding: 9px 0 7px 7px;
+			border: 1px solid #ccc;
+			border-top-left-radius: 2px;
+			border-bottom-left-radius: 2px;
+			width: 200px;
+			height: 14px;
+			display: inline-block;
+			*display: inline;
+			*zoom: 1;
+			color: #999;
+			font-size: 12px;
+			font-weight: normal;
+			line-height: 1;
+			vertical-align: top;
+			box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+		}
+
+		/* 検索ボタン */
+		#live_header .score_search .submit{
+			border: 0 none;
+			border-top-right-radius: 2px;
+			border-bottom-right-radius: 2px;
+			position: relative;
+			width: 36px;
+			height: 32px;
+			display: inline-block;
+			*display: inline;
+			*zoom: 1;
+			color: #fff;
+			background-color: #484848;
+			background-image: -webkit-linear-gradient(#888888 0%, #555555 100%);
+			background-image: -moz-linear-gradient(#888888 0%, #555555 100%);
+			background-image: -o-linear-gradient(#888888 0%, #555555 100%);
+			background-image: linear-gradient(#888888 0%, #555555 100%);
+			vertical-align: top;
+			cursor: pointer;
+		}
+		#live_header .score_search .submit .btn_text{margin: auto;display: block;width: 15px;height: 15px;background: url(inc/assets/zero/img/top/glass.png) 0 0 no-repeat;overflow: hidden;text-indent: -999px;}
+
+		/* .sub_nav */
+		#live_header .score_search .sub_nav{margin: 8px 0 0 2px;font-size: 12px;line-height: 1;}
+		#live_header .score_search .sub_nav a{color: #333;text-decoration: none;}
+		#live_header .score_search .sub_nav a:hover{color: #00b7ff;text-decoration: underline;}
+		#live_header .score_search .sub_nav > li{
+			padding: 0 10px;
+			border-right: 1px solid #fff;
+			border-left: 1px solid #999;
+			display: inline-block;
+			*display: inline;
+			*zoom: 1;
+		}
+		#live_header .score_search .sub_nav > li:first-child{padding-left: 0;border-left: 0 none;}
+		#live_header .score_search .sub_nav > li:last-child{padding-right: 0;border-right: 0 none;}
+
+
+		/* 広告 */
+		#live_header div#ad_bnr{
+			float:right;
+			margin:5px 0px;
+		}
+		#live_header div#ad_bnr div.ads_468{
+			height: 60px;
+			text-align: right;
+			position: relative;
+		}
+		*:first-child+html #live_header div#ad_bnr div.ads_468{
+			top: -88px;
+		}
+
+		/*
+			#live_global_nav
+			ニコ生グローバルナビゲーション
+		----------------------------------------------- */
+		#live_global_nav{
+			margin-bottom: 20px;
+			border-top: 1px solid #222;
+			position: relative;
+			z-index: 1;
+			background-color: #484848;
+		}
+
+		#live_global_nav .nav_list{
+			margin:0 auto;
+			border-left: 1px solid #222;
+			position:relative;
+			width:960px;
+			*zoom:1;
+		}
+
+		#live_global_nav .nav_list:after{content: ""; display: block; clear: both;}
+
+		#live_global_nav .nav_list li{
+			border-right: 1px solid #222;
+			float: left;
+			font-size:12px;
+			font-weight:bold;
+			text-align:center;
+		}
+
+		#live_global_nav .nav_list li a{
+			padding: 5px 19px;
+			display:block;
+			position: relative;
+			color:#ccc;
+			line-height:120%;
+			text-decoration:none;
+		}
+
+		#live_global_nav .nav_list li a:hover{ color: #fff; background-color: #00b7ff;}
+		#live_global_nav .nav_list li a.active{ color: #fff; background-color: #00b7ff;}
+		#live_global_nav .nav_list li a.active{color: #000;background: #bebebe url(inc/assets/zero/img/base/live_global_nav.png) 0 0 repeat-x;}
+
+		#live_global_nav .nav_list .title{display: block;}
+		#live_global_nav .nav_list .count{display: block;}
+
+		/* option */
+		#live_global_nav .nav_list li.top a,
+		#live_global_nav .nav_list li.timetable a{line-height:240%;}
+
+		/* 放送する */
+		#live_global_nav .nav_list li.editstream{
+			border: 0 none;
+			position: absolute;
+			top: 2px;
+			right: 0;
+		}
+		#live_global_nav .nav_list li.editstream a{
+			padding:0 0 0 12px;
+			border: 0 none;
+			width:100px;
+			color:#333;
+			background:url(inc/assets/zero/img/base/editstream.png) no-repeat 0 3px;
+			font-size:12px;
+			line-height:33px;
+			letter-spacing:0.2em;
+		}
+		#live_global_nav .nav_list li.editstream a:hover{color:#000;background-position:0 -37px;}
+		-->
+		</style>
+	
+
+
+
+	
+			<div id="live_global_nav">
+	<ul class="nav_list">
+		<li class="top"><a href="http://live.nicovideo.jp/" class=""><span class="title">トップ</span></a></li>
+		<li class="timetable"><a href="http://live.nicovideo.jp/timetable" class=""><span class="title">番組表</span></a></li>
+		<li><a href="http://live.nicovideo.jp/recent?tab=common" class=""><span class="title">一般</span><span class="count">(267)</span></a></li>
+		<li><a href="http://live.nicovideo.jp/recent?tab=try" class=""><span class="title">やってみた</span><span class="count">(65)</span></a></li>
+		<li><a href="http://live.nicovideo.jp/recent?tab=live" class=""><span class="title">ゲーム</span><span class="count">(401)</span></a></li>
+		<li><a href="http://live.nicovideo.jp/recent?tab=req" class=""><span class="title">動画紹介</span><span class="count">(13)</span></a></li>
+		<li><a href="http://live.nicovideo.jp/recent?tab=face" class=""><span class="title">顔出し</span><span class="count">(92)</span></a></li>
+		<li><a href="http://live.nicovideo.jp/recent?tab=totu" class=""><span class="title">凸待ち</span><span class="count">(68)</span></a></li>
+		<li><a href="http://live.nicovideo.jp/recent?tab=r18" class=""><span class="title">R-18</span><span class="count">(7)</span></a></li>
+		<li class="editstream">
+					<a href="http://live.nicovideo.jp/editstream"><span class="title">放送する</span></a>
+				</li>
+	</ul>
+</div><!-- /#live_global_nav -->
+<div class="container">
+	<!---->
+	<script type="text/javascript"><!--
+	JS_MESSAGE = {};
+	JS_MESSAGE.My = {"end_stream_caution":"\u3053\u306e\u64cd\u4f5c\u306f\u5143\u306b\u623b\u305b\u307e\u305b\u3093\u304c\u3001\u672c\u5f53\u306b\u7d42\u4e86\u3057\u307e\u3059\u304b\uff1f","delete_stream_caution":"\u3053\u306e\u64cd\u4f5c\u306f\u5143\u306b\u623b\u305b\u307e\u305b\u3093\u304c\u3001\u672c\u5f53\u306b\u524a\u9664\u3057\u307e\u3059\u304b\uff1f"};
+--></script>
+<div id="mypage">
+<h2 class="bar">
+	ℳກ੮ວܬ୧さんの&nbsp;&nbsp;
+	<div id="mypage_menu">
+		<span id="mypage_nama">生放送マイページ</span>
+		<ul id="mypage_list">
+						<li><a href="http://www.nicovideo.jp/my/top"  title="ニコニコマイページ">ニコニコマイページ</a></li>
+			<li><a href="http://seiga.nicovideo.jp/my" title="静画マイページ">静画マイページ</a></li>
+			<li><a href="http://app.nicovideo.jp/my"   title="アプリマイページ">アプリマイページ</a></li>
+			<li><a href="http://ichiba.nicovideo.jp/mypage" title="市場マイページ">市場マイページ</a></li>		</ul>
+	</div>
+</h2>
+</div>
+
+<div id="liveList">
+
+	<div id="active_coupon_list_area">
+		</div>
+
+<!-- タイムシフト予約start -->
+<div id="TS_list" class="liveListInner4">
+  <div class="h3ttl">
+	<div class="ttl"><h3>タイムシフト予約リスト						<span>あと<b>&nbsp;19&nbsp;件</b>ご利用になれます</span>
+				</h3>
+ 	<p style="margin-top:4px;float:right;">
+		<a href="http://live.nicovideo.jp/timetable" class="timeshift_right_info">[番組表]</a>
+					<a href="http://live.nicovideo.jp/diary?sort=all" class="timeshift_right_info">[終了番組一覧]</a>
+				<a href="http://live.nicovideo.jp/s/timeshift" class="timeshift_right_info">【 ? 】タイムシフト予約の使い方</a>
+	</p>
+	</div>
+ </div>
+  <div id="liveItemsWrap">
+			  <div id="liveItemsWrap">
+	<form name="timeshift_list" accept-charset="UTF-8" method="post" action="my.php">
+	<input type="hidden" name="delete" value="timeshift" />
+	<input type="hidden" id='confirm' name="confirm" value="ulck_957025977" />
+	<input type="hidden" id="tsrStreamCount" value="11" />
+
+	<div class="liveItems clearfix">
+
+		<div class="tsr_control" style="width:80px;" id="tsrCheckMasterBox">
+	<table>
+		<tr>
+			<td style="vertical-align:middle;"><input type="checkbox" id="tsrCheckMaster"></td>
+			<td style="vertical-align:middle;"><div class="del_no" id="toggleDeletePopup" style="cursor: pointer">削除範囲▼</div></td>
+		</tr>
+	</table>
+	</div>
+	<div class="tsr_control" id="tsrDeleteMultiple" style="cursor: pointer"><span>削除</span></div>
+		<div class="tsr_control" style="width:270px; float:right;" id="tsrNotifyDisableCheckBox">
+	<table>
+		<tr>
+			<td style="vertical-align:middle;"><input type="checkbox" id="tsrNotifyDisableCheck"></td>
+			<td style="vertical-align:middle;"><div class="del_no" id="tsrNotifyDisable" style="cursor: pointer">未視聴のタイムシフトお知らせを表示しない</div></td>
+		</tr>
+	</table>
+	</div>
+	<div id="tsr_my_delete_popup" class="tsr_popup" style="display:none;">
+		<a herf="javascript: void 0;" id="tsrCheckInLimitout" class="tsr_popup_a">▲期限切</a>
+		<a herf="javascript: void 0;" id="tsrCheckInAll" class="tsr_popup_a">●すべて</a>
+		<a herf="javascript: void 0;" id="tsrCheckOutAll" class="tsr_popup_a">○選択解除</a>
+	</div>
+
+			
+	<div class="column">
+	  <div class="del_no"><input type="checkbox" id="tsrCheck0" name="vid[]" value="88690983" ></div>
+	  <div class="no">1</div>
+	  <div class="name"><a href="http://live.nicovideo.jp/gate/lv88690983" title="超会議特番～実証！２時間でニコ動プロトタイプを運営長は作ったのか？エンジニア編～">超会議特番～実証！２時間でニコ動プロトタイプを運営長は作った...</a></div>
+		<div class="status">
+				
+						
+						
+						
+						
+				
+				
+								<a href="http://live.nicovideo.jp/watch/lv88690983?ref=my_live" class="timeshift_watch">視聴する</a>			<span id="tsrStatus0" class="timeshift_watch">いつでも視聴可能になりました						</span>
+				
+							
+																			  </div>	  <div class="delete">
+		<a href="javascript: void 0;" onclick="Nicolive.TimeshiftActions.deleteSingle('http://live.nicovideo.jp/', '88690983','ulck_957025977'); return false ">[削除]</a>
+	  </div>
+	</div>				
+	<div class="column">
+	  <div class="del_no"><input type="checkbox" id="tsrCheck1" name="vid[]" value="197347514" ></div>
+	  <div class="no">2</div>
+	  <div class="name"><a href="http://live.nicovideo.jp/gate/lv197347514" title="宮本 茂(任天堂)×川上量生(ドワンゴ)スペシャル対談生中継 /第27回東京国際映画祭 3日目">宮本 茂(任天堂)×川上量生(ドワンゴ)スペシャル対談生中継 /第27...</a></div>
+		<div class="status">
+				
+						
+						
+						
+						
+				
+				
+								<a href="http://live.nicovideo.jp/watch/lv197347514?ref=my_live" class="timeshift_watch">視聴する</a>			<span id="tsrStatus1" class="timeshift_watch">いつでも視聴可能になりました							[2014/12/31(水)23:59まで]						</span>
+				
+							
+																			  </div>	  <div class="delete">
+		<a href="javascript: void 0;" onclick="Nicolive.TimeshiftActions.deleteSingle('http://live.nicovideo.jp/', '197347514','ulck_957025977'); return false ">[削除]</a>
+	  </div>
+	</div>				
+	<div class="column">
+	  <div class="del_no"><input type="checkbox" id="tsrCheck2" name="vid[]" value="156937562" ></div>
+	  <div class="no">3</div>
+	  <div class="name"><a href="http://live.nicovideo.jp/gate/lv156937562" title="日本マイクロソフト Surface 新製品発表会 生中継">日本マイクロソフト Surface 新製品発表会 生中継</a></div>
+		<div class="status">
+				
+				 			<span id="tsrStatus2" class="timeshift_watch">
+				<a href="javascript: void 0;" onclick="Nicolive.WatchingReservation.confirm_watch_my('156937562'); return false " class="timeshift_watch">視聴する</a>									[視聴期限未定]							</span>
+				
+						
+						
+						
+				
+				
+						
+							
+																			  </div>	  <div class="delete">
+		<a href="javascript: void 0;" onclick="Nicolive.TimeshiftActions.deleteSingle('http://live.nicovideo.jp/', '156937562','ulck_957025977'); return false ">[削除]</a>
+	  </div>
+	</div>				
+	<div class="column">
+	  <div class="del_no"><input type="checkbox" id="tsrCheck3" name="vid[]" value="177583897" ></div>
+	  <div class="no">4</div>
+	  <div class="name"><a href="http://live.nicovideo.jp/gate/lv177583897" title="月曜ニコラジ★アニソンシンガー「佐咲紗花」さん初生登場！">月曜ニコラジ★アニソンシンガー「佐咲紗花」さん初生登場！</a></div>
+		<div class="status">
+				
+				 			<span id="tsrStatus3" class="timeshift_watch">
+				<a href="javascript: void 0;" onclick="Nicolive.WatchingReservation.confirm_watch_my('177583897'); return false " class="timeshift_watch">視聴する</a>									[視聴期限未定]							</span>
+				
+						
+						
+						
+				
+				
+						
+							
+																			  </div>	  <div class="delete">
+		<a href="javascript: void 0;" onclick="Nicolive.TimeshiftActions.deleteSingle('http://live.nicovideo.jp/', '177583897','ulck_957025977'); return false ">[削除]</a>
+	  </div>
+	</div>				
+	<div class="column">
+	  <div class="del_no"><input type="checkbox" id="tsrCheck4" name="vid[]" value="184087160" ></div>
+	  <div class="no">5</div>
+	  <div class="name"><a href="http://live.nicovideo.jp/gate/lv184087160" title="木曜ニコラジ★北海道から生中継！ミスター「鈴井貴之」登場！">木曜ニコラジ★北海道から生中継！ミスター「鈴井貴之」登場！</a></div>
+		<div class="status">
+				
+				 			<span id="tsrStatus4" class="timeshift_watch">
+				<a href="javascript: void 0;" onclick="Nicolive.WatchingReservation.confirm_watch_my('184087160'); return false " class="timeshift_watch">視聴する</a>									[視聴期限未定]							</span>
+				
+						
+						
+						
+				
+				
+						
+							
+																			  </div>	  <div class="delete">
+		<a href="javascript: void 0;" onclick="Nicolive.TimeshiftActions.deleteSingle('http://live.nicovideo.jp/', '192089026','ulck_957025977'); return false ">[削除]</a>
+	  </div>
+	</div>				
+	<div class="column">
+	  <div class="del_no"><input type="checkbox" id="tsrCheck7" name="vid[]" value="196673210" ></div>
+	  <div class="no">8</div>
+	  <div class="name"><a href="http://live.nicovideo.jp/gate/lv196673210" title="国産初のジェット旅客機「MRJ」ロールアウト式典 収録放送">国産初のジェット旅客機「MRJ」ロールアウト式典 収録放送</a></div>
+		<div class="status">
+				
+				 			<span id="tsrStatus7" class="timeshift_watch">
+				<a href="javascript: void 0;" onclick="Nicolive.WatchingReservation.confirm_watch_my('196673210'); return false " class="timeshift_watch">視聴する</a>									[視聴期限未定]							</span>
+				
+						
+						
+						
+				
+				
+						
+							
+																			  </div>	  <div class="delete">
+		<a href="javascript: void 0;" onclick="Nicolive.TimeshiftActions.deleteSingle('http://live.nicovideo.jp/', '196673210','ulck_957025977'); return false ">[削除]</a>
+	  </div>
+	</div>				
+	<div class="column">
+	  <div class="del_no"><input type="checkbox" id="tsrCheck8" name="vid[]" value="195100599" ></div>
+	  <div class="no">9</div>
+	  <div class="name"><a href="http://live.nicovideo.jp/gate/lv195100599" title="ニコラジ月曜日">ニコラジ月曜日</a></div>
+		<div class="status">
+				
+				 			<span id="tsrStatus8" class="timeshift_watch">
+				<a href="javascript: void 0;" onclick="Nicolive.WatchingReservation.confirm_watch_my('195100599'); return false " class="timeshift_watch">視聴する</a>									[視聴期限未定]							</span>
+				
+						
+						
+						
+				
+				
+						
+							
+																			  </div>	  <div class="delete">
+		<a href="javascript: void 0;" onclick="Nicolive.TimeshiftActions.deleteSingle('http://live.nicovideo.jp/', '195100599','ulck_957025977'); return false ">[削除]</a>
+	  </div>
+	</div>				
+	<div class="column">
+	  <div class="del_no"><input type="checkbox" id="tsrCheck9" name="vid[]" value="196674947" ></div>
+	  <div class="no">10</div>
+	  <div class="name"><a href="http://live.nicovideo.jp/gate/lv196674947" title="【TV同時放送】ニコニコアニメスペシャル「憑物語」一挙放送">【TV同時放送】ニコニコアニメスペシャル「憑物語」一挙放送</a></div>
+		<div class="status">
+							<img src="img/mypage/icon_reserved.png?090813" alt="RESERVED">
+			<span id="tsrStatus9" class="timeshift_reservation">予約中							[2014/12/31(水)22:00放送開始]						</span>
+		
+						
+						
+						
+						
+				
+				
+						
+							
+																			  </div>	  <div class="delete">
+		<a href="javascript: void 0;" onclick="Nicolive.TimeshiftActions.deleteSingle('http://live.nicovideo.jp/', '196674947','ulck_957025977'); return false ">[削除]</a>
+	  </div>
+	</div>					</div>	<div class="liveItems clearfix" id="tsrSlideDiv" style="display:none;">
+	
+	<div class="column">
+	  <div class="del_no"><input type="checkbox" id="tsrCheck10" name="vid[]" value="188158963" ></div>
+	  <div class="no">11</div>
+	  <div class="name"><a href="http://live.nicovideo.jp/gate/lv188158963" title="【WEB最速】ニコニコアニメスペシャル「花物語」全5話一挙放送">【WEB最速】ニコニコアニメスペシャル「花物語」全5話一挙放送</a></div>
+		<div class="status">
+				
+						
+						
+							<img src="img/mypage/icon_timeout.gif?090813" alt="TIMEOUT">
+			<span id="tsrStatus10" class="timeshift_disable">視聴権利用期限が切れています			[2014/08/18(月)02:01まで]</span>
+				
+						
+				
+				
+						
+							
+																			  </div>	  <div class="delete">
+		<a href="javascript: void 0;" onclick="Nicolive.TimeshiftActions.deleteSingle('http://live.nicovideo.jp/', '188158963','ulck_957025977'); return false ">[削除]</a>
+	  </div>
+	</div>			</div>
+			<div style="text-align:right">
+			<a herf="javascript: void 0;"  id="tsrSlideShow" style="cursor: pointer;">▼すべてのタイムシフトを表示</a>
+			<a herf="javascript: void 0;"  id="tsrSlideHide" style="display:none; cursor: pointer;">▲すべてのタイムシフトを隠す</a>
+		</div>
+		</form>
+  </div>	  </div></div>
+
+<!-- 登録中生放送情報start -->
+<div id="Favorite_list" class="liveListInner4">
+	<h3 class="ttl">登録中のチャンネル/コミュニティで放送されている番組</h3>
+						<div id="subscribeItemsWrap">
+				  <link rel="stylesheet" type="text/css" charset="utf-8" href="http://nl.simg.jp/public/inc/timeshift_list_nano_w.css?12091906">
+ 
+
+					<div class="liveItems clearfix">
+			
+
+																			<div class="liveItem">
+						
+				<a href="http://live.nicovideo.jp/watch/lv199055928?ref=my_live" title="エロゲソング垂れ流し">
+									<img src="http://icon.nimg.jp/community/s/215/co2158245.jpg?1410397758" style="float:left;margin-right: 5px;">
+					</a>
+
+		<div class="liveItemTxt">
+			<p class="start_time"><strong>
+								11/05(水) 09:15 開始							</strong></p>
+			<h3>
+								<img src="img/10/cmn/icon/icon__r18_.gif?090827">								<a href="http://live.nicovideo.jp/watch/lv199055928?ref=my_live" title="エロゲソング垂れ流し">
+									エロゲソング垂れ流し
+				</a>
+			</h3>
+			<p title="自分が聞いてるだけの配信">自分が聞いてるだけの...</p>
+							<div class="liveItemBtn" style="margin-top:10px;">
+					<a href="http://live.nicovideo.jp/watch/lv199055928?ref=my_live">
+	<img src="img/nicolive/btn_watch.gif" alt="視聴する" width="119" height="21">
+</a>				</div>
+			
+			
+		</div>
+	</div><!-- div.uc -->
+								</div><!--liveItems clearfix -->
+				</div>
+										<div id="subscribeReservedItemsWrap">
+				  <link rel="stylesheet" type="text/css" charset="utf-8" href="http://nl.simg.jp/public/inc/timeshift_list_nano_w.css?12091906">
+ 
+
+					<div class="liveItems clearfix">
+			
+
+													<div class="liveItem_ch">
+			
+				<a href="http://live.nicovideo.jp/gate/lv199055087" title="高橋名人の16Shot TV Vol.108">
+									<img src="http://icon.nimg.jp/channel/s/ch2573781.jpg?1372673648" style="float:left;margin-right: 5px;">
+	
+					</a>
+
+		<div class="liveItemTxt">
+			<p class="start_time"><strong>
+								11/05(水) 開場 19:57 開演 20:00							</strong></p>
+			<h3>
+														<div class="comno" style="float: left; width : 72px;" >
+											<span class="c02">2</span>
+											<span class="c05">5</span>
+											<span class="c07">7</span>
+											<span class="c03">3</span>
+											<span class="c07">7</span>
+											<span class="c08">8</span>
+											<span class="c01">1</span>
+											<span class="ch">ch</span>
+					</div>
+																					<a href="http://live.nicovideo.jp/gate/lv199055087" title="高橋名人の16Shot TV Vol.108">
+									高橋名人の16Shot TV ...
+				</a>
+			</h3>
+			<p title="高橋名人の16SHOTチャンネル">高橋名人の16SHOTチャ...</p>
+							<div class="liveItemBtnNano" style="margin-top:10px;">
+					<a href="http://live.nicovideo.jp/gate/lv199055087">
+	<img src="img/timeshift/btn_watch_res_nano_w.gif" alt="詳細をみる" width="56" height="21">
+</a>				</div>
+			
+						<div class="liveItemBtnNano" style="margin-top:10px;">
+				<a href="javascript: void 0;" onclick="Nicolive.WatchingReservation.register('lv199055087');" class="watching_reservation"  title="タイムシフト予約を行う" style="width:56px;height:21px;">タイムシフト予約</a>			</div>
+			
+		</div>
+	</div><!-- div.uc -->
+						
+						
+
+													<div class="liveItem_ch">
+			
+				<a href="http://live.nicovideo.jp/gate/lv198089616" title="遠藤正明　FIRST ACOUSTIC ALBUM「Present of the Voice」発売記念生放送">
+									<img src="http://icon.nimg.jp/channel/s/ch203.jpg?1413286145" style="float:left;margin-right: 5px;">
+	
+					</a>
+
+		<div class="liveItemTxt">
+			<p class="start_time"><strong>
+								11/05(水) 開場 21:27 開演 21:30							</strong></p>
+			<h3>
+														<div class="comno" style="float: left; width : 40px;" >
+											<span class="c02">2</span>
+											<span class="c00">0</span>
+											<span class="c03">3</span>
+											<span class="ch">ch</span>
+					</div>
+																					<a href="http://live.nicovideo.jp/gate/lv198089616" title="遠藤正明　FIRST ACOUSTIC ALBUM「Present of the Voice」発売記念生放送">
+									遠藤正明　FIRST ACOU...
+				</a>
+			</h3>
+			<p title="Lantisちゃんねる">Lantisちゃんねる</p>
+							<div class="liveItemBtnNano" style="margin-top:10px;">
+					<a href="http://live.nicovideo.jp/gate/lv198089616">
+	<img src="img/timeshift/btn_watch_res_nano_w.gif" alt="詳細をみる" width="56" height="21">
+</a>				</div>
+			
+						<div class="liveItemBtnNano" style="margin-top:10px;">
+				<a href="javascript: void 0;" onclick="Nicolive.WatchingReservation.register('lv198089616');" class="watching_reservation"  title="タイムシフト予約を行う" style="width:56px;height:21px;">タイムシフト予約</a>			</div>
+			
+		</div>
+	</div><!-- div.uc -->
+						
+						
+
+													<div class="liveItem_ch last">
+			
+				<a href="http://live.nicovideo.jp/gate/lv196800761" title="たかはし智秋のLADY LUCKチャンネル生放送">
+									<img src="http://icon.nimg.jp/channel/s/ch2595349.jpg?1413449223" style="float:left;margin-right: 5px;">
+	
+					</a>
+
+		<div class="liveItemTxt">
+			<p class="start_time"><strong>
+								11/06(木) 開場 21:57 開演 22:00							</strong></p>
+			<h3>
+														<div class="comno" style="float: left; width : 72px;" >
+											<span class="c02">2</span>
+											<span class="c05">5</span>
+											<span class="c09">9</span>
+											<span class="c05">5</span>
+											<span class="c03">3</span>
+											<span class="c04">4</span>
+											<span class="c09">9</span>
+											<span class="ch">ch</span>
+					</div>
+																					<a href="http://live.nicovideo.jp/gate/lv196800761" title="たかはし智秋のLADY LUCKチャンネル生放送">
+									たかはし智秋のLADY L...
+				</a>
+			</h3>
+			<p title="たかはし智秋のLADY LUCKチャンネル">たかはし智秋のLADY L...</p>
+							<div class="liveItemBtnNano" style="margin-top:10px;">
+					<a href="http://live.nicovideo.jp/gate/lv196800761">
+	<img src="img/timeshift/btn_watch_res_nano_w.gif" alt="詳細をみる" width="56" height="21">
+</a>				</div>
+			
+						<div class="liveItemBtnNano" style="margin-top:10px;">
+				<a href="javascript: void 0;" onclick="Nicolive.WatchingReservation.register('lv196800761');" class="watching_reservation"  title="タイムシフト予約を行う" style="width:56px;height:21px;">タイムシフト予約</a>			</div>
+			
+		</div>
+	</div><!-- div.uc -->
+					</div><!--liveItems clearfix -->
+								</div>
+							<div id="all_subscribeReservedItemsWrap" style="display:none;">
+					<p class="liveDetail">
+						<span class="sprite icon arrow">
+							<a href="javascript:void(0)" onclick="$('all_subscribeReservedItemsWrap','subr_link1','subr_link2').invoke('toggle');">予約をさらに見る(全8件)</a>
+						</span>
+					</p>
+					  <link rel="stylesheet" type="text/css" charset="utf-8" href="http://nl.simg.jp/public/inc/timeshift_list_nano_w.css?12091906">
+ 
+
+					<div class="liveItems clearfix">
+			
+						
+						
+
+													<div class="liveItem_ch">
+			
+				<a href="http://live.nicovideo.jp/gate/lv196801632" title="LADY LUCK 会議">
+									<img src="http://icon.nimg.jp/channel/s/ch2595349.jpg?1413449223" style="float:left;margin-right: 5px;">
+	
+					</a>
+
+		<div class="liveItemTxt">
+			<p class="start_time"><strong>
+								11/08(土) 開場 19:57 開演 20:00							</strong></p>
+			<h3>
+														<div class="comno" style="float: left; width : 72px;" >
+											<span class="c02">2</span>
+											<span class="c05">5</span>
+											<span class="c09">9</span>
+											<span class="c05">5</span>
+											<span class="c03">3</span>
+											<span class="c04">4</span>
+											<span class="c09">9</span>
+											<span class="ch">ch</span>
+					</div>
+																					<a href="http://live.nicovideo.jp/gate/lv196801632" title="LADY LUCK 会議">
+									LADY LUCK 会議
+				</a>
+			</h3>
+			<p title="たかはし智秋のLADY LUCKチャンネル">たかはし智秋のLADY L...</p>
+							<div class="liveItemBtnNano" style="margin-top:10px;">
+					<a href="http://live.nicovideo.jp/gate/lv196801632">
+	<img src="img/timeshift/btn_watch_res_nano_w.gif" alt="詳細をみる" width="56" height="21">
+</a>				</div>
+			
+						<div class="liveItemBtnNano" style="margin-top:10px;">
+				<a href="javascript: void 0;" onclick="Nicolive.WatchingReservation.register('lv196801632');" class="watching_reservation"  title="タイムシフト予約を行う" style="width:56px;height:21px;">タイムシフト予約</a>			</div>
+			
+		</div>
+	</div><!-- div.uc -->
+						
+						
+
+													<div class="liveItem_ch last">
+			
+				<a href="http://live.nicovideo.jp/gate/lv196210657" title="立命館学園祭テレビ2014〜知ってほしい、この大学のカタチ。〜【第4部＠衣">
+									<img src="http://icon.nimg.jp/channel/s/ch2581169.jpg?1414305967" style="float:left;margin-right: 5px;">
+	
+					</a>
+
+		<div class="liveItemTxt">
+			<p class="start_time"><strong>
+								11/09(日) 開場 11:57 開演 12:00							</strong></p>
+			<h3>
+														<div class="comno" style="float: left; width : 72px;" >
+											<span class="c02">2</span>
+											<span class="c05">5</span>
+											<span class="c08">8</span>
+											<span class="c01">1</span>
+											<span class="c01">1</span>
+											<span class="c06">6</span>
+											<span class="c09">9</span>
+											<span class="ch">ch</span>
+					</div>
+																					<a href="http://live.nicovideo.jp/gate/lv196210657" title="立命館学園祭テレビ2014〜知ってほしい、この大学のカタチ。〜【第4部＠衣">
+									立命館学園祭テレビ20...
+				</a>
+			</h3>
+			<p title="立命館大学放送局チャンネル">立命館大学放送局チャ...</p>
+							<div class="liveItemBtnNano" style="margin-top:10px;">
+					<a href="http://live.nicovideo.jp/gate/lv196210657">
+	<img src="img/timeshift/btn_watch_res_nano_w.gif" alt="詳細をみる" width="56" height="21">
+</a>				</div>
+			
+						<div class="liveItemBtnNano" style="margin-top:10px;">
+				<a href="javascript: void 0;" onclick="Nicolive.WatchingReservation.register('lv196210657');" class="watching_reservation"  title="タイムシフト予約を行う" style="width:56px;height:21px;">タイムシフト予約</a>			</div>
+			
+		</div>
+	</div><!-- div.uc -->
+					</div><!--liveItems clearfix -->
+			
+					<div class="liveItems clearfix">
+			
+
+													<div class="liveItem_ch">
+			
+				<a href="http://live.nicovideo.jp/gate/lv198838699" title="【ゲーム実況】アメザリ平井も「スーパーピコピコクラブ」">
+									<img src="http://icon.nimg.jp/channel/s/ch2573041.jpg?1413360835" style="float:left;margin-right: 5px;">
+	
+					</a>
+
+		<div class="liveItemTxt">
+			<p class="start_time"><strong>
+								11/09(日) 開場 22:57 開演 23:00							</strong></p>
+			<h3>
+														<div class="comno" style="float: left; width : 72px;" >
+											<span class="c02">2</span>
+											<span class="c05">5</span>
+											<span class="c07">7</span>
+											<span class="c03">3</span>
+											<span class="c00">0</span>
+											<span class="c04">4</span>
+											<span class="c01">1</span>
+											<span class="ch">ch</span>
+					</div>
+																					<a href="http://live.nicovideo.jp/gate/lv198838699" title="【ゲーム実況】アメザリ平井も「スーパーピコピコクラブ」">
+									【ゲーム実況】アメザ...
+				</a>
+			</h3>
+			<p title="スーパーピコピコクラブ">スーパーピコピコクラ...</p>
+							<div class="liveItemBtnNano" style="margin-top:10px;">
+					<a href="http://live.nicovideo.jp/gate/lv198838699">
+	<img src="img/timeshift/btn_watch_res_nano_w.gif" alt="詳細をみる" width="56" height="21">
+</a>				</div>
+			
+						<div class="liveItemBtnNano" style="margin-top:10px;">
+				<a href="javascript: void 0;" onclick="Nicolive.WatchingReservation.register('lv198838699');" class="watching_reservation"  title="タイムシフト予約を行う" style="width:56px;height:21px;">タイムシフト予約</a>			</div>
+			
+		</div>
+	</div><!-- div.uc -->
+						
+						
+
+													<div class="liveItem_ch">
+			
+				<a href="http://live.nicovideo.jp/gate/lv197713067" title="緒方恵美の晴天ヘキレキ！Vol.22［ゲスト：白石稔］">
+									<img src="http://icon.nimg.jp/channel/s/ch615.jpg?1415097305" style="float:left;margin-right: 5px;">
+	
+					</a>
+
+		<div class="liveItemTxt">
+			<p class="start_time"><strong>
+								11/11(火) 開場 19:57 開演 20:00							</strong></p>
+			<h3>
+														<div class="comno" style="float: left; width : 40px;" >
+											<span class="c06">6</span>
+											<span class="c01">1</span>
+											<span class="c05">5</span>
+											<span class="ch">ch</span>
+					</div>
+																					<a href="http://live.nicovideo.jp/gate/lv197713067" title="緒方恵美の晴天ヘキレキ！Vol.22［ゲスト：白石稔］">
+									緒方恵美の晴天ヘキレ...
+				</a>
+			</h3>
+			<p title="＜音泉＞チャンネル">＜音泉＞チャンネル</p>
+							<div class="liveItemBtnNano" style="margin-top:10px;">
+					<a href="http://live.nicovideo.jp/gate/lv197713067">
+	<img src="img/timeshift/btn_watch_res_nano_w.gif" alt="詳細をみる" width="56" height="21">
+</a>				</div>
+			
+						<div class="liveItemBtnNano" style="margin-top:10px;">
+				<a href="javascript: void 0;" onclick="Nicolive.WatchingReservation.register('lv197713067');" class="watching_reservation"  title="タイムシフト予約を行う" style="width:56px;height:21px;">タイムシフト予約</a>			</div>
+			
+		</div>
+	</div><!-- div.uc -->
+								</div><!--liveItems clearfix -->
+					</div>
+				<p class="liveDetail">
+					<span class="sprite icon arrow">
+						<a href="javascript:void(0)" onclick="$('all_subscribeReservedItemsWrap','subr_link1','subr_link2').invoke('toggle');"><span id="subr_link1">予約をさらに見る(全8件)</span><span id="subr_link2" style="display:none;">閉じる</span></a>
+					</span>
+				</p>
+						</div>
+<!-- 自分の放送start -->
+<div class="liveListInner4">
+	<h3 class="title">
+		自分の放送				<p>
+		<a class="creator_btn" href="http://commons.nicovideo.jp/tree/?site=nicolive" target="_blank">
+			<span class="btn_tree_text"><span class="creator-icon tree"></span>コンテンツツリーを見る</span>
+		</a>
+		</p>
+			</h3>
+
+		放送を行うには<a href="editstream">ここ</a>から新規作成してください。		詳細は<a target="_blank" href="s/help">生放送の使い方</a>をご覧ください。
+
+
+    <div id="liveItemsWrap">
+	
+
+					<div class="liveItems clearfix">
+			
+											<div class="liveItem">
+			<div class="clearfix">
+			<div class="liveItemImg">
+								<p><img src="img/mypage/now_on_air_closed.gif?090813" alt="CLOSED"></p>
+								<p>
+					<a href="http://live.nicovideo.jp/editstream/lv198956451">
+						<img src="http://icon.nimg.jp/community/s/173/co1732825.jpg?1343778175" width="64" height="64">
+					</a>
+					<br/>
+					番組ID<br>lv198956451
+				</p>
+			</div>
+			<div class="liveItemTxt">
+								<p class="big">2014/11/04(火) 10:27 開始</p>
+				<p>2014/11/04(火) 10:57 終了</p>
+								<h3>
+										<p class="memberOnly"><img src="img/community/member_only.gif?090205"/></p>
+										<img src="img/10/cmn/icon/icon_common.gif?090827">					<a href="http://live.nicovideo.jp/editstream/lv198956451">.</a>
+				</h3>
+				<p>
+					<a href="http://com.nicovideo.jp/community/co1732825" target="_blank">
+					test
+					</a>
+				</p>
+			</div>
+		</div>
+
+		<div class="clearfix">
+			<div class="liveItemLink">
+									<a href="javascript: void 0;" title="使いまわす" class="nml" onclick="window.open( 'http://live.nicovideo.jp/editstream?reuseid=198956451','_self'); return false ">[再利用]</a>
+															<a href="javascript: void 0;" title="使用楽曲の変更する" class="nml" onclick="window.open( 'http://live.nicovideo.jp/editstream/lv198956451','_self'); return false ">[楽曲変更]</a>
+					<a href="javascript: void 0;" title="コメントを見る" class="nml" onclick="window.open( 'http://live.nicovideo.jp/comments?v=lv198956451','_self'); return false ">[コメント]</a>
+					<a href="javascript: void 0;" title="削除する" class="red" onclick="deleteStream('http://live.nicovideo.jp/','198956451','ulck_20066021'); return false ">[削除]</a>
+							</div>
+		</div>
+	</div>
+						
+						
+											<div class="liveItem">
+			<div class="clearfix">
+			<div class="liveItemImg">
+								<p><img src="img/mypage/now_on_air_closed.gif?090813" alt="CLOSED"></p>
+								<p>
+					<a href="http://live.nicovideo.jp/editstream/lv198473953">
+						<img src="http://icon.nimg.jp/community/s/173/co1732825.jpg?1343778175" width="64" height="64">
+					</a>
+					<br/>
+					番組ID<br>lv198473953
+				</p>
+			</div>
+			<div class="liveItemTxt">
+								<p class="big">2014/10/31(金) 16:07 開始</p>
+				<p>2014/10/31(金) 16:37 終了</p>
+								<h3>
+										<p class="memberOnly"><img src="img/community/member_only.gif?090205"/></p>
+										<img src="img/10/cmn/icon/icon_common.gif?090827">					<a href="http://live.nicovideo.jp/editstream/lv198473953">.</a>
+				</h3>
+				<p>
+					<a href="http://com.nicovideo.jp/community/co1732825" target="_blank">
+					test
+					</a>
+				</p>
+			</div>
+		</div>
+
+		<div class="clearfix">
+			<div class="liveItemLink">
+									<a href="javascript: void 0;" title="使いまわす" class="nml" onclick="window.open( 'http://live.nicovideo.jp/editstream?reuseid=198473953','_self'); return false ">[再利用]</a>
+															<a href="javascript: void 0;" title="使用楽曲の変更する" class="nml" onclick="window.open( 'http://live.nicovideo.jp/editstream/lv198473953','_self'); return false ">[楽曲変更]</a>
+					<a href="javascript: void 0;" title="コメントを見る" class="nml" onclick="window.open( 'http://live.nicovideo.jp/comments?v=lv198473953','_self'); return false ">[コメント]</a>
+					<a href="javascript: void 0;" title="削除する" class="red" onclick="deleteStream('http://live.nicovideo.jp/','198473953','ulck_20066021'); return false ">[削除]</a>
+							</div>
+		</div>
+	</div>
+						
+						
+											<div class="liveItem last">
+			<div class="clearfix">
+			<div class="liveItemImg">
+								<p><img src="img/mypage/now_on_air_closed.gif?090813" alt="CLOSED"></p>
+								<p>
+					<a href="http://live.nicovideo.jp/editstream/lv198462359">
+						<img src="http://icon.nimg.jp/community/s/173/co1732825.jpg?1343778175" width="64" height="64">
+					</a>
+					<br/>
+					番組ID<br>lv198462359
+				</p>
+			</div>
+			<div class="liveItemTxt">
+								<p class="big">2014/10/31(金) 11:47 開始</p>
+				<p>2014/10/31(金) 12:17 終了</p>
+								<h3>
+										<p class="memberOnly"><img src="img/community/member_only.gif?090205"/></p>
+										<img src="img/10/cmn/icon/icon_common.gif?090827">					<a href="http://live.nicovideo.jp/editstream/lv198462359">.</a>
+				</h3>
+				<p>
+					<a href="http://com.nicovideo.jp/community/co1732825" target="_blank">
+					test
+					</a>
+				</p>
+			</div>
+		</div>
+
+		<div class="clearfix">
+			<div class="liveItemLink">
+									<a href="javascript: void 0;" title="使いまわす" class="nml" onclick="window.open( 'http://live.nicovideo.jp/editstream?reuseid=198462359','_self'); return false ">[再利用]</a>
+															<a href="javascript: void 0;" title="使用楽曲の変更する" class="nml" onclick="window.open( 'http://live.nicovideo.jp/editstream/lv198462359','_self'); return false ">[楽曲変更]</a>
+					<a href="javascript: void 0;" title="コメントを見る" class="nml" onclick="window.open( 'http://live.nicovideo.jp/comments?v=lv198462359','_self'); return false ">[コメント]</a>
+					<a href="javascript: void 0;" title="削除する" class="red" onclick="deleteStream('http://live.nicovideo.jp/','198462359','ulck_20066021'); return false ">[削除]</a>
+							</div>
+		</div>
+	</div>
+					</div><!--liveItems clearfix -->
+			
+					<div class="liveItems clearfix">
+			
+											<div class="liveItem">
+			<div class="clearfix">
+			<div class="liveItemImg">
+								<p><img src="img/mypage/now_on_air_closed.gif?090813" alt="CLOSED"></p>
+								<p>
+					<a href="http://live.nicovideo.jp/editstream/lv198460317">
+						<img src="http://icon.nimg.jp/community/s/173/co1732825.jpg?1343778175" width="64" height="64">
+					</a>
+					<br/>
+					番組ID<br>lv198460317
+				</p>
+			</div>
+			<div class="liveItemTxt">
+								<p class="big">2014/10/31(金) 10:38 開始</p>
+				<p>2014/10/31(金) 11:08 終了</p>
+								<h3>
+										<p class="memberOnly"><img src="img/community/member_only.gif?090205"/></p>
+										<img src="img/10/cmn/icon/icon_common.gif?090827">					<a href="http://live.nicovideo.jp/editstream/lv198460317">.</a>
+				</h3>
+				<p>
+					<a href="http://com.nicovideo.jp/community/co1732825" target="_blank">
+					test
+					</a>
+				</p>
+			</div>
+		</div>
+
+		<div class="clearfix">
+			<div class="liveItemLink">
+									<a href="javascript: void 0;" title="使いまわす" class="nml" onclick="window.open( 'http://live.nicovideo.jp/editstream?reuseid=198460317','_self'); return false ">[再利用]</a>
+															<a href="javascript: void 0;" title="使用楽曲の変更する" class="nml" onclick="window.open( 'http://live.nicovideo.jp/editstream/lv198460317','_self'); return false ">[楽曲変更]</a>
+					<a href="javascript: void 0;" title="コメントを見る" class="nml" onclick="window.open( 'http://live.nicovideo.jp/comments?v=lv198460317','_self'); return false ">[コメント]</a>
+					<a href="javascript: void 0;" title="削除する" class="red" onclick="deleteStream('http://live.nicovideo.jp/','198460317','ulck_20066021'); return false ">[削除]</a>
+							</div>
+		</div>
+	</div>
+						
+						
+											<div class="liveItem">
+			<div class="clearfix">
+			<div class="liveItemImg">
+								<p><img src="img/mypage/now_on_air_closed.gif?090813" alt="CLOSED"></p>
+								<p>
+					<a href="http://live.nicovideo.jp/editstream/lv198405657">
+						<img src="http://icon.nimg.jp/community/s/173/co1732825.jpg?1343778175" width="64" height="64">
+					</a>
+					<br/>
+					番組ID<br>lv198405657
+				</p>
+			</div>
+			<div class="liveItemTxt">
+								<p class="big">2014/10/30(木) 21:48 開始</p>
+				<p>2014/10/30(木) 22:18 終了</p>
+								<h3>
+										<p class="memberOnly"><img src="img/community/member_only.gif?090205"/></p>
+										<img src="img/10/cmn/icon/icon_common.gif?090827">					<a href="http://live.nicovideo.jp/editstream/lv198405657">.</a>
+				</h3>
+				<p>
+					<a href="http://com.nicovideo.jp/community/co1732825" target="_blank">
+					test
+					</a>
+				</p>
+			</div>
+		</div>
+
+		<div class="clearfix">
+			<div class="liveItemLink">
+									<a href="javascript: void 0;" title="使いまわす" class="nml" onclick="window.open( 'http://live.nicovideo.jp/editstream?reuseid=198405657','_self'); return false ">[再利用]</a>
+															<a href="javascript: void 0;" title="使用楽曲の変更する" class="nml" onclick="window.open( 'http://live.nicovideo.jp/editstream/lv198405657','_self'); return false ">[楽曲変更]</a>
+					<a href="javascript: void 0;" title="コメントを見る" class="nml" onclick="window.open( 'http://live.nicovideo.jp/comments?v=lv198405657','_self'); return false ">[コメント]</a>
+					<a href="javascript: void 0;" title="削除する" class="red" onclick="deleteStream('http://live.nicovideo.jp/','198405657','ulck_20066021'); return false ">[削除]</a>
+							</div>
+		</div>
+	</div>
+						
+						
+											<div class="liveItem last">
+			<div class="clearfix">
+			<div class="liveItemImg">
+								<p><img src="img/mypage/now_on_air_closed.gif?090813" alt="CLOSED"></p>
+								<p>
+					<a href="http://live.nicovideo.jp/editstream/lv198371807">
+						<img src="http://icon.nimg.jp/community/s/173/co1732825.jpg?1343778175" width="64" height="64">
+					</a>
+					<br/>
+					番組ID<br>lv198371807
+				</p>
+			</div>
+			<div class="liveItemTxt">
+								<p class="big">2014/10/30(木) 16:00 開始</p>
+				<p>2014/10/30(木) 16:30 終了</p>
+								<h3>
+										<p class="memberOnly"><img src="img/community/member_only.gif?090205"/></p>
+										<img src="img/10/cmn/icon/icon_common.gif?090827">					<a href="http://live.nicovideo.jp/editstream/lv198371807">.</a>
+				</h3>
+				<p>
+					<a href="http://com.nicovideo.jp/community/co1732825" target="_blank">
+					test
+					</a>
+				</p>
+			</div>
+		</div>
+
+		<div class="clearfix">
+			<div class="liveItemLink">
+									<a href="javascript: void 0;" title="使いまわす" class="nml" onclick="window.open( 'http://live.nicovideo.jp/editstream?reuseid=198371807','_self'); return false ">[再利用]</a>
+															<a href="javascript: void 0;" title="使用楽曲の変更する" class="nml" onclick="window.open( 'http://live.nicovideo.jp/editstream/lv198371807','_self'); return false ">[楽曲変更]</a>
+					<a href="javascript: void 0;" title="コメントを見る" class="nml" onclick="window.open( 'http://live.nicovideo.jp/comments?v=lv198371807','_self'); return false ">[コメント]</a>
+					<a href="javascript: void 0;" title="削除する" class="red" onclick="deleteStream('http://live.nicovideo.jp/','198371807','ulck_20066021'); return false ">[削除]</a>
+							</div>
+		</div>
+	</div>
+					</div><!--liveItems clearfix -->
+					  </div>        <div class="pager">
+	  <a class="active">1</a><a href="http://live.nicovideo.jp/my?page=1&y=&m=">2</a><a href="http://live.nicovideo.jp/my?page=2&y=&m=">3</a><a href="http://live.nicovideo.jp/my?page=3&y=&m=">4</a><a href="http://live.nicovideo.jp/my?page=4&y=&m=">5</a><a href="http://live.nicovideo.jp/my?page=5&y=&m=">6</a><a href="http://live.nicovideo.jp/my?page=6&y=&m=">7</a><a href="http://live.nicovideo.jp/my?page=7&y=&m=">8</a><a href="http://live.nicovideo.jp/my?page=8&y=&m=">9</a><a href="http://live.nicovideo.jp/my?page=9&y=&m=">10</a><a class="next" rel="next" href="http://live.nicovideo.jp/my?page=1&y=&m=">次へ</a>
+  </div>  
+    <div id="e_m">
+	<h2 title="月別リンク">月別リンク</h2>最近の放送は<a href="http://live.nicovideo.jp/my">こちら</a>	<table>
+			<tr valign="top">
+			<td class="year">2014年</td>
+			<td class="month">
+												<a href="http://live.nicovideo.jp/my?y=2014&m=11">11月</a>
+																<a href="http://live.nicovideo.jp/my?y=2014&m=10">10月</a>
+																<a href="http://live.nicovideo.jp/my?y=2014&m=9">09月</a>
+																<a href="http://live.nicovideo.jp/my?y=2014&m=8">08月</a>
+																<a href="http://live.nicovideo.jp/my?y=2014&m=7">07月</a>
+																<a href="http://live.nicovideo.jp/my?y=2014&m=6">06月</a>
+																<a href="http://live.nicovideo.jp/my?y=2014&m=5">05月</a>
+																<a href="http://live.nicovideo.jp/my?y=2014&m=4">04月</a>
+																<a href="http://live.nicovideo.jp/my?y=2014&m=3">03月</a>
+																<a href="http://live.nicovideo.jp/my?y=2014&m=2">02月</a>
+																<a href="http://live.nicovideo.jp/my?y=2014&m=1">01月</a>
+										</td>
+		</tr>
+			<tr valign="top">
+			<td class="year">2013年</td>
+			<td class="month">
+												<a href="http://live.nicovideo.jp/my?y=2013&m=12">12月</a>
+																<a href="http://live.nicovideo.jp/my?y=2013&m=11">11月</a>
+																<a href="http://live.nicovideo.jp/my?y=2013&m=10">10月</a>
+																<a href="http://live.nicovideo.jp/my?y=2013&m=9">09月</a>
+																<a href="http://live.nicovideo.jp/my?y=2013&m=8">08月</a>
+																<a href="http://live.nicovideo.jp/my?y=2013&m=7">07月</a>
+																<a href="http://live.nicovideo.jp/my?y=2013&m=6">06月</a>
+																<a href="http://live.nicovideo.jp/my?y=2013&m=5">05月</a>
+																<a href="http://live.nicovideo.jp/my?y=2013&m=4">04月</a>
+																<a href="http://live.nicovideo.jp/my?y=2013&m=3">03月</a>
+																<a href="http://live.nicovideo.jp/my?y=2013&m=2">02月</a>
+																<a href="http://live.nicovideo.jp/my?y=2013&m=1">01月</a>
+										</td>
+		</tr>
+			<tr valign="top">
+			<td class="year">2012年</td>
+			<td class="month">
+												<a href="http://live.nicovideo.jp/my?y=2012&m=12">12月</a>
+																<a href="http://live.nicovideo.jp/my?y=2012&m=11">11月</a>
+																<a href="http://live.nicovideo.jp/my?y=2012&m=10">10月</a>
+																<a href="http://live.nicovideo.jp/my?y=2012&m=9">09月</a>
+																<a href="http://live.nicovideo.jp/my?y=2012&m=8">08月</a>
+																<a href="http://live.nicovideo.jp/my?y=2012&m=7">07月</a>
+																<a href="http://live.nicovideo.jp/my?y=2012&m=6">06月</a>
+																<a href="http://live.nicovideo.jp/my?y=2012&m=5">05月</a>
+																<a href="http://live.nicovideo.jp/my?y=2012&m=4">04月</a>
+																<a href="http://live.nicovideo.jp/my?y=2012&m=3">03月</a>
+																<a href="http://live.nicovideo.jp/my?y=2012&m=2">02月</a>
+																<a href="http://live.nicovideo.jp/my?y=2012&m=1">01月</a>
+										</td>
+		</tr>
+			<tr valign="top">
+			<td class="year">2011年</td>
+			<td class="month">
+												<a href="http://live.nicovideo.jp/my?y=2011&m=12">12月</a>
+																<a href="http://live.nicovideo.jp/my?y=2011&m=11">11月</a>
+																<a href="http://live.nicovideo.jp/my?y=2011&m=10">10月</a>
+																<a href="http://live.nicovideo.jp/my?y=2011&m=9">09月</a>
+																<a href="http://live.nicovideo.jp/my?y=2011&m=8">08月</a>
+																<a href="http://live.nicovideo.jp/my?y=2011&m=7">07月</a>
+																<a href="http://live.nicovideo.jp/my?y=2011&m=6">06月</a>
+																<a href="http://live.nicovideo.jp/my?y=2011&m=5">05月</a>
+																<a href="http://live.nicovideo.jp/my?y=2011&m=4">04月</a>
+																<a href="http://live.nicovideo.jp/my?y=2011&m=3">03月</a>
+																<a href="http://live.nicovideo.jp/my?y=2011&m=2">02月</a>
+																<a href="http://live.nicovideo.jp/my?y=2011&m=1">01月</a>
+										</td>
+		</tr>
+			<tr valign="top">
+			<td class="year">2010年</td>
+			<td class="month">
+												<a href="http://live.nicovideo.jp/my?y=2010&m=12">12月</a>
+																<a href="http://live.nicovideo.jp/my?y=2010&m=11">11月</a>
+																<a href="http://live.nicovideo.jp/my?y=2010&m=10">10月</a>
+																<a href="http://live.nicovideo.jp/my?y=2010&m=9">09月</a>
+																<a href="http://live.nicovideo.jp/my?y=2010&m=8">08月</a>
+																<a href="http://live.nicovideo.jp/my?y=2010&m=7">07月</a>
+																<a href="http://live.nicovideo.jp/my?y=2010&m=6">06月</a>
+																<a href="http://live.nicovideo.jp/my?y=2010&m=5">05月</a>
+																<a href="http://live.nicovideo.jp/my?y=2010&m=4">04月</a>
+																<a href="http://live.nicovideo.jp/my?y=2010&m=3">03月</a>
+																<a href="http://live.nicovideo.jp/my?y=2010&m=2">02月</a>
+																<a href="http://live.nicovideo.jp/my?y=2010&m=1">01月</a>
+										</td>
+		</tr>
+			<tr valign="top">
+			<td class="year">2009年</td>
+			<td class="month">
+												<a href="http://live.nicovideo.jp/my?y=2009&m=12">12月</a>
+																<a href="http://live.nicovideo.jp/my?y=2009&m=11">11月</a>
+																<a href="http://live.nicovideo.jp/my?y=2009&m=10">10月</a>
+																<a href="http://live.nicovideo.jp/my?y=2009&m=9">09月</a>
+																<a href="http://live.nicovideo.jp/my?y=2009&m=8">08月</a>
+																<a href="http://live.nicovideo.jp/my?y=2009&m=7">07月</a>
+																<a href="http://live.nicovideo.jp/my?y=2009&m=6">06月</a>
+																<a href="http://live.nicovideo.jp/my?y=2009&m=5">05月</a>
+																<a href="http://live.nicovideo.jp/my?y=2009&m=4">04月</a>
+																<a href="http://live.nicovideo.jp/my?y=2009&m=3">03月</a>
+																<a href="http://live.nicovideo.jp/my?y=2009&m=2">02月</a>
+																<a href="http://live.nicovideo.jp/my?y=2009&m=1">01月</a>
+										</td>
+		</tr>
+			<tr valign="top">
+			<td class="year">2008年</td>
+			<td class="month">
+												<a href="http://live.nicovideo.jp/my?y=2008&m=12">12月</a>
+										</td>
+		</tr>
+		</table>
+</div>
+</div>
+
+</div></div>	</div><!-- /.container -->
+</div>
+</div>
+
+
+
+<div id="footer_ads">
+	<script>
+		new Ads.Advertisement({
+		zone: 557
+		}).set('footer_ads');
+	</script>
+</div>
+<nav id="utility_link">
+	<p class="page_top"><a href="#page_top" onclick="backToTop(); return false">PAGE TOP</a></p>
+			<p class="feedback_link"><a href="http://www.nicovideo.jp/feedback/live_my" target="_blank">フィードバック</a></p>
+	</nav>
+
+<div id="page_footer">
+	<div class="page_footer_inner">
+		<div class="link_box layout_block">
+			<div class="unit size_1of3">
+				<h3>おすすめの機能</h3>
+				<ul>
+					<li><a href="s/timeshift"><span class="sprite arrow"></span>タイムシフト機能</a></li>
+					<li><a href="alert"><span class="sprite arrow"></span>ニコ生アラート(本家)</a></li>
+				</ul>
+			</div>
+			<div class="unit size_1of3">
+			<h3>デバイス</h3>
+				<div class="layout_block">
+				<ul class="unit size_1of2">
+					<li><a href="http://info.nicovideo.jp/pr_nicom/iphone.html" target="_blank"><span class="sprite arrow"></span>スマートフォン</a></li>
+					<li><a href="http://info.nicovideo.jp/pr_nicom/" target="_blank"><span class="sprite arrow"></span>モバイル</a></li>
+					<li><a href="s/PlayStation4?referrer=nicolive_device" target="_blank"><span class="sprite arrow"></span>PS4</a></li>
+				</ul>
+				<ul class="unit size_1of2">
+					<li><a href="http://info.nicovideo.jp/wiiu/" target="_blank"><span class="sprite arrow"></span>WiiU</a></li>
+					<li><a href="http://info.nicovideo.jp/psvita/" target="_blank"><span class="sprite arrow"></span>PS Vita</a></li>
+					<li><a href="http://info.nicovideo.jp/nicotv/" target="_blank"><span class="sprite arrow"></span>TV</a></li>
+				</ul>
+				</div>
+			</div>
+			<div class="unit size_1of3">
+				<h3>その他</h3>
+				<div class="layout_block">
+					<ul class="unit size_1of2">
+						<li><a href="s/niconamaguide"><span class="sprite arrow"></span>視聴しよう</a></li>
+						<li><a href="s/broadcast"><span class="sprite arrow"></span>配信しよう</a></li>
+						<li><a href="http://faq.nicovideo.jp/EokpControl?&event=CE0002&cid=10308" target="_blank"><span class="sprite arrow"></span>ヘルプ</a></li>
+					</ul>
+					<ul class="unit size_1of2">
+						<li><a href="static/rule.html" target="_blank"><span class="sprite arrow"></span>利用規約</a></li>
+						<li><a href="img/help/guideline.pdf" target="_blank"><span class="sprite arrow"></span>ガイドライン(PDF)</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="body_footer_wrap">
+<div id="body_footer">
+		  <div id="siteFooter">
+	    <div class="inner">
+	      <div class="siteNav">
+	        <h3>niconicoについて</h3>
+	        <ul>
+	          <li><a href="http://www.nicovideo.jp/top_service/"><span class="arrow"></span>サービス一覧</a></li>
+	          <li><a href="http://www.nicovideo.jp/rss/"><span class="arrow"></span>RSS（更新情報）一覧</a></li>
+	          <li><a href="http://license-search.nicovideo.jp/"><span class="arrow"></span>動画・生放送に使用できる音源の検索</a></li>
+	          <li><a href="http://info.nicovideo.jp/base/declaration.html"><span class="arrow"></span>宣言</a></li>
+	          <li><a href="http://info.nicovideo.jp/base/term.html"><span class="arrow"></span>サイトご利用にあたって</a></li>
+	        </ul>
+	      </div>
+	      <div class="siteNav">
+	        <h3>お知らせ</h3>
+	        <ul>
+	          <li><a href="http://blog.nicovideo.jp/niconews/"><span class="arrow"></span>インフォメーション</a></li>
+	          <li><a href="http://blog.nicovideo.jp/niconews/ge_function/"><span class="arrow"></span>機能・お知らせ</a></li>
+	          <li><a href="http://blog.nicovideo.jp/niconews/ge_maintenance/"><span class="arrow"></span>メンテナンス・障害・復旧</a></li>
+	          <li><a href="http://info.nicovideo.jp/base/phishing.html"><span class="arrow"></span>フィッシング詐欺にご注意</a></li>
+	        </ul>
+	      </div>
+	      <div class="siteNav">
+	        <h3>お問い合わせ</h3>
+	        <ul>
+	          <li><a href="http://faq.nicovideo.jp/EokpControl?&event=TE0008"><span class="arrow"></span>ヘルプ(総合)</a></li>
+	          <li><a href="http://bbs.nicovideo.jp/request/"><span class="arrow"></span>要望掲示板</a></li>
+	          <li><a href="http://rcp-smile.nicovideo.jp/static/rule/"><span class="arrow"></span>権利者法人の皆様へ</a></li>
+	          <li><a href="https://secure.nicovideo.jp/secure/ads_form/"><span class="arrow"></span>広告出稿に関して</a></li>
+	          <li><a href="https://secure.ch.nicovideo.jp/application/info/top/"><span class="arrow"></span>団体・企業ページ開設について</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </div>	
+<div class="copyrights">&copy;niwango,inc. All rights reserved.</div>
+
+</div>
+</div>
+
+	  <script type="text/javascript" src="http://nl.simg.jp/public/inc/lib/prototype-1.6.0.3.js?11060701"></script>
+ 	  <script type="text/javascript" src="http://nl.simg.jp/public/inc/lib/scriptaculous-1.9.0/effects.js?11060701"></script>
+ 	  <script type="text/javascript" src="http://nl.simg.jp/public/inc/lib/cookiemanager.js?11060701"></script>
+ 	  <script type="text/javascript" src="http://nl.simg.jp/public/inc/my_cb.js?14090505"></script>
+ 
+
+
+  <script type="text/javascript" src="http://nl.simg.jp/public/inc/nicolive.placeholder.js?12111412"></script>
+ 
+<script type="text/javascript">
+	   Event.observe(window, 'load', Nicolive.TimeshiftActions.eventInitialize.bind(Nicolive.TimeshiftActions, 'my')); 
+
+	
+
+
+
+(function() {
+	Event.observe(window, "load", function() {
+		var Placeholder = new Nicolive.Placeholder();
+		Placeholder.init("search_word");
+	}, false);
+})();
+
+
+
+		
+		Event.observe(window, "load", function() {var timeshift_list = new TimeshiftListReserved();}, false);
+	
+	
+
+
+
+Nicolive.TSNotifyConfig = {"user_id":"20929324","baseurl":"http:\/\/live.nicovideo.jp\/","timesperday":1,"over_24_hour":6};
+Event.observe(window, "load", function(e){
+	Nicolive.Liveinfo.liveinfoArea = new Nicolive.LiveinfoArea();
+		});
+
+
+
+Event.observe(window, "load", function(e){
+	Nicolive.TSNotify = new Nicolive.TimeShiftNotify();
+	Nicolive.TSNotify.update();
+});
+
+
+Event.observe(window, "load", function(e){
+	setTimeout(function() {
+		if(window.performance){
+			if(window.performance.timing){
+				var date = new Date();
+				var time_t = Math.floor(date/1000);
+				date.setTime(date.getTime() + 10*60*1000);
+				var gmtexpire = date.toGMTString();
+				var timing = window.performance.timing;
+				var ldnvtm = timing.loadEventEnd - timing.navigationStart;
+				if(ldnvtm >= 3000 && ldnvtm <= 30000){
+					var logtm = "logtm[my]="+time_t + "_"  + ldnvtm + "_0.11272096633911;expires="+gmtexpire;
+					document.cookie = logtm;
+				}
+			}
+		}
+	}, 0);
+});
+
+
+-->
+</script>
+			
+		
+				<script type="text/javascript" charset="utf-8" src="http://notification.nicovideo.jp/res/notify.js" async defer></script>
+		<script type="text/javascript" charset="utf-8" src="http://enquete.nicovideo.jp/static/js/enquete.js" async defer></script>
+	
+</body>
+</html>

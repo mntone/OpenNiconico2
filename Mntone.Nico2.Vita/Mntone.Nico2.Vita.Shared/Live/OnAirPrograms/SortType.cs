@@ -15,5 +15,10 @@ namespace Mntone.Nico2.Vita.Live.OnAirPrograms
 		/// 来場者数順
 		/// </summary>
 		ViewCount,
+
+		/// <summary>
+		/// コメント数順
+		/// </summary>
+		CommentCount,
 	}
 }

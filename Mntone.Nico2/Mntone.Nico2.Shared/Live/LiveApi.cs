@@ -272,6 +272,7 @@ namespace Mntone.Nico2.Live
 		/// <summary>
 		/// 非同期操作としてタグの内容を取得します
 		/// </summary>
+		/// <param name="requestId">目的の生放送 ID</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
 		public IAsyncOperation<Tags.TagsResponse> GetTagsAsync( string requestId )
@@ -282,6 +283,22 @@ namespace Mntone.Nico2.Live
 		public Task<Tags.TagsResponse> GetTagsAsync( string requestId )
 		{
 			return Tags.TagsClient.GetTagsAsync( this._context, requestId );
+		}
+#endif
+
+		/// <summary>
+		/// 非同期操作としてマイ ページの内容を取得します
+		/// </summary>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+#if WINDOWS_APP
+		public IAsyncOperation<MyPage.MyPageResponse> GetMyPageAsync()
+		{
+			return MyPage.MyPageClient.GetMyPageAsync( this._context ).AsAsyncOperation();
+		}
+#else
+		public Task<MyPage.MyPageResponse> GetMyPageAsync()
+		{
+			return MyPage.MyPageClient.GetMyPageAsync( this._context );
 		}
 #endif
 

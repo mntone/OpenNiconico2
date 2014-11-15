@@ -44,6 +44,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)JsonSerializerExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\Description\DescriptionClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\Description\DescriptionResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\MyPage\DetailCategoryType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\MyPage\DetailCategoryTypeExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\MyPage\ProgramInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\MyPage\TimeshiftProgramInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\MyPage\MyPageClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\MyPage\MyPageResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\OtherStreams\OtherStream.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\OtherStreams\OtherStreamsClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\OtherStreams\OtherStreamsResponse.cs" />

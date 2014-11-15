@@ -12,6 +12,8 @@ namespace Mntone.Nico2.Vita.Live.OnAirPrograms
 				return "start_time";
 			case SortType.ViewCount:
 				return "view_counter";
+			case SortType.CommentCount:
+				return "comment_num";
 			default:
 				throw new ArgumentOutOfRangeException();
 			}

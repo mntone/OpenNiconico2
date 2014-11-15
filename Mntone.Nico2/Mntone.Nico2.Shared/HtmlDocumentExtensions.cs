@@ -28,7 +28,7 @@ namespace Mntone.Nico2
 
 		public static HtmlNode GetElementById( this HtmlNode node, string idName )
 		{
-			return node.ChildNodes.Where( n => n.GetAttributeValue( "id", string.Empty ) == idName ).Single();
+			return node.ChildNodes.Where( n => n.GetAttributeValue( "id", string.Empty ) == idName ).SingleOrDefault();
 		}
 	}
 }

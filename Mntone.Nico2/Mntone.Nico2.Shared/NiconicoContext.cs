@@ -188,6 +188,7 @@ namespace Mntone.Nico2
 				this._httpClient.DefaultRequestHeaders.Add( "user-agent", this._AdditionalUserAgent != null
 					? NiconicoContext.DefaultUserAgent + " (" + this._AdditionalUserAgent + ')'
 					: NiconicoContext.DefaultUserAgent );
+				this._httpClient.DefaultRequestHeaders.Add( "accept-language", "ja, en;q=0.5" );
 
 				if( this.CurrentSession != null )
 				{

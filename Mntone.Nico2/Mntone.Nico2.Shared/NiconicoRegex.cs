@@ -10,31 +10,31 @@ namespace Mntone.Nico2
 		internal NiconicoRegex()
 		{ }
 
-		private const string VideoIdRegexBase = @"(?:sm|nm|so|ca|ax|yo|nl|ig|na|cw|z[a-e]|om|sk|yk)\d{1,14}"; // cd/fx/sd
-		private const string LiveIdRegexBase = @"lv\d{1,14}";
+		internal const string VideoIdRegexBase = @"(?:sm|nm|so|ca|ax|yo|nl|ig|na|cw|z[a-e]|om|sk|yk)\d{1,14}"; // cd/fx/sd
+		internal const string LiveIdRegexBase = @"lv\d{1,14}";
 
-		private const string ImageIdRegexBase = @"(?:[sm]g|im|bk)\d{1,14}";
-		private const string ThemeIdRegexBase = @"sg\d{1,14}";
-		private const string IllustIdRegexBase = @"im\d{1,14}";
-		private const string ElectronicBookIdRegexBase = @"bk\d{1,14}";
-		private const string MangaIdRegexBase = @"mg\d{1,14}";
+		internal const string ImageIdRegexBase = @"(?:[sm]g|im|bk)\d{1,14}";
+		internal const string ThemeIdRegexBase = @"sg\d{1,14}";
+		internal const string IllustIdRegexBase = @"im\d{1,14}";
+		internal const string ElectronicBookIdRegexBase = @"bk\d{1,14}";
+		internal const string MangaIdRegexBase = @"mg\d{1,14}";
 
-		private const string CommunityIdRegexBase = @"co\d{1,14}";
-		private const string ChannelIdRegexBase = @"ch\d{1,14}";
+		internal const string CommunityIdRegexBase = @"co\d{1,14}";
+		internal const string ChannelIdRegexBase = @"ch\d{1,14}";
 
-		private const string ArticleIdRegexBase = @"ar\d{1,14}";
-		private const string NewsIdRegexBase = @"nw\d{1,14}";
-		private const string CommonIdRegexBase = @"nc\d{1,14}";
-		private const string AppsIdRegexBase = @"ap\d{1,14}";
+		internal const string ArticleIdRegexBase = @"ar\d{1,14}";
+		internal const string NewsIdRegexBase = @"nw\d{1,14}";
+		internal const string CommonIdRegexBase = @"nc\d{1,14}";
+		internal const string AppsIdRegexBase = @"ap\d{1,14}";
 
-		private const string WatchIdRegexBase = @"watch/\d{1,10}";
-		private const string UserIdRegexBase = @"user/\d{1,10}";
-		private const string MyListRegexBase = @"mylist/\d{1,10}";
-		private const string MyVideoRegexBase = @"myvideo/\d{1,10}";
-		private const string ClipIdRegexBase = @"clip/\d{1,10}";
-		private const string ComicIdRegexBase = @"comic/\d{1,10}";
+		internal const string WatchIdRegexBase = @"watch/\d{1,10}";
+		internal const string UserIdRegexBase = @"user/\d{1,10}";
+		internal const string MyListRegexBase = @"mylist/\d{1,10}";
+		internal const string MyVideoRegexBase = @"myvideo/\d{1,10}";
+		internal const string ClipIdRegexBase = @"clip/\d{1,10}";
+		internal const string ComicIdRegexBase = @"comic/\d{1,10}";
 
-		private const string AdsIdRegexBase = @"(?:dw\d+|az[A-Z0-9]{10}|ys[a-zA-Z0-9-]+_[a-zA-Z0-9-]+|ga\d+|ip[\d_]+|gg[a-zA-Z0-9]+-[a-zA-Z0-9-]+)"; // it/an/nd
+		internal const string AdsIdRegexBase = @"(?:dw\d+|az[A-Z0-9]{10}|ys[a-zA-Z0-9-]+_[a-zA-Z0-9-]+|ga\d+|ip[\d_]+|gg[a-zA-Z0-9]+-[a-zA-Z0-9-]+)"; // it/an/nd
 
 		/// <summary>
 		/// 動画 ID として適切かどうかを調べます
