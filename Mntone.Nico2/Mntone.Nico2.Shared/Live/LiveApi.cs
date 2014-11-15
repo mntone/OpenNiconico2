@@ -302,6 +302,22 @@ namespace Mntone.Nico2.Live
 		}
 #endif
 
+		/// <summary>
+		/// 非同期操作として投稿キーを取得します
+		/// </summary>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+#if WINDOWS_APP
+		public IAsyncOperation<string> GetPostKeyAsync( uint threadId, uint blockNo )
+		{
+			return PostKey.PostKeyClient.GetPostKeyAsync( this._context, threadId, blockNo ).AsAsyncOperation();
+		}
+#else
+		public Task<string> GetPostKeyAsync( uint threadId, uint blockNo )
+		{
+			return PostKey.PostKeyClient.GetPostKeyAsync( this._context, threadId, blockNo );
+		}
+#endif
+
 
 		#region field
 

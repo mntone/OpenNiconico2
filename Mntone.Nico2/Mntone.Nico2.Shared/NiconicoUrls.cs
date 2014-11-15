@@ -85,6 +85,7 @@ namespace Mntone.Nico2
 
 		internal static string LiveCKeyUrl { get { return LiveApiUrlBase + "getckey"; } }
 		internal static string LivePlayerStatusUrl { get { return LiveApiUrlBase + "getplayerstatus/"; } }
+		internal static string LivePostKeyUrl { get { return LiveApiUrlBase + "getpostkey"; } }
 		internal static string LiveHeartbeatUrl { get { return LiveApiUrlBase + "heartbeat"; } }
 		internal static string LiveLeaveUrl { get { return LiveApiUrlBase + "leave"; } }
 		internal static string LiveTagRevisionUrl { get { return LiveApiUrlBase + "tagrev/"; } }
