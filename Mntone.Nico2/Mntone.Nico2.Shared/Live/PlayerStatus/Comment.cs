@@ -34,7 +34,7 @@ namespace Mntone.Nico2.Live.PlayerStatus
 			}
 			else
 			{
-				var splitBottom = streamXml.GetNamedChildNodeText( "split_top" ).ToBooleanFrom1();
+				var splitBottom = streamXml.GetNamedChildNodeText( "split_bottom" ).ToBooleanFrom1();
 				if( splitBottom )
 				{
 					Position = CommentPosition.Top;
