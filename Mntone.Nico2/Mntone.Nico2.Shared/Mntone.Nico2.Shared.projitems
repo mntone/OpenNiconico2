@@ -109,6 +109,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Live\Tags\TagInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\Tags\TagsClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Live\Tags\TagsResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Live\Vote\VoteClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NiconicoAccountAuthority.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NiconicoAuthenticationToken.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NiconicoContext.cs" />

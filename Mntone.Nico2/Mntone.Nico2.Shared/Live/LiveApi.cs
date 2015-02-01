@@ -305,6 +305,8 @@ namespace Mntone.Nico2.Live
 		/// <summary>
 		/// 非同期操作として投稿キーを取得します
 		/// </summary>
+		/// <param name="threadId">スレッド ID</param>
+		/// <param name="blockNo">ブロック番号</param>
 		/// <returns>非同期操作を表すオブジェクト</returns>
 #if WINDOWS_APP
 		public IAsyncOperation<string> GetPostKeyAsync( uint threadId, uint blockNo )
@@ -315,6 +317,24 @@ namespace Mntone.Nico2.Live
 		public Task<string> GetPostKeyAsync( uint threadId, uint blockNo )
 		{
 			return PostKey.PostKeyClient.GetPostKeyAsync( this._context, threadId, blockNo );
+		}
+#endif
+
+		/// <summary>
+		/// 非同期操作としてアンケートを投票します
+		/// </summary>
+		/// <param name="requestId">目的の生放送 ID</param>
+		/// <param name="choiceNumber">選択した番号 (0～8)</param>
+		/// <returns>非同期操作を表すオブジェクト</returns>
+#if WINDOWS_APP
+		public IAsyncOperation<bool> VoteAsync( string requestId, ushort choiceNumber )
+		{
+			return Vote.VoteClient.VoteAsync( this._context, requestId, choiceNumber ).AsAsyncOperation();
+		}
+#else
+		public Task<bool> VoteAsync( string requestId, ushort choiceNumber )
+		{
+			return Vote.VoteClient.VoteAsync( this._context, requestId, choiceNumber );
 		}
 #endif
 
